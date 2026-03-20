@@ -1,0 +1,118 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Idiomattic WP Elements Configuration",
+  "description": "Declarative registration of translatable elements. Place this file as idiomattic-elements.json in your plugin or theme root. Idiomattic WP will auto-load it. This replaces WPML's language configuration XML files.",
+
+  "type": "object",
+  "properties": {
+
+    "post_fields": {
+      "description": "Custom meta fields on posts/pages/CPTs to translate.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["key"],
+        "properties": {
+          "key":        { "type": "string",  "description": "Meta key (e.g. _hero_title, my_subtitle)" },
+          "post_types": { "type": "array",   "items": { "type": "string" }, "description": "Post types this field belongs to. Omit for all post types." },
+          "type":       { "type": "string",  "enum": ["text", "textarea", "html", "rich_text", "url", "image", "number", "json", "serialized"], "default": "text" },
+          "mode":       { "type": "string",  "enum": ["translate", "copy", "ignore"], "default": "translate" },
+          "label":      { "type": "string",  "description": "Human-readable label shown in the translation editor." },
+          "json_keys":  { "type": "array",   "items": { "type": "string" }, "description": "For type=json: which keys inside the JSON to translate." }
+        }
+      }
+    },
+
+    "term_fields": {
+      "description": "Custom meta fields on taxonomy terms.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["key"],
+        "properties": {
+          "key":        { "type": "string" },
+          "taxonomies": { "type": "array", "items": { "type": "string" }, "description": "Taxonomies this field belongs to." },
+          "type":       { "type": "string", "enum": ["text", "textarea", "html", "rich_text"], "default": "text" },
+          "mode":       { "type": "string", "enum": ["translate", "copy", "ignore"], "default": "translate" },
+          "label":      { "type": "string" }
+        }
+      }
+    },
+
+    "options": {
+      "description": "wp_options entries to translate (theme/plugin settings).",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["key"],
+        "properties": {
+          "key":   { "type": "string", "description": "Option name (e.g. my_theme_tagline)" },
+          "type":  { "type": "string", "enum": ["text", "textarea", "html"], "default": "text" },
+          "label": { "type": "string" }
+        }
+      }
+    },
+
+    "shortcodes": {
+      "description": "Shortcode attributes to translate.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["tag", "attributes"],
+        "properties": {
+          "tag":        { "type": "string", "description": "Shortcode tag without brackets (e.g. my_button)" },
+          "attributes": { "type": "array",  "items": { "type": "string" }, "description": "Attribute names to translate (e.g. [title, description])" },
+          "label":      { "type": "string" }
+        }
+      }
+    },
+
+    "blocks": {
+      "description": "Gutenberg block attributes to translate.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "attributes"],
+        "properties": {
+          "name":       { "type": "string", "description": "Full block name (e.g. my-plugin/hero-block)" },
+          "attributes": { "type": "array",  "items": { "type": "string" }, "description": "Attribute keys to translate" },
+          "label":      { "type": "string" }
+        }
+      }
+    },
+
+    "elementor_widgets": {
+      "description": "Elementor widget control fields to translate.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["widget", "controls"],
+        "properties": {
+          "widget":   { "type": "string", "description": "Widget name (e.g. my-custom-widget, heading)" },
+          "controls": { "type": "array",  "items": { "type": "string" }, "description": "Control IDs to translate" },
+          "label":    { "type": "string" }
+        }
+      }
+    }
+
+  },
+
+  "examples": [
+    {
+      "post_fields": [
+        { "key": "_hero_title",       "post_types": ["page", "service"], "type": "text",      "label": "Hero Title" },
+        { "key": "_hero_description", "post_types": ["page"],            "type": "textarea",  "label": "Hero Description" },
+        { "key": "_cta_url",          "post_types": ["page"],            "type": "url",       "mode": "copy", "label": "CTA URL" }
+      ],
+      "options": [
+        { "key": "my_theme_tagline", "type": "text", "label": "Theme Tagline" }
+      ],
+      "blocks": [
+        { "name": "my-plugin/hero", "attributes": ["title", "description", "ctaLabel"], "label": "Hero Block" }
+      ],
+      "shortcodes": [
+        { "tag": "my_button", "attributes": ["label", "aria_label"], "label": "Custom Button" }
+      ]
+    }
+  ]
+}

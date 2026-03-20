@@ -1,0 +1,104 @@
+/**
+ * Idiomattic WP — Language Switcher frontend styles.
+ *
+ * Provides base styling for both the list and dropdown variants.
+ * Intentionally minimal — themes can override everything via specificity.
+ */
+
+/* ── Reset & container ───────────────────────────────────────────────────── */
+
+.idiomatticwp-switcher {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	font-size: inherit;
+	line-height: 1.5;
+}
+
+/* ── List variant ────────────────────────────────────────────────────────── */
+
+.idiomatticwp-switcher--list {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 4px 12px;
+}
+
+.idiomatticwp-switcher--list .idiomatticwp-lang {
+	display: inline-flex;
+	align-items: center;
+	gap: 5px;
+}
+
+.idiomatticwp-switcher--list .idiomatticwp-lang a {
+	display: inline-flex;
+	align-items: center;
+	gap: 5px;
+	text-decoration: none;
+	color: inherit;
+	transition: opacity 0.15s;
+}
+
+.idiomatticwp-switcher--list .idiomatticwp-lang a:hover {
+	opacity: 0.75;
+	text-decoration: underline;
+}
+
+/* Active (current) language — no link, bold to show where you are */
+.idiomatticwp-switcher--list .idiomatticwp-lang--active {
+	font-weight: 600;
+	cursor: default;
+}
+
+/* ── Flag images ─────────────────────────────────────────────────────────── */
+
+.idiomatticwp-switcher img {
+	display: inline-block;
+	width: 20px;
+	height: 15px;
+	object-fit: cover;
+	border-radius: 2px;
+	border: 1px solid rgba(0, 0, 0, 0.12);
+	vertical-align: middle;
+	flex-shrink: 0;
+}
+
+/* ── Dropdown variant ────────────────────────────────────────────────────── */
+
+.idiomatticwp-switcher--dropdown {
+	display: inline-block;
+}
+
+.idiomatticwp-switcher--dropdown select {
+	appearance: auto;
+	padding: 4px 8px;
+	font-size: inherit;
+	line-height: 1.4;
+	border: 1px solid #ccd0d4;
+	border-radius: 4px;
+	background: #fff;
+	color: inherit;
+	cursor: pointer;
+	max-width: 200px;
+}
+
+.idiomatticwp-switcher--dropdown select:focus {
+	outline: 2px solid currentColor;
+	outline-offset: 1px;
+}
+
+/* ── Accessibility: focus-visible for list links ─────────────────────────── */
+
+.idiomatticwp-switcher--list .idiomatticwp-lang a:focus-visible {
+	outline: 2px solid currentColor;
+	outline-offset: 2px;
+	border-radius: 2px;
+}
+
+/* ── Responsive: compact on very small screens ───────────────────────────── */
+
+@media ( max-width: 480px ) {
+	.idiomatticwp-switcher--list {
+		gap: 4px 8px;
+	}
+}

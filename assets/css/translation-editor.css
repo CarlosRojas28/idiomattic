@@ -1,0 +1,426 @@
+/* ==========================================================================
+   Idiomattic WP — Translation Editor
+   Estilo inspirado en el Translation Editor clásico de WPML:
+   dos columnas en paralelo, original a la izquierda (read-only),
+   traducción a la derecha (editable).
+   ========================================================================== */
+
+/* ── Layout global ────────────────────────────────────────────────────────── */
+
+.idiomatticwp-te-wrap {
+	max-width: 100%;
+	margin: 0;
+	padding: 0 20px 40px;
+	box-sizing: border-box;
+}
+
+/* ── Header bar ───────────────────────────────────────────────────────────── */
+
+.idiomatticwp-te-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 12px 0 14px;
+	border-bottom: 2px solid #e2e4e7;
+	margin-bottom: 0;
+	position: sticky;
+	top: 32px; /* below WP admin bar */
+	background: #f0f0f1;
+	z-index: 100;
+}
+
+.idiomatticwp-te-header-left {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+
+.idiomatticwp-te-header-right {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.idiomatticwp-te-back {
+	color: #2271b1;
+	text-decoration: none;
+	font-size: 13px;
+	white-space: nowrap;
+}
+
+.idiomatticwp-te-back:hover {
+	text-decoration: underline;
+}
+
+/* Language path: EN → FR */
+
+.idiomatticwp-te-lang-path {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 13px;
+}
+
+.idiomatticwp-te-lang {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	font-weight: 500;
+}
+
+.idiomatticwp-te-lang img {
+	width: 20px;
+	height: 15px;
+	border-radius: 2px;
+	border: 1px solid rgba(0,0,0,.15);
+	object-fit: cover;
+	display: block;
+}
+
+.idiomatticwp-te-lang-target {
+	color: #2271b1;
+}
+
+.idiomatticwp-te-arrow {
+	color: #8c8f94;
+	font-size: 16px;
+}
+
+/* Status badge in header */
+
+.idiomatticwp-te-status-badge {
+	display: inline-block;
+	font-size: 11px;
+	font-weight: 600;
+	padding: 2px 10px;
+	border-radius: 12px;
+	text-transform: uppercase;
+	letter-spacing: .5px;
+}
+
+.idiomatticwp-te-status-badge.status-complete {
+	background: #edfaef;
+	color: #1a8a24;
+	border: 1px solid #c3e6c6;
+}
+
+.idiomatticwp-te-status-badge.status-outdated {
+	background: #fff9e6;
+	color: #996800;
+	border: 1px solid #f5e6a3;
+}
+
+.idiomatticwp-te-status-badge.status-draft {
+	background: #f0f0f1;
+	color: #50575e;
+	border: 1px solid #dcdcde;
+}
+
+/* ── Column headers ───────────────────────────────────────────────────────── */
+
+.idiomatticwp-te-col-headers {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 0 24px;
+	padding: 16px 0 8px;
+	border-bottom: 1px solid #e2e4e7;
+	margin-bottom: 4px;
+}
+
+.idiomatticwp-te-col-header {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 13px;
+}
+
+.idiomatticwp-te-col-header img {
+	width: 20px;
+	height: 15px;
+	border-radius: 2px;
+	border: 1px solid rgba(0,0,0,.15);
+	object-fit: cover;
+}
+
+.idiomatticwp-te-readonly-badge,
+.idiomatticwp-te-editing-badge {
+	font-size: 10px;
+	padding: 1px 7px;
+	border-radius: 10px;
+	font-weight: 500;
+	margin-left: 4px;
+}
+
+.idiomatticwp-te-readonly-badge {
+	background: #f0f0f1;
+	color: #646970;
+	border: 1px solid #dcdcde;
+}
+
+.idiomatticwp-te-editing-badge {
+	background: #e8f3fb;
+	color: #2271b1;
+	border: 1px solid #b8d4ef;
+}
+
+/* ── Field groups ─────────────────────────────────────────────────────────── */
+
+.idiomatticwp-te-field-group {
+	margin-top: 24px;
+}
+
+.idiomatticwp-te-field-label {
+	font-size: 11px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: .6px;
+	color: #646970;
+	margin-bottom: 8px;
+	padding-bottom: 6px;
+	border-bottom: 1px solid #f0f0f1;
+}
+
+.idiomatticwp-te-field-row {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 0 24px;
+	align-items: start;
+}
+
+/* Taller row for content field */
+.idiomatticwp-te-field-row-content {
+	align-items: stretch;
+}
+
+.idiomatticwp-te-field {
+	min-width: 0; /* prevent overflow in grid */
+}
+
+/* ── Source column (read-only) ────────────────────────────────────────────── */
+
+.idiomatticwp-te-field-source {
+	background: #fff;
+	border: 1px solid #e2e4e7;
+	border-radius: 4px;
+	position: relative;
+}
+
+.idiomatticwp-te-source-value {
+	padding: 10px 14px;
+	font-size: 14px;
+	color: #1d2327;
+	line-height: 1.6;
+	min-height: 42px;
+	cursor: default;
+	user-select: text;
+}
+
+.idiomatticwp-te-source-content {
+	min-height: 200px;
+	overflow-y: auto;
+}
+
+.idiomatticwp-te-source-content p {
+	margin: 0 0 12px;
+}
+
+.idiomatticwp-te-empty {
+	color: #8c8f94;
+}
+
+/* Subtle "read-only" stripe on left border */
+.idiomatticwp-te-field-source::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	width: 3px;
+	background: #e2e4e7;
+	border-radius: 4px 0 0 4px;
+}
+
+/* ── Target column (editable) ─────────────────────────────────────────────── */
+
+.idiomatticwp-te-field-target .idiomatticwp-te-input {
+	width: 100%;
+	box-sizing: border-box;
+	border: 1px solid #8c8f94;
+	border-radius: 4px;
+	padding: 10px 14px;
+	font-size: 14px;
+	line-height: 1.6;
+	color: #1d2327;
+	background: #fff;
+	transition: border-color .15s;
+}
+
+.idiomatticwp-te-field-target .idiomatticwp-te-input:focus {
+	border-color: #2271b1;
+	box-shadow: 0 0 0 2px rgba(34, 113, 177, .15);
+	outline: none;
+}
+
+/* wp_editor container */
+.idiomatticwp-te-field-target .wp-editor-container {
+	border-radius: 0 0 4px 4px;
+}
+
+.idiomatticwp-te-field-target .wp-editor-wrap {
+	border: 1px solid #8c8f94;
+	border-radius: 4px;
+}
+
+.idiomatticwp-te-field-target .wp-editor-wrap:focus-within {
+	border-color: #2271b1;
+	box-shadow: 0 0 0 2px rgba(34, 113, 177, .15);
+}
+
+/* ── Save notice ──────────────────────────────────────────────────────────── */
+
+.idiomatticwp-te-notice {
+	margin: 16px 0 0;
+}
+
+/* ── Footer save bar ──────────────────────────────────────────────────────── */
+
+.idiomatticwp-te-footer {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin-top: 32px;
+	padding-top: 20px;
+	border-top: 2px solid #e2e4e7;
+}
+
+/* ── Toolbar ─────────────────────────────────────────────────────────────── */
+
+.idiomatticwp-te-toolbar {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 12px 24px;
+	padding: 10px 14px;
+	margin: 12px 0 4px;
+	background: #fff;
+	border: 1px solid #e2e4e7;
+	border-radius: 4px;
+}
+
+.idiomatticwp-te-toolbar-group {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	flex-wrap: wrap;
+}
+
+.idiomatticwp-te-toolbar-group + .idiomatticwp-te-toolbar-group {
+	padding-left: 24px;
+	border-left: 1px solid #e2e4e7;
+}
+
+.idiomatticwp-te-toolbar-label {
+	font-size: 11px;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: .5px;
+	color: #8c8f94;
+	white-space: nowrap;
+}
+
+.idiomatticwp-te-toolbar .button .dashicons {
+	font-size: 14px;
+	width: 14px;
+	height: 14px;
+	margin-right: 4px;
+	vertical-align: middle;
+	margin-top: -1px;
+}
+
+/* Pro-locked buttons — greyed out, not clickable */
+.idiomatticwp-te-pro-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 5px;
+	padding: 0 10px;
+	height: 30px;
+	border: 1px solid #dcdcde;
+	border-radius: 3px;
+	background: #f6f7f7;
+	color: #a7aaad;
+	font-size: 13px;
+	cursor: not-allowed;
+	user-select: none;
+	opacity: .8;
+}
+
+.idiomatticwp-te-pro-btn .dashicons {
+	font-size: 14px;
+	width: 14px;
+	height: 14px;
+	color: #a7aaad;
+}
+
+.idiomatticwp-te-pro-badge {
+	display: inline-block;
+	font-size: 9px;
+	font-weight: 700;
+	letter-spacing: .5px;
+	padding: 1px 5px;
+	border-radius: 3px;
+	background: linear-gradient(135deg, #f7a940, #e07b00);
+	color: #fff;
+	vertical-align: middle;
+	margin-left: 2px;
+}
+
+.idiomatticwp-te-upgrade-link {
+	font-size: 12px;
+	color: #e07b00;
+	text-decoration: none;
+	white-space: nowrap;
+}
+
+.idiomatticwp-te-upgrade-link:hover {
+	text-decoration: underline;
+}
+
+/* Loading state for AI buttons */
+.idiomatticwp-te-loading {
+	opacity: .6;
+	cursor: wait !important;
+}
+
+.idiomatticwp-te-loading::after {
+	content: ' ⧖';
+	animation: idiomatticwp-spin 1s linear infinite;
+	display: inline-block;
+}
+
+@keyframes idiomatticwp-spin {
+	from { transform: rotate(0deg); }
+	to   { transform: rotate(360deg); }
+}
+
+/* ── Responsive: stack columns on narrow screens ─────────────────────────── */
+
+@media ( max-width: 900px ) {
+	.idiomatticwp-te-col-headers,
+	.idiomatticwp-te-field-row {
+		grid-template-columns: 1fr;
+	}
+
+	.idiomatticwp-te-col-header:first-child {
+		display: none; /* hide source column header on mobile */
+	}
+
+	.idiomatticwp-te-field-source {
+		display: none; /* hide source on mobile — editing only */
+	}
+
+	.idiomatticwp-te-header {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 10px;
+	}
+}

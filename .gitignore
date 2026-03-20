@@ -1,0 +1,24 @@
+# Dependencies
+vendor/
+node_modules/
+
+# Composer
+composer.lock
+
+# Dev / Testing
+.phpunit.result.cache
+/tests/
+phpunit.xml
+TESTING.md
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# WordPress
+*.log

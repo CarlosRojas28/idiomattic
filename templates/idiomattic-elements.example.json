@@ -1,0 +1,60 @@
+{
+  "_comment": "Example idiomattic-elements.json — copy this to your plugin or theme root and customize it. Idiomattic WP auto-discovers this file. No PHP required for basic field registration.",
+
+  "post_fields": [
+    {
+      "key": "my_subtitle",
+      "post_types": ["post", "page"],
+      "label": "Subtitle",
+      "field_type": "text",
+      "mode": "translate"
+    },
+    {
+      "key": "my_hero_description",
+      "post_types": ["page"],
+      "label": "Hero Description",
+      "field_type": "html",
+      "mode": "translate"
+    },
+    {
+      "key": "_product_sku",
+      "post_types": ["product"],
+      "label": "SKU (do not translate)",
+      "field_type": "text",
+      "mode": "copy"
+    }
+  ],
+
+  "term_fields": [
+    {
+      "key": "category_description_extra",
+      "taxonomies": ["category"],
+      "label": "Extended Description",
+      "field_type": "textarea",
+      "mode": "translate"
+    }
+  ],
+
+  "options": [
+    {
+      "key": "my_plugin_tagline",
+      "label": "Plugin Tagline",
+      "field_type": "text",
+      "mode": "translate"
+    }
+  ],
+
+  "shortcodes": [
+    {
+      "key": "my_banner",
+      "attributes": ["title", "description", "button_text"]
+    }
+  ],
+
+  "blocks": [
+    {
+      "key": "my-plugin/hero-block",
+      "attributes": ["heading", "subheading", "buttonText"]
+    }
+  ]
+}

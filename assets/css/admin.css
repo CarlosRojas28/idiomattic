@@ -1,0 +1,162 @@
+/**
+ * Idiomattic WP — Admin Styles
+ */
+
+/* Post List Column flags */
+.column-idiomatticwp_languages { 
+    width: 120px; 
+}
+
+.idiomatticwp-flag-list { 
+    display: flex; 
+    gap: 6px; 
+    align-items: center; 
+    flex-wrap: wrap; 
+}
+
+.idiomatticwp-flag-wrapper { 
+    position: relative; 
+    display: inline-flex; 
+    cursor: pointer; 
+    text-decoration: none !important;
+}
+
+.idiomatticwp-flag { 
+    width: 20px; 
+    height: 20px; 
+    border-radius: 50%; 
+    object-fit: cover; 
+    border: 2px solid transparent; 
+    background: #f0f0f1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8px;
+    font-weight: bold;
+    color: #50575e;
+}
+
+.idiomatticwp-flag.status-complete { border-color: #46b450; }
+.idiomatticwp-flag.status-outdated { border-color: #ffb900; }
+.idiomatticwp-flag.status-draft    { border-color: #2271b1; }
+.idiomatticwp-flag.status-missing  { opacity: 0.5; filter: grayscale(1); border-color: #dcdcde; }
+
+.idiomatticwp-status-overlay {
+    position: absolute; 
+    bottom: -2px; 
+    right: -2px; 
+    width: 10px; 
+    height: 10px;
+    border-radius: 50%; 
+    border: 1px solid #fff; 
+    font-size: 8px;
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    color: #fff;
+    line-height: 1;
+}
+
+.status-complete .idiomatticwp-status-overlay { background: #46b450; }
+.status-outdated .idiomatticwp-status-overlay { background: #ffb900; }
+.status-missing .idiomatticwp-status-overlay  { background: #8c8f94; }
+
+.idiomatticwp-more-badge {
+    font-size: 10px; 
+    background: #f0f0f1; 
+    padding: 2px 4px; 
+    border-radius: 4px;
+    color: #50575e; 
+    cursor: help;
+}
+
+/* ── Metabox Styles ──────────────────────────────────────────────────────── */
+
+.idiomatticwp-metabox-content {
+    margin: -6px -12px;
+}
+
+.idiomatticwp-translation-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.idiomatticwp-translation-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    border-bottom: 1px solid #f0f0f1;
+}
+
+.idiomatticwp-translation-row:last-child {
+    border-bottom: none;
+}
+
+.idiomatticwp-translation-row__lang {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.idiomatticwp-translation-row__actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Flag image in metabox */
+.idiomatticwp-translation-row .idiomatticwp-flag {
+    width: 18px;
+    height: 13px;
+    border-radius: 2px;
+    object-fit: cover;
+    border: 1px solid #dcdcde;
+}
+
+/* Fallback text badge when SVG is missing */
+.idiomatticwp-flag-fallback {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 13px;
+    background: #f0f0f1;
+    border: 1px solid #dcdcde;
+    border-radius: 2px;
+    font-size: 7px;
+    font-weight: bold;
+    color: #50575e;
+    line-height: 1;
+}
+
+/* Translation status badge */
+.idiomatticwp-status-badge {
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 3px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    display: inline-block;
+    line-height: 1.4;
+    white-space: nowrap;
+}
+
+.idiomatticwp-status-badge--complete    { background: #46b450; }
+.idiomatticwp-status-badge--outdated    { background: #d63638; }
+.idiomatticwp-status-badge--draft       { background: #2271b1; }
+.idiomatticwp-status-badge--in_progress { background: #996800; }
+.idiomatticwp-status-badge--failed      { background: #8c8f94; }
+.idiomatticwp-status-badge--missing     { background: #8c8f94; }
+
+/* Legacy selectors for compatibility */
+.status-badge.status-complete { background: #46b450; }
+.status-badge.status-outdated { background: #ffb900; }
+.status-badge.status-draft    { background: #2271b1; }
+
+.idiomatticwp-create-translation.button-small {
+    height: 24px;
+    line-height: normal;
+}
