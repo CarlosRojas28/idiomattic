@@ -140,6 +140,10 @@ class LanguageManager {
 	}
 
 	public function getAllSupportedLanguages(): array {
-		return $this->languageData;
+		$custom = get_option( 'idiomatticwp_custom_languages', [] );
+		if ( ! is_array( $custom ) || empty( $custom ) ) {
+			return $this->languageData;
+		}
+		return array_merge( $this->languageData, $custom );
 	}
 }

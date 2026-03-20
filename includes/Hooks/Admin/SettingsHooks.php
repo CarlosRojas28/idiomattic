@@ -25,6 +25,10 @@ class SettingsHooks implements HookRegistrarInterface {
 		add_action( 'update_option_idiomatticwp_default_lang', [ $this, 'scheduleRewriteFlush' ], 10, 0 );
 
 		add_action( 'init', [ $this, 'maybeFlushRewriteRules' ], 99 );
+
+		// Custom language management
+		add_action( 'admin_post_idiomatticwp_add_custom_lang',    [ $this, 'handleAddCustomLanguage'    ] );
+		add_action( 'admin_post_idiomatticwp_delete_custom_lang', [ $this, 'handleDeleteCustomLanguage' ] );
 	}
 
 	// ── Callbacks ─────────────────────────────────────────────────────────
@@ -112,6 +116,11 @@ class SettingsHooks implements HookRegistrarInterface {
 			'default'           => [],
 			'sanitize_callback' => [ $this, 'sanitizeNavMenus' ],
 		] );
+
+		register_setting( 'idiomatticwp_settings', 'idiomatticwp_custom_languages', [
+			'type'    => 'array',
+			'default' => [],
+		] );
 	}
 
 	// ── Sanitize callbacks ────────────────────────────────────────────────
@@ -188,6 +197,77 @@ class SettingsHooks implements HookRegistrarInterface {
 			}
 		}
 		return $out;
+	}
+
+	// ── Custom language management ─────────────────────────────────────────
+
+	/**
+	 * Handle add-custom-language form submission.
+	 */
+	public function handleAddCustomLanguage(): void {
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_die( esc_html__( 'Unauthorized', 'idiomattic-wp' ), 403 );
+		}
+
+		check_admin_referer( 'idiomatticwp_add_custom_lang' );
+
+		$code        = sanitize_key( (string) ( $_POST['custom_lang_code']        ?? '' ) );
+		$nativeName  = sanitize_text_field( (string) ( $_POST['custom_lang_native'] ?? '' ) );
+		$englishName = sanitize_text_field( (string) ( $_POST['custom_lang_name']   ?? '' ) );
+		$flagCode    = sanitize_key( (string) ( $_POST['custom_lang_flag']          ?? '' ) );
+		$rtl         = ! empty( $_POST['custom_lang_rtl'] );
+
+		$settingsUrl = admin_url( 'admin.php?page=idiomatticwp-settings&tab=languages' );
+
+		if ( $code === '' || $nativeName === '' || $englishName === '' ) {
+			wp_safe_redirect( add_query_arg( 'idiomatticwp_error', 'missing_fields', $settingsUrl ) );
+			exit;
+		}
+
+		if ( ! preg_match( '/^[a-z]{2}(-[A-Z]{2})?$/', $code ) ) {
+			wp_safe_redirect( add_query_arg( 'idiomatticwp_error', 'invalid_code', $settingsUrl ) );
+			exit;
+		}
+
+		$custom = get_option( 'idiomatticwp_custom_languages', [] );
+		if ( ! is_array( $custom ) ) {
+			$custom = [];
+		}
+
+		$custom[ $code ] = [
+			'locale'      => str_replace( '-', '_', $code ),
+			'name'        => $englishName,
+			'native_name' => $nativeName,
+			'rtl'         => $rtl,
+			'flag'        => $flagCode,
+		];
+
+		update_option( 'idiomatticwp_custom_languages', $custom );
+
+		wp_safe_redirect( add_query_arg( 'idiomatticwp_saved', '1', $settingsUrl ) );
+		exit;
+	}
+
+	/**
+	 * Handle delete-custom-language action.
+	 */
+	public function handleDeleteCustomLanguage(): void {
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_die( esc_html__( 'Unauthorized', 'idiomattic-wp' ), 403 );
+		}
+
+		$code = sanitize_key( (string) ( $_GET['code'] ?? '' ) );
+		check_admin_referer( 'idiomatticwp_delete_custom_lang_' . $code );
+
+		$custom = get_option( 'idiomatticwp_custom_languages', [] );
+		if ( is_array( $custom ) && isset( $custom[ $code ] ) ) {
+			unset( $custom[ $code ] );
+			update_option( 'idiomatticwp_custom_languages', $custom );
+		}
+
+		$settingsUrl = admin_url( 'admin.php?page=idiomatticwp-settings&tab=languages' );
+		wp_safe_redirect( add_query_arg( 'idiomatticwp_saved', '1', $settingsUrl ) );
+		exit;
 	}
 
 	/**

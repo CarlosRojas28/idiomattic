@@ -83,6 +83,10 @@ class SettingsPage {
 					?>
 				</form>
 				<?php
+				// Custom languages section renders outside the main form (languages tab only)
+				if ( $currentTab === 'languages' ) {
+					$this->renderCustomLanguagesSection();
+				}
 			}
 			?>
 		</div>
@@ -116,7 +120,7 @@ class SettingsPage {
 		echo '<div class="idiomatticwp-lang-grid">';
 		foreach ( $allLangs as $code => $data ) {
 			$isActive = in_array( (string) $code, $activeLangs, true );
-			$flagUrl  = $this->getFlagUrl( (string) $code );
+			$flagUrl  = $this->getFlagUrl( (string) $code, $data['flag'] ?? '' );
 
 			$flagHtml = $flagUrl
 				? sprintf(
@@ -167,26 +171,147 @@ class SettingsPage {
 	}
 
 	/**
+	 * Render the "Custom Languages" add/delete section (rendered outside the main settings form).
+	 */
+	private function renderCustomLanguagesSection(): void {
+		$custom      = get_option( 'idiomatticwp_custom_languages', [] );
+		$customLangs = is_array( $custom ) ? $custom : [];
+
+		// Error notices from admin-post redirect
+		$error = sanitize_key( $_GET['idiomatticwp_error'] ?? '' );
+		if ( $error === 'invalid_code' ) {
+			echo '<div class="notice notice-error inline" style="margin:12px 0;"><p>'
+				. esc_html__( 'Invalid language code. Use a 2-letter ISO 639-1 code (e.g. "eo", "la") or a region variant like "zh-TW".', 'idiomattic-wp' )
+				. '</p></div>';
+		} elseif ( $error === 'missing_fields' ) {
+			echo '<div class="notice notice-error inline" style="margin:12px 0;"><p>'
+				. esc_html__( 'Code, native name, and English name are required.', 'idiomattic-wp' )
+				. '</p></div>';
+		}
+
+		echo '<h3 style="margin-top:36px;">' . esc_html__( 'Custom Languages', 'idiomattic-wp' ) . '</h3>';
+		echo '<p class="description">' . esc_html__( 'Add languages not included in the built-in list.', 'idiomattic-wp' ) . '</p>';
+
+		// ── Existing custom languages table ───────────────────────────────
+		if ( ! empty( $customLangs ) ) {
+			echo '<table class="wp-list-table widefat fixed striped" style="max-width:700px;margin-top:12px;">';
+			echo '<thead><tr>'
+				. '<th>' . esc_html__( 'Code',         'idiomattic-wp' ) . '</th>'
+				. '<th>' . esc_html__( 'Native Name',  'idiomattic-wp' ) . '</th>'
+				. '<th>' . esc_html__( 'English Name', 'idiomattic-wp' ) . '</th>'
+				. '<th>' . esc_html__( 'Flag Code',    'idiomattic-wp' ) . '</th>'
+				. '<th>' . esc_html__( 'RTL',          'idiomattic-wp' ) . '</th>'
+				. '<th></th>'
+				. '</tr></thead><tbody>';
+
+			foreach ( $customLangs as $code => $data ) {
+				$deleteUrl = wp_nonce_url(
+					add_query_arg(
+						[ 'action' => 'idiomatticwp_delete_custom_lang', 'code' => $code ],
+						admin_url( 'admin-post.php' )
+					),
+					'idiomatticwp_delete_custom_lang_' . $code
+				);
+
+				printf(
+					'<tr>
+						<td><code>%s</code></td>
+						<td>%s</td>
+						<td>%s</td>
+						<td>%s</td>
+						<td>%s</td>
+						<td><a href="%s" class="submitdelete" onclick="return confirm(\'%s\');">%s</a></td>
+					</tr>',
+					esc_html( (string) $code ),
+					esc_html( $data['native_name'] ?? '' ),
+					esc_html( $data['name'] ?? '' ),
+					esc_html( $data['flag'] ?? '' ),
+					! empty( $data['rtl'] ) ? esc_html__( 'Yes', 'idiomattic-wp' ) : esc_html__( 'No', 'idiomattic-wp' ),
+					esc_url( $deleteUrl ),
+					esc_js( __( 'Delete this custom language?', 'idiomattic-wp' ) ),
+					esc_html__( 'Delete', 'idiomattic-wp' )
+				);
+			}
+
+			echo '</tbody></table>';
+		}
+
+		// ── Add custom language form ──────────────────────────────────────
+		?>
+		<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" style="margin-top:16px;max-width:700px;">
+			<?php wp_nonce_field( 'idiomatticwp_add_custom_lang' ); ?>
+			<input type="hidden" name="action" value="idiomatticwp_add_custom_lang">
+
+			<table class="form-table">
+				<tr>
+					<th scope="row">
+						<label for="custom_lang_code"><?php esc_html_e( 'Language Code', 'idiomattic-wp' ); ?> <span aria-hidden="true" style="color:red;">*</span></label>
+					</th>
+					<td>
+						<input type="text" id="custom_lang_code" name="custom_lang_code" value="" class="regular-text" placeholder="eo" pattern="[a-z]{2}(-[A-Z]{2})?" maxlength="6" required>
+						<p class="description"><?php esc_html_e( 'BCP-47: 2 lowercase letters, optionally + region (e.g. "eo", "zh-TW").', 'idiomattic-wp' ); ?></p>
+					</td>
+				</tr>
+				<tr>
+					<th scope="row">
+						<label for="custom_lang_native"><?php esc_html_e( 'Native Name', 'idiomattic-wp' ); ?> <span aria-hidden="true" style="color:red;">*</span></label>
+					</th>
+					<td><input type="text" id="custom_lang_native" name="custom_lang_native" value="" class="regular-text" placeholder="Esperanto" required></td>
+				</tr>
+				<tr>
+					<th scope="row">
+						<label for="custom_lang_name"><?php esc_html_e( 'English Name', 'idiomattic-wp' ); ?> <span aria-hidden="true" style="color:red;">*</span></label>
+					</th>
+					<td><input type="text" id="custom_lang_name" name="custom_lang_name" value="" class="regular-text" placeholder="Esperanto" required></td>
+				</tr>
+				<tr>
+					<th scope="row">
+						<label for="custom_lang_flag"><?php esc_html_e( 'Flag Country Code', 'idiomattic-wp' ); ?></label>
+					</th>
+					<td>
+						<input type="text" id="custom_lang_flag" name="custom_lang_flag" value="" class="small-text" placeholder="us" maxlength="6">
+						<p class="description"><?php esc_html_e( 'ISO 3166-1 alpha-2 country code (e.g. "us", "br"). Leave blank for no flag.', 'idiomattic-wp' ); ?></p>
+					</td>
+				</tr>
+				<tr>
+					<th scope="row"><?php esc_html_e( 'Right-to-Left', 'idiomattic-wp' ); ?></th>
+					<td>
+						<label>
+							<input type="checkbox" name="custom_lang_rtl" value="1">
+							<?php esc_html_e( 'This language is written right-to-left', 'idiomattic-wp' ); ?>
+						</label>
+					</td>
+				</tr>
+			</table>
+
+			<?php submit_button( __( 'Add Custom Language', 'idiomattic-wp' ), 'secondary', 'submit_custom_lang' ); ?>
+		</form>
+		<?php
+	}
+
+	/**
 	 * Return the URL for a language flag SVG, or empty string if not found.
 	 *
 	 * Flag files are named after the BCP-47 language code (e.g. es.svg, pt-BR.svg).
 	 */
-	private function getFlagUrl( string $code ): string {
-		// Special cases where the SVG is stored under a different name.
-		static $overrides = [
-			'en' => 'us',
-		];
+	private function getFlagUrl( string $code, string $flagCode = '' ): string {
+		$flagsPath = IDIOMATTICWP_PATH . 'assets/flags/';
+		$flagsUrl  = IDIOMATTICWP_ASSETS_URL . 'flags/';
 
-		$filename = $overrides[ $code ] ?? $code;
-
-		if ( file_exists( IDIOMATTICWP_PATH . 'assets/flags/' . $filename . '.svg' ) ) {
-			return IDIOMATTICWP_ASSETS_URL . 'flags/' . $filename . '.svg';
+		// 1. Use the explicit flag code from language data (e.g. 'jp' for 'ja').
+		if ( $flagCode !== '' && file_exists( $flagsPath . $flagCode . '.svg' ) ) {
+			return $flagsUrl . $flagCode . '.svg';
 		}
 
-		// Fallback: try the base code without region (e.g. 'zh' for 'zh-CN').
+		// 2. Try the language code directly (e.g. 'zh-CN.svg').
+		if ( file_exists( $flagsPath . $code . '.svg' ) ) {
+			return $flagsUrl . $code . '.svg';
+		}
+
+		// 3. Try the base language code without region (e.g. 'zh' for 'zh-CN').
 		$base = explode( '-', $code )[0];
-		if ( $base !== $code && file_exists( IDIOMATTICWP_PATH . 'assets/flags/' . $base . '.svg' ) ) {
-			return IDIOMATTICWP_ASSETS_URL . 'flags/' . $base . '.svg';
+		if ( $base !== $code && file_exists( $flagsPath . $base . '.svg' ) ) {
+			return $flagsUrl . $base . '.svg';
 		}
 
 		return '';
