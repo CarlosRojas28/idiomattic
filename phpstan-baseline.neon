@@ -1,0 +1,371 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Parameter \\#1 \\$postarr of function wp_update_post expects array\\{ID\\?\\: int, post_author\\?\\: int, post_date\\?\\: string, post_date_gmt\\?\\: string, post_content\\?\\: string, post_content_filtered\\?\\: string, post_title\\?\\: string, post_excerpt\\?\\: string, \\.\\.\\.\\}, non\\-empty\\-array\\<string, int\\|string\\> given\\.$#"
+			count: 1
+			path: includes/Admin/Ajax/SaveFieldTranslationAjax.php
+
+		-
+			message: "#^Constant IDIOMATTICWP_ASSETS_URL not found\\.$#"
+			count: 1
+			path: includes/Admin/Metaboxes/TranslationsMetabox.php
+
+		-
+			message: "#^Constant IDIOMATTICWP_PATH not found\\.$#"
+			count: 1
+			path: includes/Admin/Metaboxes/TranslationsMetabox.php
+
+		-
+			message: "#^Call to function is_array\\(\\) with mixed will always evaluate to false\\.$#"
+			count: 1
+			path: includes/Admin/Pages/CompatibilityPage.php
+
+		-
+			message: "#^Property IdiomatticWP\\\\Admin\\\\Pages\\\\CompatibilityPage\\:\\:\\$registry is never read, only written\\.$#"
+			count: 1
+			path: includes/Admin/Pages/CompatibilityPage.php
+
+		-
+			message: "#^Result of && is always false\\.$#"
+			count: 1
+			path: includes/Admin/Pages/CompatibilityPage.php
+
+		-
+			message: "#^Property IdiomatticWP\\\\Admin\\\\Pages\\\\DashboardPage\\:\\:\\$languageManager is never read, only written\\.$#"
+			count: 1
+			path: includes/Admin/Pages/DashboardPage.php
+
+		-
+			message: "#^Constant IDIOMATTICWP_VERSION not found\\.$#"
+			count: 1
+			path: includes/Admin/Pages/SettingsPage.php
+
+		-
+			message: "#^Offset 'Name' on array\\{Name\\: string, PluginURI\\: string, Version\\: string, Description\\: string, Author\\: string, AuthorURI\\: string, TextDomain\\: string, DomainPath\\: string, \\.\\.\\.\\} on left side of \\?\\? always exists and is not nullable\\.$#"
+			count: 2
+			path: includes/Admin/Pages/SettingsPage.php
+
+		-
+			message: "#^Offset 'Version' on array\\{Name\\: string, PluginURI\\: string, Version\\: string, Description\\: string, Author\\: string, AuthorURI\\: string, TextDomain\\: string, DomainPath\\: string, \\.\\.\\.\\} on left side of \\?\\? always exists and is not nullable\\.$#"
+			count: 2
+			path: includes/Admin/Pages/SettingsPage.php
+
+		-
+			message: "#^Constant IDIOMATTICWP_ASSETS_URL not found\\.$#"
+			count: 2
+			path: includes/Admin/Pages/SetupWizard.php
+
+		-
+			message: "#^Undefined variable\\: \\$popular$#"
+			count: 2
+			path: includes/Admin/Pages/SetupWizard.php
+
+		-
+			message: "#^Constant IDIOMATTICWP_ASSETS_URL not found\\.$#"
+			count: 2
+			path: includes/Admin/Pages/TranslationEditor.php
+
+		-
+			message: "#^Call to static method colorize\\(\\) on an unknown class WP_CLI\\.$#"
+			count: 2
+			path: includes/CLI/IdiomatticCommand.php
+
+		-
+			message: "#^Call to static method confirm\\(\\) on an unknown class WP_CLI\\.$#"
+			count: 1
+			path: includes/CLI/IdiomatticCommand.php
+
+		-
+			message: "#^Call to static method error\\(\\) on an unknown class WP_CLI\\.$#"
+			count: 10
+			path: includes/CLI/IdiomatticCommand.php
+
+		-
+			message: "#^Call to static method line\\(\\) on an unknown class WP_CLI\\.$#"
+			count: 18
+			path: includes/CLI/IdiomatticCommand.php
+
+		-
+			message: "#^Call to static method success\\(\\) on an unknown class WP_CLI\\.$#"
+			count: 6
+			path: includes/CLI/IdiomatticCommand.php
+
+		-
+			message: "#^Call to static method warning\\(\\) on an unknown class WP_CLI\\.$#"
+			count: 3
+			path: includes/CLI/IdiomatticCommand.php
+
+		-
+			message: "#^Function WP_CLI\\\\Utils\\\\format_items not found\\.$#"
+			count: 2
+			path: includes/CLI/IdiomatticCommand.php
+
+		-
+			message: "#^Variable \\$lang might not be defined\\.$#"
+			count: 5
+			path: includes/CLI/IdiomatticCommand.php
+
+		-
+			message: "#^Variable \\$targetLangs might not be defined\\.$#"
+			count: 1
+			path: includes/CLI/IdiomatticCommand.php
+
+		-
+			message: "#^Property IdiomatticWP\\\\Compatibility\\\\CompatibilityScanner\\:\\:\\$nativeSupport is never read, only written\\.$#"
+			count: 1
+			path: includes/Compatibility/CompatibilityScanner.php
+
+		-
+			message: "#^Function acf_get_fields not found\\.$#"
+			count: 1
+			path: includes/Core/CustomElementRegistry.php
+
+		-
+			message: "#^Constant IDIOMATTICWP_PATH not found\\.$#"
+			count: 1
+			path: includes/Core/LanguageManager.php
+
+		-
+			message: "#^Call to static method add_command\\(\\) on an unknown class WP_CLI\\.$#"
+			count: 1
+			path: includes/Core/Plugin.php
+
+		-
+			message: "#^Constant IDIOMATTICWP_ASSETS_URL not found\\.$#"
+			count: 1
+			path: includes/Frontend/LanguageSwitcher.php
+
+		-
+			message: "#^Constant IDIOMATTICWP_ASSETS_URL not found\\.$#"
+			count: 1
+			path: includes/Hooks/Admin/AdminLanguageBar.php
+
+		-
+			message: "#^Parameter \\#1 \\$args of method WP_Admin_Bar\\:\\:add_node\\(\\) expects array\\{id\\?\\: string, title\\?\\: string, parent\\?\\: string, href\\?\\: string, group\\?\\: bool, meta\\?\\: array\\}, array\\{parent\\: 'idiomatticwp\\-lang…', id\\: 'idiomatticwp\\-lang…', title\\: '\\<hr style\\=\"margin…', href\\: false\\} given\\.$#"
+			count: 1
+			path: includes/Hooks/Admin/AdminLanguageBar.php
+
+		-
+			message: "#^Constant IDIOMATTICWP_ASSETS_URL not found\\.$#"
+			count: 1
+			path: includes/Hooks/Admin/AdminLanguageFilter.php
+
+		-
+			message: "#^Constant IDIOMATTICWP_ASSETS_URL not found\\.$#"
+			count: 2
+			path: includes/Hooks/Admin/AssetHooks.php
+
+		-
+			message: "#^Constant IDIOMATTICWP_MIN not found\\.$#"
+			count: 2
+			path: includes/Hooks/Admin/AssetHooks.php
+
+		-
+			message: "#^Constant IDIOMATTICWP_VERSION not found\\.$#"
+			count: 2
+			path: includes/Hooks/Admin/AssetHooks.php
+
+		-
+			message: "#^Constant IDIOMATTICWP_ASSETS_URL not found\\.$#"
+			count: 1
+			path: includes/Hooks/Admin/MetaboxHooks.php
+
+		-
+			message: "#^Constant IDIOMATTICWP_VERSION not found\\.$#"
+			count: 1
+			path: includes/Hooks/Admin/MetaboxHooks.php
+
+		-
+			message: "#^Property IdiomatticWP\\\\Hooks\\\\Admin\\\\MetaboxHooks\\:\\:\\$languageManager is never read, only written\\.$#"
+			count: 1
+			path: includes/Hooks/Admin/MetaboxHooks.php
+
+		-
+			message: "#^Constant IDIOMATTICWP_ASSETS_URL not found\\.$#"
+			count: 1
+			path: includes/Hooks/Admin/PostListHooks.php
+
+		-
+			message: "#^Constant IDIOMATTICWP_ASSETS_URL not found\\.$#"
+			count: 1
+			path: includes/Hooks/Admin/TranslationEditorHooks.php
+
+		-
+			message: "#^Constant IDIOMATTICWP_VERSION not found\\.$#"
+			count: 1
+			path: includes/Hooks/Admin/TranslationEditorHooks.php
+
+		-
+			message: "#^Constant IDIOMATTICWP_ASSETS_URL not found\\.$#"
+			count: 1
+			path: includes/Hooks/Frontend/FrontendAssetHooks.php
+
+		-
+			message: "#^Constant IDIOMATTICWP_VERSION not found\\.$#"
+			count: 1
+			path: includes/Hooks/Frontend/FrontendAssetHooks.php
+
+		-
+			message: "#^Access to an undefined property WP_Post\\:\\:\\$type\\.$#"
+			count: 1
+			path: includes/Hooks/Frontend/NavMenuHooks.php
+
+		-
+			message: "#^Access to an undefined property WP_Post\\:\\:\\$url\\.$#"
+			count: 5
+			path: includes/Hooks/Frontend/NavMenuHooks.php
+
+		-
+			message: "#^Constant COOKIEPATH not found\\.$#"
+			count: 1
+			path: includes/Hooks/LanguageHooks.php
+
+		-
+			message: "#^Constant COOKIE_DOMAIN not found\\.$#"
+			count: 1
+			path: includes/Hooks/LanguageHooks.php
+
+		-
+			message: "#^Property WP\\:\\:\\$request \\(string\\) on left side of \\?\\? is not nullable\\.$#"
+			count: 1
+			path: includes/Hooks/LanguageHooks.php
+
+		-
+			message: "#^Property IdiomatticWP\\\\Hooks\\\\Queue\\\\QueueHooks\\:\\:\\$autoTranslate is never read, only written\\.$#"
+			count: 1
+			path: includes/Hooks/Queue/QueueHooks.php
+
+		-
+			message: "#^Property IdiomatticWP\\\\Hooks\\\\Translation\\\\PostTranslationHooks\\:\\:\\$createTranslation is never read, only written\\.$#"
+			count: 1
+			path: includes/Hooks/Translation/PostTranslationHooks.php
+
+		-
+			message: "#^Call to method register\\(\\) on an unknown class Elementor\\\\Widgets_Manager\\.$#"
+			count: 1
+			path: includes/Integrations/Builders/ElementorIntegration.php
+
+		-
+			message: "#^Parameter \\$widgets_manager of method IdiomatticWP\\\\Integrations\\\\Builders\\\\ElementorIntegration\\:\\:registerSwitcherWidget\\(\\) has invalid type Elementor\\\\Widgets_Manager\\.$#"
+			count: 1
+			path: includes/Integrations/Builders/ElementorIntegration.php
+
+		-
+			message: "#^Access to constant SWITCHER on an unknown class Elementor\\\\Controls_Manager\\.$#"
+			count: 2
+			path: includes/Integrations/Builders/ElementorSwitcherWidget.php
+
+		-
+			message: "#^Call to an undefined method IdiomatticWP\\\\Integrations\\\\Builders\\\\ElementorSwitcherWidget\\:\\:add_control\\(\\)\\.$#"
+			count: 2
+			path: includes/Integrations/Builders/ElementorSwitcherWidget.php
+
+		-
+			message: "#^Call to an undefined method IdiomatticWP\\\\Integrations\\\\Builders\\\\ElementorSwitcherWidget\\:\\:end_controls_section\\(\\)\\.$#"
+			count: 1
+			path: includes/Integrations/Builders/ElementorSwitcherWidget.php
+
+		-
+			message: "#^Call to an undefined method IdiomatticWP\\\\Integrations\\\\Builders\\\\ElementorSwitcherWidget\\:\\:get_settings_for_display\\(\\)\\.$#"
+			count: 1
+			path: includes/Integrations/Builders/ElementorSwitcherWidget.php
+
+		-
+			message: "#^Call to an undefined method IdiomatticWP\\\\Integrations\\\\Builders\\\\ElementorSwitcherWidget\\:\\:start_controls_section\\(\\)\\.$#"
+			count: 1
+			path: includes/Integrations/Builders/ElementorSwitcherWidget.php
+
+		-
+			message: "#^IdiomatticWP\\\\Integrations\\\\Builders\\\\ElementorSwitcherWidget\\:\\:__construct\\(\\) calls parent\\:\\:__construct\\(\\) but IdiomatticWP\\\\Integrations\\\\Builders\\\\ElementorSwitcherWidget does not extend any class\\.$#"
+			count: 1
+			path: includes/Integrations/Builders/ElementorSwitcherWidget.php
+
+		-
+			message: "#^Constant IDIOMATTICWP_ASSETS_URL not found\\.$#"
+			count: 1
+			path: includes/Integrations/Builders/GutenbergIntegration.php
+
+		-
+			message: "#^Constant IDIOMATTICWP_VERSION not found\\.$#"
+			count: 1
+			path: includes/Integrations/Builders/GutenbergIntegration.php
+
+		-
+			message: "#^Property IdiomatticWP\\\\Integrations\\\\Builders\\\\GutenbergIntegration\\:\\:\\$languageManager is never read, only written\\.$#"
+			count: 1
+			path: includes/Integrations/Builders/GutenbergIntegration.php
+
+		-
+			message: "#^Property IdiomatticWP\\\\Integrations\\\\SEO\\\\AIOSEOIntegration\\:\\:\\$repository is never read, only written\\.$#"
+			count: 1
+			path: includes/Integrations/SEO/AIOSEOIntegration.php
+
+		-
+			message: "#^Filter callback return statement is missing\\.$#"
+			count: 1
+			path: includes/Integrations/SEO/RankMathIntegration.php
+
+		-
+			message: "#^Action callback returns string but should not return anything\\.$#"
+			count: 1
+			path: includes/Integrations/Themes/AvadaIntegration.php
+
+		-
+			message: "#^Function wc_get_order not found\\.$#"
+			count: 1
+			path: includes/Integrations/WooCommerce/WooCommerceIntegration.php
+
+		-
+			message: "#^Property IdiomatticWP\\\\Migration\\\\WpmlMigrator\\:\\:\\$detector is never read, only written\\.$#"
+			count: 1
+			path: includes/Migration/WpmlMigrator.php
+
+		-
+			message: "#^Property IdiomatticWP\\\\Migration\\\\WpmlMigrator\\:\\:\\$languageManager is never read, only written\\.$#"
+			count: 1
+			path: includes/Migration/WpmlMigrator.php
+
+		-
+			message: "#^Access to constant STATUS_PENDING on an unknown class ActionScheduler_Store\\.$#"
+			count: 1
+			path: includes/Queue/TranslationQueue.php
+
+		-
+			message: "#^Access to constant STATUS_RUNNING on an unknown class ActionScheduler_Store\\.$#"
+			count: 1
+			path: includes/Queue/TranslationQueue.php
+
+		-
+			message: "#^Function as_enqueue_async_action not found\\.$#"
+			count: 1
+			path: includes/Queue/TranslationQueue.php
+
+		-
+			message: "#^Function as_get_scheduled_actions not found\\.$#"
+			count: 2
+			path: includes/Queue/TranslationQueue.php
+
+		-
+			message: "#^Function as_unschedule_all_actions not found\\.$#"
+			count: 1
+			path: includes/Queue/TranslationQueue.php
+
+		-
+			message: "#^Property WP\\:\\:\\$request \\(string\\) on left side of \\?\\? is not nullable\\.$#"
+			count: 1
+			path: includes/Routing/DirectoryStrategy.php
+
+		-
+			message: "#^Property IdiomatticWP\\\\Strings\\\\MoCompiler\\:\\:\\$translator is never read, only written\\.$#"
+			count: 1
+			path: includes/Strings/MoCompiler.php
+
+		-
+			message: "#^Constant IDIOMATTICWP_PATH not found\\.$#"
+			count: 1
+			path: includes/Support/Autoloader.php
+
+		-
+			message: "#^Parameter \\#2 \\$previous of class IdiomatticWP\\\\Exceptions\\\\ProviderUnavailableException constructor expects Throwable\\|null, WP_Error given\\.$#"
+			count: 1
+			path: includes/Support/HttpClient.php

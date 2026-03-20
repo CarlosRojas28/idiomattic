@@ -135,10 +135,8 @@ class LanguageSwitcher {
 			//   translate        → hide languages without a translation
 			//   show_as_translated / ignore / no post context → show all
 			$shouldShow = match ( $postTypeMode ) {
-				'translate'         => $hasTranslation || ( $langCode === $postLang ),
-				'show_as_translated',
-				'ignore',
-				default             => true,
+				'translate' => $hasTranslation || ( $langCode === $postLang ),
+				default     => true,
 			};
 
 			if ( ! $shouldShow ) {

@@ -73,13 +73,15 @@ class WpmlMigrator
                 continue;
 
             try {
-                $this->repository->insert(
-                    (int)$sourceRow->element_id,
-                    (int)$row->element_id,
-                    $sourceRow->language_code,
-                    $row->language_code,
-                    'complete'
-                );
+                $this->repository->save( [
+                    'source_post_id'     => (int) $sourceRow->element_id,
+                    'translated_post_id' => (int) $row->element_id,
+                    'source_lang'        => $sourceRow->language_code,
+                    'target_lang'        => $row->language_code,
+                    'status'             => 'complete',
+                    'translation_mode'   => 'duplicate',
+                    'needs_update'       => 0,
+                ] );
                 $report->translationsMigrated++;
             }
             catch (\Exception $e) {

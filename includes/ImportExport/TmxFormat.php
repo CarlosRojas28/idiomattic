@@ -36,23 +36,18 @@ class TmxFormat {
 		global $wpdb;
 
 		$table = $wpdb->prefix . 'idiomatticwp_translation_memory';
-		$rows  = $wpdb->get_results(
-			$wpdb->prepare(
-				"SELECT source_text, translated_text, provider_used, created_at
-				 FROM {$table}
-				 WHERE source_lang = %s AND target_lang = %s
-				 ORDER BY id ASC",
-				(string) $source,
-				(string) $target
-			),
+		$sql   = 'SELECT source_text, translated_text, provider_used, created_at'
+			. ' FROM ' . $table
+			. ' WHERE source_lang = %s AND target_lang = %s'
+			. ' ORDER BY id ASC';
+
+		$rows = $wpdb->get_results(
+			$wpdb->prepare( $sql, (string) $source, (string) $target ),
 			ARRAY_A
 		) ?: [];
 
 		$doc = new \DOMDocument( '1.0', 'UTF-8' );
 		$doc->formatOutput = true;
-
-		// <?xml ...?> is added automatically — add standalone PI.
-		$doc->xmlStandalone = false;
 
 		// <tmx> root.
 		$tmx = $doc->createElement( 'tmx' );
@@ -80,21 +75,18 @@ class TmxFormat {
 			$tu->setAttribute( 'creationdate', $this->toTmxDate( $row['created_at'] ?? '' ) );
 
 			if ( $row['provider_used'] ) {
-				$prop = $doc->createElement( 'prop', htmlspecialchars( $row['provider_used'] ) );
+				$prop = $doc->createElement( 'prop', htmlspecialchars( (string) $row['provider_used'] ) );
 				$prop->setAttribute( 'type', 'x-provider' );
 				$tu->appendChild( $prop );
 			}
 
-			// Source <tuv>.
 			$tu->appendChild( $this->buildTuv( $doc, (string) $source, (string) $row['source_text'] ) );
-
-			// Target <tuv>.
 			$tu->appendChild( $this->buildTuv( $doc, (string) $target, (string) $row['translated_text'] ) );
 
 			$body->appendChild( $tu );
 		}
 
-		return $doc->saveXML();
+		return (string) $doc->saveXML();
 	}
 
 	/**
@@ -128,7 +120,7 @@ class TmxFormat {
 	 *
 	 * Returns the number of segments successfully imported.
 	 *
-	 * @param string $xml    Raw TMX XML content.
+	 * @param string $xml      Raw TMX XML content.
 	 * @param string $provider Provider slug to tag imported entries with.
 	 * @return int Number of translation units imported.
 	 *
@@ -145,24 +137,26 @@ class TmxFormat {
 			throw new \InvalidArgumentException( 'Invalid TMX XML provided.' );
 		}
 
-		$header  = $doc->getElementsByTagName( 'header' )->item( 0 );
-		$srcLang = $header ? $header->getAttribute( 'srclang' ) : '';
+		$headerNode = $doc->getElementsByTagName( 'header' )->item( 0 );
+		$srcLang    = $headerNode ? $headerNode->getAttribute( 'srclang' ) : '';
 
 		if ( ! $srcLang ) {
 			throw new \InvalidArgumentException( 'TMX header missing srclang attribute.' );
 		}
 
-		$sourceLang = LanguageCode::from( strtolower( str_replace( '_', '-', $srcLang ) ) );
-		$imported   = 0;
+		$sourceLang    = LanguageCode::from( strtolower( str_replace( '_', '-', $srcLang ) ) );
+		$sourceLangStr = (string) $sourceLang;
+		$imported      = 0;
 
-		/** @var \DOMElement $tu */
 		foreach ( $doc->getElementsByTagName( 'tu' ) as $tu ) {
-			$tuvs = $tu->getElementsByTagName( 'tuv' );
-
+			/** @var \DOMElement $tu */
 			$segments = [];
-			foreach ( $tuvs as $tuv ) {
+
+			foreach ( $tu->getElementsByTagName( 'tuv' ) as $tuv ) {
 				/** @var \DOMElement $tuv */
-				$lang = strtolower( str_replace( '_', '-', $tuv->getAttribute( 'xml:lang' ) ?: $tuv->getAttribute( 'lang' ) ) );
+				$lang = strtolower(
+					str_replace( '_', '-', $tuv->getAttribute( 'xml:lang' ) ?: $tuv->getAttribute( 'lang' ) )
+				);
 				$seg  = $tuv->getElementsByTagName( 'seg' )->item( 0 );
 
 				if ( $lang && $seg ) {
@@ -170,21 +164,19 @@ class TmxFormat {
 				}
 			}
 
-			$sourceLangStr = (string) $sourceLang;
-
-			if ( ! isset( $segments[ $sourceLangStr ] ) || empty( $segments[ $sourceLangStr ] ) ) {
+			if ( ! isset( $segments[ $sourceLangStr ] ) || '' === $segments[ $sourceLangStr ] ) {
 				continue;
 			}
 
 			foreach ( $segments as $lang => $text ) {
-				if ( $lang === $sourceLangStr || empty( $text ) ) {
+				if ( $lang === $sourceLangStr || '' === $text ) {
 					continue;
 				}
 
 				try {
 					$targetLang = LanguageCode::from( $lang );
 				} catch ( \Throwable $e ) {
-					continue; // Skip unknown language codes gracefully.
+					continue;
 				}
 
 				$this->repository->save(

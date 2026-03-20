@@ -36,6 +36,17 @@ final class TranslatableString {
 	) {}
 
 	/**
+	 * Alias of fromSource() — used by StringScanner.
+	 *
+	 * @param string $domain  Translation domain.
+	 * @param string $string  Original string.
+	 * @param string $context Optional gettext context.
+	 */
+	public static function create( string $domain, string $string, string $context = '' ): self {
+		return self::fromSource( $string, $domain, $context );
+	}
+
+	/**
 	 * Create a new pending entry for a source string.
 	 */
 	public static function fromSource( string $string, string $domain, string $context = '' ): self {
