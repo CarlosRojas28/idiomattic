@@ -120,7 +120,7 @@ class SettingsPage {
 
 			$flagHtml = $flagUrl
 				? sprintf(
-					'<img src="%s" alt="%s" class="idiomatticwp-lang-card__flag">',
+					'<img src="%s" alt="%s" width="20" height="15" class="idiomatticwp-lang-card__flag">',
 					esc_url( $flagUrl ),
 					esc_attr( $data['name'] )
 				)
