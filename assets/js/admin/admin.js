@@ -49,4 +49,12 @@
                 btn.disabled = false;
             });
     });
+    // ── Language selector grid ─────────────────────────────────────────────
+    document.querySelectorAll('.idiomatticwp-lang-card').forEach(function (card) {
+        card.addEventListener('change', function () {
+            const cb = card.querySelector('input[type="checkbox"]');
+            card.classList.toggle('is-active', cb.checked);
+        });
+    });
+
 })();

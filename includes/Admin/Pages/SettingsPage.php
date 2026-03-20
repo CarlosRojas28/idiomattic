@@ -43,6 +43,7 @@ class SettingsPage {
 			'languages'       => __( 'Languages',       'idiomattic-wp' ),
 			'url'             => __( 'URL Structure',    'idiomattic-wp' ),
 			'translation'     => __( 'Translation',      'idiomattic-wp' ),
+			'menus'           => __( 'Menus',            'idiomattic-wp' ),
 			'glossary'        => __( 'Glossary',         'idiomattic-wp' ),
 			'content'         => __( 'Content',          'idiomattic-wp' ),
 			'advanced'        => __( 'Advanced',         'idiomattic-wp' ),
@@ -96,6 +97,7 @@ class SettingsPage {
 			case 'translation':     $this->renderTranslationTab();     break;
 			case 'glossary':        $this->renderGlossaryTab();        break;
 			case 'content':         $this->renderContentTab();         break;
+			case 'menus':           $this->renderMenusTab();           break;
 			case 'advanced':        $this->renderAdvancedTab();        break;
 			case 'troubleshooting': $this->renderTroubleshootingTab(); break;
 		}
@@ -109,32 +111,52 @@ class SettingsPage {
 		$defaultLang = (string) $this->languageManager->getDefaultLanguage();
 
 		echo '<h3>' . esc_html__( 'Active Languages', 'idiomattic-wp' ) . '</h3>';
-		echo '<p class="description">' . esc_html__( 'Select which languages you want to translate your content into.', 'idiomattic-wp' ) . '</p>';
+		echo '<p class="description">' . esc_html__( 'Select the languages you want to translate your content into.', 'idiomattic-wp' ) . '</p>';
 
-		echo '<div class="idiomatticwp-language-selector">';
+		echo '<div class="idiomatticwp-lang-grid">';
 		foreach ( $allLangs as $code => $data ) {
-			$checked = in_array( (string) $code, $activeLangs, true ) ? 'checked' : '';
+			$isActive = in_array( (string) $code, $activeLangs, true );
+			$flagUrl  = $this->getFlagUrl( (string) $code );
+
+			$flagHtml = $flagUrl
+				? sprintf(
+					'<img src="%s" alt="%s" class="idiomatticwp-lang-card__flag">',
+					esc_url( $flagUrl ),
+					esc_attr( $data['name'] )
+				)
+				: sprintf(
+					'<span class="idiomatticwp-lang-card__flag idiomatticwp-flag-fallback">%s</span>',
+					esc_html( strtoupper( substr( (string) $code, 0, 2 ) ) )
+				);
+
 			printf(
-				'<label>
-					<input type="checkbox" name="idiomatticwp_active_langs[]" value="%s" %s>
-					<span>%s <em>(%s)</em></span>
+				'<label class="idiomatticwp-lang-card%s">
+					<input type="checkbox" name="idiomatticwp_active_langs[]" value="%s"%s>
+					<span class="idiomatticwp-lang-card__check dashicons dashicons-yes"></span>
+					%s
+					<span class="idiomatticwp-lang-card__native">%s</span>
+					<span class="idiomatticwp-lang-card__english">%s</span>
 				</label>',
+				$isActive ? ' is-active' : '',
 				esc_attr( (string) $code ),
-				$checked,
+				$isActive ? ' checked' : '',
+				$flagHtml,
 				esc_html( $data['native_name'] ),
 				esc_html( $data['name'] )
 			);
 		}
 		echo '</div>';
 
-		echo '<h3>' . esc_html__( 'Default Language', 'idiomattic-wp' ) . '</h3>';
+		echo '<h3 style="margin-top:28px;">' . esc_html__( 'Default Language', 'idiomattic-wp' ) . '</h3>';
 		echo '<p class="description">' . esc_html__( 'The language your content is originally written in.', 'idiomattic-wp' ) . '</p>';
 		echo '<select name="idiomatticwp_default_lang" style="margin-top:6px;">';
 		foreach ( $allLangs as $code => $data ) {
-			if ( ! in_array( (string) $code, $activeLangs, true ) ) continue;
+			if ( ! in_array( (string) $code, $activeLangs, true ) ) {
+				continue;
+			}
 			$selected = ( (string) $code === $defaultLang ) ? 'selected' : '';
 			printf(
-				'<option value="%s" %s>%s (%s)</option>',
+				'<option value="%s" %s>%s — %s</option>',
 				esc_attr( (string) $code ),
 				$selected,
 				esc_html( $data['native_name'] ),
@@ -142,6 +164,32 @@ class SettingsPage {
 			);
 		}
 		echo '</select>';
+	}
+
+	/**
+	 * Return the URL for a language flag SVG, or empty string if not found.
+	 *
+	 * Flag files are named after the BCP-47 language code (e.g. es.svg, pt-BR.svg).
+	 */
+	private function getFlagUrl( string $code ): string {
+		// Special cases where the SVG is stored under a different name.
+		static $overrides = [
+			'en' => 'us',
+		];
+
+		$filename = $overrides[ $code ] ?? $code;
+
+		if ( file_exists( IDIOMATTICWP_PATH . 'assets/flags/' . $filename . '.svg' ) ) {
+			return IDIOMATTICWP_ASSETS_URL . 'flags/' . $filename . '.svg';
+		}
+
+		// Fallback: try the base code without region (e.g. 'zh' for 'zh-CN').
+		$base = explode( '-', $code )[0];
+		if ( $base !== $code && file_exists( IDIOMATTICWP_PATH . 'assets/flags/' . $base . '.svg' ) ) {
+			return IDIOMATTICWP_ASSETS_URL . 'flags/' . $base . '.svg';
+		}
+
+		return '';
 	}
 
 	// ── Tab: URL Structure ────────────────────────────────────────────────
@@ -674,6 +722,101 @@ class SettingsPage {
 		if ( $defaultLang !== '' && ! empty( $activeLangs ) ) {
 			delete_option( 'idiomatticwp_needs_setup' );
 		}
+	}
+
+	// ── Tab: Menus ────────────────────────────────────────────────────────
+
+	private function renderMenusTab(): void {
+		$activeLangs = $this->languageManager->getActiveLanguages();
+		$navMenus    = wp_get_nav_menus();
+
+		echo '<h3>' . esc_html__( 'Navigation Menu Translations', 'idiomattic-wp' ) . '</h3>';
+		echo '<p class="description">'
+			. esc_html__( 'Assign a WordPress navigation menu to each active language. The correct menu will be displayed automatically to visitors depending on their language.', 'idiomattic-wp' )
+			. '</p>';
+
+		if ( empty( $activeLangs ) ) {
+			echo '<div class="notice notice-warning inline" style="margin:12px 0;"><p>'
+				. esc_html__( 'No active languages configured. Go to the Languages tab first.', 'idiomattic-wp' )
+				. '</p></div>';
+			return;
+		}
+
+		if ( empty( $navMenus ) ) {
+			echo '<div class="notice notice-warning inline" style="margin:12px 0;"><p>';
+			printf(
+				/* translators: %s: link to menus admin page */
+				esc_html__( 'No navigation menus found. %s', 'idiomattic-wp' ),
+				'<a href="' . esc_url( admin_url( 'nav-menus.php' ) ) . '">'
+					. esc_html__( 'Create a menu →', 'idiomattic-wp' )
+					. '</a>'
+			);
+			echo '</p></div>';
+			return;
+		}
+
+		$savedMenus  = (array) get_option( 'idiomatticwp_nav_menus', [] );
+		$defaultLang = (string) $this->languageManager->getDefaultLanguage();
+
+		echo '<table class="form-table idiomatticwp-menus-table" role="presentation" style="max-width:640px;">';
+		echo '<tbody>';
+
+		foreach ( $activeLangs as $lang ) {
+			$code        = (string) $lang;
+			$langData    = $this->languageManager->getAllSupportedLanguages()[ $code ] ?? [];
+			$savedMenuId = (int) ( $savedMenus[ $code ] ?? 0 );
+			$flagUrl     = $this->getFlagUrl( $code );
+			$isDefault   = $code === $defaultLang;
+
+			echo '<tr>';
+			echo '<th scope="row" style="padding:10px 20px 10px 0;vertical-align:middle;">';
+
+			// Flag + language name.
+			echo '<span style="display:flex;align-items:center;gap:8px;">';
+			if ( $flagUrl ) {
+				printf(
+					'<img src="%s" alt="%s" style="width:20px;height:15px;object-fit:cover;border-radius:2px;border:1px solid #dcdcde;">',
+					esc_url( $flagUrl ),
+					esc_attr( $langData['name'] ?? $code )
+				);
+			}
+			echo '<strong>' . esc_html( $langData['native_name'] ?? $code ) . '</strong>';
+			if ( $isDefault ) {
+				echo '&nbsp;<span class="description">(' . esc_html__( 'default', 'idiomattic-wp' ) . ')</span>';
+			}
+			echo '</span>';
+			echo '</th>';
+
+			echo '<td style="padding:10px 0;vertical-align:middle;">';
+			echo '<select name="idiomatticwp_nav_menus[' . esc_attr( $code ) . ']" style="min-width:220px;">';
+			echo '<option value="0">' . esc_html__( '— Not assigned —', 'idiomattic-wp' ) . '</option>';
+
+			foreach ( $navMenus as $menu ) {
+				printf(
+					'<option value="%d"%s>%s</option>',
+					(int) $menu->term_id,
+					selected( $savedMenuId, $menu->term_id, false ),
+					esc_html( $menu->name )
+				);
+			}
+
+			echo '</select>';
+			echo '</td>';
+			echo '</tr>';
+		}
+
+		echo '</tbody>';
+		echo '</table>';
+
+		echo '<p class="description" style="margin-top:16px;">';
+		printf(
+			/* translators: %s: link to menus admin page */
+			esc_html__( 'To create or edit navigation menus visit %s.', 'idiomattic-wp' ),
+			'<a href="' . esc_url( admin_url( 'nav-menus.php' ) ) . '">'
+				. esc_html__( 'Appearance → Menus', 'idiomattic-wp' )
+				. '</a>'
+		);
+		echo '</p>';
 	}
 
 	// ── Tab: Advanced ─────────────────────────────────────────────────────

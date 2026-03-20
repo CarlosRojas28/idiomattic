@@ -106,9 +106,35 @@ class SettingsHooks implements HookRegistrarInterface {
 			'type'    => 'string',
 			'default' => '1',
 		] );
+
+		register_setting( 'idiomatticwp_settings', 'idiomatticwp_nav_menus', [
+			'type'              => 'array',
+			'default'           => [],
+			'sanitize_callback' => [ $this, 'sanitizeNavMenus' ],
+		] );
 	}
 
 	// ── Sanitize callbacks ────────────────────────────────────────────────
+
+	/**
+	 * Sanitize the nav menus option: array of [ lang_code => menu_id ].
+	 */
+	public function sanitizeNavMenus( mixed $input ): array {
+		if ( ! is_array( $input ) ) {
+			return [];
+		}
+
+		$clean = [];
+		foreach ( $input as $code => $menuId ) {
+			$code   = sanitize_key( $code );
+			$menuId = absint( $menuId );
+			if ( $code && $menuId > 0 ) {
+				$clean[ $code ] = $menuId;
+			}
+		}
+
+		return $clean;
+	}
 
 	public function sanitizeActiveLanguages( mixed $input ): array {
 		if ( ! is_array( $input ) ) return [];
