@@ -1003,6 +1003,79 @@ class SettingsPage {
 				}
 			}
 		}
+
+		// ── Notifications ─────────────────────────────────────────────────
+		$notifyEnabled = get_option( 'idiomatticwp_notify_outdated', '' );
+		$notifyEmail   = get_option( 'idiomatticwp_notify_email', get_option( 'admin_email' ) );
+		$notifyMode    = get_option( 'idiomatticwp_notify_mode', 'immediate' );
+
+		echo '<h3>' . esc_html__( 'Email Notifications', 'idiomattic-wp' ) . '</h3>';
+		echo '<table class="form-table" style="max-width:680px;"><tbody>';
+
+		echo '<tr><th scope="row">' . esc_html__( 'Outdated translations', 'idiomattic-wp' ) . '</th><td>';
+		printf(
+			'<label><input type="checkbox" name="idiomatticwp_notify_outdated" value="1" %s> %s</label><p class="description">%s</p>',
+			checked( $notifyEnabled, '1', false ),
+			esc_html__( 'Send an email when translations become outdated', 'idiomattic-wp' ),
+			esc_html__( 'Triggered when you update a post that has translations.', 'idiomattic-wp' )
+		);
+		echo '</td></tr>';
+
+		echo '<tr><th scope="row"><label for="idiomatticwp_notify_email">' . esc_html__( 'Recipient email', 'idiomattic-wp' ) . '</label></th><td>';
+		printf(
+			'<input type="email" id="idiomatticwp_notify_email" name="idiomatticwp_notify_email" value="%s" class="regular-text">',
+			esc_attr( $notifyEmail )
+		);
+		echo '</td></tr>';
+
+		echo '<tr><th scope="row">' . esc_html__( 'Notification mode', 'idiomattic-wp' ) . '</th><td>';
+		printf( '<label><input type="radio" name="idiomatticwp_notify_mode" value="immediate" %s> %s</label><br>', checked( $notifyMode, 'immediate', false ), esc_html__( 'Immediate — send one email per event', 'idiomattic-wp' ) );
+		printf( '<label><input type="radio" name="idiomatticwp_notify_mode" value="digest" %s> %s</label>', checked( $notifyMode, 'digest', false ), esc_html__( 'Daily digest — batch all events into one email per day', 'idiomattic-wp' ) );
+		echo '</td></tr>';
+
+		echo '</tbody></table>';
+
+		// ── Webhooks ─────────────────────────────────────────────────────
+		$webhookUrl    = get_option( 'idiomatticwp_webhook_url', '' );
+		$webhookSecret = get_option( 'idiomatticwp_webhook_secret', '' );
+		$webhookEvents = (array) get_option( 'idiomatticwp_webhook_events', [ 'translation.completed', 'translation.outdated' ] );
+
+		echo '<h3>' . esc_html__( 'Webhooks', 'idiomattic-wp' ) . '</h3>';
+		echo '<p class="description">' . esc_html__( 'Send HTTP POST notifications to an external URL when translation events occur. Payloads are signed with HMAC-SHA256.', 'idiomattic-wp' ) . '</p>';
+		echo '<table class="form-table" style="max-width:680px;"><tbody>';
+
+		echo '<tr><th scope="row"><label for="idiomatticwp_webhook_url">' . esc_html__( 'Endpoint URL', 'idiomattic-wp' ) . '</label></th><td>';
+		printf(
+			'<input type="url" id="idiomatticwp_webhook_url" name="idiomatticwp_webhook_url" value="%s" class="regular-text" placeholder="https://your-app.com/webhook">',
+			esc_attr( $webhookUrl )
+		);
+		echo '</td></tr>';
+
+		echo '<tr><th scope="row"><label for="idiomatticwp_webhook_secret">' . esc_html__( 'Signing secret', 'idiomattic-wp' ) . '</label></th><td>';
+		printf(
+			'<input type="text" id="idiomatticwp_webhook_secret" name="idiomatticwp_webhook_secret" value="%s" class="regular-text" placeholder="%s">',
+			esc_attr( $webhookSecret ),
+			esc_attr__( 'Optional — used to sign payloads with HMAC-SHA256', 'idiomattic-wp' )
+		);
+		echo '</td></tr>';
+
+		$allEvents = [
+			'translation.completed' => __( 'Translation completed (AI finished)', 'idiomattic-wp' ),
+			'translation.outdated'  => __( 'Translation outdated (source post updated)', 'idiomattic-wp' ),
+			'translation.queued'    => __( 'Translation queued (job dispatched)', 'idiomattic-wp' ),
+		];
+		echo '<tr><th scope="row">' . esc_html__( 'Events', 'idiomattic-wp' ) . '</th><td>';
+		foreach ( $allEvents as $eventKey => $eventLabel ) {
+			printf(
+				'<label style="display:block;margin-bottom:4px;"><input type="checkbox" name="idiomatticwp_webhook_events[]" value="%s" %s> %s</label>',
+				esc_attr( $eventKey ),
+				in_array( $eventKey, $webhookEvents, true ) ? 'checked' : '',
+				esc_html( $eventLabel )
+			);
+		}
+		echo '</td></tr>';
+
+		echo '</tbody></table>';
 	}
 
 	// ── Tab: Troubleshooting ──────────────────────────────────────────────

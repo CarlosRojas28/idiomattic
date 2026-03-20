@@ -121,6 +121,51 @@ class SettingsHooks implements HookRegistrarInterface {
 			'type'    => 'array',
 			'default' => [],
 		] );
+
+		// ── Notifications ──────────────────────────────────────────────────
+		register_setting( 'idiomatticwp_settings', 'idiomatticwp_notify_outdated', [
+			'type'    => 'string',
+			'default' => '',
+		] );
+		register_setting( 'idiomatticwp_settings', 'idiomatticwp_notify_email', [
+			'type'              => 'string',
+			'sanitize_callback' => 'sanitize_email',
+			'default'           => '',
+		] );
+		register_setting( 'idiomatticwp_settings', 'idiomatticwp_notify_mode', [
+			'type'              => 'string',
+			'sanitize_callback' => [ $this, 'sanitizeNotifyMode' ],
+			'default'           => 'immediate',
+		] );
+
+		// ── Webhooks ───────────────────────────────────────────────────────
+		register_setting( 'idiomatticwp_settings', 'idiomatticwp_webhook_url', [
+			'type'              => 'string',
+			'sanitize_callback' => 'esc_url_raw',
+			'default'           => '',
+		] );
+		register_setting( 'idiomatticwp_settings', 'idiomatticwp_webhook_secret', [
+			'type'              => 'string',
+			'sanitize_callback' => 'sanitize_text_field',
+			'default'           => '',
+		] );
+		register_setting( 'idiomatticwp_settings', 'idiomatticwp_webhook_events', [
+			'type'              => 'array',
+			'sanitize_callback' => [ $this, 'sanitizeWebhookEvents' ],
+			'default'           => [ 'translation.completed', 'translation.outdated' ],
+		] );
+	}
+
+	public function sanitizeNotifyMode( mixed $input ): string {
+		return in_array( $input, [ 'immediate', 'digest' ], true ) ? (string) $input : 'immediate';
+	}
+
+	public function sanitizeWebhookEvents( mixed $input ): array {
+		if ( ! is_array( $input ) ) {
+			return [];
+		}
+		$allowed = [ 'translation.completed', 'translation.outdated', 'translation.queued' ];
+		return array_values( array_filter( $input, fn( $e ) => in_array( $e, $allowed, true ) ) );
 	}
 
 	// ── Sanitize callbacks ────────────────────────────────────────────────

@@ -64,6 +64,8 @@ class HookLoader {
 			\IdiomatticWP\Hooks\Translation\StringTranslationHooks::class,
 			\IdiomatticWP\Hooks\Translation\PostTranslationHooks::class,
 			\IdiomatticWP\Hooks\Translation\FieldTranslationHooks::class,
+			\IdiomatticWP\Hooks\Translation\NotificationHooks::class,
+			\IdiomatticWP\Hooks\Translation\WebhookHooks::class,
 		];
 
 		// ── Queue hooks ───────────────────────────────────────────────────────

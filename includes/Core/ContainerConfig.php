@@ -426,6 +426,32 @@ class ContainerConfig {
 			)
 		);
 
+		// ── Phase 6b: Notifications & Webhooks ───────────────────────────────
+
+		$c->singleton(
+			\IdiomatticWP\Notifications\OutdatedTranslationNotifier::class,
+			fn( $c ) => new \IdiomatticWP\Notifications\OutdatedTranslationNotifier()
+		);
+
+		$c->singleton(
+			\IdiomatticWP\Hooks\Translation\NotificationHooks::class,
+			fn( $c ) => new \IdiomatticWP\Hooks\Translation\NotificationHooks(
+				$c->get( \IdiomatticWP\Notifications\OutdatedTranslationNotifier::class )
+			)
+		);
+
+		$c->singleton(
+			\IdiomatticWP\Webhooks\WebhookDispatcher::class,
+			fn( $c ) => new \IdiomatticWP\Webhooks\WebhookDispatcher()
+		);
+
+		$c->singleton(
+			\IdiomatticWP\Hooks\Translation\WebhookHooks::class,
+			fn( $c ) => new \IdiomatticWP\Hooks\Translation\WebhookHooks(
+				$c->get( \IdiomatticWP\Webhooks\WebhookDispatcher::class )
+			)
+		);
+
 		// ── Phase 7: BYOK Providers ───────────────────────────────────────────
 
 		$c->singleton(
