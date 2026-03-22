@@ -31,6 +31,12 @@ class SwitcherHooks implements HookRegistrarInterface {
 
 		// Shortcode — [idiomatticwp_switcher]
 		add_shortcode( 'idiomatticwp_switcher', [ $this, 'renderShortcode' ] );
+
+		// Template action hook — do_action( 'idiomatticwp_language_switcher', $args )
+		// Theme developers can place the switcher anywhere in their templates:
+		//   <?php do_action( 'idiomatticwp_language_switcher' ); ?>
+		//   <?php do_action( 'idiomatticwp_language_switcher', [ 'style' => 'dropdown' ] ); ?>
+		add_action( 'idiomatticwp_language_switcher', [ $this, 'renderAction' ] );
 	}
 
 	// ── Callbacks ─────────────────────────────────────────────────────────
@@ -39,7 +45,7 @@ class SwitcherHooks implements HookRegistrarInterface {
 	 * Render the language switcher shortcode.
 	 *
 	 * Supported attributes (all optional):
-	 *   style             list|dropdown       default: list
+	 *   style             list|dropdown|nav-dropdown|flags-only|floating  default: list
 	 *   show_flags        true|false          default: true
 	 *   show_names        true|false          default: true
 	 *   show_native_names true|false          default: false
@@ -75,6 +81,21 @@ class SwitcherHooks implements HookRegistrarInterface {
 		];
 
 		return $this->switcher->render( $args );
+	}
+
+	// ── Callbacks ─────────────────────────────────────────────────────────
+
+	/**
+	 * Render the switcher in response to the `idiomatticwp_language_switcher` action.
+	 *
+	 * Usage in theme templates:
+	 *   <?php do_action( 'idiomatticwp_language_switcher' ); ?>
+	 *   <?php do_action( 'idiomatticwp_language_switcher', [ 'style' => 'nav-dropdown' ] ); ?>
+	 *
+	 * @param array $args Optional render args (same as LanguageSwitcher::render()).
+	 */
+	public function renderAction( array $args = [] ): void {
+		echo $this->switcher->render( $args ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 
 	// ── Helpers ───────────────────────────────────────────────────────────

@@ -20,7 +20,7 @@ class EncryptionService
     {
         $key = $this->getKey();
         $ivLength = openssl_cipher_iv_length($this->method);
-        $iv = openssl_random_pseudo_bytes($ivLength);
+        $iv = random_bytes($ivLength);
 
         $encrypted = openssl_encrypt($value, $this->method, $key, 0, $iv);
 
@@ -51,10 +51,17 @@ class EncryptionService
 
     private function getKey(): string
     {
-        // Use salt from wp-config if available
-        $salt = defined('AUTH_KEY') ? AUTH_KEY : 'default-salt-idiomattic';
-        $secureSalt = defined('SECURE_AUTH_KEY') ? SECURE_AUTH_KEY : 'idiomattic-fallback-2026';
+        if ( ! defined('AUTH_KEY') || AUTH_KEY === 'put your unique phrase here' ) {
+            throw new \RuntimeException(
+                'AUTH_KEY is not defined or is still the default value in wp-config.php. ' .
+                'API keys cannot be encrypted securely.'
+            );
+        }
 
-        return hash_pbkdf2('sha256', $salt, $secureSalt, 1000, 32, true);
+        $salt       = AUTH_KEY;
+        $secureSalt = defined('SECURE_AUTH_KEY') ? SECURE_AUTH_KEY : AUTH_KEY;
+
+        // 100,000 iterations is the current OWASP minimum for PBKDF2-SHA256.
+        return hash_pbkdf2('sha256', $salt, $secureSalt, 100_000, 32, true);
     }
 }

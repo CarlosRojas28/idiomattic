@@ -30,6 +30,26 @@ class AutoTranslateAjax {
 
 	// ── Translate ALL fields ──────────────────────────────────────────────
 
+	/**
+	 * Handle wp_ajax_idiomatticwp_ai_translate_all.
+	 *
+	 * Translates every field of the given translated post via the AI orchestrator,
+	 * saves the results to the database, then returns the freshly-updated field
+	 * values so the Translation Editor can refresh without a page reload.
+	 *
+	 * Expected POST parameters:
+	 *   nonce   — wp_nonce value for 'idiomatticwp_nonce'
+	 *   post_id — (int) translated post ID (NOT the source post ID)
+	 *
+	 * On success responds with:
+	 *   { success: true, data: { title, content, excerpt, custom_fields, stats } }
+	 *
+	 * On failure responds with:
+	 *   { success: false, data: { message, code } }
+	 *   code: 'invalid_api_key' | 'rate_limit' | 'provider_unavailable' | 'runtime_error' | 'unknown'
+	 *
+	 * Sends JSON and exits — never returns normally.
+	 */
 	public function handleAll(): void {
 		check_ajax_referer( 'idiomatticwp_nonce', 'nonce' );
 
@@ -117,8 +137,26 @@ class AutoTranslateAjax {
 	// ── Translate ONE field ───────────────────────────────────────────────
 
 	/**
-	 * Translate a single field and return the translated value.
-	 * Supports core fields (title/content/excerpt) and any registered custom meta key.
+	 * Handle wp_ajax_idiomatticwp_ai_translate_field.
+	 *
+	 * Translates a single field of the given translated post and returns the
+	 * translated value. Supports core fields (title / content / excerpt) and
+	 * any custom meta key registered via the CustomElementRegistry.
+	 *
+	 * Expected POST parameters:
+	 *   nonce   — wp_nonce value for 'idiomatticwp_nonce'
+	 *   post_id — (int) translated post ID
+	 *   field   — (string) field name: 'title', 'content', 'excerpt', or a meta key
+	 *
+	 * On success responds with:
+	 *   { success: true, data: { value: string } }
+	 *   When the source field is empty, value is an empty string (no API call is made).
+	 *
+	 * On failure responds with:
+	 *   { success: false, data: { message, code } }
+	 *   code: 'invalid_api_key' | 'rate_limit' | 'error'
+	 *
+	 * Sends JSON and exits — never returns normally.
 	 */
 	public function handleField(): void {
 		check_ajax_referer( 'idiomatticwp_nonce', 'nonce' );

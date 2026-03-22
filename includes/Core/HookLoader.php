@@ -34,6 +34,7 @@ class HookLoader {
 		if ( is_admin() ) {
 			$adminHooks = [
 				\IdiomatticWP\Hooks\Admin\AdminMenuHooks::class,
+				\IdiomatticWP\Hooks\Admin\OnboardingHooks::class,
 				\IdiomatticWP\Hooks\Admin\TranslationEditorHooks::class,
 				\IdiomatticWP\Hooks\Admin\AdminLanguageBar::class,
 				\IdiomatticWP\Hooks\Admin\AdminLanguageFilter::class,
@@ -42,6 +43,8 @@ class HookLoader {
 				\IdiomatticWP\Hooks\Admin\AjaxHooks::class,
 				\IdiomatticWP\Hooks\Admin\AssetHooks::class,
 				\IdiomatticWP\Hooks\Admin\SettingsHooks::class,
+				\IdiomatticWP\Hooks\Admin\LanguageActivationHooks::class,
+				\IdiomatticWP\Hooks\Admin\AdminLanguagePreferenceHooks::class,
 				\IdiomatticWP\Admin\Pages\WpmlMigrationPage::class,
 			];
 		}
@@ -50,12 +53,15 @@ class HookLoader {
 		$frontendHooks = [];
 		if ( ! is_admin() ) {
 			$frontendHooks = [
-				\IdiomatticWP\Hooks\Frontend\CanonicalHooks::class,      // canonical URL lang-aware
-				\IdiomatticWP\Hooks\Frontend\HreflangHooks::class,       // <link rel="alternate">
-				\IdiomatticWP\Hooks\Frontend\SwitcherHooks::class,       // widget + shortcode
-				\IdiomatticWP\Hooks\Frontend\FrontendAssetHooks::class,  // CSS + RTL + lang attr
-				\IdiomatticWP\Hooks\Frontend\NavMenuHooks::class,        // nav menus localized
-				\IdiomatticWP\Hooks\Frontend\ThemeOptionsHooks::class,   // options + widgets translated
+				\IdiomatticWP\Hooks\Frontend\CanonicalHooks::class,         // canonical URL lang-aware
+				\IdiomatticWP\Hooks\Frontend\HreflangHooks::class,          // <link rel="alternate">
+				\IdiomatticWP\Hooks\Frontend\SwitcherHooks::class,          // widget + shortcode
+				\IdiomatticWP\Hooks\Frontend\FrontendAssetHooks::class,     // CSS + RTL + lang attr
+				\IdiomatticWP\Hooks\Frontend\NavMenuHooks::class,           // nav menus localized
+				\IdiomatticWP\Hooks\Frontend\ThemeOptionsHooks::class,      // options + widgets translated
+				\IdiomatticWP\Hooks\Frontend\ContentVisibilityHooks::class,    // hide translations of non-translatable types
+				\IdiomatticWP\Hooks\Frontend\NavMenuSwitcherHooks::class,       // inject language items into nav menus
+				\IdiomatticWP\Hooks\Frontend\PostTranslationsDisplayHooks::class, // "Also available in:" content notice
 			];
 		}
 
@@ -66,6 +72,8 @@ class HookLoader {
 			\IdiomatticWP\Hooks\Translation\FieldTranslationHooks::class,
 			\IdiomatticWP\Hooks\Translation\NotificationHooks::class,
 			\IdiomatticWP\Hooks\Translation\WebhookHooks::class,
+			\IdiomatticWP\Hooks\Translation\TranslationMemoryHooks::class,
+			\IdiomatticWP\Hooks\Translation\TranslateOnPublishHooks::class,
 		];
 
 		// ── Queue hooks ───────────────────────────────────────────────────────

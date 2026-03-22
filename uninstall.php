@@ -34,13 +34,19 @@ if ( $retention !== '1' ) {
 
 // Always clean up options
 $wpdb->query(
-	"DELETE FROM {$wpdb->options}
-	 WHERE option_name LIKE 'idiomatticwp_%'"
+	$wpdb->prepare(
+		"DELETE FROM {$wpdb->options} WHERE option_name LIKE %s",
+		$wpdb->esc_like( 'idiomatticwp_' ) . '%'
+	)
 );
 
 // Clean up transients
 $wpdb->query(
-	"DELETE FROM {$wpdb->options}
-	 WHERE option_name LIKE '_transient_idiomatticwp_%'
-	    OR option_name LIKE '_transient_timeout_idiomatticwp_%'"
+	$wpdb->prepare(
+		"DELETE FROM {$wpdb->options}
+		 WHERE option_name LIKE %s
+		    OR option_name LIKE %s",
+		$wpdb->esc_like( '_transient_idiomatticwp_' ) . '%',
+		$wpdb->esc_like( '_transient_timeout_idiomatticwp_' ) . '%'
+	)
 );

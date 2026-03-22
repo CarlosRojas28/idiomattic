@@ -108,7 +108,10 @@ class ContainerConfig {
 			\IdiomatticWP\Hooks\Admin\PostListHooks::class,
 			fn( $c ) => new \IdiomatticWP\Hooks\Admin\PostListHooks(
 				$c->get( \IdiomatticWP\Core\LanguageManager::class ),
-				$c->get( \IdiomatticWP\Contracts\TranslationRepositoryInterface::class )
+				$c->get( \IdiomatticWP\Contracts\TranslationRepositoryInterface::class ),
+				$c->get( \IdiomatticWP\Core\CustomElementRegistry::class ),
+				$c->get( \IdiomatticWP\Translation\CreateTranslation::class ),
+				$c->get( \IdiomatticWP\Queue\TranslationQueue::class )
 			)
 		);
 
@@ -167,7 +170,8 @@ class ContainerConfig {
 				$c->get( \IdiomatticWP\Contracts\TranslationRepositoryInterface::class ),
 				$c->get( \IdiomatticWP\Core\LanguageManager::class ),
 				$c->get( \IdiomatticWP\Admin\Metaboxes\TranslationsMetabox::class ),
-				$c->get( \IdiomatticWP\Admin\Metaboxes\TranslationOriginMetabox::class )
+				$c->get( \IdiomatticWP\Admin\Metaboxes\TranslationOriginMetabox::class ),
+				$c->get( \IdiomatticWP\Core\CustomElementRegistry::class )
 			)
 		);
 
@@ -205,12 +209,65 @@ class ContainerConfig {
 		);
 
 		$c->singleton(
+			\IdiomatticWP\Admin\Ajax\ScanStringsAjax::class,
+			fn( $c ) => new \IdiomatticWP\Admin\Ajax\ScanStringsAjax(
+				$c->get( \IdiomatticWP\Strings\StringScanner::class ),
+				$c->get( \IdiomatticWP\Repositories\StringRepository::class ),
+				$c->get( \IdiomatticWP\Core\LanguageManager::class ),
+				$c->get( \IdiomatticWP\Strings\LanguagePackImporter::class )
+			)
+		);
+
+		$c->singleton(
+			\IdiomatticWP\Admin\Ajax\RegisterStringLangAjax::class,
+			fn( $c ) => new \IdiomatticWP\Admin\Ajax\RegisterStringLangAjax(
+				$c->get( \IdiomatticWP\Repositories\StringRepository::class ),
+				$c->get( \IdiomatticWP\Core\LanguageManager::class )
+			)
+		);
+
+		$c->singleton(
+			\IdiomatticWP\Admin\Ajax\AutoTranslateStringsAjax::class,
+			fn( $c ) => new \IdiomatticWP\Admin\Ajax\AutoTranslateStringsAjax(
+				$c->get( \IdiomatticWP\Repositories\StringRepository::class ),
+				$c->get( \IdiomatticWP\Providers\ProviderFactory::class )->make(),
+				$c->get( \IdiomatticWP\Core\LanguageManager::class ),
+				$c->get( \IdiomatticWP\License\LicenseChecker::class ),
+				$c->get( \IdiomatticWP\Strings\MoCompiler::class )
+			)
+		);
+
+		$c->singleton(
+			\IdiomatticWP\Admin\Ajax\LinkTranslationAjax::class,
+			fn( $c ) => new \IdiomatticWP\Admin\Ajax\LinkTranslationAjax(
+				$c->get( \IdiomatticWP\Contracts\TranslationRepositoryInterface::class ),
+				$c->get( \IdiomatticWP\Core\LanguageManager::class )
+			)
+		);
+
+		$c->singleton(
+			\IdiomatticWP\Admin\Ajax\TranslateSingleStringAjax::class,
+			fn( $c ) => new \IdiomatticWP\Admin\Ajax\TranslateSingleStringAjax(
+				$c->get( \IdiomatticWP\Repositories\StringRepository::class ),
+				$c->get( \IdiomatticWP\Providers\ProviderFactory::class )->make(),
+				$c->get( \IdiomatticWP\Core\LanguageManager::class ),
+				$c->get( \IdiomatticWP\License\LicenseChecker::class ),
+				$c->get( \IdiomatticWP\Strings\MoCompiler::class )
+			)
+		);
+
+		$c->singleton(
 			\IdiomatticWP\Hooks\Admin\AjaxHooks::class,
 			fn( $c ) => new \IdiomatticWP\Hooks\Admin\AjaxHooks(
 				$c->get( \IdiomatticWP\Admin\Ajax\CreateTranslationAjax::class ),
 				$c->get( \IdiomatticWP\Admin\Ajax\GetTranslationStatusAjax::class ),
 				$c->get( \IdiomatticWP\Admin\Ajax\AutoTranslateAjax::class ),
-				$c->get( \IdiomatticWP\Admin\Ajax\SaveFieldTranslationAjax::class )
+				$c->get( \IdiomatticWP\Admin\Ajax\AutoTranslateStringsAjax::class ),
+				$c->get( \IdiomatticWP\Admin\Ajax\SaveFieldTranslationAjax::class ),
+				$c->get( \IdiomatticWP\Admin\Ajax\ScanStringsAjax::class ),
+				$c->get( \IdiomatticWP\Admin\Ajax\RegisterStringLangAjax::class ),
+				$c->get( \IdiomatticWP\Admin\Ajax\LinkTranslationAjax::class ),
+				$c->get( \IdiomatticWP\Admin\Ajax\TranslateSingleStringAjax::class )
 			)
 		);
 
@@ -226,7 +283,26 @@ class ContainerConfig {
 				$c->get( \IdiomatticWP\Core\LanguageManager::class ),
 				$c->get( \IdiomatticWP\License\LicenseChecker::class ),
 				$c->get( \IdiomatticWP\Translation\FieldTranslator::class ),
-				$c->get( \IdiomatticWP\Core\CustomElementRegistry::class )
+				$c->get( \IdiomatticWP\Core\CustomElementRegistry::class ),
+				$c->get( \IdiomatticWP\Memory\TranslationMemory::class )
+			)
+		);
+
+		$c->singleton(
+			\IdiomatticWP\Hooks\Translation\TranslationMemoryHooks::class,
+			fn( $c ) => new \IdiomatticWP\Hooks\Translation\TranslationMemoryHooks(
+				$c->get( \IdiomatticWP\Memory\TranslationMemory::class )
+			)
+		);
+
+		$c->singleton(
+			\IdiomatticWP\Hooks\Translation\TranslateOnPublishHooks::class,
+			fn( $c ) => new \IdiomatticWP\Hooks\Translation\TranslateOnPublishHooks(
+				$c->get( \IdiomatticWP\Core\LanguageManager::class ),
+				$c->get( \IdiomatticWP\Contracts\TranslationRepositoryInterface::class ),
+				$c->get( \IdiomatticWP\Translation\CreateTranslation::class ),
+				$c->get( \IdiomatticWP\Queue\TranslationQueue::class ),
+				$c->get( \IdiomatticWP\License\LicenseChecker::class )
 			)
 		);
 
@@ -241,7 +317,8 @@ class ContainerConfig {
 		$c->singleton(
 			\IdiomatticWP\Hooks\Admin\AdminLanguageBar::class,
 			fn( $c ) => new \IdiomatticWP\Hooks\Admin\AdminLanguageBar(
-				$c->get( \IdiomatticWP\Core\LanguageManager::class )
+				$c->get( \IdiomatticWP\Core\LanguageManager::class ),
+				$c->get( \IdiomatticWP\Contracts\TranslationRepositoryInterface::class )
 			)
 		);
 
@@ -250,7 +327,8 @@ class ContainerConfig {
 			fn( $c ) => new \IdiomatticWP\Hooks\Admin\AdminLanguageFilter(
 				$c->get( \IdiomatticWP\Core\LanguageManager::class ),
 				$c->get( \IdiomatticWP\Hooks\Admin\AdminLanguageBar::class ),
-				$GLOBALS['wpdb']
+				$GLOBALS['wpdb'],
+				$c->get( \IdiomatticWP\Core\CustomElementRegistry::class )
 			)
 		);
 
@@ -269,7 +347,8 @@ class ContainerConfig {
 				$c->get( \IdiomatticWP\License\LicenseChecker::class ),
 				$c->get( \IdiomatticWP\Providers\ProviderRegistry::class ),
 				$c->get( \IdiomatticWP\Support\EncryptionService::class ),
-				$c->get( \IdiomatticWP\Core\CustomElementRegistry::class )
+				$c->get( \IdiomatticWP\Core\CustomElementRegistry::class ),
+				$c->get( \IdiomatticWP\Glossary\WpdbGlossaryRepository::class )
 			)
 		);
 
@@ -293,6 +372,21 @@ class ContainerConfig {
 		);
 
 		$c->singleton(
+			\IdiomatticWP\Repositories\StringRepository::class,
+			fn( $c ) => new \IdiomatticWP\Repositories\StringRepository( $GLOBALS['wpdb'] )
+		);
+
+		$c->singleton(
+			\IdiomatticWP\Admin\Pages\StringTranslationPage::class,
+			fn( $c ) => new \IdiomatticWP\Admin\Pages\StringTranslationPage(
+				$c->get( \IdiomatticWP\Core\LanguageManager::class ),
+				$c->get( \IdiomatticWP\Repositories\StringRepository::class ),
+				$c->get( \IdiomatticWP\Strings\MoCompiler::class ),
+				$c->get( \IdiomatticWP\License\LicenseChecker::class )
+			)
+		);
+
+		$c->singleton(
 			\IdiomatticWP\Admin\Pages\CompatibilityPage::class,
 			fn( $c ) => new \IdiomatticWP\Admin\Pages\CompatibilityPage(
 				$c->get( \IdiomatticWP\Compatibility\CompatibilityScanner::class ),
@@ -303,11 +397,51 @@ class ContainerConfig {
 		);
 
 		$c->singleton(
+			\IdiomatticWP\Admin\Pages\ImportExportPage::class,
+			fn( $c ) => new \IdiomatticWP\Admin\Pages\ImportExportPage(
+				$c->get( \IdiomatticWP\Core\LanguageManager::class ),
+				$c->get( \IdiomatticWP\ImportExport\Exporter::class ),
+				$c->get( \IdiomatticWP\ImportExport\Importer::class )
+			)
+		);
+
+		$c->singleton(
+			\IdiomatticWP\Admin\Pages\ContentTranslationPage::class,
+			fn( $c ) => new \IdiomatticWP\Admin\Pages\ContentTranslationPage(
+				$c->get( \IdiomatticWP\Core\LanguageManager::class ),
+				$c->get( \IdiomatticWP\Contracts\TranslationRepositoryInterface::class ),
+				$c->get( \IdiomatticWP\Core\CustomElementRegistry::class ),
+				$c->get( \IdiomatticWP\Translation\CreateTranslation::class ),
+				$c->get( \IdiomatticWP\Queue\TranslationQueue::class ),
+				$c->get( \IdiomatticWP\License\LicenseChecker::class )
+			)
+		);
+
+		$c->singleton(
+			\IdiomatticWP\Admin\Pages\OnboardingPage::class,
+			fn( $c ) => new \IdiomatticWP\Admin\Pages\OnboardingPage(
+				$c->get( \IdiomatticWP\Core\LanguageManager::class )
+			)
+		);
+
+		$c->singleton(
+			\IdiomatticWP\Hooks\Admin\OnboardingHooks::class,
+			fn( $c ) => new \IdiomatticWP\Hooks\Admin\OnboardingHooks(
+				$c->get( \IdiomatticWP\Core\LanguageManager::class )
+			)
+		);
+
+		$c->singleton(
 			\IdiomatticWP\Hooks\Admin\AdminMenuHooks::class,
 			fn( $c ) => new \IdiomatticWP\Hooks\Admin\AdminMenuHooks(
 				$c->get( \IdiomatticWP\Admin\Pages\DashboardPage::class ),
 				$c->get( \IdiomatticWP\Admin\Pages\SettingsPage::class ),
-				$c->get( \IdiomatticWP\Admin\Pages\CompatibilityPage::class )
+				$c->get( \IdiomatticWP\Admin\Pages\CompatibilityPage::class ),
+				$c->get( \IdiomatticWP\Admin\Pages\StringTranslationPage::class ),
+				$c->get( \IdiomatticWP\Admin\Pages\ImportExportPage::class ),
+				$c->get( \IdiomatticWP\Admin\Pages\ContentTranslationPage::class ),
+				$c->get( \IdiomatticWP\Admin\Pages\OnboardingPage::class ),
+				$c->get( \IdiomatticWP\Core\LanguageManager::class )
 			)
 		);
 
@@ -331,6 +465,14 @@ class ContainerConfig {
 			fn( $c ) => new \IdiomatticWP\Frontend\LanguageSwitcher(
 				$c->get( \IdiomatticWP\Core\LanguageManager::class ),
 				$c->get( \IdiomatticWP\Contracts\UrlStrategyInterface::class ),
+				$c->get( \IdiomatticWP\Contracts\TranslationRepositoryInterface::class )
+			)
+		);
+
+		$c->singleton(
+			\IdiomatticWP\Frontend\PostTranslationsDisplay::class,
+			fn( $c ) => new \IdiomatticWP\Frontend\PostTranslationsDisplay(
+				$c->get( \IdiomatticWP\Core\LanguageManager::class ),
 				$c->get( \IdiomatticWP\Contracts\TranslationRepositoryInterface::class )
 			)
 		);
@@ -383,11 +525,33 @@ class ContainerConfig {
 		);
 
 		$c->singleton(
+			\IdiomatticWP\Hooks\Frontend\NavMenuSwitcherHooks::class,
+			fn( $c ) => new \IdiomatticWP\Hooks\Frontend\NavMenuSwitcherHooks(
+				$c->get( \IdiomatticWP\Frontend\LanguageSwitcher::class )
+			)
+		);
+
+		$c->singleton(
+			\IdiomatticWP\Hooks\Frontend\PostTranslationsDisplayHooks::class,
+			fn( $c ) => new \IdiomatticWP\Hooks\Frontend\PostTranslationsDisplayHooks(
+				$c->get( \IdiomatticWP\Frontend\PostTranslationsDisplay::class )
+			)
+		);
+
+		$c->singleton(
 			\IdiomatticWP\Hooks\Frontend\ThemeOptionsHooks::class,
 			fn( $c ) => new \IdiomatticWP\Hooks\Frontend\ThemeOptionsHooks(
 				$c->get( \IdiomatticWP\Core\LanguageManager::class ),
 				$c->get( \IdiomatticWP\Core\CustomElementRegistry::class ),
 				$c->get( \IdiomatticWP\Strings\StringTranslator::class )
+			)
+		);
+
+		$c->singleton(
+			\IdiomatticWP\Hooks\Frontend\ContentVisibilityHooks::class,
+			fn( $c ) => new \IdiomatticWP\Hooks\Frontend\ContentVisibilityHooks(
+				$GLOBALS['wpdb'],
+				$c->get( \IdiomatticWP\Core\CustomElementRegistry::class )
 			)
 		);
 
@@ -404,9 +568,35 @@ class ContainerConfig {
 		);
 
 		$c->singleton(
+			\IdiomatticWP\Strings\PoParser::class,
+			fn( $c ) => new \IdiomatticWP\Strings\PoParser()
+		);
+
+		$c->singleton(
+			\IdiomatticWP\Strings\LanguagePackImporter::class,
+			fn( $c ) => new \IdiomatticWP\Strings\LanguagePackImporter(
+				$c->get( \IdiomatticWP\Repositories\StringRepository::class ),
+				$c->get( \IdiomatticWP\Strings\PoParser::class )
+			)
+		);
+
+		$c->singleton(
+			\IdiomatticWP\Hooks\Admin\LanguageActivationHooks::class,
+			fn( $c ) => new \IdiomatticWP\Hooks\Admin\LanguageActivationHooks(
+				$c->get( \IdiomatticWP\Strings\LanguagePackImporter::class )
+			)
+		);
+
+		$c->singleton(
+			\IdiomatticWP\Hooks\Admin\AdminLanguagePreferenceHooks::class,
+			fn( $c ) => new \IdiomatticWP\Hooks\Admin\AdminLanguagePreferenceHooks(
+				$c->get( LanguageManager::class )
+			)
+		);
+
+		$c->singleton(
 			\IdiomatticWP\Strings\MoCompiler::class,
 			fn( $c ) => new \IdiomatticWP\Strings\MoCompiler(
-				$c->get( \IdiomatticWP\Strings\StringTranslator::class ),
 				$GLOBALS['wpdb']
 			)
 		);
@@ -556,7 +746,8 @@ class ContainerConfig {
 			fn( $c ) => new \IdiomatticWP\Integrations\REST\RestApiIntegration(
 				$c->get( \IdiomatticWP\Core\LanguageManager::class ),
 				$c->get( \IdiomatticWP\Contracts\TranslationRepositoryInterface::class ),
-				$c->get( \IdiomatticWP\License\LicenseChecker::class )
+				$c->get( \IdiomatticWP\License\LicenseChecker::class ),
+				$c->get( \IdiomatticWP\Repositories\StringRepository::class )
 			)
 		);
 
@@ -725,10 +916,27 @@ class ContainerConfig {
 		);
 
 		$c->singleton(
+			\IdiomatticWP\Migration\PolylangDetector::class,
+			fn( $c ) => new \IdiomatticWP\Migration\PolylangDetector( $GLOBALS['wpdb'] )
+		);
+
+		$c->singleton(
+			\IdiomatticWP\Migration\PolylangMigrator::class,
+			fn( $c ) => new \IdiomatticWP\Migration\PolylangMigrator(
+				$GLOBALS['wpdb'],
+				$c->get( \IdiomatticWP\Migration\PolylangDetector::class ),
+				$c->get( \IdiomatticWP\Core\LanguageManager::class ),
+				$c->get( \IdiomatticWP\Infrastructure\WpdbTranslationRepository::class )
+			)
+		);
+
+		$c->singleton(
 			\IdiomatticWP\Admin\Pages\WpmlMigrationPage::class,
 			fn( $c ) => new \IdiomatticWP\Admin\Pages\WpmlMigrationPage(
 				$c->get( \IdiomatticWP\Migration\WpmlDetector::class ),
-				$c->get( \IdiomatticWP\Migration\WpmlMigrator::class )
+				$c->get( \IdiomatticWP\Migration\WpmlMigrator::class ),
+				$c->get( \IdiomatticWP\Migration\PolylangDetector::class ),
+				$c->get( \IdiomatticWP\Migration\PolylangMigrator::class )
 			)
 		);
 
@@ -781,6 +989,7 @@ class ContainerConfig {
 		// Wire glossary repository into the GlossaryManager singleton
 		$glossary = $c->get( \IdiomatticWP\Glossary\GlossaryManager::class );
 		$glossary->setRepository( $c->get( \IdiomatticWP\Glossary\WpdbGlossaryRepository::class ) );
+
 
 		// ── CLI (WP-CLI) ──────────────────────────────────────────────
 

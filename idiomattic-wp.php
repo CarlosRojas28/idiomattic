@@ -3,7 +3,7 @@
  * Plugin Name:       Idiomattic WP
  * Plugin URI:        https://idiomatticwp.com
  * Description:       Multilingual WordPress plugin. Bring Your Own Key (BYOK) — connect your own AI translation provider. No intermediaries, no markup on translations.
- * Version:           1.0.1
+ * Version:           1.0.4
  * Requires at least: 6.0
  * Requires PHP:      8.1
  * Author:            Idiomattic WP
@@ -26,7 +26,7 @@ if ( defined( 'IDIOMATTICWP_VERSION' ) ) {
 }
 
 // ── Constants ─────────────────────────────────────────────────────────────────
-define( 'IDIOMATTICWP_VERSION',    '1.0.1' );
+define( 'IDIOMATTICWP_VERSION',    '1.0.4' );
 define( 'IDIOMATTICWP_FILE',       __FILE__ );
 define( 'IDIOMATTICWP_PATH',       plugin_dir_path( __FILE__ ) );
 define( 'IDIOMATTICWP_URL',        plugin_dir_url( __FILE__ ) );

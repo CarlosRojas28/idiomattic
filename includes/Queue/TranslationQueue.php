@@ -30,6 +30,13 @@ class TranslationQueue {
 	/** Group name used to identify our jobs in the AS admin screen. */
 	private const AS_GROUP = 'idiomatticwp';
 
+	/**
+	 * Maximum number of pending + running jobs allowed in the queue at once.
+	 * Prevents memory exhaustion when bulk-translating large sites.
+	 * Filterable via `idiomatticwp_queue_max_pending`.
+	 */
+	private const DEFAULT_MAX_PENDING = 200;
+
 	public function __construct(
 		private AutoTranslate $autoTranslate,
 	) {}
@@ -43,18 +50,21 @@ class TranslationQueue {
 	 * action. Otherwise it runs synchronously in the current request
 	 * (suitable for small sites or testing).
 	 *
+	 * When the queue is full (pending + running ≥ max), the job is rejected
+	 * and false is returned so callers can skip or schedule a retry.
+	 *
 	 * @param int    $translationId  Translation record ID.
 	 * @param int    $sourcePostId   Source post ID.
 	 * @param string $sourceLang     Source language code string.
 	 * @param string $targetLang     Target language code string.
-	 * @return int|null  Action Scheduler action ID, or null for sync execution.
+	 * @return int|false|null  AS action ID, false if queue is full, or null for sync execution.
 	 */
 	public function dispatch(
 		int    $translationId,
 		int    $sourcePostId,
 		string $sourceLang,
 		string $targetLang
-	): ?int {
+	): int|false|null {
 		$args = [
 			'translation_id' => $translationId,
 			'source_post_id' => $sourcePostId,
@@ -63,6 +73,11 @@ class TranslationQueue {
 		];
 
 		if ( $this->actionSchedulerAvailable() ) {
+			if ( $this->countPending() >= $this->getMaxPending() ) {
+				do_action( 'idiomatticwp_translation_queue_full', $translationId );
+				return false;
+			}
+
 			$actionId = as_enqueue_async_action(
 				self::ACTION_HOOK,
 				[ $args ],
@@ -77,6 +92,40 @@ class TranslationQueue {
 		// Synchronous fallback — run immediately
 		$this->processJob( $args );
 		return null;
+	}
+
+	/**
+	 * Count the total number of pending + running jobs in our group.
+	 * Used to enforce the concurrency cap before enqueuing a new job.
+	 */
+	public function countPending(): int {
+		if ( ! $this->actionSchedulerAvailable() ) {
+			return 0;
+		}
+
+		$pending = as_get_scheduled_actions( [
+			'hook'     => self::ACTION_HOOK,
+			'group'    => self::AS_GROUP,
+			'status'   => \ActionScheduler_Store::STATUS_PENDING,
+			'per_page' => -1,
+		], 'ids' );
+
+		$running = as_get_scheduled_actions( [
+			'hook'     => self::ACTION_HOOK,
+			'group'    => self::AS_GROUP,
+			'status'   => \ActionScheduler_Store::STATUS_RUNNING,
+			'per_page' => -1,
+		], 'ids' );
+
+		return count( $pending ) + count( $running );
+	}
+
+	/**
+	 * Return the maximum allowed pending jobs.
+	 * Filterable so site owners can tune it per their server resources.
+	 */
+	public function getMaxPending(): int {
+		return (int) apply_filters( 'idiomatticwp_queue_max_pending', self::DEFAULT_MAX_PENDING );
 	}
 
 	/**
@@ -135,15 +184,19 @@ class TranslationQueue {
 		$targetLangStr = (string) ( $args['target_lang'] ?? '' );
 
 		if ( ! $translationId || ! $sourcePostId || ! $targetLangStr ) {
+			error_log( '[IdiomatticWP] TranslationQueue: processJob called with incomplete args — ' . wp_json_encode( $args ) );
 			return;
 		}
 
 		try {
 			$targetLang = LanguageCode::from( $targetLangStr );
-			// Reuse AutoTranslate which handles all status updates + error catching
+			// AutoTranslate handles all status updates, API errors, and \Throwable internally.
 			( $this->autoTranslate )( $translationId, $sourcePostId, 0, $targetLang );
 		} catch ( \IdiomatticWP\Exceptions\InvalidLanguageCodeException $e ) {
 			error_log( '[IdiomatticWP] TranslationQueue: invalid language code — ' . $targetLangStr );
+		} catch ( \Throwable $e ) {
+			// Unexpected error outside AutoTranslate (e.g. container resolution failure).
+			error_log( '[IdiomatticWP] TranslationQueue: unexpected error for translation ' . $translationId . ' — ' . $e->getMessage() );
 		}
 	}
 
