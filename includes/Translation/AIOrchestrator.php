@@ -142,7 +142,7 @@ class AIOrchestrator {
 				if ( in_array( $key, [ 'post_title', 'post_content', 'post_excerpt' ], true ) ) {
 					continue;
 				}
-				$this->fieldTranslator->saveFieldTranslation( $translatedPostId, $key, (string) $value );
+				$this->fieldTranslator->saveFieldTranslation( $translationId, $key, (string) $value );
 			}
 
 			// updateStatus is declared in the interface

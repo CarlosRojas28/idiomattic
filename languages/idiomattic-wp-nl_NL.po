@@ -1,0 +1,1060 @@
+# Dutch (Netherlands) translation for Idiomattic WP
+# Copyright (C) 2024 Idiomattic
+msgid ""
+msgstr ""
+"Project-Id-Version: Idiomattic WP\n"
+"POT-Creation-Date: 2024-01-01 00:00+0000\n"
+"PO-Revision-Date: 2024-01-01 00:00+0000\n"
+"Last-Translator: Idiomattic <hello@idiomattic.app>\n"
+"Language-Team: Dutch (Netherlands)\n"
+"Language: nl_NL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Idiomattic WP\n"
+"X-Domain: idiomattic-wp\n"
+
+msgid "%1$d draft, %2$d in progress"
+msgstr "%1$d concept, %2$d in uitvoering"
+
+msgid "%d active plugins — click to expand"
+msgstr "%d actieve plugins — klik om uit te vouwen"
+
+msgid "%s: %s"
+msgstr "%s: %s"
+
+msgid "(empty)"
+msgstr "(leeg)"
+
+msgid "(no title)"
+msgstr "(geen titel)"
+
+msgid "(optional)"
+msgstr "(optioneel)"
+
+msgid "(saved — enter a new key to replace)"
+msgstr "(opgeslagen — voer een nieuwe sleutel in om te vervangen)"
+
+msgid "A translation already exists for this language. Delete it first."
+msgstr "Er bestaat al een vertaling voor deze taal. Verwijder deze eerst."
+
+msgid "AI Translation Provider"
+msgstr "AI-vertaalprovider"
+
+msgid "AI Translation — Pro Feature"
+msgstr "AI-vertaling — Pro-functie"
+
+msgid "AI error: "
+msgstr "AI-fout: "
+
+msgid "AI string translation requires a Pro license."
+msgstr "AI-tekenreeksvertaling vereist een Pro-licentie."
+
+msgid "AI translation requires Pro"
+msgstr "AI-vertaling vereist Pro"
+
+msgid "AI translation requires a Pro license."
+msgstr "AI-vertaling vereist een Pro-licentie."
+
+msgid "Action"
+msgstr "Actie"
+
+msgid "Actions"
+msgstr "Acties"
+
+msgid "Active Languages"
+msgstr "Actieve talen"
+
+msgid "Active Plugins"
+msgstr "Actieve plugins"
+
+msgid "Active Theme"
+msgstr "Actief thema"
+
+msgid "Add"
+msgstr "Toevoegen"
+
+msgid "Add Custom Language"
+msgstr "Aangepaste taal toevoegen"
+
+msgid "Add String"
+msgstr "Tekenreeks toevoegen"
+
+msgid "Add Term"
+msgstr "Term toevoegen"
+
+msgid "Add string"
+msgstr "Tekenreeks toevoegen"
+
+msgid "Advanced"
+msgstr "Geavanceerd"
+
+msgid "All"
+msgstr "Alle"
+
+msgid "All content already has translations for the selected languages."
+msgstr "Alle inhoud heeft al vertalingen voor de geselecteerde talen."
+
+msgid "All content is fully translated!"
+msgstr "Alle inhoud is volledig vertaald!"
+
+msgid "All fields already have a translation."
+msgstr "Alle velden hebben al een vertaling."
+
+msgid "All languages"
+msgstr "Alle talen"
+
+msgid "All packages"
+msgstr "Alle pakketten"
+
+msgid "An unexpected error occurred during translation."
+msgstr "Er is een onverwachte fout opgetreden tijdens de vertaling."
+
+msgid "Apply"
+msgstr "Toepassen"
+
+msgid "Are you sure you want to delete this translation?"
+msgstr "Weet u zeker dat u deze vertaling wilt verwijderen?"
+
+msgid "Author"
+msgstr "Auteur"
+
+msgid "Auto-translate failed."
+msgstr "Automatisch vertalen mislukt."
+
+msgid "Auto-translate on creation"
+msgstr "Automatisch vertalen bij aanmaken"
+
+msgid "Auto-translate pending"
+msgstr "Automatisch vertalen in behandeling"
+
+msgid "Automated translations and AI provider configuration are available in the Pro version. Bring Your Own Key — connect directly to OpenAI, Claude, or DeepL."
+msgstr "Geautomatiseerde vertalingen en AI-providerconfiguratie zijn beschikbaar in de Pro-versie. Gebruik uw eigen sleutel — verbind rechtstreeks met OpenAI, Claude of DeepL."
+
+msgid "Automatically start AI translation when a new translation is created"
+msgstr "Automatisch AI-vertaling starten wanneer een nieuwe vertaling wordt aangemaakt"
+
+msgid "Back"
+msgstr "Terug"
+
+msgid "Back to list"
+msgstr "Terug naar lijst"
+
+msgid "Behaviour"
+msgstr "Gedrag"
+
+msgid "Bring Your Own Key (BYOK): connect directly to your chosen AI provider. Your API key is stored encrypted and never sent to Idiomattic servers."
+msgstr "Gebruik uw eigen sleutel (BYOK): verbind rechtstreeks met uw gekozen AI-provider. Uw API-sleutel wordt versleuteld opgeslagen en nooit naar Idiomattic-servers verzonden."
+
+msgid "Cache & Transients"
+msgstr "Cache en transiënten"
+
+msgid "Cache language detection results for improved performance."
+msgstr "Sla taaldetectieresultaten op in cache voor betere prestaties."
+
+msgid "Cancel"
+msgstr "Annuleren"
+
+msgid "Child theme"
+msgstr "Kindthema"
+
+msgid "Choose the primary language your website content will be served in by default."
+msgstr "Kies de primaire taal waarin uw website-inhoud standaard wordt aangeboden."
+
+msgid "Claude API Key"
+msgstr "Claude API-sleutel"
+
+msgid "Clean URLs with the language code as a path prefix. Requires pretty permalinks."
+msgstr "Schone URL's met de taalcode als padprefix. Vereist mooie permalinks."
+
+msgid "Clear cached data if you are seeing stale content or unexpected behaviour."
+msgstr "Wis gecachede gegevens als u verouderde inhoud of onverwacht gedrag ziet."
+
+msgid "Clear language filter"
+msgstr "Taalfilter wissen"
+
+msgid "Close"
+msgstr "Sluiten"
+
+msgid "Code, native name, and English name are required."
+msgstr "Code, inheemse naam en Engelse naam zijn vereist."
+
+msgid "Compatibility"
+msgstr "Compatibiliteit"
+
+msgid "Compatibility scan completed successfully."
+msgstr "Compatibiliteitsscan succesvol voltooid."
+
+msgid "Complete"
+msgstr "Voltooien"
+
+msgid "Configure how each post type behaves across languages."
+msgstr "Configureer hoe elk berichttype zich gedraagt in verschillende talen."
+
+msgid "Configure how taxonomy terms behave across languages."
+msgstr "Configureer hoe taxonomietermen zich gedragen in verschillende talen."
+
+msgid "Configure permalinks →"
+msgstr "Permalinks configureren →"
+
+msgid "Configure translation mode for registered custom fields. New fields can be added via the Compatibility tab or programmatically."
+msgstr "Configureer de vertaalmodus voor geregistreerde aangepaste velden. Nieuwe velden kunnen worden toegevoegd via het tabblad Compatibiliteit of programmatisch."
+
+msgid "Content"
+msgstr "Inhoud"
+
+msgid "Content Translation"
+msgstr "Inhoudsvertaling"
+
+msgid "Context"
+msgstr "Context"
+
+msgid "Context (optional)"
+msgstr "Context (optioneel)"
+
+msgid "Continue →"
+msgstr "Doorgaan →"
+
+msgid "Control how the plugin handles its data."
+msgstr "Bepaal hoe de plugin zijn gegevens verwerkt."
+
+msgid "Copied!"
+msgstr "Gekopieerd!"
+
+msgid "Copy from original:"
+msgstr "Kopiëren van origineel:"
+
+msgid "Copy source string"
+msgstr "Brontekenreeks kopiëren"
+
+msgid "Copy source to all empty translations"
+msgstr "Bron kopiëren naar alle lege vertalingen"
+
+msgid "Copy to all"
+msgstr "Kopiëren naar alle"
+
+msgid "Copy to clipboard"
+msgstr "Kopiëren naar klembord"
+
+msgid "Could not create export archive."
+msgstr "Kon exportarchief niet aanmaken."
+
+msgid "Could not link post."
+msgstr "Kon bericht niet koppelen."
+
+msgid "Coverage"
+msgstr "Dekking"
+
+msgid "Create a menu →"
+msgstr "Een menu aanmaken →"
+
+msgid "Creating..."
+msgstr "Aanmaken..."
+
+msgid "Custom"
+msgstr "Aangepast"
+
+msgid "Custom Fields"
+msgstr "Aangepaste velden"
+
+msgid "Daily digest — one email per day"
+msgstr "Dagelijks overzicht — één e-mail per dag"
+
+msgid "Dashboard"
+msgstr "Dashboard"
+
+msgid "Data Management"
+msgstr "Gegevensbeheer"
+
+msgid "Date"
+msgstr "Datum"
+
+msgid "Debug Log"
+msgstr "Debuglogboek"
+
+msgid "Default Language"
+msgstr "Standaardtaal"
+
+msgid "Default configured by %s"
+msgstr "Standaard geconfigureerd door %s"
+
+msgid "Define terms that must always be translated a specific way, or kept unchanged by the AI."
+msgstr "Definieer termen die altijd op een specifieke manier moeten worden vertaald, of ongewijzigd moeten worden gelaten door de AI."
+
+msgid "Define terms that must always be translated a specific way, or kept unchanged. Glossary rules are automatically applied during AI translation."
+msgstr "Definieer termen die altijd op een specifieke manier moeten worden vertaald, of ongewijzigd moeten worden gelaten. Woordenlijstregels worden automatisch toegepast tijdens AI-vertaling."
+
+msgid "Delete"
+msgstr "Verwijderen"
+
+msgid "Delete this custom language?"
+msgstr "Deze aangepaste taal verwijderen?"
+
+msgid "Delete this term?"
+msgstr "Deze term verwijderen?"
+
+msgid "Directory"
+msgstr "Map"
+
+msgid "Directory and Subdomain modes require pretty permalinks. %s"
+msgstr "Map- en subdomeinmodi vereisen mooie permalinks. %s"
+
+msgid "Directory not found."
+msgstr "Map niet gevonden."
+
+msgid "Disabled"
+msgstr "Uitgeschakeld"
+
+msgid "Display a language switcher."
+msgstr "Een taalwisselaar weergeven."
+
+msgid "Done"
+msgstr "Klaar"
+
+msgid "Download JSON"
+msgstr "JSON downloaden"
+
+msgid "Download JSON template"
+msgstr "JSON-sjabloon downloaden"
+
+msgid "Download ZIP"
+msgstr "ZIP downloaden"
+
+msgid "Download all translations for a language as a ZIP of XLIFF 2.0 files, ready to be processed by any CAT tool."
+msgstr "Download alle vertalingen voor een taal als ZIP van XLIFF 2.0-bestanden, klaar om te worden verwerkt door elk CAT-tool."
+
+msgid "Download as JSON"
+msgstr "Downloaden als JSON"
+
+msgid "Draft"
+msgstr "Concept"
+
+msgid "Draft / In Progress"
+msgstr "Concept / In uitvoering"
+
+msgid "Draft/WIP"
+msgstr "Concept/In uitvoering"
+
+msgid "Duplicate all"
+msgstr "Alles dupliceren"
+
+msgid "Duplicate untranslated"
+msgstr "Niet-vertaalde dupliceren"
+
+msgid "Each language has its own version of this content"
+msgstr "Elke taal heeft zijn eigen versie van deze inhoud"
+
+msgid "Each language on its own subdomain. Requires wildcard DNS and SSL."
+msgstr "Elke taal op zijn eigen subdomein. Vereist wildcard DNS en SSL."
+
+msgid "Each language on its own subdomain. Requires wildcard DNS."
+msgstr "Elke taal op zijn eigen subdomein. Vereist wildcard DNS."
+
+msgid "Edit"
+msgstr "Bewerken"
+
+msgid "Email Notifications"
+msgstr "E-mailmeldingen"
+
+msgid "Enable AI-powered string translation"
+msgstr "AI-aangedreven tekenreeksvertaling inschakelen"
+
+msgid "Enable caching"
+msgstr "Caching inschakelen"
+
+msgid "Enable webhooks"
+msgstr "Webhooks inschakelen"
+
+msgid "Error"
+msgstr "Fout"
+
+msgid "Export"
+msgstr "Exporteren"
+
+msgid "Export Translations"
+msgstr "Vertalingen exporteren"
+
+msgid "Field"
+msgstr "Veld"
+
+msgid "Glossary"
+msgstr "Woordenlijst"
+
+msgid "Import"
+msgstr "Importeren"
+
+msgid "Import Translations"
+msgstr "Vertalingen importeren"
+
+msgid "Immediate — one email per event"
+msgstr "Onmiddellijk — één e-mail per gebeurtenis"
+
+msgid "In Progress"
+msgstr "In uitvoering"
+
+msgid "Install"
+msgstr "Installeren"
+
+msgid "Invalid parameters."
+msgstr "Ongeldige parameters."
+
+msgid "Invalid translation ID."
+msgstr "Ongeldig vertaling-ID."
+
+msgid "Language"
+msgstr "Taal"
+
+msgid "Language Coverage"
+msgstr "Taaldekking"
+
+msgid "Language Switcher"
+msgstr "Taalwisselaar"
+
+msgid "Languages"
+msgstr "Talen"
+
+msgid "Link as translation"
+msgstr "Koppelen als vertaling"
+
+msgid "Link existing post"
+msgstr "Bestaand bericht koppelen"
+
+msgid "Loading..."
+msgstr "Laden..."
+
+msgid "Max words per segment"
+msgstr "Maximale woorden per segment"
+
+msgid "Memory Hits"
+msgstr "Geheugenovereenkomsten"
+
+msgid "Menu"
+msgstr "Menu"
+
+msgid "Menus"
+msgstr "Menu's"
+
+msgid "Missing"
+msgstr "Ontbreekt"
+
+msgid "Missing %d"
+msgstr "%d ontbrekend"
+
+msgid "N/A"
+msgstr "N.v.t."
+
+msgid "No compatibility file found. Custom fields from this plugin will not be automatically translated. Click \"Download JSON template\" to get a starter file you can fill in and place inside the plugin/theme directory, or ask the author to add support."
+msgstr "Geen compatibiliteitsbestand gevonden. Aangepaste velden van deze plugin worden niet automatisch vertaald. Klik op \"JSON-sjabloon downloaden\" voor een starterbestand dat u kunt invullen en in de plugin/thema-map kunt plaatsen, of vraag de auteur om ondersteuning toe te voegen."
+
+msgid "No config file"
+msgstr "Geen configuratiebestand"
+
+msgid "No items match the selected filter."
+msgstr "Geen items komen overeen met het geselecteerde filter."
+
+msgid "No permissions."
+msgstr "Geen machtigingen."
+
+msgid "No strings found for auto-translation."
+msgstr "Geen tekenreeksen gevonden voor automatisch vertalen."
+
+msgid "No terms in glossary yet. Add your first term above."
+msgstr "Nog geen termen in de woordenlijst. Voeg hierboven uw eerste term toe."
+
+msgid "No translation found."
+msgstr "Geen vertaling gevonden."
+
+msgid "No translations yet. Start by creating a translation from the post list."
+msgstr "Nog geen vertalingen. Begin met het aanmaken van een vertaling vanuit de berichtenlijst."
+
+msgid "Not configured"
+msgstr "Niet geconfigureerd"
+
+msgid "Not registered"
+msgstr "Niet geregistreerd"
+
+msgid "Not translatable"
+msgstr "Niet vertaalbaar"
+
+msgid "Notes"
+msgstr "Notities"
+
+msgid "Notification Mode"
+msgstr "Meldingsmodus"
+
+msgid "Notify on outdated translations"
+msgstr "Melden bij verouderde vertalingen"
+
+msgid "Only .xliff or .xml files are accepted."
+msgstr "Alleen .xliff- of .xml-bestanden worden geaccepteerd."
+
+msgid "Open Translations Dashboard"
+msgstr "Vertaaldashboard openen"
+
+msgid "Open any post or page and click \"Translate\" to use the translation editor."
+msgstr "Open een bericht of pagina en klik op \"Vertalen\" om de vertaaleditor te gebruiken."
+
+msgid "OpenAI API Key"
+msgstr "OpenAI API-sleutel"
+
+msgid "Optional HMAC-SHA256 secret"
+msgstr "Optioneel HMAC-SHA256-geheim"
+
+msgid "Original"
+msgstr "Origineel"
+
+msgid "Original post has been deleted."
+msgstr "Het originele bericht is verwijderd."
+
+msgid "Original post not found."
+msgstr "Origineel bericht niet gevonden."
+
+msgid "Outdated"
+msgstr "Verouderd"
+
+msgid "Overview of your multilingual content"
+msgstr "Overzicht van uw meertalige inhoud"
+
+msgid "PHP Version"
+msgstr "PHP-versie"
+
+msgid "Package / Domain"
+msgstr "Pakket / Domein"
+
+msgid "Page %1$d of %2$d"
+msgstr "Pagina %1$d van %2$d"
+
+msgid "Permalink Structure"
+msgstr "Permalinkstructuur"
+
+msgid "Permission denied."
+msgstr "Toegang geweigerd."
+
+msgid "Please configure at least two active languages in Settings → Languages before using Content Translation."
+msgstr "Configureer minimaal twee actieve talen in Instellingen → Talen voordat u Inhoudsvertaling gebruikt."
+
+msgid "Please configure at least two active languages in Settings → Languages before using Import / Export."
+msgstr "Configureer minimaal twee actieve talen in Instellingen → Talen voordat u Importeren / Exporteren gebruikt."
+
+msgid "Please configure at least two active languages in Settings → Languages before using String Translation."
+msgstr "Configureer minimaal twee actieve talen in Instellingen → Talen voordat u Tekenreeksvertaling gebruikt."
+
+msgid "Plugin"
+msgstr "Plugin"
+
+msgid "Plugin & Theme Compatibility"
+msgstr "Plugin- en themacompatibiliteit"
+
+msgid "Plugin / Theme"
+msgstr "Plugin / Thema"
+
+msgid "Plugin Activation Error"
+msgstr "Plugin-activeringsfout"
+
+msgid "Plugin Version"
+msgstr "Plugin-versie"
+
+msgid "Polylang is active. Running two multilingual plugins simultaneously can cause conflicts. Please deactivate Polylang before using Idiomattic WP."
+msgstr "Polylang is actief. Het gelijktijdig uitvoeren van twee meertalige plugins kan conflicten veroorzaken. Deactiveer Polylang voordat u Idiomattic WP gebruikt."
+
+msgid "Post Title"
+msgstr "Berichttitel"
+
+msgid "Post Type"
+msgstr "Berichttype"
+
+msgid "Post Type(s)"
+msgstr "Berichttype(s)"
+
+msgid "Post Types"
+msgstr "Berichttypen"
+
+msgid "Post not found."
+msgstr "Bericht niet gevonden."
+
+msgid "Prev"
+msgstr "Vorige"
+
+msgid "Preview flag"
+msgstr "Vlag voorvertonen"
+
+msgid "Primary Language"
+msgstr "Primaire taal"
+
+msgid "Pro"
+msgstr "Pro"
+
+msgid "Progress"
+msgstr "Voortgang"
+
+msgid "Publish"
+msgstr "Publiceren"
+
+msgid "Publish Translation"
+msgstr "Vertaling publiceren"
+
+msgid "Queue AI translation"
+msgstr "AI-vertaling in wachtrij plaatsen"
+
+msgid "Rate limit reached. Please wait a moment and try again."
+msgstr "Snelheidslimiet bereikt. Wacht even en probeer het opnieuw."
+
+msgid "Re-scan"
+msgstr "Opnieuw scannen"
+
+msgid "Re-use previously translated segments to reduce API costs"
+msgstr "Eerder vertaalde segmenten hergebruiken om API-kosten te verlagen"
+
+msgid "Recent Activity"
+msgstr "Recente activiteit"
+
+msgid "Recipient Email"
+msgstr "E-mail ontvanger"
+
+msgid "Register string"
+msgstr "Tekenreeks registreren"
+
+msgid "Register this string for this language"
+msgstr "Deze tekenreeks registreren voor deze taal"
+
+msgid "Remove"
+msgstr "Verwijderen"
+
+msgid "Requires Pro licence"
+msgstr "Vereist Pro-licentie"
+
+msgid "Retain data on uninstall"
+msgstr "Gegevens bewaren bij verwijdering"
+
+msgid "Rewrite Rules"
+msgstr "Herschrijfregels"
+
+msgid "Right-to-left language"
+msgstr "Rechts-naar-links taal"
+
+msgid "Save"
+msgstr "Opslaan"
+
+msgid "Save Draft"
+msgstr "Concept opslaan"
+
+msgid "Save Translations"
+msgstr "Vertalingen opslaan"
+
+msgid "Scan complete."
+msgstr "Scan voltooid."
+
+msgid "Scan sources"
+msgstr "Bronnen scannen"
+
+msgid "Scan strings"
+msgstr "Tekenreeksen scannen"
+
+msgid "Scanning..."
+msgstr "Scannen..."
+
+msgid "Search"
+msgstr "Zoeken"
+
+msgid "Search by title…"
+msgstr "Zoeken op titel…"
+
+msgid "Search in source and translations…"
+msgstr "Zoeken in bron en vertalingen…"
+
+msgid "Search languages…"
+msgstr "Talen zoeken…"
+
+msgid "Search strings"
+msgstr "Tekenreeksen zoeken"
+
+msgid "Security check failed."
+msgstr "Beveiligingscontrole mislukt."
+
+msgid "Select Language"
+msgstr "Taal selecteren"
+
+msgid "Send HTTP POST notifications to an external URL when translation events occur. Payloads are signed with HMAC-SHA256."
+msgstr "Verzend HTTP POST-meldingen naar een externe URL wanneer vertaalgebeurtenissen optreden. Payloads worden ondertekend met HMAC-SHA256."
+
+msgid "Settings"
+msgstr "Instellingen"
+
+msgid "Show Flags"
+msgstr "Vlaggen weergeven"
+
+msgid "Show Names"
+msgstr "Namen weergeven"
+
+msgid "Show all"
+msgstr "Alles weergeven"
+
+msgid "Show as translated"
+msgstr "Weergeven als vertaald"
+
+msgid "Show terms for:"
+msgstr "Termen weergeven voor:"
+
+msgid "Showing original posts only"
+msgstr "Alleen originele berichten weergeven"
+
+msgid "Showing translations into: %s"
+msgstr "Vertalingen weergeven in: %s"
+
+msgid "Shown in secondary languages even without a translation (uses default language content)"
+msgstr "Weergegeven in secundaire talen zelfs zonder vertaling (gebruikt standaardtaalinhoud)"
+
+msgid "Signing Secret"
+msgstr "Ondertekeningsgeheim"
+
+msgid "Site Default Language"
+msgstr "Standaardtaal site"
+
+msgid "Slug"
+msgstr "Slug"
+
+msgid "Source Term"
+msgstr "Bronterm"
+
+msgid "Source post not found."
+msgstr "Bronbericht niet gevonden."
+
+msgid "Source string"
+msgstr "Brontekenreeks"
+
+msgid "Source string not found."
+msgstr "Brontekenreeks niet gevonden."
+
+msgid "Standard ISO code for localization"
+msgstr "Standaard ISO-code voor lokalisatie"
+
+msgid "Start Migration"
+msgstr "Migratie starten"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Step 1: Detection"
+msgstr "Stap 1: Detectie"
+
+msgid "String Translation"
+msgstr "Tekenreeksvertaling"
+
+msgid "Style"
+msgstr "Stijl"
+
+msgid "Subdomain"
+msgstr "Subdomein"
+
+msgid "System Information"
+msgstr "Systeeminformatie"
+
+msgid "System Report"
+msgstr "Systeemrapport"
+
+msgid "Target language is required."
+msgstr "Doeltaal is vereist."
+
+msgid "Taxonomies"
+msgstr "Taxonomieën"
+
+msgid "Taxonomy"
+msgstr "Taxonomie"
+
+msgid "Theme"
+msgstr "Thema"
+
+msgid "This affects how visitors and search engines find your translated content."
+msgstr "Dit beïnvloedt hoe bezoekers en zoekmachines uw vertaalde inhoud vinden."
+
+msgid "This alert was sent by the %s plugin."
+msgstr "Deze waarschuwing is verzonden door de %s plugin."
+
+msgid "This is a translation of: %s"
+msgstr "Dit is een vertaling van: %s"
+
+msgid "This is the original language of your posts and pages."
+msgstr "Dit is de originele taal van uw berichten en pagina's."
+
+msgid "This plugin/theme ships with a native idiomattic-elements.json file. All its elements are automatically registered. No action needed."
+msgstr "Deze plugin/het thema wordt geleverd met een native idiomattic-elements.json bestand. Alle elementen worden automatisch geregistreerd. Geen actie vereist."
+
+msgid "This plugin/theme ships with a wpml-config.xml file. Idiomattic auto-imports its field definitions at runtime. Use \"Import WPML config\" to force-register them now, or \"Download as JSON\" to convert the file to a permanent idiomattic-elements.json."
+msgstr "Deze plugin/het thema wordt geleverd met een wpml-config.xml bestand. Idiomattic importeert automatisch de velddefinities tijdens uitvoering. Gebruik \"WPML-configuratie importeren\" om ze nu te registreren, of \"Downloaden als JSON\" om het bestand om te zetten naar een permanent idiomattic-elements.json."
+
+msgid "This translation is outdated — the source post has been updated since it was last translated. Please review and re-translate."
+msgstr "Deze vertaling is verouderd — het bronbericht is bijgewerkt sinds de laatste vertaling. Controleer en vertaal opnieuw."
+
+msgid "This will overwrite all fields with the original content. Continue?"
+msgstr "Dit overschrijft alle velden met de originele inhoud. Doorgaan?"
+
+msgid "Title"
+msgstr "Titel"
+
+msgid "To create or edit navigation menus visit %s."
+msgstr "Bezoek %s om navigatiemenu's te maken of te bewerken."
+
+msgid "Total Translations"
+msgstr "Totaal vertalingen"
+
+msgid "Total scanned"
+msgstr "Totaal gescand"
+
+msgid "Translatable"
+msgstr "Vertaalbaar"
+
+msgid "Translate all"
+msgstr "Alles vertalen"
+
+msgid "Translate all languages"
+msgstr "Alle talen vertalen"
+
+msgid "Translate all missing"
+msgstr "Alle ontbrekende vertalen"
+
+msgid "Translate all missing (%d)"
+msgstr "Alle ontbrekende vertalen (%d)"
+
+msgid "Translate content →"
+msgstr "Inhoud vertalen →"
+
+msgid "Translate field"
+msgstr "Veld vertalen"
+
+msgid "Translate interface strings from plugins and themes"
+msgstr "Interfacetekenreeksen van plugins en thema's vertalen"
+
+msgid "Translate posts, pages, and custom content into all active languages"
+msgstr "Berichten, pagina's en aangepaste inhoud vertalen in alle actieve talen"
+
+msgid "Translate to all languages"
+msgstr "Vertalen naar alle talen"
+
+msgid "Translate: %s"
+msgstr "Vertalen: %s"
+
+msgid "Translated %d strings successfully."
+msgstr "%d tekenreeksen succesvol vertaald."
+
+msgid "Translating"
+msgstr "Vertalen"
+
+msgid "Translating…"
+msgstr "Vertalen…"
+
+msgid "Translation"
+msgstr "Vertaling"
+
+msgid "Translation / Rule"
+msgstr "Vertaling / Regel"
+
+msgid "Translation Alert"
+msgstr "Vertaalwaarschuwing"
+
+msgid "Translation Alert — %s"
+msgstr "Vertaalwaarschuwing — %s"
+
+msgid "Translation Details"
+msgstr "Vertaaldetails"
+
+msgid "Translation Editor"
+msgstr "Vertaaleditor"
+
+msgid "Translation Memory"
+msgstr "Vertaalgeheugen"
+
+msgid "Translation Mode"
+msgstr "Vertaalmodus"
+
+msgid "Translation completed (AI finished)"
+msgstr "Vertaling voltooid (AI klaar)"
+
+msgid "Translation failed."
+msgstr "Vertaling mislukt."
+
+msgid "Translation outdated (source post updated)"
+msgstr "Vertaling verouderd (bronbericht bijgewerkt)"
+
+msgid "Translation provider is temporarily unavailable. Please try again."
+msgstr "De vertaalprovider is tijdelijk niet beschikbaar. Probeer het opnieuw."
+
+msgid "Translation queued (job dispatched)"
+msgstr "Vertaling in wachtrij (taak verzonden)"
+
+msgid "Translation record not found."
+msgstr "Vertaalrecord niet gevonden."
+
+msgid "Translation saved successfully."
+msgstr "Vertaling succesvol opgeslagen."
+
+msgid "Translations"
+msgstr "Vertalingen"
+
+msgid "Translations saved."
+msgstr "Vertalingen opgeslagen."
+
+msgid "Triggered when you update a post that has translations."
+msgstr "Geactiveerd wanneer u een bericht bijwerkt dat vertalingen heeft."
+
+msgid "Troubleshooting"
+msgstr "Probleemoplossing"
+
+msgid "Type"
+msgstr "Type"
+
+msgid "URL Mode"
+msgstr "URL-modus"
+
+msgid "URL Structure"
+msgstr "URL-structuur"
+
+msgid "Unauthorized"
+msgstr "Niet geautoriseerd"
+
+msgid "Update"
+msgstr "Bijwerken"
+
+msgid "Upgrade to Pro to unlock Directory and Subdomain modes →"
+msgstr "Upgrade naar Pro om Map- en subdomeinmodi te ontgrendelen →"
+
+msgid "Upgrade to Pro →"
+msgstr "Upgrade naar Pro →"
+
+msgid "Upload an XLIFF file (2.0 or 1.2) exported from a CAT tool. Translations are written directly into the database."
+msgstr "Upload een XLIFF-bestand (2.0 of 1.2) geëxporteerd vanuit een CAT-tool. Vertalingen worden rechtstreeks in de database geschreven."
+
+msgid "Version"
+msgstr "Versie"
+
+msgid "View"
+msgstr "Bekijken"
+
+msgid "View Original"
+msgstr "Origineel bekijken"
+
+msgid "View compatibility report →"
+msgstr "Compatibiliteitsrapport bekijken →"
+
+msgid "View source post →"
+msgstr "Bronbericht bekijken →"
+
+msgid "View strings"
+msgstr "Tekenreeksen bekijken"
+
+msgid "WPML Migration"
+msgstr "WPML-migratie"
+
+msgid "WPML Migration Wizard"
+msgstr "WPML-migratiewizard"
+
+msgid "WPML config"
+msgstr "WPML-configuratie"
+
+msgid "WPML config imported successfully."
+msgstr "WPML-configuratie succesvol geïmporteerd."
+
+msgid "WPML config imported with warnings: "
+msgstr "WPML-configuratie geïmporteerd met waarschuwingen: "
+
+msgid "WPML config imported: %1$d element(s) registered into the translation registry, %2$d skipped (action = ignore)."
+msgstr "WPML-configuratie geïmporteerd: %1$d element(en) geregistreerd in het vertaalregister, %2$d overgeslagen (actie = negeren)."
+
+msgid "WPML is active. Running two multilingual plugins simultaneously can cause conflicts. Please deactivate WPML before using Idiomattic WP, or use the WPML migration tool."
+msgstr "WPML is actief. Het gelijktijdig uitvoeren van twee meertalige plugins kan conflicten veroorzaken. Deactiveer WPML voordat u Idiomattic WP gebruikt, of gebruik de WPML-migratietool."
+
+msgid "WPML is not active. Migration may not be possible."
+msgstr "WPML is niet actief. Migratie is mogelijk niet mogelijk."
+
+msgid "W3 Total Cache is active. Make sure page caching is configured to handle language-specific URLs correctly."
+msgstr "W3 Total Cache is actief. Zorg ervoor dat pagina-caching is geconfigureerd om taalspecifieke URL's correct af te handelen."
+
+msgid "WP Debug"
+msgstr "WP Debug"
+
+msgid "WP Debug Log"
+msgstr "WP Debuglogboek"
+
+msgid "WP_DEBUG and WP_DEBUG_LOG are not both enabled. Add the following to wp-config.php to activate debug logging:"
+msgstr "WP_DEBUG en WP_DEBUG_LOG zijn niet beide ingeschakeld. Voeg het volgende toe aan wp-config.php om debugregistratie te activeren:"
+
+msgid "Want AI-powered translations? Upgrade to Pro for BYOK (Bring Your Own Key) support."
+msgstr "Wilt u AI-aangedreven vertalingen? Upgrade naar Pro voor BYOK-ondersteuning (gebruik uw eigen sleutel)."
+
+msgid "Webhooks"
+msgstr "Webhooks"
+
+msgid "What do these statuses mean?"
+msgstr "Wat betekenen deze statussen?"
+
+msgid "What language is your content written in?"
+msgstr "In welke taal is uw inhoud geschreven?"
+
+msgid "Which languages do you want to translate into?"
+msgstr "In welke talen wilt u vertalen?"
+
+msgid "WordPress Version"
+msgstr "WordPress-versie"
+
+msgid "Works with any permalink structure. Easiest to set up."
+msgstr "Werkt met elke permalinkstructuur. Het gemakkelijkst in te stellen."
+
+msgid "Works with any permalink structure. Recommended for most sites."
+msgstr "Werkt met elke permalinkstructuur. Aanbevolen voor de meeste sites."
+
+msgid "XLIFF file (.xliff)"
+msgstr "XLIFF-bestand (.xliff)"
+
+msgid "You can add or remove languages at any time from Settings."
+msgstr "U kunt te allen tijde talen toevoegen of verwijderen via Instellingen."
+
+msgid "You can disable these notifications in the plugin settings."
+msgstr "U kunt deze meldingen uitschakelen in de plugin-instellingen."
+
+msgid "You do not have permission to edit this post."
+msgstr "U heeft geen toestemming om dit bericht te bewerken."
+
+msgid "debug.log not found or not readable."
+msgstr "debug.log niet gevonden of niet leesbaar."
+
+msgid "default"
+msgstr "standaard"
+
+msgid "e.g. button, menu"
+msgstr "bijv. knop, menu"
+
+msgid "e.g. my-plugin"
+msgstr "bijv. mijn-plugin"
+
+msgid "— Not assigned —"
+msgstr "— Niet toegewezen —"
+
+msgid "→ Scan sources"
+msgstr "→ Bronnen scannen"
+
+msgid "Admin Language"
+msgstr "Beheertaal"
+
+msgid "Admin Interface Language"
+msgstr "Taal beheerdersinterface"
+
+msgid "Use site default"
+msgstr "Sitestandaard gebruiken"
+
+msgid "Select the language you prefer for the WordPress admin interface."
+msgstr "Selecteer de taal die u prefereert voor de WordPress-beheerdersinterface."
+
+msgid "%d missing"
+msgid_plural "%d missing"
+msgstr[0] "%d ontbrekend"
+msgstr[1] "%d ontbrekend"
+
+msgid "%d translation job queued. Jobs are processed in the background."
+msgid_plural "%d translation jobs queued. Jobs are processed in the background."
+msgstr[0] "%d vertaaltaak in wachtrij geplaatst. Taken worden op de achtergrond verwerkt."
+msgstr[1] "%d vertaaltaken in wachtrij geplaatst. Taken worden op de achtergrond verwerkt."
+
+msgid "Retranslate %d outdated"
+msgid_plural "Retranslate %d outdated"
+msgstr[0] "%d verouderd opnieuw vertalen"
+msgstr[1] "%d verouderde opnieuw vertalen"

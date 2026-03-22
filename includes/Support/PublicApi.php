@@ -331,27 +331,42 @@ function idiomatticwp_register_elementor_widget( string $widgetName, array $cont
 // ── String translation ────────────────────────────────────────────────────────
 
 /**
- * Register a string for translation.
+ * Register a string for translation in the String Translation module.
  *
- * Call this once on init/plugins_loaded, passing the original string and
- * its textdomain. The string will appear in the Idiomattic strings management
- * screen and can be translated into all active languages.
+ * Call this on the 'init' hook to make a string available for translation
+ * in the admin. The string will appear in Idiomattic → String Translation.
  *
- * @param string $string  Original (source) string.
- * @param string $domain  Text domain (e.g. 'my-plugin').
- * @param string $context Optional disambiguation context.
+ * @param string $value   The original string value.
+ * @param string $domain  The textdomain (plugin or theme slug). Default 'default'.
+ * @param string $context Optional gettext context.
  */
-function idiomatticwp_register_string( string $string, string $domain, string $context = '' ): void {
-	$c = _idiomatticwp_container();
-	if ( ! $c ) {
-		add_action( 'idiomatticwp_loaded', static function () use ( $string, $domain, $context ) {
-			idiomatticwp_register_string( $string, $domain, $context );
-		} );
+function idiomatticwp_register_string( string $value, string $domain = 'default', string $context = '' ): void {
+	$activeLangs = get_option( 'idiomatticwp_active_langs', [] );
+	$defaultLang = get_option( 'idiomatticwp_default_lang', '' );
+
+	if ( empty( $activeLangs ) || empty( $defaultLang ) ) {
 		return;
 	}
-	try {
-		$c->get( \IdiomatticWP\Strings\StringTranslator::class )->register( $string, $domain, $context );
-	} catch ( \Throwable $e ) {}
+
+	// Lazy-load the repository via the plugin container.
+	static $repo = null;
+	if ( $repo === null ) {
+		try {
+			$repo = \IdiomatticWP\Core\Plugin::getInstance()
+				->getContainer()
+				->get( \IdiomatticWP\Repositories\StringRepository::class );
+		} catch ( \Throwable $e ) {
+			return;
+		}
+	}
+
+	foreach ( $activeLangs as $lang ) {
+		$lang = (string) $lang;
+		if ( $lang === $defaultLang ) {
+			continue;
+		}
+		$repo->register( $domain, $value, $context, $lang );
+	}
 }
 
 /**

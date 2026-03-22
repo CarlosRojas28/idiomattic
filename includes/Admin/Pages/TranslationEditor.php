@@ -22,6 +22,8 @@ use IdiomatticWP\Contracts\TranslationRepositoryInterface;
 use IdiomatticWP\Core\CustomElementRegistry;
 use IdiomatticWP\Core\LanguageManager;
 use IdiomatticWP\License\LicenseChecker;
+use IdiomatticWP\Memory\MemoryMatch;
+use IdiomatticWP\Memory\TranslationMemory;
 use IdiomatticWP\Translation\FieldTranslator;
 use IdiomatticWP\ValueObjects\LanguageCode;
 
@@ -33,6 +35,7 @@ class TranslationEditor {
 		private LicenseChecker                 $licenseChecker,
 		private FieldTranslator                $fieldTranslator,
 		private CustomElementRegistry          $registry,
+		private TranslationMemory              $translationMemory,
 	) {}
 
 	// ── Public API ────────────────────────────────────────────────────────
@@ -75,7 +78,13 @@ class TranslationEditor {
 		check_admin_referer( 'idiomatticwp_translation_editor_' . $translated->ID );
 
 		$title   = sanitize_text_field( wp_unslash( $_POST['te_post_title']   ?? '' ) );
-		$content = wp_kses_post( wp_unslash( $_POST['te_post_content'] ?? '' ) );
+		// Users with unfiltered_html (site admins on single-site) may store arbitrary HTML.
+		// wp_kses_post() preserves HTML comments including Gutenberg block markers
+		// (<!-- wp:paragraph -->) so it is safe to apply for unprivileged users.
+		$rawContent = wp_unslash( $_POST['te_post_content'] ?? '' );
+		$content    = current_user_can( 'unfiltered_html' )
+			? $rawContent
+			: wp_kses_post( $rawContent );
 		$excerpt = sanitize_textarea_field( wp_unslash( $_POST['te_post_excerpt'] ?? '' ) );
 		$status  = sanitize_key( $_POST['te_post_status'] ?? $translated->post_status );
 
@@ -165,12 +174,21 @@ class TranslationEditor {
 		$listUrl       = admin_url( 'edit.php?post_type=' . $source->post_type );
 		$currentStatus = $translated->post_status;
 		$isPro         = $this->licenseChecker->isPro();
+		$sourceHasBlocks = function_exists( 'has_blocks' ) && has_blocks( $source->post_content );
+		$targetIsRtl = ! empty( $this->languageManager->getLanguageData( $targetLangObj )['rtl'] );
 		$upgradeUrl    = idiomatticwp_upgrade_url( 'translation-editor' );
 
 		// Resolve custom fields for this post type
 		$customFields         = $this->getCustomFields( $source->post_type );
 		$existingTranslations = $this->fieldTranslator->getFieldTranslations( $translationId );
 		$existingByKey        = array_column( $existingTranslations, null, 'field_key' );
+
+		// Pre-compute TM matches for core fields
+		$tmTitle   = $source->post_title   ? $this->translationMemory->lookup( $source->post_title,   $sourceLangObj, $targetLangObj ) : null;
+		$tmExcerpt = $source->post_excerpt ? $this->translationMemory->lookup( $source->post_excerpt, $sourceLangObj, $targetLangObj ) : null;
+
+		// Segment-level TM matches for the content field
+		$tmContentSegments = $this->getContentSegmentMatches( $source->post_content, $sourceLangObj, $targetLangObj );
 
 		// Source data for JS copy operations (core fields only — custom uses data-source attributes)
 		$sourceData = wp_json_encode( [
@@ -195,7 +213,7 @@ class TranslationEditor {
 
 		require_once ABSPATH . 'wp-admin/admin-header.php';
 		?>
-		<div class="wrap idiomatticwp-te-wrap">
+		<div class="wrap idiomatticwp-te-wrap<?php echo $targetIsRtl ? ' idiomatticwp-te-rtl' : ''; ?>">
 
 			<?php if ( $savedNotice ) : ?>
 			<div class="notice notice-success is-dismissible idiomatticwp-te-notice">
@@ -221,7 +239,17 @@ class TranslationEditor {
 						</span>
 					</div>
 					<span class="idiomatticwp-te-status-badge status-<?php echo esc_attr( $status ); ?>">
-						<?php echo esc_html( ucfirst( $status ) ); ?>
+						<?php
+					$statusLabels = [
+						'draft'       => __( 'Draft',       'idiomattic-wp' ),
+						'in_progress' => __( 'In Progress', 'idiomattic-wp' ),
+						'complete'    => __( 'Complete',    'idiomattic-wp' ),
+						'outdated'    => __( 'Outdated',    'idiomattic-wp' ),
+						'failed'      => __( 'Failed',      'idiomattic-wp' ),
+						'pending'     => __( 'Pending',     'idiomattic-wp' ),
+					];
+					echo esc_html( $statusLabels[ $status ] ?? ucfirst( str_replace( '_', ' ', $status ) ) );
+					?>
 					</span>
 				</div>
 				<div class="idiomatticwp-te-header-right">
@@ -297,19 +325,28 @@ class TranslationEditor {
 				</div>
 			</div><!-- .idiomatticwp-te-toolbar -->
 
+			<?php if ( $status === 'outdated' ) $this->renderOutdatedDiff( $source, $record ); ?>
+
 			<!-- ── Form ────────────────────────────────────────────────── -->
 			<form id="idiomatticwp-te-form" method="post" action="">
 				<?php wp_nonce_field( 'idiomatticwp_translation_editor_' . $translated->ID ); ?>
 				<input type="hidden" name="idiomatticwp_te_save" value="1">
 
 				<!-- ── Core: Title ─────────────────────────────────────── -->
-				<?php $this->renderCoreField(
+				<?php
+				$translatedTitle = $translated->post_title;
+				if ( preg_match( '/^\[.*(translation pending|Needs translation).*\]/', $translatedTitle )
+					|| $translatedTitle === $source->post_title ) {
+					$translatedTitle = '';
+				}
+				$this->renderCoreField(
 					__( 'Title', 'idiomattic-wp' ),
 					'title',
 					$source->post_title,
-					$translated->post_title,
+					$translatedTitle,
 					$source->post_title,
-					'input'
+					'input',
+					$tmTitle
 				); ?>
 
 				<!-- ── Core: Content ────────────────────────────────────── -->
@@ -322,15 +359,50 @@ class TranslationEditor {
 							<div class="idiomatticwp-te-source-value idiomatticwp-te-source-content">
 								<?php echo wp_kses_post( wpautop( $source->post_content ) ); ?>
 							</div>
+							<?php if ( ! empty( $tmContentSegments ) ) : ?>
+							<details class="idiomatticwp-te-seg-panel">
+								<summary class="idiomatticwp-te-seg-summary">
+									<span class="dashicons dashicons-book"></span>
+									<?php printf(
+										esc_html( _n( '%d segment match in TM', '%d segment matches in TM', count( $tmContentSegments ), 'idiomattic-wp' ) ),
+										count( $tmContentSegments )
+									); ?>
+								</summary>
+								<ul class="idiomatticwp-te-seg-list">
+								<?php foreach ( $tmContentSegments as $seg ) : ?>
+									<li class="idiomatticwp-te-seg-item">
+										<span class="idiomatticwp-te-seg-score <?php echo $seg['match']->isExact() ? 'is-exact' : 'is-fuzzy'; ?>"><?php echo esc_html( $seg['match']->label() ); ?></span>
+										<span class="idiomatticwp-te-seg-text"><?php echo esc_html( mb_strimwidth( $seg['segment'], 0, 80, '…' ) ); ?></span>
+										<button type="button" class="button button-small idiomatticwp-te-seg-apply" data-value="<?php echo esc_attr( $seg['match']->translatedText ); ?>"><?php esc_html_e( 'Insert', 'idiomattic-wp' ); ?></button>
+									</li>
+								<?php endforeach; ?>
+								</ul>
+							</details>
+							<?php endif; ?>
 						</div>
 						<div class="idiomatticwp-te-field idiomatticwp-te-field-target">
-							<?php wp_editor( $translated->post_content, 'te_post_content', [
+							<?php if ( $sourceHasBlocks ) : ?>
+								<div class="notice notice-info inline" style="margin:0 0 8px;padding:6px 12px;">
+									<p style="margin:0;font-size:12px;"><?php esc_html_e( 'This post uses Gutenberg blocks. Translate the text inside the block markup, but do not modify the block comment markers (<!-- wp:... -->).', 'idiomattic-wp' ); ?></p>
+								</div>
+								<textarea
+									id="te_post_content"
+									name="te_post_content"
+									class="large-text code idiomatticwp-te-input"
+									rows="25"
+									data-field="content"
+									spellcheck="false"
+									style="font-family:monospace;font-size:12px;"
+								><?php echo esc_textarea( $translated->post_content ); ?></textarea>
+							<?php else : ?>
+								<?php wp_editor( $translated->post_content, 'te_post_content', [
 								'textarea_name' => 'te_post_content',
 								'textarea_rows' => 20,
 								'media_buttons' => false,
 								'teeny'         => false,
 								'quicktags'     => true,
 							] ); ?>
+							<?php endif; ?>
 						</div>
 					</div>
 				</div>
@@ -342,7 +414,8 @@ class TranslationEditor {
 					$source->post_excerpt ?: '',
 					$translated->post_excerpt ?: '',
 					$source->post_excerpt ?: __( '(optional)', 'idiomattic-wp' ),
-					'textarea'
+					'textarea',
+					$tmExcerpt
 				); ?>
 
 				<?php
@@ -426,6 +499,149 @@ class TranslationEditor {
 
 		</div><!-- .idiomatticwp-te-wrap -->
 
+		<style>
+		/* RTL support for target language column */
+		.idiomatticwp-te-rtl .idiomatticwp-te-field-target input,
+		.idiomatticwp-te-rtl .idiomatticwp-te-field-target textarea,
+		.idiomatticwp-te-rtl .idiomatticwp-te-field-target .wp-editor-area {
+			direction: rtl;
+			text-align: right;
+		}
+
+		.idiomatticwp-te-tm-match {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+			margin-bottom: 6px;
+			padding: 5px 8px;
+			background: #f0f6fc;
+			border-left: 3px solid #2271b1;
+			border-radius: 0 3px 3px 0;
+			font-size: 12px;
+		}
+		.idiomatticwp-te-tm-score {
+			font-weight: 600;
+			color: #2271b1;
+			white-space: nowrap;
+		}
+		.idiomatticwp-te-tm-text {
+			flex: 1;
+			color: #3c434a;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+		
+		.idiomatticwp-te-diff-panel {
+			margin: 0 0 16px;
+			border: 1px solid #f0b849;
+			border-radius: 4px;
+			background: #fffdf0;
+		}
+		.idiomatticwp-te-diff-summary {
+			display: flex;
+			align-items: center;
+			gap: 6px;
+			padding: 10px 14px;
+			font-weight: 600;
+			cursor: pointer;
+			list-style: none;
+			color: #7a5900;
+		}
+		.idiomatticwp-te-diff-summary::-webkit-details-marker { display: none; }
+		.idiomatticwp-te-diff-summary .dashicons { color: #b07800; }
+		.idiomatticwp-te-diff-body {
+			padding: 0 14px 14px;
+		}
+		.idiomatticwp-te-diff-legend {
+			margin: 0 0 10px;
+			font-size: 12px;
+			color: #7a5900;
+		}
+		.idiomatticwp-te-diff-field {
+			margin-bottom: 12px;
+		}
+		.idiomatticwp-te-diff-field-label {
+			display: block;
+			margin-bottom: 4px;
+			font-size: 11px;
+			text-transform: uppercase;
+			letter-spacing: .04em;
+			color: #7a5900;
+		}
+		.idiomatticwp-te-diff-field .diff {
+			width: 100%;
+			border-collapse: collapse;
+			font-size: 13px;
+			font-family: monospace;
+		}
+		.idiomatticwp-te-diff-field .diff td {
+			padding: 2px 6px;
+			vertical-align: top;
+			white-space: pre-wrap;
+			word-break: break-word;
+		}
+		.idiomatticwp-te-diff-field .diff del,
+		.idiomatticwp-te-diff-field .diff ins {
+			text-decoration: none;
+			border-radius: 2px;
+			padding: 0 1px;
+		}
+		.idiomatticwp-te-diff-field .diff .diff-deletedline td { background: #ffeef0; }
+		.idiomatticwp-te-diff-field .diff .diff-addedline td   { background: #e6ffed; }
+		.idiomatticwp-te-diff-field .diff del { background: #fdb8c0; }
+		.idiomatticwp-te-diff-field .diff ins { background: #acf2bd; }
+
+		/* ── Segment TM panel ─────────────────────────────── */
+		.idiomatticwp-te-seg-panel {
+			margin-top: 8px;
+			border: 1px solid #d1d9e3;
+			border-radius: 4px;
+			background: #f9fbfe;
+			font-size: 12px;
+		}
+		.idiomatticwp-te-seg-summary {
+			display: flex;
+			align-items: center;
+			gap: 5px;
+			padding: 6px 10px;
+			cursor: pointer;
+			list-style: none;
+			font-weight: 600;
+			color: #3c434a;
+		}
+		.idiomatticwp-te-seg-summary::-webkit-details-marker { display: none; }
+		.idiomatticwp-te-seg-summary .dashicons { font-size: 14px; width: 14px; height: 14px; color: #2271b1; }
+		.idiomatticwp-te-seg-list {
+			margin: 0;
+			padding: 0 0 6px;
+			list-style: none;
+		}
+		.idiomatticwp-te-seg-item {
+			display: flex;
+			align-items: center;
+			gap: 6px;
+			padding: 4px 10px;
+			border-top: 1px solid #edf0f3;
+		}
+		.idiomatticwp-te-seg-score {
+			flex-shrink: 0;
+			padding: 1px 5px;
+			border-radius: 3px;
+			font-weight: 600;
+			font-size: 11px;
+			white-space: nowrap;
+		}
+		.idiomatticwp-te-seg-score.is-exact { background: #d1fae5; color: #065f46; }
+		.idiomatticwp-te-seg-score.is-fuzzy { background: #e0f2fe; color: #0c4a6e; }
+		.idiomatticwp-te-seg-text {
+			flex: 1;
+			color: #3c434a;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+</style>
 		<script>
 		(function() {
 			'use strict';
@@ -497,6 +713,68 @@ class TranslationEditor {
 				var el = document.querySelector( '[data-field="' + field + '"]' );
 				return el ? ( el.getAttribute( 'data-source' ) || '' ) : '';
 			}
+
+			// ── Unsaved changes guard ─────────────────────────────────────
+
+		var formDirty = false;
+		var teForm = document.getElementById( 'idiomatticwp-te-form' );
+		if ( teForm ) {
+			teForm.addEventListener( 'input', function() { formDirty = true; } );
+			teForm.addEventListener( 'change', function() { formDirty = true; } );
+			teForm.addEventListener( 'submit', function() { formDirty = false; } );
+		}
+		window.addEventListener( 'beforeunload', function( e ) {
+			if ( ! formDirty ) { return; }
+			e.preventDefault();
+			e.returnValue = '';
+		} );
+
+		// Mark dirty when TinyMCE content changes
+		if ( typeof tinyMCE !== 'undefined' ) {
+			document.addEventListener( 'DOMContentLoaded', function() {
+				var ed = tinyMCE.get( 'te_post_content' );
+				if ( ed ) {
+					ed.on( 'input change keyup', function() { formDirty = true; } );
+				}
+			} );
+		}
+
+		// Disable dirty flag when any submit button is clicked (for header buttons)
+		document.querySelectorAll( '[form="idiomatticwp-te-form"][type="submit"]' ).forEach( function( btn ) {
+			btn.addEventListener( 'click', function() { formDirty = false; } );
+		} );
+
+		// ── TM Apply ─────────────────────────────────────────────────
+
+			document.addEventListener('click', function(e) {
+				var btn = e.target.closest('.idiomatticwp-te-tm-apply');
+				if (!btn) return;
+				var match = btn.closest('.idiomatticwp-te-tm-match');
+				var field = match.getAttribute('data-field');
+				var value = match.getAttribute('data-value');
+				if (field && value !== null) {
+					setFieldValue(field, value);
+					flash(field);
+				}
+			});
+
+			// ── Segment TM Insert ─────────────────────────────────────────
+
+			document.addEventListener('click', function(e) {
+				var btn = e.target.closest('.idiomatticwp-te-seg-apply');
+				if (!btn) return;
+				var value = btn.getAttribute('data-value') || '';
+				// Insert at TinyMCE cursor if editor is active, otherwise append to textarea
+				if (typeof tinyMCE !== 'undefined') {
+					var ed = tinyMCE.get('te_post_content');
+					if (ed && !ed.isHidden()) {
+						ed.execCommand('mceInsertContent', false, value + ' ');
+						return;
+					}
+				}
+				var ta = document.getElementById('te_post_content');
+				if (ta) { ta.value += (ta.value ? ' ' : '') + value; }
+			});
 
 			// ── Duplicate All ────────────────────────────────────────────
 
@@ -638,6 +916,98 @@ class TranslationEditor {
 
 	// ── Private helpers ───────────────────────────────────────────────────
 
+	// ── Outdated diff ────────────────────────────────────────────────────
+
+	/**
+	 * Render a collapsible diff panel showing what changed in the source post
+	 * since the translation was last completed.
+	 *
+	 * Uses WordPress post revisions to find the snapshot at translated_at (UTC).
+	 * Falls back silently when revisions are unavailable.
+	 */
+	private function renderOutdatedDiff( \WP_Post $source, array $record ): void {
+		$translatedAt = $record['translated_at'] ?? null;
+		if ( ! $translatedAt ) {
+			return;
+		}
+
+		// Revisions are stored newest-first; post_modified_gmt is UTC.
+		$revisions = wp_get_post_revisions( $source->ID, [ 'order' => 'DESC', 'orderby' => 'date' ] );
+		if ( empty( $revisions ) ) {
+			return;
+		}
+
+		// Find the newest revision that is at or before translated_at.
+		$snapshot = null;
+		foreach ( $revisions as $rev ) {
+			if ( $rev->post_modified_gmt <= $translatedAt ) {
+				$snapshot = $rev;
+				break;
+			}
+		}
+		// All revisions are newer — use the earliest available as the baseline.
+		if ( ! $snapshot ) {
+			$snapshot = end( $revisions );
+		}
+
+		// Build diffs for translatable core fields.
+		$diffs = [];
+		foreach ( [
+			'title'   => [ $snapshot->post_title,                        $source->post_title   ],
+			'content' => [ wp_strip_all_tags( $snapshot->post_content ), wp_strip_all_tags( $source->post_content ) ],
+			'excerpt' => [ $snapshot->post_excerpt,                      $source->post_excerpt ],
+		] as $field => [ $old, $new ] ) {
+			if ( $old === $new ) {
+				continue;
+			}
+			$diff = wp_text_diff( $old, $new, [ 'show_split_view' => false ] );
+			if ( ! $diff ) {
+				continue;
+			}
+			$diffs[] = [
+				'label' => match ( $field ) {
+					'title'   => __( 'Title',   'idiomattic-wp' ),
+					'content' => __( 'Content', 'idiomattic-wp' ),
+					'excerpt' => __( 'Excerpt', 'idiomattic-wp' ),
+				},
+				'diff' => $diff,
+			];
+		}
+
+		if ( empty( $diffs ) ) {
+			return;
+		}
+
+		$timeAgo = human_time_diff( strtotime( $translatedAt . ' UTC' ) );
+		?>
+		<details class="idiomatticwp-te-diff-panel" open>
+			<summary class="idiomatticwp-te-diff-summary">
+				<span class="dashicons dashicons-editor-code"></span>
+				<?php esc_html_e( 'Changes in the source post since last translation', 'idiomattic-wp' ); ?>
+			</summary>
+			<div class="idiomatticwp-te-diff-body">
+				<p class="idiomatticwp-te-diff-legend">
+					<?php
+					printf(
+						/* translators: %s: human-readable time e.g. "3 hours" */
+						esc_html__( 'Showing what changed in the last %s. Red = removed, green = added.', 'idiomattic-wp' ),
+						esc_html( $timeAgo )
+					);
+					?>
+				</p>
+				<?php foreach ( $diffs as $item ) : ?>
+				<div class="idiomatticwp-te-diff-field">
+					<strong class="idiomatticwp-te-diff-field-label"><?php echo esc_html( $item['label'] ); ?></strong>
+					<?php echo $item['diff']; // wp_text_diff output is safe HTML ?>
+				</div>
+				<?php endforeach; ?>
+			</div>
+		</details>
+		<?php
+	}
+
+	// ── Core field renderer ───────────────────────────────────────────────
+
 	/**
 	 * Render a simple core field (title or excerpt) in the two-column layout.
 	 */
@@ -647,7 +1017,8 @@ class TranslationEditor {
 		string $sourceValue,
 		string $targetValue,
 		string $placeholder,
-		string $inputType
+		string $inputType,
+		?\IdiomatticWP\Memory\MemoryMatch $tmMatch = null
 	): void {
 		$inputId   = 'te_post_' . $field;
 		$inputName = 'te_post_' . $field;
@@ -665,6 +1036,17 @@ class TranslationEditor {
 					</div>
 				</div>
 				<div class="idiomatticwp-te-field idiomatticwp-te-field-target">
+					<?php if ( $tmMatch && $tmMatch->score >= 70 ) : ?>
+					<div class="idiomatticwp-te-tm-match"
+					     data-field="<?php echo esc_attr( $field ); ?>"
+					     data-value="<?php echo esc_attr( $tmMatch->translatedText ); ?>">
+						<span class="idiomatticwp-te-tm-score"><?php echo esc_html( $tmMatch->label() ); ?></span>
+						<span class="idiomatticwp-te-tm-text"><?php echo esc_html( $tmMatch->translatedText ); ?></span>
+						<button type="button" class="button button-small idiomatticwp-te-tm-apply">
+							<?php esc_html_e( 'Apply', 'idiomattic-wp' ); ?>
+						</button>
+					</div>
+					<?php endif; ?>
 					<?php if ( $inputType === 'textarea' ) : ?>
 						<textarea
 							id="<?php echo esc_attr( $inputId ); ?>"
@@ -689,6 +1071,40 @@ class TranslationEditor {
 			</div>
 		</div>
 		<?php
+	}
+
+	/**
+	 * Split post content into plain-text segments (paragraphs) and look each up
+	 * in the Translation Memory. Returns an array of ['segment' => string, 'match' => MemoryMatch].
+	 *
+	 * @param string       $content    Raw post content (may contain HTML).
+	 * @param LanguageCode $sourceLang
+	 * @param LanguageCode $targetLang
+	 * @return array<int, array{segment: string, match: \IdiomatticWP\Memory\MemoryMatch}>
+	 */
+	private function getContentSegmentMatches( string $content, LanguageCode $sourceLang, LanguageCode $targetLang ): array {
+		if ( ! $content ) {
+			return [];
+		}
+
+		// Convert HTML to plain text, then split on paragraph/line boundaries.
+		$plain    = wp_strip_all_tags( $content );
+		$segments = array_values( array_filter(
+			array_map( 'trim', preg_split( '/\n{2,}/', $plain ) ?? [] )
+		) );
+
+		$results = [];
+		foreach ( $segments as $segment ) {
+			if ( mb_strlen( $segment ) < 10 ) {
+				continue; // Skip very short segments (headings, single words, etc.)
+			}
+			$match = $this->translationMemory->lookup( $segment, $sourceLang, $targetLang );
+			if ( $match ) {
+				$results[] = [ 'segment' => $segment, 'match' => $match ];
+			}
+		}
+
+		return $results;
 	}
 
 	/**

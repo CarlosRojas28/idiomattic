@@ -1,0 +1,1060 @@
+# Hebrew translation for Idiomattic WP
+# Copyright (C) 2024 Idiomattic
+msgid ""
+msgstr ""
+"Project-Id-Version: Idiomattic WP\n"
+"POT-Creation-Date: 2024-01-01 00:00+0000\n"
+"PO-Revision-Date: 2024-01-01 00:00+0000\n"
+"Last-Translator: Idiomattic <hello@idiomattic.app>\n"
+"Language-Team: Hebrew\n"
+"Language: he_IL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Idiomattic WP\n"
+"X-Domain: idiomattic-wp\n"
+
+msgid "%1$d draft, %2$d in progress"
+msgstr "%1$d טיוטה, %2$d בתהליך"
+
+msgid "%d active plugins — click to expand"
+msgstr "%d תוספים פעילים — לחץ להרחבה"
+
+msgid "%s: %s"
+msgstr "%s: %s"
+
+msgid "(empty)"
+msgstr "(ריק)"
+
+msgid "(no title)"
+msgstr "(ללא כותרת)"
+
+msgid "(optional)"
+msgstr "(אופציונלי)"
+
+msgid "(saved — enter a new key to replace)"
+msgstr "(נשמר — הזן מפתח חדש להחלפה)"
+
+msgid "A translation already exists for this language. Delete it first."
+msgstr "תרגום כבר קיים עבור שפה זו. מחק אותו תחילה."
+
+msgid "AI Translation Provider"
+msgstr "ספק תרגום AI"
+
+msgid "AI Translation — Pro Feature"
+msgstr "תרגום AI — תכונת Pro"
+
+msgid "AI error: "
+msgstr "שגיאת AI: "
+
+msgid "AI string translation requires a Pro license."
+msgstr "תרגום מחרוזות AI דורש רישיון Pro."
+
+msgid "AI translation requires Pro"
+msgstr "תרגום AI דורש Pro"
+
+msgid "AI translation requires a Pro license."
+msgstr "תרגום AI דורש רישיון Pro."
+
+msgid "Action"
+msgstr "פעולה"
+
+msgid "Actions"
+msgstr "פעולות"
+
+msgid "Active Languages"
+msgstr "שפות פעילות"
+
+msgid "Active Plugins"
+msgstr "תוספים פעילים"
+
+msgid "Active Theme"
+msgstr "ערכת נושא פעילה"
+
+msgid "Add"
+msgstr "הוסף"
+
+msgid "Add Custom Language"
+msgstr "הוסף שפה מותאמת אישית"
+
+msgid "Add String"
+msgstr "הוסף מחרוזת"
+
+msgid "Add Term"
+msgstr "הוסף מונח"
+
+msgid "Add string"
+msgstr "הוסף מחרוזת"
+
+msgid "Advanced"
+msgstr "מתקדם"
+
+msgid "All"
+msgstr "הכל"
+
+msgid "All content already has translations for the selected languages."
+msgstr "לכל התוכן כבר יש תרגומים לשפות שנבחרו."
+
+msgid "All content is fully translated!"
+msgstr "כל התוכן תורגם במלואו!"
+
+msgid "All fields already have a translation."
+msgstr "לכל השדות כבר יש תרגום."
+
+msgid "All languages"
+msgstr "כל השפות"
+
+msgid "All packages"
+msgstr "כל החבילות"
+
+msgid "An unexpected error occurred during translation."
+msgstr "אירעה שגיאה בלתי צפויה במהלך התרגום."
+
+msgid "Apply"
+msgstr "החל"
+
+msgid "Are you sure you want to delete this translation?"
+msgstr "האם אתה בטוח שברצונך למחוק תרגום זה?"
+
+msgid "Author"
+msgstr "מחבר"
+
+msgid "Auto-translate failed."
+msgstr "תרגום אוטומטי נכשל."
+
+msgid "Auto-translate on creation"
+msgstr "תרגום אוטומטי בעת יצירה"
+
+msgid "Auto-translate pending"
+msgstr "תרגום אוטומטי ממתין"
+
+msgid "Automated translations and AI provider configuration are available in the Pro version. Bring Your Own Key — connect directly to OpenAI, Claude, or DeepL."
+msgstr "תרגומים אוטומטיים והגדרת ספק AI זמינים בגרסת Pro. הבא את המפתח שלך — התחבר ישירות ל-OpenAI, Claude או DeepL."
+
+msgid "Automatically start AI translation when a new translation is created"
+msgstr "התחל תרגום AI אוטומטית כאשר נוצר תרגום חדש"
+
+msgid "Back"
+msgstr "חזרה"
+
+msgid "Back to list"
+msgstr "חזרה לרשימה"
+
+msgid "Behaviour"
+msgstr "התנהגות"
+
+msgid "Bring Your Own Key (BYOK): connect directly to your chosen AI provider. Your API key is stored encrypted and never sent to Idiomattic servers."
+msgstr "הבא את המפתח שלך (BYOK): התחבר ישירות לספק AI שבחרת. מפתח ה-API שלך מאוחסן מוצפן ולעולם לא נשלח לשרתי Idiomattic."
+
+msgid "Cache & Transients"
+msgstr "מטמון ונתונים זמניים"
+
+msgid "Cache language detection results for improved performance."
+msgstr "שמור תוצאות זיהוי שפה במטמון לביצועים משופרים."
+
+msgid "Cancel"
+msgstr "ביטול"
+
+msgid "Child theme"
+msgstr "ערכת נושא צאצא"
+
+msgid "Choose the primary language your website content will be served in by default."
+msgstr "בחר את השפה הראשית שבה יוצג תוכן האתר שלך כברירת מחדל."
+
+msgid "Claude API Key"
+msgstr "מפתח API של Claude"
+
+msgid "Clean URLs with the language code as a path prefix. Requires pretty permalinks."
+msgstr "כתובות URL נקיות עם קוד השפה כקידומת נתיב. דורש קישורים קבועים יפים."
+
+msgid "Clear cached data if you are seeing stale content or unexpected behaviour."
+msgstr "נקה נתונים שמורים במטמון אם אתה רואה תוכן ישן או התנהגות בלתי צפויה."
+
+msgid "Clear language filter"
+msgstr "נקה מסנן שפה"
+
+msgid "Close"
+msgstr "סגור"
+
+msgid "Code, native name, and English name are required."
+msgstr "קוד, שם מקורי ושם אנגלי הם שדות חובה."
+
+msgid "Compatibility"
+msgstr "תאימות"
+
+msgid "Compatibility scan completed successfully."
+msgstr "סריקת תאימות הושלמה בהצלחה."
+
+msgid "Complete"
+msgstr "השלם"
+
+msgid "Configure how each post type behaves across languages."
+msgstr "הגדר כיצד כל סוג פוסט מתנהג בין שפות."
+
+msgid "Configure how taxonomy terms behave across languages."
+msgstr "הגדר כיצד מונחי טקסונומיה מתנהגים בין שפות."
+
+msgid "Configure permalinks →"
+msgstr "הגדר קישורים קבועים →"
+
+msgid "Configure translation mode for registered custom fields. New fields can be added via the Compatibility tab or programmatically."
+msgstr "הגדר מצב תרגום לשדות מותאמים אישית שנרשמו. ניתן להוסיף שדות חדשים דרך כרטיסיית התאימות או באופן פרוגרמטי."
+
+msgid "Content"
+msgstr "תוכן"
+
+msgid "Content Translation"
+msgstr "תרגום תוכן"
+
+msgid "Context"
+msgstr "הקשר"
+
+msgid "Context (optional)"
+msgstr "הקשר (אופציונלי)"
+
+msgid "Continue →"
+msgstr "המשך →"
+
+msgid "Control how the plugin handles its data."
+msgstr "שלוט כיצד התוסף מטפל בנתוניו."
+
+msgid "Copied!"
+msgstr "הועתק!"
+
+msgid "Copy from original:"
+msgstr "העתק מהמקור:"
+
+msgid "Copy source string"
+msgstr "העתק מחרוזת מקור"
+
+msgid "Copy source to all empty translations"
+msgstr "העתק מקור לכל התרגומים הריקים"
+
+msgid "Copy to all"
+msgstr "העתק לכולם"
+
+msgid "Copy to clipboard"
+msgstr "העתק ללוח"
+
+msgid "Could not create export archive."
+msgstr "לא ניתן ליצור ארכיון ייצוא."
+
+msgid "Could not link post."
+msgstr "לא ניתן לקשר פוסט."
+
+msgid "Coverage"
+msgstr "כיסוי"
+
+msgid "Create a menu →"
+msgstr "צור תפריט →"
+
+msgid "Creating..."
+msgstr "יוצר..."
+
+msgid "Custom"
+msgstr "מותאם אישית"
+
+msgid "Custom Fields"
+msgstr "שדות מותאמים אישית"
+
+msgid "Daily digest — one email per day"
+msgstr "סיכום יומי — אימייל אחד ביום"
+
+msgid "Dashboard"
+msgstr "לוח בקרה"
+
+msgid "Data Management"
+msgstr "ניהול נתונים"
+
+msgid "Date"
+msgstr "תאריך"
+
+msgid "Debug Log"
+msgstr "יומן באגים"
+
+msgid "Default Language"
+msgstr "שפת ברירת מחדל"
+
+msgid "Default configured by %s"
+msgstr "ברירת מחדל הוגדרה על ידי %s"
+
+msgid "Define terms that must always be translated a specific way, or kept unchanged by the AI."
+msgstr "הגדר מונחים שחייבים תמיד להיות מתורגמים בדרך ספציפית, או להישאר ללא שינוי על ידי ה-AI."
+
+msgid "Define terms that must always be translated a specific way, or kept unchanged. Glossary rules are automatically applied during AI translation."
+msgstr "הגדר מונחים שחייבים תמיד להיות מתורגמים בדרך ספציפית, או להישאר ללא שינוי. כללי מילון המונחים מוחלים אוטומטית במהלך תרגום AI."
+
+msgid "Delete"
+msgstr "מחק"
+
+msgid "Delete this custom language?"
+msgstr "מחק שפה מותאמת אישית זו?"
+
+msgid "Delete this term?"
+msgstr "מחק מונח זה?"
+
+msgid "Directory"
+msgstr "תיקייה"
+
+msgid "Directory and Subdomain modes require pretty permalinks. %s"
+msgstr "מצבי תיקייה ותת-דומיין דורשים קישורים קבועים יפים. %s"
+
+msgid "Directory not found."
+msgstr "תיקייה לא נמצאה."
+
+msgid "Disabled"
+msgstr "מושבת"
+
+msgid "Display a language switcher."
+msgstr "הצג מחליף שפה."
+
+msgid "Done"
+msgstr "בוצע"
+
+msgid "Download JSON"
+msgstr "הורד JSON"
+
+msgid "Download JSON template"
+msgstr "הורד תבנית JSON"
+
+msgid "Download ZIP"
+msgstr "הורד ZIP"
+
+msgid "Download all translations for a language as a ZIP of XLIFF 2.0 files, ready to be processed by any CAT tool."
+msgstr "הורד את כל התרגומים לשפה כקובץ ZIP של קבצי XLIFF 2.0, מוכנים לעיבוד בכל כלי CAT."
+
+msgid "Download as JSON"
+msgstr "הורד בתור JSON"
+
+msgid "Draft"
+msgstr "טיוטה"
+
+msgid "Draft / In Progress"
+msgstr "טיוטה / בתהליך"
+
+msgid "Draft/WIP"
+msgstr "טיוטה/בעבודה"
+
+msgid "Duplicate all"
+msgstr "שכפל הכל"
+
+msgid "Duplicate untranslated"
+msgstr "שכפל לא מתורגמים"
+
+msgid "Each language has its own version of this content"
+msgstr "לכל שפה יש גרסה משלה של תוכן זה"
+
+msgid "Each language on its own subdomain. Requires wildcard DNS and SSL."
+msgstr "כל שפה על תת-הדומיין שלה. דורש DNS wildcard ו-SSL."
+
+msgid "Each language on its own subdomain. Requires wildcard DNS."
+msgstr "כל שפה על תת-הדומיין שלה. דורש DNS wildcard."
+
+msgid "Edit"
+msgstr "ערוך"
+
+msgid "Email Notifications"
+msgstr "התראות אימייל"
+
+msgid "Enable AI-powered string translation"
+msgstr "אפשר תרגום מחרוזות מבוסס AI"
+
+msgid "Enable caching"
+msgstr "אפשר מטמון"
+
+msgid "Enable webhooks"
+msgstr "אפשר Webhooks"
+
+msgid "Error"
+msgstr "שגיאה"
+
+msgid "Export"
+msgstr "ייצוא"
+
+msgid "Export Translations"
+msgstr "ייצוא תרגומים"
+
+msgid "Field"
+msgstr "שדה"
+
+msgid "Glossary"
+msgstr "מילון מונחים"
+
+msgid "Import"
+msgstr "ייבוא"
+
+msgid "Import Translations"
+msgstr "ייבוא תרגומים"
+
+msgid "Immediate — one email per event"
+msgstr "מיידי — אימייל אחד לכל אירוע"
+
+msgid "In Progress"
+msgstr "בתהליך"
+
+msgid "Install"
+msgstr "התקן"
+
+msgid "Invalid parameters."
+msgstr "פרמטרים לא חוקיים."
+
+msgid "Invalid translation ID."
+msgstr "מזהה תרגום לא חוקי."
+
+msgid "Language"
+msgstr "שפה"
+
+msgid "Language Coverage"
+msgstr "כיסוי שפה"
+
+msgid "Language Switcher"
+msgstr "מחליף שפה"
+
+msgid "Languages"
+msgstr "שפות"
+
+msgid "Link as translation"
+msgstr "קשר כתרגום"
+
+msgid "Link existing post"
+msgstr "קשר פוסט קיים"
+
+msgid "Loading..."
+msgstr "טוען..."
+
+msgid "Max words per segment"
+msgstr "מקסימום מילים לפלח"
+
+msgid "Memory Hits"
+msgstr "פגיעות זיכרון"
+
+msgid "Menu"
+msgstr "תפריט"
+
+msgid "Menus"
+msgstr "תפריטים"
+
+msgid "Missing"
+msgstr "חסר"
+
+msgid "Missing %d"
+msgstr "%d חסרים"
+
+msgid "N/A"
+msgstr "לא רלוונטי"
+
+msgid "No compatibility file found. Custom fields from this plugin will not be automatically translated. Click \"Download JSON template\" to get a starter file you can fill in and place inside the plugin/theme directory, or ask the author to add support."
+msgstr "לא נמצא קובץ תאימות. שדות מותאמים אישית מתוסף זה לא יתורגמו אוטומטית."
+
+msgid "No config file"
+msgstr "אין קובץ תצורה"
+
+msgid "No items match the selected filter."
+msgstr "אין פריטים התואמים למסנן שנבחר."
+
+msgid "No permissions."
+msgstr "אין הרשאות."
+
+msgid "No strings found for auto-translation."
+msgstr "לא נמצאו מחרוזות לתרגום אוטומטי."
+
+msgid "No terms in glossary yet. Add your first term above."
+msgstr "אין עדיין מונחים במילון. הוסף את המונח הראשון שלך למעלה."
+
+msgid "No translation found."
+msgstr "לא נמצא תרגום."
+
+msgid "No translations yet. Start by creating a translation from the post list."
+msgstr "אין עדיין תרגומים. התחל על ידי יצירת תרגום מרשימת הפוסטים."
+
+msgid "Not configured"
+msgstr "לא מוגדר"
+
+msgid "Not registered"
+msgstr "לא רשום"
+
+msgid "Not translatable"
+msgstr "לא ניתן לתרגום"
+
+msgid "Notes"
+msgstr "הערות"
+
+msgid "Notification Mode"
+msgstr "מצב התראות"
+
+msgid "Notify on outdated translations"
+msgstr "הודע על תרגומים מיושנים"
+
+msgid "Only .xliff or .xml files are accepted."
+msgstr "מתקבלים רק קבצי .xliff או .xml."
+
+msgid "Open Translations Dashboard"
+msgstr "פתח לוח בקרה תרגומים"
+
+msgid "Open any post or page and click \"Translate\" to use the translation editor."
+msgstr "פתח כל פוסט או דף ולחץ על \"תרגם\" להשתמש בעורך התרגומים."
+
+msgid "OpenAI API Key"
+msgstr "מפתח API של OpenAI"
+
+msgid "Optional HMAC-SHA256 secret"
+msgstr "סוד HMAC-SHA256 אופציונלי"
+
+msgid "Original"
+msgstr "מקור"
+
+msgid "Original post has been deleted."
+msgstr "הפוסט המקורי נמחק."
+
+msgid "Original post not found."
+msgstr "הפוסט המקורי לא נמצא."
+
+msgid "Outdated"
+msgstr "מיושן"
+
+msgid "Overview of your multilingual content"
+msgstr "סקירה של התוכן הרב-לשוני שלך"
+
+msgid "PHP Version"
+msgstr "גרסת PHP"
+
+msgid "Package / Domain"
+msgstr "חבילה / דומיין"
+
+msgid "Page %1$d of %2$d"
+msgstr "עמוד %1$d מתוך %2$d"
+
+msgid "Permalink Structure"
+msgstr "מבנה קישור קבוע"
+
+msgid "Permission denied."
+msgstr "גישה נדחתה."
+
+msgid "Please configure at least two active languages in Settings → Languages before using Content Translation."
+msgstr "אנא הגדר לפחות שתי שפות פעילות בהגדרות → שפות לפני השימוש בתרגום תוכן."
+
+msgid "Please configure at least two active languages in Settings → Languages before using Import / Export."
+msgstr "אנא הגדר לפחות שתי שפות פעילות בהגדרות → שפות לפני השימוש בייבוא / ייצוא."
+
+msgid "Please configure at least two active languages in Settings → Languages before using String Translation."
+msgstr "אנא הגדר לפחות שתי שפות פעילות בהגדרות → שפות לפני השימוש בתרגום מחרוזות."
+
+msgid "Plugin"
+msgstr "תוסף"
+
+msgid "Plugin & Theme Compatibility"
+msgstr "תאימות תוסף וערכת נושא"
+
+msgid "Plugin / Theme"
+msgstr "תוסף / ערכת נושא"
+
+msgid "Plugin Activation Error"
+msgstr "שגיאת הפעלת תוסף"
+
+msgid "Plugin Version"
+msgstr "גרסת תוסף"
+
+msgid "Polylang is active. Running two multilingual plugins simultaneously can cause conflicts. Please deactivate Polylang before using Idiomattic WP."
+msgstr "Polylang פעיל. הפעלת שני תוספים רב-לשוניים בו-זמנית עלולה לגרום לקונפליקטים. אנא בטל את Polylang לפני השימוש ב-Idiomattic WP."
+
+msgid "Post Title"
+msgstr "כותרת פוסט"
+
+msgid "Post Type"
+msgstr "סוג פוסט"
+
+msgid "Post Type(s)"
+msgstr "סוג(י) פוסט"
+
+msgid "Post Types"
+msgstr "סוגי פוסטים"
+
+msgid "Post not found."
+msgstr "פוסט לא נמצא."
+
+msgid "Prev"
+msgstr "הקודם"
+
+msgid "Preview flag"
+msgstr "תצוגה מקדימה של דגל"
+
+msgid "Primary Language"
+msgstr "שפה ראשית"
+
+msgid "Pro"
+msgstr "Pro"
+
+msgid "Progress"
+msgstr "התקדמות"
+
+msgid "Publish"
+msgstr "פרסם"
+
+msgid "Publish Translation"
+msgstr "פרסם תרגום"
+
+msgid "Queue AI translation"
+msgstr "הוסף תרגום AI לתור"
+
+msgid "Rate limit reached. Please wait a moment and try again."
+msgstr "הגעת למגבלת הקצב. המתן רגע ונסה שוב."
+
+msgid "Re-scan"
+msgstr "סרוק מחדש"
+
+msgid "Re-use previously translated segments to reduce API costs"
+msgstr "השתמש שוב בפלחים שתורגמו בעבר להפחתת עלויות API"
+
+msgid "Recent Activity"
+msgstr "פעילות אחרונה"
+
+msgid "Recipient Email"
+msgstr "אימייל נמען"
+
+msgid "Register string"
+msgstr "רשום מחרוזת"
+
+msgid "Register this string for this language"
+msgstr "רשום מחרוזת זו עבור שפה זו"
+
+msgid "Remove"
+msgstr "הסר"
+
+msgid "Requires Pro licence"
+msgstr "דורש רישיון Pro"
+
+msgid "Retain data on uninstall"
+msgstr "שמור נתונים בעת הסרת התקנה"
+
+msgid "Rewrite Rules"
+msgstr "כללי שכתוב"
+
+msgid "Right-to-left language"
+msgstr "שפה מימין לשמאל"
+
+msgid "Save"
+msgstr "שמור"
+
+msgid "Save Draft"
+msgstr "שמור טיוטה"
+
+msgid "Save Translations"
+msgstr "שמור תרגומים"
+
+msgid "Scan complete."
+msgstr "סריקה הושלמה."
+
+msgid "Scan sources"
+msgstr "סרוק מקורות"
+
+msgid "Scan strings"
+msgstr "סרוק מחרוזות"
+
+msgid "Scanning..."
+msgstr "סורק..."
+
+msgid "Search"
+msgstr "חיפוש"
+
+msgid "Search by title…"
+msgstr "חפש לפי כותרת…"
+
+msgid "Search in source and translations…"
+msgstr "חפש במקור ובתרגומים…"
+
+msgid "Search languages…"
+msgstr "חפש שפות…"
+
+msgid "Search strings"
+msgstr "חפש מחרוזות"
+
+msgid "Security check failed."
+msgstr "בדיקת אבטחה נכשלה."
+
+msgid "Select Language"
+msgstr "בחר שפה"
+
+msgid "Send HTTP POST notifications to an external URL when translation events occur. Payloads are signed with HMAC-SHA256."
+msgstr "שלח התראות HTTP POST לכתובת URL חיצונית כאשר מתרחשים אירועי תרגום. המטענים חתומים עם HMAC-SHA256."
+
+msgid "Settings"
+msgstr "הגדרות"
+
+msgid "Show Flags"
+msgstr "הצג דגלים"
+
+msgid "Show Names"
+msgstr "הצג שמות"
+
+msgid "Show all"
+msgstr "הצג הכל"
+
+msgid "Show as translated"
+msgstr "הצג כמתורגם"
+
+msgid "Show terms for:"
+msgstr "הצג מונחים עבור:"
+
+msgid "Showing original posts only"
+msgstr "מציג פוסטים מקוריים בלבד"
+
+msgid "Showing translations into: %s"
+msgstr "מציג תרגומים לתוך: %s"
+
+msgid "Shown in secondary languages even without a translation (uses default language content)"
+msgstr "מוצג בשפות משניות גם ללא תרגום (משתמש בתוכן שפת ברירת המחדל)"
+
+msgid "Signing Secret"
+msgstr "סוד חתימה"
+
+msgid "Site Default Language"
+msgstr "שפת ברירת מחדל של האתר"
+
+msgid "Slug"
+msgstr "slug"
+
+msgid "Source Term"
+msgstr "מונח מקור"
+
+msgid "Source post not found."
+msgstr "פוסט מקור לא נמצא."
+
+msgid "Source string"
+msgstr "מחרוזת מקור"
+
+msgid "Source string not found."
+msgstr "מחרוזת מקור לא נמצאה."
+
+msgid "Standard ISO code for localization"
+msgstr "קוד ISO סטנדרטי לוקליזציה"
+
+msgid "Start Migration"
+msgstr "התחל העברה"
+
+msgid "Status"
+msgstr "סטטוס"
+
+msgid "Step 1: Detection"
+msgstr "שלב 1: זיהוי"
+
+msgid "String Translation"
+msgstr "תרגום מחרוזות"
+
+msgid "Style"
+msgstr "סגנון"
+
+msgid "Subdomain"
+msgstr "תת-דומיין"
+
+msgid "System Information"
+msgstr "מידע מערכת"
+
+msgid "System Report"
+msgstr "דוח מערכת"
+
+msgid "Target language is required."
+msgstr "שפת יעד נדרשת."
+
+msgid "Taxonomies"
+msgstr "טקסונומיות"
+
+msgid "Taxonomy"
+msgstr "טקסונומיה"
+
+msgid "Theme"
+msgstr "ערכת נושא"
+
+msgid "This affects how visitors and search engines find your translated content."
+msgstr "זה משפיע על כיצד מבקרים ומנועי חיפוש מוצאים את התוכן המתורגם שלך."
+
+msgid "This alert was sent by the %s plugin."
+msgstr "התראה זו נשלחה על ידי תוסף %s."
+
+msgid "This is a translation of: %s"
+msgstr "זהו תרגום של: %s"
+
+msgid "This is the original language of your posts and pages."
+msgstr "זוהי השפה המקורית של הפוסטים והדפים שלך."
+
+msgid "This plugin/theme ships with a native idiomattic-elements.json file. All its elements are automatically registered. No action needed."
+msgstr "תוסף/ערכת נושא זה מגיע עם קובץ idiomattic-elements.json מקורי. כל האלמנטים שלו נרשמים אוטומטית. אין צורך בפעולה."
+
+msgid "This plugin/theme ships with a wpml-config.xml file. Idiomattic auto-imports its field definitions at runtime. Use \"Import WPML config\" to force-register them now, or \"Download as JSON\" to convert the file to a permanent idiomattic-elements.json."
+msgstr "תוסף/ערכת נושא זה מגיע עם קובץ wpml-config.xml. Idiomattic מייבא אוטומטית את הגדרות השדות בזמן ריצה."
+
+msgid "This translation is outdated — the source post has been updated since it was last translated. Please review and re-translate."
+msgstr "תרגום זה מיושן — הפוסט המקורי עודכן מאז התרגום האחרון. אנא סקור ותרגם מחדש."
+
+msgid "This will overwrite all fields with the original content. Continue?"
+msgstr "פעולה זו תדרוס את כל השדות עם התוכן המקורי. להמשיך?"
+
+msgid "Title"
+msgstr "כותרת"
+
+msgid "To create or edit navigation menus visit %s."
+msgstr "ליצירה או עריכה של תפריטי ניווט בקר ב-%s."
+
+msgid "Total Translations"
+msgstr "סך כל התרגומים"
+
+msgid "Total scanned"
+msgstr "סך כל שנסרק"
+
+msgid "Translatable"
+msgstr "ניתן לתרגום"
+
+msgid "Translate all"
+msgstr "תרגם הכל"
+
+msgid "Translate all languages"
+msgstr "תרגם לכל השפות"
+
+msgid "Translate all missing"
+msgstr "תרגם את כל החסרים"
+
+msgid "Translate all missing (%d)"
+msgstr "תרגם את כל החסרים (%d)"
+
+msgid "Translate content →"
+msgstr "תרגם תוכן →"
+
+msgid "Translate field"
+msgstr "תרגם שדה"
+
+msgid "Translate interface strings from plugins and themes"
+msgstr "תרגם מחרוזות ממשק מתוספים וערכות נושא"
+
+msgid "Translate posts, pages, and custom content into all active languages"
+msgstr "תרגם פוסטים, דפים ותוכן מותאם אישית לכל השפות הפעילות"
+
+msgid "Translate to all languages"
+msgstr "תרגם לכל השפות"
+
+msgid "Translate: %s"
+msgstr "תרגם: %s"
+
+msgid "Translated %d strings successfully."
+msgstr "%d מחרוזות תורגמו בהצלחה."
+
+msgid "Translating"
+msgstr "מתרגם"
+
+msgid "Translating…"
+msgstr "מתרגם…"
+
+msgid "Translation"
+msgstr "תרגום"
+
+msgid "Translation / Rule"
+msgstr "תרגום / כלל"
+
+msgid "Translation Alert"
+msgstr "התראת תרגום"
+
+msgid "Translation Alert — %s"
+msgstr "התראת תרגום — %s"
+
+msgid "Translation Details"
+msgstr "פרטי תרגום"
+
+msgid "Translation Editor"
+msgstr "עורך תרגומים"
+
+msgid "Translation Memory"
+msgstr "זיכרון תרגום"
+
+msgid "Translation Mode"
+msgstr "מצב תרגום"
+
+msgid "Translation completed (AI finished)"
+msgstr "תרגום הושלם (AI סיים)"
+
+msgid "Translation failed."
+msgstr "תרגום נכשל."
+
+msgid "Translation outdated (source post updated)"
+msgstr "תרגום מיושן (פוסט מקור עודכן)"
+
+msgid "Translation provider is temporarily unavailable. Please try again."
+msgstr "ספק התרגום אינו זמין באופן זמני. אנא נסה שוב."
+
+msgid "Translation queued (job dispatched)"
+msgstr "תרגום בתור (משימה נשלחה)"
+
+msgid "Translation record not found."
+msgstr "רשומת תרגום לא נמצאה."
+
+msgid "Translation saved successfully."
+msgstr "תרגום נשמר בהצלחה."
+
+msgid "Translations"
+msgstr "תרגומים"
+
+msgid "Translations saved."
+msgstr "תרגומים נשמרו."
+
+msgid "Triggered when you update a post that has translations."
+msgstr "מופעל כאשר אתה מעדכן פוסט שיש לו תרגומים."
+
+msgid "Troubleshooting"
+msgstr "פתרון בעיות"
+
+msgid "Type"
+msgstr "סוג"
+
+msgid "URL Mode"
+msgstr "מצב URL"
+
+msgid "URL Structure"
+msgstr "מבנה URL"
+
+msgid "Unauthorized"
+msgstr "לא מורשה"
+
+msgid "Update"
+msgstr "עדכן"
+
+msgid "Upgrade to Pro to unlock Directory and Subdomain modes →"
+msgstr "שדרג ל-Pro לפתיחת מצבי תיקייה ותת-דומיין →"
+
+msgid "Upgrade to Pro →"
+msgstr "שדרג ל-Pro →"
+
+msgid "Upload an XLIFF file (2.0 or 1.2) exported from a CAT tool. Translations are written directly into the database."
+msgstr "העלה קובץ XLIFF (2.0 או 1.2) שיוצא מכלי CAT. תרגומים נכתבים ישירות לבסיס הנתונים."
+
+msgid "Version"
+msgstr "גרסה"
+
+msgid "View"
+msgstr "הצג"
+
+msgid "View Original"
+msgstr "הצג מקור"
+
+msgid "View compatibility report →"
+msgstr "הצג דוח תאימות →"
+
+msgid "View source post →"
+msgstr "הצג פוסט מקור →"
+
+msgid "View strings"
+msgstr "הצג מחרוזות"
+
+msgid "WPML Migration"
+msgstr "העברת WPML"
+
+msgid "WPML Migration Wizard"
+msgstr "אשף העברת WPML"
+
+msgid "WPML config"
+msgstr "תצורת WPML"
+
+msgid "WPML config imported successfully."
+msgstr "תצורת WPML יובאה בהצלחה."
+
+msgid "WPML config imported with warnings: "
+msgstr "תצורת WPML יובאה עם אזהרות: "
+
+msgid "WPML config imported: %1$d element(s) registered into the translation registry, %2$d skipped (action = ignore)."
+msgstr "תצורת WPML יובאה: %1$d אלמנט(ים) נרשמו בממשק התרגומים, %2$d דולגו (פעולה = התעלם)."
+
+msgid "WPML is active. Running two multilingual plugins simultaneously can cause conflicts. Please deactivate WPML before using Idiomattic WP, or use the WPML migration tool."
+msgstr "WPML פעיל. הפעלת שני תוספים רב-לשוניים בו-זמנית עלולה לגרום לקונפליקטים. אנא בטל את WPML לפני השימוש ב-Idiomattic WP, או השתמש בכלי ההעברה של WPML."
+
+msgid "WPML is not active. Migration may not be possible."
+msgstr "WPML אינו פעיל. ייתכן שהעברה אינה אפשרית."
+
+msgid "W3 Total Cache is active. Make sure page caching is configured to handle language-specific URLs correctly."
+msgstr "W3 Total Cache פעיל. ודא שמטמון הדפים מוגדר לטפל נכון בכתובות URL ספציפיות לשפה."
+
+msgid "WP Debug"
+msgstr "WP Debug"
+
+msgid "WP Debug Log"
+msgstr "יומן WP Debug"
+
+msgid "WP_DEBUG and WP_DEBUG_LOG are not both enabled. Add the following to wp-config.php to activate debug logging:"
+msgstr "WP_DEBUG ו-WP_DEBUG_LOG אינם מופעלים שניהם. הוסף את הדברים הבאים ל-wp-config.php להפעלת רישום debug:"
+
+msgid "Want AI-powered translations? Upgrade to Pro for BYOK (Bring Your Own Key) support."
+msgstr "רוצה תרגומים מבוססי AI? שדרג ל-Pro לתמיכה ב-BYOK (הבא את המפתח שלך)."
+
+msgid "Webhooks"
+msgstr "Webhooks"
+
+msgid "What do these statuses mean?"
+msgstr "מה המשמעות של סטטוסים אלה?"
+
+msgid "What language is your content written in?"
+msgstr "באיזו שפה כתוב התוכן שלך?"
+
+msgid "Which languages do you want to translate into?"
+msgstr "לאילו שפות אתה רוצה לתרגם?"
+
+msgid "WordPress Version"
+msgstr "גרסת WordPress"
+
+msgid "Works with any permalink structure. Easiest to set up."
+msgstr "עובד עם כל מבנה קישור קבוע. הקל ביותר להגדרה."
+
+msgid "Works with any permalink structure. Recommended for most sites."
+msgstr "עובד עם כל מבנה קישור קבוע. מומלץ לרוב האתרים."
+
+msgid "XLIFF file (.xliff)"
+msgstr "קובץ XLIFF (.xliff)"
+
+msgid "You can add or remove languages at any time from Settings."
+msgstr "תוכל להוסיף או להסיר שפות בכל עת מההגדרות."
+
+msgid "You can disable these notifications in the plugin settings."
+msgstr "תוכל להשבית התראות אלה בהגדרות התוסף."
+
+msgid "You do not have permission to edit this post."
+msgstr "אין לך הרשאה לערוך פוסט זה."
+
+msgid "debug.log not found or not readable."
+msgstr "debug.log לא נמצא או אינו קריא."
+
+msgid "default"
+msgstr "ברירת מחדל"
+
+msgid "e.g. button, menu"
+msgstr "לדוגמה: כפתור, תפריט"
+
+msgid "e.g. my-plugin"
+msgstr "לדוגמה: התוסף-שלי"
+
+msgid "— Not assigned —"
+msgstr "— לא מוקצה —"
+
+msgid "→ Scan sources"
+msgstr "→ סרוק מקורות"
+
+msgid "Admin Language"
+msgstr "שפת מנהל"
+
+msgid "Admin Interface Language"
+msgstr "שפת ממשק מנהל"
+
+msgid "Use site default"
+msgstr "השתמש בברירת מחדל של האתר"
+
+msgid "Select the language you prefer for the WordPress admin interface."
+msgstr "בחר את השפה שאתה מעדיף עבור ממשק מנהל WordPress."
+
+msgid "%d missing"
+msgid_plural "%d missing"
+msgstr[0] "%d חסר"
+msgstr[1] "%d חסרים"
+
+msgid "%d translation job queued. Jobs are processed in the background."
+msgid_plural "%d translation job queued. Jobs are processed in the background."
+msgstr[0] "משימת תרגום %d בתור. המשימות מעובדות ברקע."
+msgstr[1] "%d משימות תרגום בתור. המשימות מעובדות ברקע."
+
+msgid "Retranslate %d outdated"
+msgid_plural "Retranslate %d outdated"
+msgstr[0] "תרגם מחדש %d מיושן"
+msgstr[1] "תרגם מחדש %d מיושנים"

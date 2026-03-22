@@ -11,10 +11,10 @@
  *   French:   https://example.com/fr/news/my-post/
  *
  * ── Detection ────────────────────────────────────────────────────────────────
- *   On `parse_request` (priority 1) we inspect $wp->request. If the first
- *   path segment is a known active non-default language code we:
- *     1. Record the detected language.
- *     2. Strip the prefix from $wp->request so WP resolves the remainder.
+ *   On `parse_request` (priority 1), BEFORE WordPress reads $_SERVER['REQUEST_URI']
+ *   to set $wp->request, we strip the /{lang}/ prefix from $_SERVER['REQUEST_URI']
+ *   in-place. WordPress then sees the stripped path and matches it against its own
+ *   existing rewrite rules normally — no custom rules required.
  *
  * ── URL generation ───────────────────────────────────────────────────────────
  *   buildUrl() injects /{lang}/ after the base path. Handles:
@@ -22,11 +22,6 @@
  *     - WordPress installed in a subdirectory (home_url ≠ site_url root)
  *     - Query strings — lang prefix goes before the ? separator
  *     - URLs that already contain the prefix (idempotent)
- *
- * ── Rewrite rules ────────────────────────────────────────────────────────────
- *   getRewriteRules() and registerRewriteRules() add high-priority rules
- *   that map ^{lang}/(.*) → index.php?{original_query}&lang={lang}
- *   so that WordPress correctly resolves prefixed permalinks.
  *
  * @package IdiomatticWP\Routing
  */
@@ -55,35 +50,55 @@ class DirectoryStrategy implements UrlStrategyInterface {
 	// ── UrlStrategyInterface ──────────────────────────────────────────────
 
 	/**
-	 * Detect the current language from $wp->request path.
+	 * Detect the current language from the request URL path.
 	 *
-	 * Called on `parse_request` (priority 1) so that WordPress processes
-	 * the cleaned path rather than the prefixed one.
+	 * The `parse_request` action fires at the very top of WP::parse_request(),
+	 * BEFORE WordPress sets $wp->request from $_SERVER['REQUEST_URI'].
+	 * Therefore we read from and write back to $_SERVER['REQUEST_URI'] directly,
+	 * so that WordPress sees the already-stripped path when it processes the
+	 * rewrite rules immediately after the action returns.
+	 *
+	 * E.g. /fr/my-post/ → strip "fr/" → $_SERVER['REQUEST_URI'] = /my-post/
+	 * WordPress then matches /my-post/ against its normal rewrite rules.
 	 */
 	public function detectLanguage( \WP $wp ): LanguageCode {
-		$request = ltrim( $wp->request ?? '', '/' );
+		$uri      = $_SERVER['REQUEST_URI'] ?? '/';
+		$basePath = $this->getBasePath();
+
+		// Isolate the path component (without query string or fragment).
+		$path = (string) ( parse_url( $uri, PHP_URL_PATH ) ?? '/' );
+
+		// Remove the WP base path (non-empty when WP lives in a subdirectory).
+		$relative = $path;
+		if ( $basePath !== '' && str_starts_with( $path, $basePath ) ) {
+			$relative = substr( $path, strlen( $basePath ) );
+		}
+		$relative = ltrim( $relative, '/' );
+
 		$default = $this->languageManager->getDefaultLanguage();
 
 		foreach ( $this->getActivePrefixes() as $code ) {
-			// Match: "es", "es/", "es/path/...", but NOT "esc" or "essential"
-			if (
-				$request === $code
-				|| str_starts_with( $request, $code . '/' )
-			) {
-				// Strip the language prefix so WP resolves the rest normally
-				$stripped = ltrim( substr( $request, strlen( $code ) ), '/' );
-				$wp->request = $stripped;
+			// Match "fr", "fr/", "fr/my-post/", but NOT "french" or "framework"
+			if ( $relative === $code || str_starts_with( $relative, $code . '/' ) ) {
+				// Strip the language prefix so WordPress resolves the remainder
+				// through its normal rewrite rules.
+				$stripped = ltrim( substr( $relative, strlen( $code ) ), '/' );
+				$newPath  = $basePath . '/' . $stripped;
+				$newPath  = '/' . ltrim( $newPath, '/' );
+
+				$queryString = parse_url( $uri, PHP_URL_QUERY );
+				$_SERVER['REQUEST_URI'] = $newPath . ( $queryString ? '?' . $queryString : '' );
 
 				try {
 					$detected = LanguageCode::from( $code );
 					return apply_filters( 'idiomatticwp_detected_language', $detected, 'url' );
 				} catch ( InvalidLanguageCodeException $e ) {
-					// Shouldn't happen — codes come from active languages
+					// Corrupt active-languages data — fall through to default
 				}
 			}
 		}
 
-		// No prefix found — default language
+		// No prefix matched — default language
 		return apply_filters( 'idiomatticwp_detected_language', $default, 'url' );
 	}
 
@@ -149,64 +164,68 @@ class DirectoryStrategy implements UrlStrategyInterface {
 	/**
 	 * Home URL for a language.
 	 * Default language → site home. Others → site home + /lang/
+	 *
+	 * Uses get_option('home') instead of home_url() to avoid the 'home_url'
+	 * filter (registered in LanguageHooks::filterHomeUrl) from silently
+	 * rewriting the path based on the *current* visitor language rather than
+	 * the $lang argument.  For example, when generating hreflang alternates,
+	 * homeUrl('fr') is called while the current language is 'en'; if we used
+	 * home_url('/fr/') the filter would see the URL as already-prefixed for 'en'
+	 * (the default), strip the '/fr/' prefix, and return the bare home URL —
+	 * producing a wrong link.
 	 */
 	public function homeUrl( LanguageCode $lang ): string {
+		// Build the raw home URL from the option, bypassing the home_url filter.
+		$base = untrailingslashit( (string) get_option( 'home' ) );
+
 		if ( $this->languageManager->isDefault( $lang ) ) {
-			return trailingslashit( home_url( '/' ) );
+			return trailingslashit( $base );
 		}
-		return trailingslashit( home_url( '/' . (string) $lang . '/' ) );
+
+		return trailingslashit( $base . '/' . (string) $lang );
 	}
 
 	/**
-	 * Returns rewrite rules to be prepended to the WordPress ruleset.
+	 * No custom rewrite rules needed for the directory strategy.
 	 *
-	 * We need rules like:
-	 *   ^es/(.*)$  → index.php?lang=es&$matches[1]
+	 * Language detection works by stripping the /{lang}/ prefix from
+	 * $_SERVER['REQUEST_URI'] in detectLanguage() (called on `parse_request`
+	 * priority 1, before WordPress reads the URI). WordPress then matches the
+	 * stripped path against its own existing rewrite rules normally.
 	 *
-	 * These fire BEFORE all other rules so /{lang}/post-slug resolves
-	 * to the correct post with the lang variable set.
+	 * @return array<string,string>
 	 */
 	public function getRewriteRules(): array {
-		$rules = [];
-
-		foreach ( $this->getActivePrefixes() as $code ) {
-			// Match /{lang}/anything or just /{lang}
-			$rules[ '^' . preg_quote( $code, '#' ) . '/(.*)$' ] =
-				'index.php?lang=' . $code . '&$matches[1]';
-
-			$rules[ '^' . preg_quote( $code, '#' ) . '$' ] =
-				'index.php?lang=' . $code;
-		}
-
-		return $rules;
+		return [];
 	}
 
 	/**
 	 * Register rewrite rules with WordPress.
-	 * Hook into 'rewrite_rules_array' to prepend our rules.
-	 *
 	 * Called from RoutingHooks when this strategy is active.
 	 */
 	public function registerRewriteRules(): void {
-		add_filter( 'rewrite_rules_array', [ $this, 'prependRules' ] );
-
-		// Also add 'lang' as a public query variable
-		add_filter( 'query_vars', static function ( array $vars ): array {
-			if ( ! in_array( 'lang', $vars, true ) ) {
-				$vars[] = 'lang';
-			}
-			return $vars;
-		} );
+		// No-op: detection via $_SERVER['REQUEST_URI'] mutation requires no
+		// additional WordPress rewrite rules.
 	}
 
+	// ── Capability check ─────────────────────────────────────────────────
+
 	/**
-	 * Prepend our language rules at the top of the rewrite array.
+	 * Return a list of human-readable requirement errors.
+	 * An empty array means the strategy is fully functional.
 	 *
-	 * @param array<string,string> $rules Existing WordPress rewrite rules.
-	 * @return array<string,string>
+	 * @return string[]
 	 */
-	public function prependRules( array $rules ): array {
-		return array_merge( $this->getRewriteRules(), $rules );
+	public function checkCapabilities(): array {
+		$issues = [];
+
+		// Directory strategy requires pretty permalinks.
+		// Plain permalinks (?p=123) cannot carry a language directory prefix.
+		if ( get_option( 'permalink_structure' ) === '' ) {
+			$issues[] = __( 'Directory URL mode requires pretty permalinks. Go to Settings → Permalinks and choose any option other than "Plain".', 'idiomattic-wp' );
+		}
+
+		return $issues;
 	}
 
 	// ── Helpers ───────────────────────────────────────────────────────────
@@ -241,10 +260,13 @@ class DirectoryStrategy implements UrlStrategyInterface {
 	 * Example: WP at https://example.com/blog/ → '/blog'
 	 */
 	private function getBasePath(): string {
-		$home = untrailingslashit( home_url() );
+		// Use get_option() instead of home_url() to avoid triggering the
+		// 'home_url' filter, which calls buildUrl(), which calls this method
+		// again — causing infinite recursion and ERR_CONNECTION_RESET.
+		$home   = untrailingslashit( (string) get_option( 'home' ) );
 		$parsed = wp_parse_url( $home );
-		$path = $parsed['path'] ?? '';
-		return rtrim( $path, '/' );
+		$path   = $parsed['path'] ?? '';
+		return rtrim( (string) $path, '/' );
 	}
 
 	/**

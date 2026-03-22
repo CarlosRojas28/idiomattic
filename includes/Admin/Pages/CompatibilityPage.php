@@ -85,6 +85,18 @@ class CompatibilityPage {
 					<?php esc_html_e( 'Re-scan', 'idiomattic-wp' ); ?>
 				</a>
 
+				<?php if ( ['wpml'] > 0 ) : ?>
+				<a href="<?php echo esc_url( wp_nonce_url(
+					add_query_arg( [ 'page' => 'idiomatticwp-compatibility', 'action' => 'autofix_wpml_all' ], admin_url( 'admin.php' ) ),
+					'idiomatticwp_compat_autofix_all'
+				) ); ?>" class="button button-primary"
+				   onclick="return confirm('<?php echo esc_js( __( 'This will write idiomattic-elements.json into all plugin/theme directories that have a wpml-config.xml. Continue?', 'idiomattic-wp' ) ); ?>');"
+				>
+					&#10003; <?php esc_html_e( 'Bulk auto-fix WPML configs', 'idiomattic-wp' ); ?>
+					<span class="count">(<?php echo (int) ['wpml']; ?>)</span>
+				</a>
+				<?php endif; ?>
+
 				<?php if ( ! empty( $scan['scanned_at'] ) ) : ?>
 				<span class="idiomatticwp-compat__last-scan">
 					<?php printf(
@@ -216,6 +228,62 @@ class CompatibilityPage {
 			// download() calls exit
 		}
 
+		// ── Auto-fix: write idiomattic-elements.json to plugin/theme dir ─────
+		if ( $action === 'autofix_wpml' ) {
+			if ( ! check_admin_referer( 'idiomatticwp_compat_autofix' ) ) {
+				wp_die( esc_html__( 'Security check failed.', 'idiomattic-wp' ) );
+			}
+			if ( ! current_user_can( 'manage_options' ) ) {
+				wp_die( esc_html__( 'Insufficient permissions.', 'idiomattic-wp' ) );
+			}
+			$slug  = sanitize_text_field( wp_unslash( $_GET['slug'] ?? '' ) );
+			$entry = $this->findEntry( $slug );
+			if ( $entry && $entry['compatibility'] === 'wpml' ) {
+				$result = $this->writeJsonToDirectory( $entry );
+				wp_safe_redirect( add_query_arg( [
+					'page'    => 'idiomatticwp-compatibility',
+					'message' => $result ? 'autofix_ok' : 'autofix_fail',
+					'slug'    => rawurlencode( $slug ),
+				], admin_url( 'admin.php' ) ) );
+				exit;
+			}
+			wp_safe_redirect( add_query_arg( [ 'page' => 'idiomatticwp-compatibility' ], admin_url( 'admin.php' ) ) );
+			exit;
+		}
+
+		// ── Bulk auto-fix: all WPML entries ───────────────────────────────
+		if ( $action === 'autofix_wpml_all' ) {
+			if ( ! check_admin_referer( 'idiomatticwp_compat_autofix_all' ) ) {
+				wp_die( esc_html__( 'Security check failed.', 'idiomattic-wp' ) );
+			}
+			if ( ! current_user_can( 'manage_options' ) ) {
+				wp_die( esc_html__( 'Insufficient permissions.', 'idiomattic-wp' ) );
+			}
+
+			$scan    = $this->scanner->scan();
+			$all     = array_merge( $scan['theme'] ?? [], $scan['plugins'] ?? [] );
+			$fixed   = 0;
+			$failed  = 0;
+			foreach ( $all as $entry ) {
+				if ( ( $entry['compatibility'] ?? '' ) !== 'wpml' ) {
+					continue;
+				}
+				$this->writeJsonToDirectory( $entry ) ? $fixed++ : $failed++;
+			}
+
+			// Refresh cache after writing new files.
+			$this->scanner->clearCache();
+			$this->scanner->scan( true );
+
+			wp_safe_redirect( add_query_arg( [
+				'page'    => 'idiomatticwp-compatibility',
+				'message' => 'autofix_all',
+				'fixed'   => $fixed,
+				'failed'  => $failed,
+			], admin_url( 'admin.php' ) ) );
+			exit;
+		}
+
 		// ── Import WPML config into runtime registry ──────────────────────
 		if ( $action === 'import_wpml' ) {
 			if ( ! check_admin_referer( 'idiomatticwp_compat_import_wpml' ) ) {
@@ -250,6 +318,41 @@ class CompatibilityPage {
 			return '<div class="notice notice-success is-dismissible"><p>'
 				. esc_html__( 'Compatibility scan completed successfully.', 'idiomattic-wp' )
 				. '</p></div>';
+		}
+
+		if ( $message === 'autofix_ok' ) {
+			$slug = sanitize_text_field( wp_unslash( $_GET['slug'] ?? '' ) );
+			return '<div class="notice notice-success is-dismissible"><p>'
+				. sprintf(
+					/* translators: %s: plugin slug */
+					esc_html__( 'Auto-fix applied: idiomattic-elements.json written to %s.', 'idiomattic-wp' ),
+					'<code>' . esc_html( $slug ) . '</code>'
+				)
+				. '</p></div>';
+		}
+
+		if ( $message === 'autofix_fail' ) {
+			$slug = sanitize_text_field( wp_unslash( $_GET['slug'] ?? '' ) );
+			return '<div class="notice notice-error is-dismissible"><p>'
+				. sprintf(
+					/* translators: %s: plugin slug */
+					esc_html__( 'Auto-fix failed for %s — the plugin directory may not be writable.', 'idiomattic-wp' ),
+					'<code>' . esc_html( $slug ) . '</code>'
+				)
+				. '</p></div>';
+		}
+
+		if ( $message === 'autofix_all' ) {
+			$fixed  = absint( $_GET['fixed']  ?? 0 );
+			$failed = absint( $_GET['failed'] ?? 0 );
+			$type   = $failed > 0 ? 'warning' : 'success';
+			$text   = sprintf(
+				/* translators: 1: number fixed, 2: number failed */
+				esc_html__( 'Bulk auto-fix complete: %1$d written, %2$d failed (directory not writable).', 'idiomattic-wp' ),
+				$fixed,
+				$failed
+			);
+			return '<div class="notice notice-' . esc_attr( $type ) . ' is-dismissible"><p>' . $text . '</p></div>';
 		}
 
 		if ( $message === 'wpml_imported' ) {
@@ -372,6 +475,7 @@ class CompatibilityPage {
 
 	private function renderActions( array $entry ): string {
 		$slug   = $entry['slug'];
+		$type   = $entry['type'] ?? 'plugin';
 		$compat = $entry['compatibility'] ?? 'none';
 		$out    = '';
 
@@ -397,7 +501,19 @@ class CompatibilityPage {
 				], admin_url( 'admin.php' ) ),
 				'idiomatticwp_compat_import_wpml'
 			);
-			$out .= '<a href="' . esc_url( $importUrl ) . '" class="button button-primary button-small">'
+			$autofixUrl = wp_nonce_url(
+				add_query_arg( [
+					'page'   => 'idiomatticwp-compatibility',
+					'action' => 'autofix_wpml',
+					'slug'   => rawurlencode( $slug ),
+				], admin_url( 'admin.php' ) ),
+				'idiomatticwp_compat_autofix'
+			);
+			$out .= '<a href="' . esc_url( $autofixUrl ) . '" class="button button-primary button-small"'
+				. ' title="' . esc_attr__( 'Convert wpml-config.xml and write idiomattic-elements.json to this plugin\'s directory', 'idiomattic-wp' ) . '">'
+				. '&#10003; ' . esc_html__( 'Auto-fix', 'idiomattic-wp' )
+				. '</a> ';
+			$out .= '<a href="' . esc_url( $importUrl ) . '" class="button button-small">'
 				. esc_html__( 'Import WPML config', 'idiomattic-wp' )
 				. '</a> ';
 			$out .= '<a href="' . esc_url( $dlUrl ) . '" class="button button-small">'
@@ -409,12 +525,55 @@ class CompatibilityPage {
 				. '</a>';
 		}
 
+		// Scan strings button — always available for all plugins/themes.
+		$out .= ' <button'
+			. ' type="button"'
+			. ' class="button button-small idiomatticwp-scan-strings-btn"'
+			. ' data-type="' . esc_attr( $type ) . '"'
+			. ' data-slug="' . esc_attr( $slug ) . '"'
+			. ' data-nonce="' . esc_attr( wp_create_nonce( 'idiomatticwp_nonce' ) ) . '"'
+			. '>'
+			. '<span class="iwp-scan-btn-icon dashicons dashicons-search" style="font-size:13px;width:13px;height:13px;vertical-align:middle;margin-right:3px;margin-top:-1px;"></span>'
+			. esc_html__( 'Scan strings', 'idiomattic-wp' )
+			. '</button>'
+			. '<span class="iwp-scan-state" style="display:none;">'
+			. '<span class="iwp-scan-bar"><span class="iwp-scan-bar__fill"></span></span>'
+			. '<span class="iwp-scan-timer">0s</span>'
+			. '</span>';
+
 		return $out;
 	}
 
 	// ─────────────────────────────────────────────────────────────────────────
 	// Styles (output once, after page content)
 	// ─────────────────────────────────────────────────────────────────────────
+
+	/**
+	 * Write the generated idiomattic-elements.json into the plugin/theme directory.
+	 *
+	 * @param array $entry  A CompatibilityScanner entry with 'directory' and 'compatibility' keys.
+	 * @return bool  True on success, false if the directory is not writable.
+	 */
+	private function writeJsonToDirectory( array $entry ): bool {
+		$directory = (string) ( $entry['directory'] ?? '' );
+		if ( ! $directory || ! is_dir( $directory ) ) {
+			return false;
+		}
+
+		$targetPath = trailingslashit( $directory ) . 'idiomattic-elements.json';
+
+		if ( ! wp_is_writable( $directory ) ) {
+			return false;
+		}
+
+		$json = $this->generator->generate( $entry );
+		// phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_file_put_contents
+		$written = file_put_contents( $targetPath, $json );
+
+		return $written !== false;
+	}
+
+	// ── Styles (output once, after page content) ─────────────────────────────────────────
 
 	private function renderStyles(): void {
 		?>
@@ -490,7 +649,7 @@ class CompatibilityPage {
 		.idiomatticwp-compat__table .column-type     { width: 90px; }
 		.idiomatticwp-compat__table .column-compat   { width: 150px; }
 		.idiomatticwp-compat__table .column-elements { width: 170px; }
-		.idiomatticwp-compat__table .column-actions  { width: 230px; }
+		.idiomatticwp-compat__table .column-actions  { width: 300px; }
 
 		/* Row left-border accent */
 		.idiomatticwp-compat__row--none   td:first-child { border-left: 3px solid #d63638; }
@@ -509,6 +668,36 @@ class CompatibilityPage {
 		.idiomatticwp-compat__badge--native { background: #edfaef; color: #1a8a24; border: 1px solid #c3e6c6; }
 		.idiomatticwp-compat__badge--wpml   { background: #deeeff; color: #135e96; border: 1px solid #b3d3f0; }
 		.idiomatticwp-compat__badge--none   { background: #fce8e8; color: #8a0000; border: 1px solid #f0c3c3; }
+
+		/* ── Scan progress indicator ── */
+		.iwp-scan-state {
+			display: inline-flex;
+			align-items: center;
+			gap: 6px;
+			margin-left: 6px;
+			vertical-align: middle;
+		}
+		.iwp-scan-bar {
+			width: 72px;
+			height: 4px;
+			background: #dcdcde;
+			border-radius: 2px;
+			overflow: hidden;
+		}
+		.iwp-scan-bar__fill {
+			height: 100%;
+			width: 0%;
+			background: #2271b1;
+			border-radius: 2px;
+			transition: width 0.5s ease-out;
+		}
+		.iwp-scan-bar__fill--done { background: #46b450; }
+		.iwp-scan-timer {
+			font-size: 11px;
+			color: #8c8f94;
+			min-width: 22px;
+			font-variant-numeric: tabular-nums;
+		}
 
 		/* ── Help box ── */
 		.idiomatticwp-compat__help {

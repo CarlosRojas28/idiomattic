@@ -146,6 +146,68 @@ class WpdbTranslationRepository implements TranslationRepositoryInterface {
 		);
 	}
 
+	public function countByStatusAndLang( string $status, string $lang ): int {
+		return (int) $this->wpdb->get_var(
+			$this->wpdb->prepare(
+				"SELECT COUNT(*) FROM {$this->table} WHERE status = %s AND target_lang = %s",
+				$status,
+				$lang
+			)
+		);
+	}
+
+	public function countAllByLang( string $lang ): int {
+		return (int) $this->wpdb->get_var(
+			$this->wpdb->prepare(
+				"SELECT COUNT(*) FROM {$this->table} WHERE target_lang = %s",
+				$lang
+			)
+		);
+	}
+
+	public function countUntranslatedByPostTypeAndLang( string $postType, string $lang ): int {
+		$posts = $this->wpdb->posts;
+		return (int) $this->wpdb->get_var(
+			$this->wpdb->prepare(
+				"SELECT COUNT(DISTINCT p.ID)
+				 FROM {$posts} p
+				 WHERE p.post_type = %s
+				   AND p.post_status = 'publish'
+				   AND NOT EXISTS (
+				       SELECT 1 FROM {$this->table} t
+				       WHERE t.source_post_id = p.ID
+				         AND t.target_lang = %s
+				   )",
+				$postType,
+				$lang
+			)
+		);
+	}
+
+	public function getUntranslatedPostIdsByTypeAndLang( string $postType, string $lang, int $limit = 500 ): array {
+		$posts = $this->wpdb->posts;
+		$rows  = $this->wpdb->get_col(
+			$this->wpdb->prepare(
+				"SELECT p.ID
+				 FROM {$posts} p
+				 WHERE p.post_type = %s
+				   AND p.post_status = 'publish'
+				   AND NOT EXISTS (
+				       SELECT 1 FROM {$this->table} t
+				       WHERE t.source_post_id = p.ID
+				         AND t.target_lang = %s
+				   )
+				 ORDER BY p.ID ASC
+				 LIMIT %d",
+				$postType,
+				$lang,
+				$limit
+			)
+		);
+
+		return array_map( 'intval', $rows ?: [] );
+	}
+
 	public function getLatest( int $limit = 10 ): array {
 		return $this->wpdb->get_results(
 			$this->wpdb->prepare(

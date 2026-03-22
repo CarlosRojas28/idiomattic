@@ -1,0 +1,1057 @@
+# Chinese (Simplified) translation for Idiomattic WP
+# Copyright (C) 2024 Idiomattic
+msgid ""
+msgstr ""
+"Project-Id-Version: Idiomattic WP\n"
+"POT-Creation-Date: 2024-01-01 00:00+0000\n"
+"PO-Revision-Date: 2024-01-01 00:00+0000\n"
+"Last-Translator: Idiomattic <hello@idiomattic.app>\n"
+"Language-Team: Chinese (Simplified)\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Idiomattic WP\n"
+"X-Domain: idiomattic-wp\n"
+
+msgid "%1$d draft, %2$d in progress"
+msgstr "%1$d 个草稿，%2$d 个进行中"
+
+msgid "%d active plugins — click to expand"
+msgstr "%d 个活动插件 — 点击展开"
+
+msgid "%s: %s"
+msgstr "%s：%s"
+
+msgid "(empty)"
+msgstr "（空）"
+
+msgid "(no title)"
+msgstr "（无标题）"
+
+msgid "(optional)"
+msgstr "（可选）"
+
+msgid "(saved — enter a new key to replace)"
+msgstr "（已保存 — 输入新密钥以替换）"
+
+msgid "A translation already exists for this language. Delete it first."
+msgstr "该语言已存在翻译。请先删除。"
+
+msgid "AI Translation Provider"
+msgstr "AI 翻译提供商"
+
+msgid "AI Translation — Pro Feature"
+msgstr "AI 翻译 — Pro 功能"
+
+msgid "AI error: "
+msgstr "AI 错误："
+
+msgid "AI string translation requires a Pro license."
+msgstr "AI 字符串翻译需要 Pro 许可证。"
+
+msgid "AI translation requires Pro"
+msgstr "AI 翻译需要 Pro"
+
+msgid "AI translation requires a Pro license."
+msgstr "AI 翻译需要 Pro 许可证。"
+
+msgid "Action"
+msgstr "操作"
+
+msgid "Actions"
+msgstr "操作"
+
+msgid "Active Languages"
+msgstr "活动语言"
+
+msgid "Active Plugins"
+msgstr "活动插件"
+
+msgid "Active Theme"
+msgstr "活动主题"
+
+msgid "Add"
+msgstr "添加"
+
+msgid "Add Custom Language"
+msgstr "添加自定义语言"
+
+msgid "Add String"
+msgstr "添加字符串"
+
+msgid "Add Term"
+msgstr "添加术语"
+
+msgid "Add string"
+msgstr "添加字符串"
+
+msgid "Advanced"
+msgstr "高级"
+
+msgid "All"
+msgstr "全部"
+
+msgid "All content already has translations for the selected languages."
+msgstr "所有内容已有所选语言的翻译。"
+
+msgid "All content is fully translated!"
+msgstr "所有内容已完全翻译！"
+
+msgid "All fields already have a translation."
+msgstr "所有字段已有翻译。"
+
+msgid "All languages"
+msgstr "所有语言"
+
+msgid "All packages"
+msgstr "所有包"
+
+msgid "An unexpected error occurred during translation."
+msgstr "翻译过程中发生意外错误。"
+
+msgid "Apply"
+msgstr "应用"
+
+msgid "Are you sure you want to delete this translation?"
+msgstr "确定要删除此翻译吗？"
+
+msgid "Author"
+msgstr "作者"
+
+msgid "Auto-translate failed."
+msgstr "自动翻译失败。"
+
+msgid "Auto-translate on creation"
+msgstr "创建时自动翻译"
+
+msgid "Auto-translate pending"
+msgstr "自动翻译待处理"
+
+msgid "Automated translations and AI provider configuration are available in the Pro version. Bring Your Own Key — connect directly to OpenAI, Claude, or DeepL."
+msgstr "自动翻译和 AI 提供商配置在 Pro 版本中可用。使用您自己的密钥 — 直接连接到 OpenAI、Claude 或 DeepL。"
+
+msgid "Automatically start AI translation when a new translation is created"
+msgstr "创建新翻译时自动开始 AI 翻译"
+
+msgid "Back"
+msgstr "返回"
+
+msgid "Back to list"
+msgstr "返回列表"
+
+msgid "Behaviour"
+msgstr "行为"
+
+msgid "Bring Your Own Key (BYOK): connect directly to your chosen AI provider. Your API key is stored encrypted and never sent to Idiomattic servers."
+msgstr "使用您自己的密钥 (BYOK)：直接连接到您选择的 AI 提供商。您的 API 密钥以加密方式存储，永远不会发送到 Idiomattic 服务器。"
+
+msgid "Cache & Transients"
+msgstr "缓存和瞬态"
+
+msgid "Cache language detection results for improved performance."
+msgstr "缓存语言检测结果以提高性能。"
+
+msgid "Cancel"
+msgstr "取消"
+
+msgid "Child theme"
+msgstr "子主题"
+
+msgid "Choose the primary language your website content will be served in by default."
+msgstr "选择您的网站内容默认提供的主要语言。"
+
+msgid "Claude API Key"
+msgstr "Claude API 密钥"
+
+msgid "Clean URLs with the language code as a path prefix. Requires pretty permalinks."
+msgstr "使用语言代码作为路径前缀的简洁 URL。需要美化固定链接。"
+
+msgid "Clear cached data if you are seeing stale content or unexpected behaviour."
+msgstr "如果您看到过时内容或意外行为，请清除缓存数据。"
+
+msgid "Clear language filter"
+msgstr "清除语言过滤器"
+
+msgid "Close"
+msgstr "关闭"
+
+msgid "Code, native name, and English name are required."
+msgstr "代码、本地名称和英文名称为必填项。"
+
+msgid "Compatibility"
+msgstr "兼容性"
+
+msgid "Compatibility scan completed successfully."
+msgstr "兼容性扫描成功完成。"
+
+msgid "Complete"
+msgstr "完成"
+
+msgid "Configure how each post type behaves across languages."
+msgstr "配置每种文章类型在各语言之间的行为方式。"
+
+msgid "Configure how taxonomy terms behave across languages."
+msgstr "配置分类法术语在各语言之间的行为方式。"
+
+msgid "Configure permalinks →"
+msgstr "配置固定链接 →"
+
+msgid "Configure translation mode for registered custom fields. New fields can be added via the Compatibility tab or programmatically."
+msgstr "为注册的自定义字段配置翻译模式。可以通过兼容性选项卡或以编程方式添加新字段。"
+
+msgid "Content"
+msgstr "内容"
+
+msgid "Content Translation"
+msgstr "内容翻译"
+
+msgid "Context"
+msgstr "上下文"
+
+msgid "Context (optional)"
+msgstr "上下文（可选）"
+
+msgid "Continue →"
+msgstr "继续 →"
+
+msgid "Control how the plugin handles its data."
+msgstr "控制插件处理数据的方式。"
+
+msgid "Copied!"
+msgstr "已复制！"
+
+msgid "Copy from original:"
+msgstr "从原文复制："
+
+msgid "Copy source string"
+msgstr "复制源字符串"
+
+msgid "Copy source to all empty translations"
+msgstr "将源复制到所有空翻译"
+
+msgid "Copy to all"
+msgstr "复制到所有"
+
+msgid "Copy to clipboard"
+msgstr "复制到剪贴板"
+
+msgid "Could not create export archive."
+msgstr "无法创建导出档案。"
+
+msgid "Could not link post."
+msgstr "无法链接文章。"
+
+msgid "Coverage"
+msgstr "覆盖率"
+
+msgid "Create a menu →"
+msgstr "创建菜单 →"
+
+msgid "Creating..."
+msgstr "创建中..."
+
+msgid "Custom"
+msgstr "自定义"
+
+msgid "Custom Fields"
+msgstr "自定义字段"
+
+msgid "Daily digest — one email per day"
+msgstr "每日摘要 — 每天一封电子邮件"
+
+msgid "Dashboard"
+msgstr "仪表板"
+
+msgid "Data Management"
+msgstr "数据管理"
+
+msgid "Date"
+msgstr "日期"
+
+msgid "Debug Log"
+msgstr "调试日志"
+
+msgid "Default Language"
+msgstr "默认语言"
+
+msgid "Default configured by %s"
+msgstr "由 %s 配置的默认值"
+
+msgid "Define terms that must always be translated a specific way, or kept unchanged by the AI."
+msgstr "定义必须始终以特定方式翻译或由 AI 保持不变的术语。"
+
+msgid "Define terms that must always be translated a specific way, or kept unchanged. Glossary rules are automatically applied during AI translation."
+msgstr "定义必须始终以特定方式翻译或保持不变的术语。词汇表规则在 AI 翻译期间自动应用。"
+
+msgid "Delete"
+msgstr "删除"
+
+msgid "Delete this custom language?"
+msgstr "删除此自定义语言？"
+
+msgid "Delete this term?"
+msgstr "删除此术语？"
+
+msgid "Directory"
+msgstr "目录"
+
+msgid "Directory and Subdomain modes require pretty permalinks. %s"
+msgstr "目录和子域名模式需要美化固定链接。%s"
+
+msgid "Directory not found."
+msgstr "找不到目录。"
+
+msgid "Disabled"
+msgstr "已禁用"
+
+msgid "Display a language switcher."
+msgstr "显示语言切换器。"
+
+msgid "Done"
+msgstr "完成"
+
+msgid "Download JSON"
+msgstr "下载 JSON"
+
+msgid "Download JSON template"
+msgstr "下载 JSON 模板"
+
+msgid "Download ZIP"
+msgstr "下载 ZIP"
+
+msgid "Download all translations for a language as a ZIP of XLIFF 2.0 files, ready to be processed by any CAT tool."
+msgstr "将语言的所有翻译下载为 XLIFF 2.0 文件的 ZIP 压缩包，可供任何 CAT 工具处理。"
+
+msgid "Download as JSON"
+msgstr "以 JSON 格式下载"
+
+msgid "Draft"
+msgstr "草稿"
+
+msgid "Draft / In Progress"
+msgstr "草稿 / 进行中"
+
+msgid "Draft/WIP"
+msgstr "草稿/进行中"
+
+msgid "Duplicate all"
+msgstr "复制全部"
+
+msgid "Duplicate untranslated"
+msgstr "复制未翻译项"
+
+msgid "Each language has its own version of this content"
+msgstr "每种语言都有自己的内容版本"
+
+msgid "Each language on its own subdomain. Requires wildcard DNS and SSL."
+msgstr "每种语言在其自己的子域名上。需要通配符 DNS 和 SSL。"
+
+msgid "Each language on its own subdomain. Requires wildcard DNS."
+msgstr "每种语言在其自己的子域名上。需要通配符 DNS。"
+
+msgid "Edit"
+msgstr "编辑"
+
+msgid "Email Notifications"
+msgstr "电子邮件通知"
+
+msgid "Enable AI-powered string translation"
+msgstr "启用 AI 驱动的字符串翻译"
+
+msgid "Enable caching"
+msgstr "启用缓存"
+
+msgid "Enable webhooks"
+msgstr "启用 Webhook"
+
+msgid "Error"
+msgstr "错误"
+
+msgid "Export"
+msgstr "导出"
+
+msgid "Export Translations"
+msgstr "导出翻译"
+
+msgid "Field"
+msgstr "字段"
+
+msgid "Glossary"
+msgstr "词汇表"
+
+msgid "Import"
+msgstr "导入"
+
+msgid "Import Translations"
+msgstr "导入翻译"
+
+msgid "Immediate — one email per event"
+msgstr "立即 — 每次事件一封电子邮件"
+
+msgid "In Progress"
+msgstr "进行中"
+
+msgid "Install"
+msgstr "安装"
+
+msgid "Invalid parameters."
+msgstr "参数无效。"
+
+msgid "Invalid translation ID."
+msgstr "翻译 ID 无效。"
+
+msgid "Language"
+msgstr "语言"
+
+msgid "Language Coverage"
+msgstr "语言覆盖率"
+
+msgid "Language Switcher"
+msgstr "语言切换器"
+
+msgid "Languages"
+msgstr "语言"
+
+msgid "Link as translation"
+msgstr "链接为翻译"
+
+msgid "Link existing post"
+msgstr "链接现有文章"
+
+msgid "Loading..."
+msgstr "加载中..."
+
+msgid "Max words per segment"
+msgstr "每段最大词数"
+
+msgid "Memory Hits"
+msgstr "记忆命中"
+
+msgid "Menu"
+msgstr "菜单"
+
+msgid "Menus"
+msgstr "菜单"
+
+msgid "Missing"
+msgstr "缺失"
+
+msgid "Missing %d"
+msgstr "缺失 %d 个"
+
+msgid "N/A"
+msgstr "不适用"
+
+msgid "No compatibility file found. Custom fields from this plugin will not be automatically translated. Click \"Download JSON template\" to get a starter file you can fill in and place inside the plugin/theme directory, or ask the author to add support."
+msgstr "未找到兼容性文件。此插件的自定义字段不会自动翻译。点击\"下载 JSON 模板\"获取可填写并放置在插件/主题目录中的入门文件，或请求作者添加支持。"
+
+msgid "No config file"
+msgstr "无配置文件"
+
+msgid "No items match the selected filter."
+msgstr "没有与所选过滤器匹配的项目。"
+
+msgid "No permissions."
+msgstr "没有权限。"
+
+msgid "No strings found for auto-translation."
+msgstr "未找到用于自动翻译的字符串。"
+
+msgid "No terms in glossary yet. Add your first term above."
+msgstr "词汇表中还没有术语。请在上方添加您的第一个术语。"
+
+msgid "No translation found."
+msgstr "未找到翻译。"
+
+msgid "No translations yet. Start by creating a translation from the post list."
+msgstr "还没有翻译。从文章列表创建翻译开始。"
+
+msgid "Not configured"
+msgstr "未配置"
+
+msgid "Not registered"
+msgstr "未注册"
+
+msgid "Not translatable"
+msgstr "不可翻译"
+
+msgid "Notes"
+msgstr "备注"
+
+msgid "Notification Mode"
+msgstr "通知模式"
+
+msgid "Notify on outdated translations"
+msgstr "对过时翻译发送通知"
+
+msgid "Only .xliff or .xml files are accepted."
+msgstr "只接受 .xliff 或 .xml 文件。"
+
+msgid "Open Translations Dashboard"
+msgstr "打开翻译仪表板"
+
+msgid "Open any post or page and click \"Translate\" to use the translation editor."
+msgstr "打开任意文章或页面，点击\"翻译\"以使用翻译编辑器。"
+
+msgid "OpenAI API Key"
+msgstr "OpenAI API 密钥"
+
+msgid "Optional HMAC-SHA256 secret"
+msgstr "可选的 HMAC-SHA256 密钥"
+
+msgid "Original"
+msgstr "原文"
+
+msgid "Original post has been deleted."
+msgstr "原始文章已被删除。"
+
+msgid "Original post not found."
+msgstr "找不到原始文章。"
+
+msgid "Outdated"
+msgstr "过时"
+
+msgid "Overview of your multilingual content"
+msgstr "多语言内容概览"
+
+msgid "PHP Version"
+msgstr "PHP 版本"
+
+msgid "Package / Domain"
+msgstr "包 / 域名"
+
+msgid "Page %1$d of %2$d"
+msgstr "第 %1$d 页，共 %2$d 页"
+
+msgid "Permalink Structure"
+msgstr "固定链接结构"
+
+msgid "Permission denied."
+msgstr "权限被拒绝。"
+
+msgid "Please configure at least two active languages in Settings → Languages before using Content Translation."
+msgstr "在使用内容翻译之前，请在设置 → 语言中配置至少两种活动语言。"
+
+msgid "Please configure at least two active languages in Settings → Languages before using Import / Export."
+msgstr "在使用导入 / 导出之前，请在设置 → 语言中配置至少两种活动语言。"
+
+msgid "Please configure at least two active languages in Settings → Languages before using String Translation."
+msgstr "在使用字符串翻译之前，请在设置 → 语言中配置至少两种活动语言。"
+
+msgid "Plugin"
+msgstr "插件"
+
+msgid "Plugin & Theme Compatibility"
+msgstr "插件和主题兼容性"
+
+msgid "Plugin / Theme"
+msgstr "插件 / 主题"
+
+msgid "Plugin Activation Error"
+msgstr "插件激活错误"
+
+msgid "Plugin Version"
+msgstr "插件版本"
+
+msgid "Polylang is active. Running two multilingual plugins simultaneously can cause conflicts. Please deactivate Polylang before using Idiomattic WP."
+msgstr "Polylang 已激活。同时运行两个多语言插件可能会导致冲突。请在使用 Idiomattic WP 之前停用 Polylang。"
+
+msgid "Post Title"
+msgstr "文章标题"
+
+msgid "Post Type"
+msgstr "文章类型"
+
+msgid "Post Type(s)"
+msgstr "文章类型"
+
+msgid "Post Types"
+msgstr "文章类型"
+
+msgid "Post not found."
+msgstr "找不到文章。"
+
+msgid "Prev"
+msgstr "上一页"
+
+msgid "Preview flag"
+msgstr "预览标志"
+
+msgid "Primary Language"
+msgstr "主要语言"
+
+msgid "Pro"
+msgstr "Pro"
+
+msgid "Progress"
+msgstr "进度"
+
+msgid "Publish"
+msgstr "发布"
+
+msgid "Publish Translation"
+msgstr "发布翻译"
+
+msgid "Queue AI translation"
+msgstr "将 AI 翻译加入队列"
+
+msgid "Rate limit reached. Please wait a moment and try again."
+msgstr "已达到速率限制。请等待片刻后重试。"
+
+msgid "Re-scan"
+msgstr "重新扫描"
+
+msgid "Re-use previously translated segments to reduce API costs"
+msgstr "重用以前翻译的片段以降低 API 成本"
+
+msgid "Recent Activity"
+msgstr "最近活动"
+
+msgid "Recipient Email"
+msgstr "收件人电子邮件"
+
+msgid "Register string"
+msgstr "注册字符串"
+
+msgid "Register this string for this language"
+msgstr "为此语言注册此字符串"
+
+msgid "Remove"
+msgstr "删除"
+
+msgid "Requires Pro licence"
+msgstr "需要 Pro 许可证"
+
+msgid "Retain data on uninstall"
+msgstr "卸载时保留数据"
+
+msgid "Rewrite Rules"
+msgstr "重写规则"
+
+msgid "Right-to-left language"
+msgstr "从右到左的语言"
+
+msgid "Save"
+msgstr "保存"
+
+msgid "Save Draft"
+msgstr "保存草稿"
+
+msgid "Save Translations"
+msgstr "保存翻译"
+
+msgid "Scan complete."
+msgstr "扫描完成。"
+
+msgid "Scan sources"
+msgstr "扫描源"
+
+msgid "Scan strings"
+msgstr "扫描字符串"
+
+msgid "Scanning..."
+msgstr "扫描中..."
+
+msgid "Search"
+msgstr "搜索"
+
+msgid "Search by title…"
+msgstr "按标题搜索…"
+
+msgid "Search in source and translations…"
+msgstr "在源和翻译中搜索…"
+
+msgid "Search languages…"
+msgstr "搜索语言…"
+
+msgid "Search strings"
+msgstr "搜索字符串"
+
+msgid "Security check failed."
+msgstr "安全检查失败。"
+
+msgid "Select Language"
+msgstr "选择语言"
+
+msgid "Send HTTP POST notifications to an external URL when translation events occur. Payloads are signed with HMAC-SHA256."
+msgstr "当翻译事件发生时，向外部 URL 发送 HTTP POST 通知。有效负载使用 HMAC-SHA256 签名。"
+
+msgid "Settings"
+msgstr "设置"
+
+msgid "Show Flags"
+msgstr "显示标志"
+
+msgid "Show Names"
+msgstr "显示名称"
+
+msgid "Show all"
+msgstr "显示全部"
+
+msgid "Show as translated"
+msgstr "显示为已翻译"
+
+msgid "Show terms for:"
+msgstr "显示以下语言的术语："
+
+msgid "Showing original posts only"
+msgstr "仅显示原始文章"
+
+msgid "Showing translations into: %s"
+msgstr "显示翻译为：%s"
+
+msgid "Shown in secondary languages even without a translation (uses default language content)"
+msgstr "即使没有翻译也在次要语言中显示（使用默认语言内容）"
+
+msgid "Signing Secret"
+msgstr "签名密钥"
+
+msgid "Site Default Language"
+msgstr "网站默认语言"
+
+msgid "Slug"
+msgstr "别名"
+
+msgid "Source Term"
+msgstr "源术语"
+
+msgid "Source post not found."
+msgstr "找不到源文章。"
+
+msgid "Source string"
+msgstr "源字符串"
+
+msgid "Source string not found."
+msgstr "找不到源字符串。"
+
+msgid "Standard ISO code for localization"
+msgstr "本地化的标准 ISO 代码"
+
+msgid "Start Migration"
+msgstr "开始迁移"
+
+msgid "Status"
+msgstr "状态"
+
+msgid "Step 1: Detection"
+msgstr "步骤 1：检测"
+
+msgid "String Translation"
+msgstr "字符串翻译"
+
+msgid "Style"
+msgstr "样式"
+
+msgid "Subdomain"
+msgstr "子域名"
+
+msgid "System Information"
+msgstr "系统信息"
+
+msgid "System Report"
+msgstr "系统报告"
+
+msgid "Target language is required."
+msgstr "目标语言为必填项。"
+
+msgid "Taxonomies"
+msgstr "分类法"
+
+msgid "Taxonomy"
+msgstr "分类法"
+
+msgid "Theme"
+msgstr "主题"
+
+msgid "This affects how visitors and search engines find your translated content."
+msgstr "这会影响访客和搜索引擎找到您的翻译内容的方式。"
+
+msgid "This alert was sent by the %s plugin."
+msgstr "此警报由 %s 插件发送。"
+
+msgid "This is a translation of: %s"
+msgstr "这是以下内容的翻译：%s"
+
+msgid "This is the original language of your posts and pages."
+msgstr "这是您的文章和页面的原始语言。"
+
+msgid "This plugin/theme ships with a native idiomattic-elements.json file. All its elements are automatically registered. No action needed."
+msgstr "此插件/主题附带原生 idiomattic-elements.json 文件。其所有元素均自动注册。无需任何操作。"
+
+msgid "This plugin/theme ships with a wpml-config.xml file. Idiomattic auto-imports its field definitions at runtime. Use \"Import WPML config\" to force-register them now, or \"Download as JSON\" to convert the file to a permanent idiomattic-elements.json."
+msgstr "此插件/主题附带 wpml-config.xml 文件。Idiomattic 在运行时自动导入其字段定义。使用\"导入 WPML 配置\"立即强制注册，或使用\"以 JSON 格式下载\"将文件转换为永久的 idiomattic-elements.json。"
+
+msgid "This translation is outdated — the source post has been updated since it was last translated. Please review and re-translate."
+msgstr "此翻译已过时 — 源文章自上次翻译后已更新。请检查并重新翻译。"
+
+msgid "This will overwrite all fields with the original content. Continue?"
+msgstr "这将用原始内容覆盖所有字段。继续？"
+
+msgid "Title"
+msgstr "标题"
+
+msgid "To create or edit navigation menus visit %s."
+msgstr "要创建或编辑导航菜单，请访问 %s。"
+
+msgid "Total Translations"
+msgstr "翻译总数"
+
+msgid "Total scanned"
+msgstr "扫描总数"
+
+msgid "Translatable"
+msgstr "可翻译"
+
+msgid "Translate all"
+msgstr "全部翻译"
+
+msgid "Translate all languages"
+msgstr "翻译所有语言"
+
+msgid "Translate all missing"
+msgstr "翻译所有缺失项"
+
+msgid "Translate all missing (%d)"
+msgstr "翻译所有缺失项 (%d)"
+
+msgid "Translate content →"
+msgstr "翻译内容 →"
+
+msgid "Translate field"
+msgstr "翻译字段"
+
+msgid "Translate interface strings from plugins and themes"
+msgstr "翻译插件和主题的界面字符串"
+
+msgid "Translate posts, pages, and custom content into all active languages"
+msgstr "将文章、页面和自定义内容翻译成所有活动语言"
+
+msgid "Translate to all languages"
+msgstr "翻译成所有语言"
+
+msgid "Translate: %s"
+msgstr "翻译：%s"
+
+msgid "Translated %d strings successfully."
+msgstr "成功翻译了 %d 个字符串。"
+
+msgid "Translating"
+msgstr "翻译中"
+
+msgid "Translating…"
+msgstr "翻译中…"
+
+msgid "Translation"
+msgstr "翻译"
+
+msgid "Translation / Rule"
+msgstr "翻译 / 规则"
+
+msgid "Translation Alert"
+msgstr "翻译警报"
+
+msgid "Translation Alert — %s"
+msgstr "翻译警报 — %s"
+
+msgid "Translation Details"
+msgstr "翻译详情"
+
+msgid "Translation Editor"
+msgstr "翻译编辑器"
+
+msgid "Translation Memory"
+msgstr "翻译记忆"
+
+msgid "Translation Mode"
+msgstr "翻译模式"
+
+msgid "Translation completed (AI finished)"
+msgstr "翻译完成（AI 完成）"
+
+msgid "Translation failed."
+msgstr "翻译失败。"
+
+msgid "Translation outdated (source post updated)"
+msgstr "翻译过时（源文章已更新）"
+
+msgid "Translation provider is temporarily unavailable. Please try again."
+msgstr "翻译提供商暂时不可用。请重试。"
+
+msgid "Translation queued (job dispatched)"
+msgstr "翻译已排队（作业已分派）"
+
+msgid "Translation record not found."
+msgstr "找不到翻译记录。"
+
+msgid "Translation saved successfully."
+msgstr "翻译已成功保存。"
+
+msgid "Translations"
+msgstr "翻译"
+
+msgid "Translations saved."
+msgstr "翻译已保存。"
+
+msgid "Triggered when you update a post that has translations."
+msgstr "当您更新有翻译的文章时触发。"
+
+msgid "Troubleshooting"
+msgstr "故障排查"
+
+msgid "Type"
+msgstr "类型"
+
+msgid "URL Mode"
+msgstr "URL 模式"
+
+msgid "URL Structure"
+msgstr "URL 结构"
+
+msgid "Unauthorized"
+msgstr "未授权"
+
+msgid "Update"
+msgstr "更新"
+
+msgid "Upgrade to Pro to unlock Directory and Subdomain modes →"
+msgstr "升级到 Pro 以解锁目录和子域名模式 →"
+
+msgid "Upgrade to Pro →"
+msgstr "升级到 Pro →"
+
+msgid "Upload an XLIFF file (2.0 or 1.2) exported from a CAT tool. Translations are written directly into the database."
+msgstr "上传从 CAT 工具导出的 XLIFF 文件（2.0 或 1.2）。翻译直接写入数据库。"
+
+msgid "Version"
+msgstr "版本"
+
+msgid "View"
+msgstr "查看"
+
+msgid "View Original"
+msgstr "查看原文"
+
+msgid "View compatibility report →"
+msgstr "查看兼容性报告 →"
+
+msgid "View source post →"
+msgstr "查看源文章 →"
+
+msgid "View strings"
+msgstr "查看字符串"
+
+msgid "WPML Migration"
+msgstr "WPML 迁移"
+
+msgid "WPML Migration Wizard"
+msgstr "WPML 迁移向导"
+
+msgid "WPML config"
+msgstr "WPML 配置"
+
+msgid "WPML config imported successfully."
+msgstr "WPML 配置导入成功。"
+
+msgid "WPML config imported with warnings: "
+msgstr "WPML 配置导入时有警告："
+
+msgid "WPML config imported: %1$d element(s) registered into the translation registry, %2$d skipped (action = ignore)."
+msgstr "WPML 配置已导入：%1$d 个元素注册到翻译注册表，%2$d 个跳过（操作 = 忽略）。"
+
+msgid "WPML is active. Running two multilingual plugins simultaneously can cause conflicts. Please deactivate WPML before using Idiomattic WP, or use the WPML migration tool."
+msgstr "WPML 已激活。同时运行两个多语言插件可能会导致冲突。请在使用 Idiomattic WP 之前停用 WPML，或使用 WPML 迁移工具。"
+
+msgid "WPML is not active. Migration may not be possible."
+msgstr "WPML 未激活。迁移可能不可能。"
+
+msgid "W3 Total Cache is active. Make sure page caching is configured to handle language-specific URLs correctly."
+msgstr "W3 Total Cache 已激活。确保页面缓存配置为正确处理特定于语言的 URL。"
+
+msgid "WP Debug"
+msgstr "WP 调试"
+
+msgid "WP Debug Log"
+msgstr "WP 调试日志"
+
+msgid "WP_DEBUG and WP_DEBUG_LOG are not both enabled. Add the following to wp-config.php to activate debug logging:"
+msgstr "WP_DEBUG 和 WP_DEBUG_LOG 未同时启用。将以下内容添加到 wp-config.php 以激活调试日志记录："
+
+msgid "Want AI-powered translations? Upgrade to Pro for BYOK (Bring Your Own Key) support."
+msgstr "想要 AI 驱动的翻译？升级到 Pro 以获得 BYOK（使用您自己的密钥）支持。"
+
+msgid "Webhooks"
+msgstr "Webhook"
+
+msgid "What do these statuses mean?"
+msgstr "这些状态是什么意思？"
+
+msgid "What language is your content written in?"
+msgstr "您的内容是用什么语言写的？"
+
+msgid "Which languages do you want to translate into?"
+msgstr "您想翻译成哪些语言？"
+
+msgid "WordPress Version"
+msgstr "WordPress 版本"
+
+msgid "Works with any permalink structure. Easiest to set up."
+msgstr "适用于任何固定链接结构。设置最简单。"
+
+msgid "Works with any permalink structure. Recommended for most sites."
+msgstr "适用于任何固定链接结构。推荐大多数网站使用。"
+
+msgid "XLIFF file (.xliff)"
+msgstr "XLIFF 文件 (.xliff)"
+
+msgid "You can add or remove languages at any time from Settings."
+msgstr "您可以随时从设置中添加或删除语言。"
+
+msgid "You can disable these notifications in the plugin settings."
+msgstr "您可以在插件设置中禁用这些通知。"
+
+msgid "You do not have permission to edit this post."
+msgstr "您没有编辑此文章的权限。"
+
+msgid "debug.log not found or not readable."
+msgstr "找不到 debug.log 或无法读取。"
+
+msgid "default"
+msgstr "默认"
+
+msgid "e.g. button, menu"
+msgstr "例如：按钮、菜单"
+
+msgid "e.g. my-plugin"
+msgstr "例如：my-plugin"
+
+msgid "— Not assigned —"
+msgstr "— 未分配 —"
+
+msgid "→ Scan sources"
+msgstr "→ 扫描源"
+
+msgid "Admin Language"
+msgstr "管理语言"
+
+msgid "Admin Interface Language"
+msgstr "管理界面语言"
+
+msgid "Use site default"
+msgstr "使用网站默认值"
+
+msgid "Select the language you prefer for the WordPress admin interface."
+msgstr "选择您偏好的 WordPress 管理界面语言。"
+
+msgid "%d missing"
+msgid_plural "%d missing"
+msgstr[0] "缺失 %d 个"
+
+msgid "%d translation job queued. Jobs are processed in the background."
+msgid_plural "%d translation jobs queued. Jobs are processed in the background."
+msgstr[0] "%d 个翻译作业已排队。作业在后台处理。"
+
+msgid "Retranslate %d outdated"
+msgid_plural "Retranslate %d outdated"
+msgstr[0] "重新翻译 %d 个过时项"

@@ -38,14 +38,33 @@ class LanguageHooks implements HookRegistrarInterface {
 
 	public function register(): void {
 		// Priority 1 — must fire before other plugins read the language.
-		// DirectoryStrategy mutates $wp->request here to strip the lang prefix.
+		// DirectoryStrategy mutates $_SERVER['REQUEST_URI'] here to strip the
+		// lang prefix BEFORE WordPress reads it to build $wp->request.
 		add_action( 'parse_request', [ $this, 'detectAndSetLanguage' ], 1 );
 
 		// Persist language choice in a cookie for the next request
 		add_action( 'template_redirect', [ $this, 'persistLanguageCookie' ] );
 
-		// Filter home_url() to include the language indicator
-		add_filter( 'home_url', [ $this, 'filterHomeUrl' ], 10, 2 );
+		// Register home_url filter AFTER parse_request completes.
+		//
+		// WordPress calls home_url() inside WP::parse_request() to compute the
+		// WP base path ($home_path) which it uses to strip the install subdirectory
+		// from the request URI before matching rewrite rules.
+		//
+		// If filterHomeUrl is already active at that point, it returns a
+		// language-prefixed home URL (e.g. http://site.test/fr/) because we have
+		// already set the current language to 'fr' in detectAndSetLanguage().
+		// WordPress then computes home_path = 'fr', builds regex /^fr/i, and
+		// strips 'fr' from 'fr-sample-page/' via preg_replace, leaving
+		// '-sample-page/' — which matches no rewrite rule → 404.
+		//
+		// Delaying to the 'wp' action (after WP::main() finishes parse_request,
+		// query_posts, handle_404, register_globals) means the filter is active
+		// for all template rendering (wp_head, the_content, menus, etc.) but
+		// does not interfere with WordPress's internal URL routing.
+		add_action( 'wp', function () {
+			add_filter( 'home_url', [ $this, 'filterHomeUrl' ], 10, 2 );
+		}, 1 );
 	}
 
 	// ── Callbacks ─────────────────────────────────────────────────────────

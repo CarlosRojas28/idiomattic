@@ -19,17 +19,36 @@ class Installer
 
 	public static function activate(): void
 	{
+		// Multisite network-activation is not supported yet.
+		// The plugin must be activated per-site until network support is implemented.
+		if ( is_multisite() && is_network_admin() ) {
+			// translators: plugin name
+			$message = sprintf(
+				__(
+					'%s cannot be network-activated. Please activate it on individual sites instead. Network-wide support is planned for a future release.',
+					'idiomattic-wp'
+				),
+				'<strong>Idiomattic WP</strong>'
+			);
+			wp_die(
+				wp_kses( $message, [ 'strong' => [] ] ),
+				esc_html__( 'Plugin Activation Error', 'idiomattic-wp' ),
+				[ 'back_link' => true ]
+			);
+		}
+
 		self::createTables();
 		self::setDefaultOptions();
 		update_option('idiomatticwp_db_version', self::DB_VERSION);
 
 		// Signal setup wizard only on genuinely fresh installations
-		// (i.e. default lang has never been set). This flag is cleared in
+		// (i.e. no active languages configured yet). This flag is cleared in
 		// SettingsHooks::sanitizeActiveLanguages() once the user saves languages.
-		if ( '' === get_option( 'idiomatticwp_default_lang', '' ) ) {
+		$activeLangs = get_option( 'idiomatticwp_active_langs', [] );
+		if ( empty( $activeLangs ) ) {
 			update_option( 'idiomatticwp_needs_setup', '1' );
 		} else {
-			// Already configured (e.g. re-activation) — clear flag immediately
+			// Already configured (e.g. re-activation) — clear flag immediately.
 			delete_option( 'idiomatticwp_needs_setup' );
 		}
 
@@ -173,9 +192,44 @@ class Installer
 
 	// ── Default options ───────────────────────────────────────────────────────
 
+	/**
+	 * Detect the WordPress installation locale and return the matching
+	 * BCP-47 language code from the plugin's languages config.
+	 *
+	 * Resolution order:
+	 *  1. Exact locale match (e.g. en_GB → en-GB).
+	 *  2. Primary-language match (e.g. es_MX → es).
+	 *  3. Fallback: 'en'.
+	 */
+	private static function detectWpLanguageCode(): string
+	{
+		$wpLocale = get_locale(); // e.g. 'en_GB', 'es_ES', 'fr_FR'
+
+		$languages = require dirname( __DIR__, 2 ) . '/config/languages.php';
+
+		// Build a locale → BCP-47 code map.
+		$localeMap = [];
+		foreach ( $languages as $code => $data ) {
+			$localeMap[ $data['locale'] ] = $code;
+		}
+
+		// 1. Exact match.
+		if ( isset( $localeMap[ $wpLocale ] ) ) {
+			return $localeMap[ $wpLocale ];
+		}
+
+		// 2. Primary-language prefix match (e.g. 'es' from 'es_MX').
+		$primary = strtolower( explode( '_', $wpLocale )[0] );
+		if ( isset( $languages[ $primary ] ) ) {
+			return $primary;
+		}
+
+		return 'en';
+	}
+
 	private static function setDefaultOptions(): void
 	{
-		add_option('idiomatticwp_default_lang', '');
+		add_option('idiomatticwp_default_lang', self::detectWpLanguageCode());
 		add_option('idiomatticwp_active_langs', []);
 		add_option('idiomatticwp_url_mode', 'parameter');
 		add_option('idiomatticwp_auto_translate', false);

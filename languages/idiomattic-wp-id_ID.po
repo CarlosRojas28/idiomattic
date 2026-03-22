@@ -1,0 +1,1057 @@
+# Indonesian translation for Idiomattic WP
+# Copyright (C) 2024 Idiomattic
+msgid ""
+msgstr ""
+"Project-Id-Version: Idiomattic WP\n"
+"POT-Creation-Date: 2024-01-01 00:00+0000\n"
+"PO-Revision-Date: 2024-01-01 00:00+0000\n"
+"Last-Translator: Idiomattic <hello@idiomattic.app>\n"
+"Language-Team: Indonesian\n"
+"Language: id_ID\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Idiomattic WP\n"
+"X-Domain: idiomattic-wp\n"
+
+msgid "%1$d draft, %2$d in progress"
+msgstr "%1$d draf, %2$d sedang berlangsung"
+
+msgid "%d active plugins — click to expand"
+msgstr "%d plugin aktif — klik untuk memperluas"
+
+msgid "%s: %s"
+msgstr "%s: %s"
+
+msgid "(empty)"
+msgstr "(kosong)"
+
+msgid "(no title)"
+msgstr "(tanpa judul)"
+
+msgid "(optional)"
+msgstr "(opsional)"
+
+msgid "(saved — enter a new key to replace)"
+msgstr "(disimpan — masukkan kunci baru untuk mengganti)"
+
+msgid "A translation already exists for this language. Delete it first."
+msgstr "Terjemahan sudah ada untuk bahasa ini. Hapus terlebih dahulu."
+
+msgid "AI Translation Provider"
+msgstr "Penyedia Terjemahan AI"
+
+msgid "AI Translation — Pro Feature"
+msgstr "Terjemahan AI — Fitur Pro"
+
+msgid "AI error: "
+msgstr "Kesalahan AI: "
+
+msgid "AI string translation requires a Pro license."
+msgstr "Terjemahan string AI memerlukan lisensi Pro."
+
+msgid "AI translation requires Pro"
+msgstr "Terjemahan AI memerlukan Pro"
+
+msgid "AI translation requires a Pro license."
+msgstr "Terjemahan AI memerlukan lisensi Pro."
+
+msgid "Action"
+msgstr "Tindakan"
+
+msgid "Actions"
+msgstr "Tindakan"
+
+msgid "Active Languages"
+msgstr "Bahasa Aktif"
+
+msgid "Active Plugins"
+msgstr "Plugin Aktif"
+
+msgid "Active Theme"
+msgstr "Tema Aktif"
+
+msgid "Add"
+msgstr "Tambah"
+
+msgid "Add Custom Language"
+msgstr "Tambah Bahasa Kustom"
+
+msgid "Add String"
+msgstr "Tambah String"
+
+msgid "Add Term"
+msgstr "Tambah Istilah"
+
+msgid "Add string"
+msgstr "Tambah string"
+
+msgid "Advanced"
+msgstr "Lanjutan"
+
+msgid "All"
+msgstr "Semua"
+
+msgid "All content already has translations for the selected languages."
+msgstr "Semua konten sudah memiliki terjemahan untuk bahasa yang dipilih."
+
+msgid "All content is fully translated!"
+msgstr "Semua konten sudah diterjemahkan sepenuhnya!"
+
+msgid "All fields already have a translation."
+msgstr "Semua bidang sudah memiliki terjemahan."
+
+msgid "All languages"
+msgstr "Semua bahasa"
+
+msgid "All packages"
+msgstr "Semua paket"
+
+msgid "An unexpected error occurred during translation."
+msgstr "Terjadi kesalahan tak terduga saat penerjemahan."
+
+msgid "Apply"
+msgstr "Terapkan"
+
+msgid "Are you sure you want to delete this translation?"
+msgstr "Apakah Anda yakin ingin menghapus terjemahan ini?"
+
+msgid "Author"
+msgstr "Penulis"
+
+msgid "Auto-translate failed."
+msgstr "Terjemahan otomatis gagal."
+
+msgid "Auto-translate on creation"
+msgstr "Terjemahan otomatis saat pembuatan"
+
+msgid "Auto-translate pending"
+msgstr "Terjemahan otomatis tertunda"
+
+msgid "Automated translations and AI provider configuration are available in the Pro version. Bring Your Own Key — connect directly to OpenAI, Claude, or DeepL."
+msgstr "Terjemahan otomatis dan konfigurasi penyedia AI tersedia dalam versi Pro. Bawa Kunci Anda Sendiri — terhubung langsung ke OpenAI, Claude, atau DeepL."
+
+msgid "Automatically start AI translation when a new translation is created"
+msgstr "Mulai terjemahan AI secara otomatis saat terjemahan baru dibuat"
+
+msgid "Back"
+msgstr "Kembali"
+
+msgid "Back to list"
+msgstr "Kembali ke daftar"
+
+msgid "Behaviour"
+msgstr "Perilaku"
+
+msgid "Bring Your Own Key (BYOK): connect directly to your chosen AI provider. Your API key is stored encrypted and never sent to Idiomattic servers."
+msgstr "Bawa Kunci Anda Sendiri (BYOK): terhubung langsung ke penyedia AI yang Anda pilih. Kunci API Anda disimpan terenkripsi dan tidak pernah dikirim ke server Idiomattic."
+
+msgid "Cache & Transients"
+msgstr "Cache & Sementara"
+
+msgid "Cache language detection results for improved performance."
+msgstr "Cache hasil deteksi bahasa untuk meningkatkan performa."
+
+msgid "Cancel"
+msgstr "Batal"
+
+msgid "Child theme"
+msgstr "Tema turunan"
+
+msgid "Choose the primary language your website content will be served in by default."
+msgstr "Pilih bahasa utama yang akan digunakan untuk menampilkan konten situs web Anda secara default."
+
+msgid "Claude API Key"
+msgstr "Kunci API Claude"
+
+msgid "Clean URLs with the language code as a path prefix. Requires pretty permalinks."
+msgstr "URL bersih dengan kode bahasa sebagai awalan jalur. Memerlukan permalink yang bagus."
+
+msgid "Clear cached data if you are seeing stale content or unexpected behaviour."
+msgstr "Hapus data yang di-cache jika Anda melihat konten usang atau perilaku tidak terduga."
+
+msgid "Clear language filter"
+msgstr "Hapus filter bahasa"
+
+msgid "Close"
+msgstr "Tutup"
+
+msgid "Code, native name, and English name are required."
+msgstr "Kode, nama asli, dan nama Inggris diperlukan."
+
+msgid "Compatibility"
+msgstr "Kompatibilitas"
+
+msgid "Compatibility scan completed successfully."
+msgstr "Pemindaian kompatibilitas berhasil diselesaikan."
+
+msgid "Complete"
+msgstr "Selesai"
+
+msgid "Configure how each post type behaves across languages."
+msgstr "Konfigurasikan bagaimana setiap jenis postingan berperilaku di berbagai bahasa."
+
+msgid "Configure how taxonomy terms behave across languages."
+msgstr "Konfigurasikan bagaimana istilah taksonomi berperilaku di berbagai bahasa."
+
+msgid "Configure permalinks →"
+msgstr "Konfigurasikan permalink →"
+
+msgid "Configure translation mode for registered custom fields. New fields can be added via the Compatibility tab or programmatically."
+msgstr "Konfigurasikan mode terjemahan untuk bidang kustom yang terdaftar. Bidang baru dapat ditambahkan melalui tab Kompatibilitas atau secara terprogram."
+
+msgid "Content"
+msgstr "Konten"
+
+msgid "Content Translation"
+msgstr "Terjemahan Konten"
+
+msgid "Context"
+msgstr "Konteks"
+
+msgid "Context (optional)"
+msgstr "Konteks (opsional)"
+
+msgid "Continue →"
+msgstr "Lanjutkan →"
+
+msgid "Control how the plugin handles its data."
+msgstr "Kontrol bagaimana plugin menangani datanya."
+
+msgid "Copied!"
+msgstr "Disalin!"
+
+msgid "Copy from original:"
+msgstr "Salin dari asli:"
+
+msgid "Copy source string"
+msgstr "Salin string sumber"
+
+msgid "Copy source to all empty translations"
+msgstr "Salin sumber ke semua terjemahan yang kosong"
+
+msgid "Copy to all"
+msgstr "Salin ke semua"
+
+msgid "Copy to clipboard"
+msgstr "Salin ke clipboard"
+
+msgid "Could not create export archive."
+msgstr "Tidak dapat membuat arsip ekspor."
+
+msgid "Could not link post."
+msgstr "Tidak dapat menautkan postingan."
+
+msgid "Coverage"
+msgstr "Cakupan"
+
+msgid "Create a menu →"
+msgstr "Buat menu →"
+
+msgid "Creating..."
+msgstr "Membuat..."
+
+msgid "Custom"
+msgstr "Kustom"
+
+msgid "Custom Fields"
+msgstr "Bidang Kustom"
+
+msgid "Daily digest — one email per day"
+msgstr "Rangkuman harian — satu email per hari"
+
+msgid "Dashboard"
+msgstr "Dasbor"
+
+msgid "Data Management"
+msgstr "Manajemen Data"
+
+msgid "Date"
+msgstr "Tanggal"
+
+msgid "Debug Log"
+msgstr "Log Debug"
+
+msgid "Default Language"
+msgstr "Bahasa Default"
+
+msgid "Default configured by %s"
+msgstr "Default dikonfigurasi oleh %s"
+
+msgid "Define terms that must always be translated a specific way, or kept unchanged by the AI."
+msgstr "Tentukan istilah yang harus selalu diterjemahkan dengan cara tertentu, atau dibiarkan tidak berubah oleh AI."
+
+msgid "Define terms that must always be translated a specific way, or kept unchanged. Glossary rules are automatically applied during AI translation."
+msgstr "Tentukan istilah yang harus selalu diterjemahkan dengan cara tertentu, atau dibiarkan tidak berubah. Aturan glosarium diterapkan secara otomatis selama penerjemahan AI."
+
+msgid "Delete"
+msgstr "Hapus"
+
+msgid "Delete this custom language?"
+msgstr "Hapus bahasa kustom ini?"
+
+msgid "Delete this term?"
+msgstr "Hapus istilah ini?"
+
+msgid "Directory"
+msgstr "Direktori"
+
+msgid "Directory and Subdomain modes require pretty permalinks. %s"
+msgstr "Mode Direktori dan Subdomain memerlukan permalink yang bagus. %s"
+
+msgid "Directory not found."
+msgstr "Direktori tidak ditemukan."
+
+msgid "Disabled"
+msgstr "Dinonaktifkan"
+
+msgid "Display a language switcher."
+msgstr "Tampilkan pengalih bahasa."
+
+msgid "Done"
+msgstr "Selesai"
+
+msgid "Download JSON"
+msgstr "Unduh JSON"
+
+msgid "Download JSON template"
+msgstr "Unduh templat JSON"
+
+msgid "Download ZIP"
+msgstr "Unduh ZIP"
+
+msgid "Download all translations for a language as a ZIP of XLIFF 2.0 files, ready to be processed by any CAT tool."
+msgstr "Unduh semua terjemahan untuk suatu bahasa sebagai ZIP file XLIFF 2.0, siap diproses oleh alat CAT apa pun."
+
+msgid "Download as JSON"
+msgstr "Unduh sebagai JSON"
+
+msgid "Draft"
+msgstr "Draf"
+
+msgid "Draft / In Progress"
+msgstr "Draf / Sedang Berlangsung"
+
+msgid "Draft/WIP"
+msgstr "Draf/Dalam Proses"
+
+msgid "Duplicate all"
+msgstr "Duplikasi semua"
+
+msgid "Duplicate untranslated"
+msgstr "Duplikasi yang belum diterjemahkan"
+
+msgid "Each language has its own version of this content"
+msgstr "Setiap bahasa memiliki versinya sendiri dari konten ini"
+
+msgid "Each language on its own subdomain. Requires wildcard DNS and SSL."
+msgstr "Setiap bahasa pada subdomain-nya sendiri. Memerlukan DNS wildcard dan SSL."
+
+msgid "Each language on its own subdomain. Requires wildcard DNS."
+msgstr "Setiap bahasa pada subdomain-nya sendiri. Memerlukan DNS wildcard."
+
+msgid "Edit"
+msgstr "Edit"
+
+msgid "Email Notifications"
+msgstr "Notifikasi Email"
+
+msgid "Enable AI-powered string translation"
+msgstr "Aktifkan terjemahan string berbasis AI"
+
+msgid "Enable caching"
+msgstr "Aktifkan caching"
+
+msgid "Enable webhooks"
+msgstr "Aktifkan webhook"
+
+msgid "Error"
+msgstr "Kesalahan"
+
+msgid "Export"
+msgstr "Ekspor"
+
+msgid "Export Translations"
+msgstr "Ekspor Terjemahan"
+
+msgid "Field"
+msgstr "Bidang"
+
+msgid "Glossary"
+msgstr "Glosarium"
+
+msgid "Import"
+msgstr "Impor"
+
+msgid "Import Translations"
+msgstr "Impor Terjemahan"
+
+msgid "Immediate — one email per event"
+msgstr "Segera — satu email per kejadian"
+
+msgid "In Progress"
+msgstr "Sedang Berlangsung"
+
+msgid "Install"
+msgstr "Pasang"
+
+msgid "Invalid parameters."
+msgstr "Parameter tidak valid."
+
+msgid "Invalid translation ID."
+msgstr "ID terjemahan tidak valid."
+
+msgid "Language"
+msgstr "Bahasa"
+
+msgid "Language Coverage"
+msgstr "Cakupan Bahasa"
+
+msgid "Language Switcher"
+msgstr "Pengalih Bahasa"
+
+msgid "Languages"
+msgstr "Bahasa"
+
+msgid "Link as translation"
+msgstr "Tautkan sebagai terjemahan"
+
+msgid "Link existing post"
+msgstr "Tautkan postingan yang ada"
+
+msgid "Loading..."
+msgstr "Memuat..."
+
+msgid "Max words per segment"
+msgstr "Kata maksimum per segmen"
+
+msgid "Memory Hits"
+msgstr "Kecocokan Memori"
+
+msgid "Menu"
+msgstr "Menu"
+
+msgid "Menus"
+msgstr "Menu"
+
+msgid "Missing"
+msgstr "Hilang"
+
+msgid "Missing %d"
+msgstr "%d hilang"
+
+msgid "N/A"
+msgstr "T/T"
+
+msgid "No compatibility file found. Custom fields from this plugin will not be automatically translated. Click \"Download JSON template\" to get a starter file you can fill in and place inside the plugin/theme directory, or ask the author to add support."
+msgstr "File kompatibilitas tidak ditemukan. Bidang kustom dari plugin ini tidak akan diterjemahkan secara otomatis."
+
+msgid "No config file"
+msgstr "Tidak ada file konfigurasi"
+
+msgid "No items match the selected filter."
+msgstr "Tidak ada item yang cocok dengan filter yang dipilih."
+
+msgid "No permissions."
+msgstr "Tidak ada izin."
+
+msgid "No strings found for auto-translation."
+msgstr "Tidak ada string yang ditemukan untuk terjemahan otomatis."
+
+msgid "No terms in glossary yet. Add your first term above."
+msgstr "Belum ada istilah dalam glosarium. Tambahkan istilah pertama Anda di atas."
+
+msgid "No translation found."
+msgstr "Tidak ada terjemahan yang ditemukan."
+
+msgid "No translations yet. Start by creating a translation from the post list."
+msgstr "Belum ada terjemahan. Mulailah dengan membuat terjemahan dari daftar postingan."
+
+msgid "Not configured"
+msgstr "Belum dikonfigurasi"
+
+msgid "Not registered"
+msgstr "Belum terdaftar"
+
+msgid "Not translatable"
+msgstr "Tidak dapat diterjemahkan"
+
+msgid "Notes"
+msgstr "Catatan"
+
+msgid "Notification Mode"
+msgstr "Mode Notifikasi"
+
+msgid "Notify on outdated translations"
+msgstr "Beri tahu tentang terjemahan yang sudah usang"
+
+msgid "Only .xliff or .xml files are accepted."
+msgstr "Hanya file .xliff atau .xml yang diterima."
+
+msgid "Open Translations Dashboard"
+msgstr "Buka Dasbor Terjemahan"
+
+msgid "Open any post or page and click \"Translate\" to use the translation editor."
+msgstr "Buka postingan atau halaman apa pun dan klik \"Terjemahkan\" untuk menggunakan editor terjemahan."
+
+msgid "OpenAI API Key"
+msgstr "Kunci API OpenAI"
+
+msgid "Optional HMAC-SHA256 secret"
+msgstr "Rahasia HMAC-SHA256 opsional"
+
+msgid "Original"
+msgstr "Asli"
+
+msgid "Original post has been deleted."
+msgstr "Postingan asli telah dihapus."
+
+msgid "Original post not found."
+msgstr "Postingan asli tidak ditemukan."
+
+msgid "Outdated"
+msgstr "Kedaluwarsa"
+
+msgid "Overview of your multilingual content"
+msgstr "Ikhtisar konten multibahasa Anda"
+
+msgid "PHP Version"
+msgstr "Versi PHP"
+
+msgid "Package / Domain"
+msgstr "Paket / Domain"
+
+msgid "Page %1$d of %2$d"
+msgstr "Halaman %1$d dari %2$d"
+
+msgid "Permalink Structure"
+msgstr "Struktur Permalink"
+
+msgid "Permission denied."
+msgstr "Izin ditolak."
+
+msgid "Please configure at least two active languages in Settings → Languages before using Content Translation."
+msgstr "Silakan konfigurasikan setidaknya dua bahasa aktif di Pengaturan → Bahasa sebelum menggunakan Terjemahan Konten."
+
+msgid "Please configure at least two active languages in Settings → Languages before using Import / Export."
+msgstr "Silakan konfigurasikan setidaknya dua bahasa aktif di Pengaturan → Bahasa sebelum menggunakan Impor / Ekspor."
+
+msgid "Please configure at least two active languages in Settings → Languages before using String Translation."
+msgstr "Silakan konfigurasikan setidaknya dua bahasa aktif di Pengaturan → Bahasa sebelum menggunakan Terjemahan String."
+
+msgid "Plugin"
+msgstr "Plugin"
+
+msgid "Plugin & Theme Compatibility"
+msgstr "Kompatibilitas Plugin & Tema"
+
+msgid "Plugin / Theme"
+msgstr "Plugin / Tema"
+
+msgid "Plugin Activation Error"
+msgstr "Kesalahan Aktivasi Plugin"
+
+msgid "Plugin Version"
+msgstr "Versi Plugin"
+
+msgid "Polylang is active. Running two multilingual plugins simultaneously can cause conflicts. Please deactivate Polylang before using Idiomattic WP."
+msgstr "Polylang aktif. Menjalankan dua plugin multibahasa secara bersamaan dapat menyebabkan konflik. Silakan nonaktifkan Polylang sebelum menggunakan Idiomattic WP."
+
+msgid "Post Title"
+msgstr "Judul Postingan"
+
+msgid "Post Type"
+msgstr "Jenis Postingan"
+
+msgid "Post Type(s)"
+msgstr "Jenis Postingan"
+
+msgid "Post Types"
+msgstr "Jenis Postingan"
+
+msgid "Post not found."
+msgstr "Postingan tidak ditemukan."
+
+msgid "Prev"
+msgstr "Sebelumnya"
+
+msgid "Preview flag"
+msgstr "Pratinjau bendera"
+
+msgid "Primary Language"
+msgstr "Bahasa Utama"
+
+msgid "Pro"
+msgstr "Pro"
+
+msgid "Progress"
+msgstr "Kemajuan"
+
+msgid "Publish"
+msgstr "Terbitkan"
+
+msgid "Publish Translation"
+msgstr "Terbitkan Terjemahan"
+
+msgid "Queue AI translation"
+msgstr "Antrekan terjemahan AI"
+
+msgid "Rate limit reached. Please wait a moment and try again."
+msgstr "Batas kecepatan tercapai. Harap tunggu sebentar dan coba lagi."
+
+msgid "Re-scan"
+msgstr "Pindai ulang"
+
+msgid "Re-use previously translated segments to reduce API costs"
+msgstr "Gunakan kembali segmen yang sebelumnya diterjemahkan untuk mengurangi biaya API"
+
+msgid "Recent Activity"
+msgstr "Aktivitas Terbaru"
+
+msgid "Recipient Email"
+msgstr "Email Penerima"
+
+msgid "Register string"
+msgstr "Daftarkan string"
+
+msgid "Register this string for this language"
+msgstr "Daftarkan string ini untuk bahasa ini"
+
+msgid "Remove"
+msgstr "Hapus"
+
+msgid "Requires Pro licence"
+msgstr "Memerlukan lisensi Pro"
+
+msgid "Retain data on uninstall"
+msgstr "Pertahankan data saat uninstall"
+
+msgid "Rewrite Rules"
+msgstr "Aturan Tulis Ulang"
+
+msgid "Right-to-left language"
+msgstr "Bahasa kanan ke kiri"
+
+msgid "Save"
+msgstr "Simpan"
+
+msgid "Save Draft"
+msgstr "Simpan Draf"
+
+msgid "Save Translations"
+msgstr "Simpan Terjemahan"
+
+msgid "Scan complete."
+msgstr "Pemindaian selesai."
+
+msgid "Scan sources"
+msgstr "Pindai sumber"
+
+msgid "Scan strings"
+msgstr "Pindai string"
+
+msgid "Scanning..."
+msgstr "Memindai..."
+
+msgid "Search"
+msgstr "Cari"
+
+msgid "Search by title…"
+msgstr "Cari berdasarkan judul…"
+
+msgid "Search in source and translations…"
+msgstr "Cari di sumber dan terjemahan…"
+
+msgid "Search languages…"
+msgstr "Cari bahasa…"
+
+msgid "Search strings"
+msgstr "Cari string"
+
+msgid "Security check failed."
+msgstr "Pemeriksaan keamanan gagal."
+
+msgid "Select Language"
+msgstr "Pilih Bahasa"
+
+msgid "Send HTTP POST notifications to an external URL when translation events occur. Payloads are signed with HMAC-SHA256."
+msgstr "Kirim notifikasi HTTP POST ke URL eksternal saat kejadian terjemahan terjadi. Muatan ditandatangani dengan HMAC-SHA256."
+
+msgid "Settings"
+msgstr "Pengaturan"
+
+msgid "Show Flags"
+msgstr "Tampilkan Bendera"
+
+msgid "Show Names"
+msgstr "Tampilkan Nama"
+
+msgid "Show all"
+msgstr "Tampilkan semua"
+
+msgid "Show as translated"
+msgstr "Tampilkan sebagai diterjemahkan"
+
+msgid "Show terms for:"
+msgstr "Tampilkan istilah untuk:"
+
+msgid "Showing original posts only"
+msgstr "Menampilkan hanya postingan asli"
+
+msgid "Showing translations into: %s"
+msgstr "Menampilkan terjemahan ke: %s"
+
+msgid "Shown in secondary languages even without a translation (uses default language content)"
+msgstr "Ditampilkan dalam bahasa sekunder bahkan tanpa terjemahan (menggunakan konten bahasa default)"
+
+msgid "Signing Secret"
+msgstr "Rahasia Penandatanganan"
+
+msgid "Site Default Language"
+msgstr "Bahasa Default Situs"
+
+msgid "Slug"
+msgstr "Slug"
+
+msgid "Source Term"
+msgstr "Istilah Sumber"
+
+msgid "Source post not found."
+msgstr "Postingan sumber tidak ditemukan."
+
+msgid "Source string"
+msgstr "String sumber"
+
+msgid "Source string not found."
+msgstr "String sumber tidak ditemukan."
+
+msgid "Standard ISO code for localization"
+msgstr "Kode ISO standar untuk lokalisasi"
+
+msgid "Start Migration"
+msgstr "Mulai Migrasi"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Step 1: Detection"
+msgstr "Langkah 1: Deteksi"
+
+msgid "String Translation"
+msgstr "Terjemahan String"
+
+msgid "Style"
+msgstr "Gaya"
+
+msgid "Subdomain"
+msgstr "Subdomain"
+
+msgid "System Information"
+msgstr "Informasi Sistem"
+
+msgid "System Report"
+msgstr "Laporan Sistem"
+
+msgid "Target language is required."
+msgstr "Bahasa target diperlukan."
+
+msgid "Taxonomies"
+msgstr "Taksonomi"
+
+msgid "Taxonomy"
+msgstr "Taksonomi"
+
+msgid "Theme"
+msgstr "Tema"
+
+msgid "This affects how visitors and search engines find your translated content."
+msgstr "Ini mempengaruhi cara pengunjung dan mesin pencari menemukan konten terjemahan Anda."
+
+msgid "This alert was sent by the %s plugin."
+msgstr "Peringatan ini dikirim oleh plugin %s."
+
+msgid "This is a translation of: %s"
+msgstr "Ini adalah terjemahan dari: %s"
+
+msgid "This is the original language of your posts and pages."
+msgstr "Ini adalah bahasa asli postingan dan halaman Anda."
+
+msgid "This plugin/theme ships with a native idiomattic-elements.json file. All its elements are automatically registered. No action needed."
+msgstr "Plugin/tema ini dilengkapi dengan file idiomattic-elements.json asli. Semua elemennya terdaftar secara otomatis. Tidak diperlukan tindakan."
+
+msgid "This plugin/theme ships with a wpml-config.xml file. Idiomattic auto-imports its field definitions at runtime. Use \"Import WPML config\" to force-register them now, or \"Download as JSON\" to convert the file to a permanent idiomattic-elements.json."
+msgstr "Plugin/tema ini dilengkapi dengan file wpml-config.xml. Idiomattic mengimpor definisi bidang secara otomatis saat runtime."
+
+msgid "This translation is outdated — the source post has been updated since it was last translated. Please review and re-translate."
+msgstr "Terjemahan ini sudah kedaluwarsa — postingan sumber telah diperbarui sejak terakhir kali diterjemahkan. Harap tinjau dan terjemahkan ulang."
+
+msgid "This will overwrite all fields with the original content. Continue?"
+msgstr "Ini akan menimpa semua bidang dengan konten asli. Lanjutkan?"
+
+msgid "Title"
+msgstr "Judul"
+
+msgid "To create or edit navigation menus visit %s."
+msgstr "Untuk membuat atau mengedit menu navigasi kunjungi %s."
+
+msgid "Total Translations"
+msgstr "Total Terjemahan"
+
+msgid "Total scanned"
+msgstr "Total dipindai"
+
+msgid "Translatable"
+msgstr "Dapat diterjemahkan"
+
+msgid "Translate all"
+msgstr "Terjemahkan semua"
+
+msgid "Translate all languages"
+msgstr "Terjemahkan semua bahasa"
+
+msgid "Translate all missing"
+msgstr "Terjemahkan semua yang hilang"
+
+msgid "Translate all missing (%d)"
+msgstr "Terjemahkan semua yang hilang (%d)"
+
+msgid "Translate content →"
+msgstr "Terjemahkan konten →"
+
+msgid "Translate field"
+msgstr "Terjemahkan bidang"
+
+msgid "Translate interface strings from plugins and themes"
+msgstr "Terjemahkan string antarmuka dari plugin dan tema"
+
+msgid "Translate posts, pages, and custom content into all active languages"
+msgstr "Terjemahkan postingan, halaman, dan konten kustom ke semua bahasa aktif"
+
+msgid "Translate to all languages"
+msgstr "Terjemahkan ke semua bahasa"
+
+msgid "Translate: %s"
+msgstr "Terjemahkan: %s"
+
+msgid "Translated %d strings successfully."
+msgstr "%d string berhasil diterjemahkan."
+
+msgid "Translating"
+msgstr "Menerjemahkan"
+
+msgid "Translating…"
+msgstr "Menerjemahkan…"
+
+msgid "Translation"
+msgstr "Terjemahan"
+
+msgid "Translation / Rule"
+msgstr "Terjemahan / Aturan"
+
+msgid "Translation Alert"
+msgstr "Peringatan Terjemahan"
+
+msgid "Translation Alert — %s"
+msgstr "Peringatan Terjemahan — %s"
+
+msgid "Translation Details"
+msgstr "Detail Terjemahan"
+
+msgid "Translation Editor"
+msgstr "Editor Terjemahan"
+
+msgid "Translation Memory"
+msgstr "Memori Terjemahan"
+
+msgid "Translation Mode"
+msgstr "Mode Terjemahan"
+
+msgid "Translation completed (AI finished)"
+msgstr "Terjemahan selesai (AI selesai)"
+
+msgid "Translation failed."
+msgstr "Terjemahan gagal."
+
+msgid "Translation outdated (source post updated)"
+msgstr "Terjemahan kedaluwarsa (postingan sumber diperbarui)"
+
+msgid "Translation provider is temporarily unavailable. Please try again."
+msgstr "Penyedia terjemahan untuk sementara tidak tersedia. Silakan coba lagi."
+
+msgid "Translation queued (job dispatched)"
+msgstr "Terjemahan dalam antrian (pekerjaan dikirim)"
+
+msgid "Translation record not found."
+msgstr "Rekaman terjemahan tidak ditemukan."
+
+msgid "Translation saved successfully."
+msgstr "Terjemahan berhasil disimpan."
+
+msgid "Translations"
+msgstr "Terjemahan"
+
+msgid "Translations saved."
+msgstr "Terjemahan disimpan."
+
+msgid "Triggered when you update a post that has translations."
+msgstr "Dipicu saat Anda memperbarui postingan yang memiliki terjemahan."
+
+msgid "Troubleshooting"
+msgstr "Pemecahan Masalah"
+
+msgid "Type"
+msgstr "Jenis"
+
+msgid "URL Mode"
+msgstr "Mode URL"
+
+msgid "URL Structure"
+msgstr "Struktur URL"
+
+msgid "Unauthorized"
+msgstr "Tidak diizinkan"
+
+msgid "Update"
+msgstr "Perbarui"
+
+msgid "Upgrade to Pro to unlock Directory and Subdomain modes →"
+msgstr "Tingkatkan ke Pro untuk membuka mode Direktori dan Subdomain →"
+
+msgid "Upgrade to Pro →"
+msgstr "Tingkatkan ke Pro →"
+
+msgid "Upload an XLIFF file (2.0 or 1.2) exported from a CAT tool. Translations are written directly into the database."
+msgstr "Unggah file XLIFF (2.0 atau 1.2) yang diekspor dari alat CAT. Terjemahan ditulis langsung ke dalam database."
+
+msgid "Version"
+msgstr "Versi"
+
+msgid "View"
+msgstr "Lihat"
+
+msgid "View Original"
+msgstr "Lihat Asli"
+
+msgid "View compatibility report →"
+msgstr "Lihat laporan kompatibilitas →"
+
+msgid "View source post →"
+msgstr "Lihat postingan sumber →"
+
+msgid "View strings"
+msgstr "Lihat string"
+
+msgid "WPML Migration"
+msgstr "Migrasi WPML"
+
+msgid "WPML Migration Wizard"
+msgstr "Wizard Migrasi WPML"
+
+msgid "WPML config"
+msgstr "Konfigurasi WPML"
+
+msgid "WPML config imported successfully."
+msgstr "Konfigurasi WPML berhasil diimpor."
+
+msgid "WPML config imported with warnings: "
+msgstr "Konfigurasi WPML diimpor dengan peringatan: "
+
+msgid "WPML config imported: %1$d element(s) registered into the translation registry, %2$d skipped (action = ignore)."
+msgstr "Konfigurasi WPML diimpor: %1$d elemen terdaftar ke registri terjemahan, %2$d dilewati (tindakan = abaikan)."
+
+msgid "WPML is active. Running two multilingual plugins simultaneously can cause conflicts. Please deactivate WPML before using Idiomattic WP, or use the WPML migration tool."
+msgstr "WPML aktif. Menjalankan dua plugin multibahasa secara bersamaan dapat menyebabkan konflik. Silakan nonaktifkan WPML sebelum menggunakan Idiomattic WP, atau gunakan alat migrasi WPML."
+
+msgid "WPML is not active. Migration may not be possible."
+msgstr "WPML tidak aktif. Migrasi mungkin tidak dapat dilakukan."
+
+msgid "W3 Total Cache is active. Make sure page caching is configured to handle language-specific URLs correctly."
+msgstr "W3 Total Cache aktif. Pastikan caching halaman dikonfigurasi untuk menangani URL khusus bahasa dengan benar."
+
+msgid "WP Debug"
+msgstr "WP Debug"
+
+msgid "WP Debug Log"
+msgstr "Log WP Debug"
+
+msgid "WP_DEBUG and WP_DEBUG_LOG are not both enabled. Add the following to wp-config.php to activate debug logging:"
+msgstr "WP_DEBUG dan WP_DEBUG_LOG tidak keduanya diaktifkan. Tambahkan yang berikut ke wp-config.php untuk mengaktifkan pencatatan debug:"
+
+msgid "Want AI-powered translations? Upgrade to Pro for BYOK (Bring Your Own Key) support."
+msgstr "Ingin terjemahan bertenaga AI? Tingkatkan ke Pro untuk dukungan BYOK (Bawa Kunci Anda Sendiri)."
+
+msgid "Webhooks"
+msgstr "Webhook"
+
+msgid "What do these statuses mean?"
+msgstr "Apa arti status ini?"
+
+msgid "What language is your content written in?"
+msgstr "Dalam bahasa apa konten Anda ditulis?"
+
+msgid "Which languages do you want to translate into?"
+msgstr "Ke bahasa apa Anda ingin menerjemahkan?"
+
+msgid "WordPress Version"
+msgstr "Versi WordPress"
+
+msgid "Works with any permalink structure. Easiest to set up."
+msgstr "Bekerja dengan struktur permalink apa pun. Paling mudah untuk diatur."
+
+msgid "Works with any permalink structure. Recommended for most sites."
+msgstr "Bekerja dengan struktur permalink apa pun. Direkomendasikan untuk sebagian besar situs."
+
+msgid "XLIFF file (.xliff)"
+msgstr "File XLIFF (.xliff)"
+
+msgid "You can add or remove languages at any time from Settings."
+msgstr "Anda dapat menambah atau menghapus bahasa kapan saja dari Pengaturan."
+
+msgid "You can disable these notifications in the plugin settings."
+msgstr "Anda dapat menonaktifkan notifikasi ini di pengaturan plugin."
+
+msgid "You do not have permission to edit this post."
+msgstr "Anda tidak memiliki izin untuk mengedit postingan ini."
+
+msgid "debug.log not found or not readable."
+msgstr "debug.log tidak ditemukan atau tidak dapat dibaca."
+
+msgid "default"
+msgstr "bawaan"
+
+msgid "e.g. button, menu"
+msgstr "mis. tombol, menu"
+
+msgid "e.g. my-plugin"
+msgstr "mis. plugin-saya"
+
+msgid "— Not assigned —"
+msgstr "— Tidak ditetapkan —"
+
+msgid "→ Scan sources"
+msgstr "→ Pindai sumber"
+
+msgid "Admin Language"
+msgstr "Bahasa Admin"
+
+msgid "Admin Interface Language"
+msgstr "Bahasa Antarmuka Admin"
+
+msgid "Use site default"
+msgstr "Gunakan default situs"
+
+msgid "Select the language you prefer for the WordPress admin interface."
+msgstr "Pilih bahasa yang Anda inginkan untuk antarmuka admin WordPress."
+
+msgid "%d missing"
+msgid_plural "%d missing"
+msgstr[0] "%d hilang"
+
+msgid "%d translation job queued. Jobs are processed in the background."
+msgid_plural "%d translation job queued. Jobs are processed in the background."
+msgstr[0] "%d pekerjaan terjemahan dalam antrian. Pekerjaan diproses di latar belakang."
+
+msgid "Retranslate %d outdated"
+msgid_plural "Retranslate %d outdated"
+msgstr[0] "Terjemahkan ulang %d yang kedaluwarsa"

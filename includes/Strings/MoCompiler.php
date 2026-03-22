@@ -15,7 +15,7 @@ use IdiomatticWP\ValueObjects\LanguageCode;
 class MoCompiler
 {
 
-    public function __construct(private StringTranslator $translator, private \wpdb $wpdb)
+    public function __construct(private \wpdb $wpdb)
     {
     }
 
@@ -25,7 +25,7 @@ class MoCompiler
     public function compile(string $domain, LanguageCode $lang): bool
     {
         $translations = $this->wpdb->get_results($this->wpdb->prepare(
-            "SELECT original_string, translated_string FROM {$this->wpdb->prefix}idiomatticwp_strings 
+            "SELECT source_string, translated_string FROM {$this->wpdb->prefix}idiomatticwp_strings
              WHERE domain = %s AND lang = %s AND status = 'translated'",
             $domain, (string)$lang
         ), OBJECT_K);

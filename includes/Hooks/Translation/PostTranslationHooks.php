@@ -80,12 +80,13 @@ class PostTranslationHooks implements HookRegistrarInterface {
 			return;
 		}
 
-		// Avoid overwriting 'outdated' status back to 'complete' if the post
-		// was already published — only do that if the current record is 'draft'
-		// or if we're moving to 'complete' from anything.
-		if ( $translationStatus === 'complete' || $record['status'] !== 'outdated' ) {
-			$this->repository->updateStatus( (int) $record['id'], $translationStatus );
+		// Never overwrite 'outdated' with 'complete' via a plain Gutenberg save —
+		// only the Translation Editor can resolve an outdated status after re-translation.
+		if ( $translationStatus === 'complete' && $record['status'] === 'outdated' ) {
+			return;
 		}
+
+		$this->repository->updateStatus( (int) $record['id'], $translationStatus );
 	}
 
 	/**
@@ -107,14 +108,18 @@ class PostTranslationHooks implements HookRegistrarInterface {
 	public function onBeforeDeletePost( int $postId ): void {
 		$translations = $this->repository->findAllForSource( $postId );
 
-		if ( ! empty( $translations ) ) {
-			/**
-			 * Fires before a source post that has translations is deleted.
-			 *
-			 * @param int   $postId       The source post ID being deleted.
-			 * @param array $translations All translation records for this post.
-			 */
-			do_action( 'idiomatticwp_deleting_source_post', $postId, $translations );
+		if ( empty( $translations ) ) {
+			return;
+		}
+
+		do_action( 'idiomatticwp_deleting_source_post', $postId, $translations );
+
+		// Delete all translated posts so they don't remain as orphaned drafts.
+		foreach ( $translations as $translation ) {
+			$translatedPostId = (int) ( $translation['translated_post_id'] ?? 0 );
+			if ( $translatedPostId > 0 ) {
+				wp_delete_post( $translatedPostId, true );
+			}
 		}
 	}
 
@@ -152,8 +157,9 @@ class PostTranslationHooks implements HookRegistrarInterface {
 				'post_id'    => $postId,
 				'lang_count' => count( $langs ),
 				'langs'      => $langs,
+				'deleted'    => true,
 			],
-			60 // Transient lives for 60 seconds — long enough for the redirect
+			60
 		);
 	}
 
@@ -177,15 +183,15 @@ class PostTranslationHooks implements HookRegistrarInterface {
 		$langs = implode( ', ', array_map( 'strtoupper', (array) $data['langs'] ) );
 
 		printf(
-			'<div class="notice notice-warning is-dismissible"><p>'
+			'<div class="notice notice-info is-dismissible"><p>'
 			. '<strong>%s</strong> — %s</p></div>',
 			esc_html__( 'Idiomattic WP', 'idiomattic-wp' ),
 			esc_html(
 				sprintf(
 					/* translators: %1$d = number of translations, %2$s = language codes */
 					_n(
-						'The deleted post had %1$d translation (%2$s). The translated post remains in your site as a draft and may need manual cleanup.',
-						'The deleted post had %1$d translations (%2$s). The translated posts remain in your site as drafts and may need manual cleanup.',
+						'The deleted post had %1$d translation (%2$s). The translated post was also deleted.',
+						'The deleted post had %1$d translations (%2$s). The translated posts were also deleted.',
 						$count,
 						'idiomattic-wp'
 					),

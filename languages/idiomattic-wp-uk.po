@@ -1,0 +1,1063 @@
+# Ukrainian translation for Idiomattic WP
+# Copyright (C) 2024 Idiomattic
+msgid ""
+msgstr ""
+"Project-Id-Version: Idiomattic WP\n"
+"POT-Creation-Date: 2024-01-01 00:00+0000\n"
+"PO-Revision-Date: 2024-01-01 00:00+0000\n"
+"Last-Translator: Idiomattic <hello@idiomattic.app>\n"
+"Language-Team: Ukrainian\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Idiomattic WP\n"
+"X-Domain: idiomattic-wp\n"
+
+msgid "%1$d draft, %2$d in progress"
+msgstr "%1$d чернетка, %2$d в процесі"
+
+msgid "%d active plugins — click to expand"
+msgstr "%d активних плагінів — натисніть, щоб розгорнути"
+
+msgid "%s: %s"
+msgstr "%s: %s"
+
+msgid "(empty)"
+msgstr "(порожньо)"
+
+msgid "(no title)"
+msgstr "(без заголовку)"
+
+msgid "(optional)"
+msgstr "(необов'язково)"
+
+msgid "(saved — enter a new key to replace)"
+msgstr "(збережено — введіть новий ключ для заміни)"
+
+msgid "A translation already exists for this language. Delete it first."
+msgstr "Переклад для цієї мови вже існує. Спочатку видаліть його."
+
+msgid "AI Translation Provider"
+msgstr "Постачальник перекладів AI"
+
+msgid "AI Translation — Pro Feature"
+msgstr "Переклад AI — Функція Pro"
+
+msgid "AI error: "
+msgstr "Помилка AI: "
+
+msgid "AI string translation requires a Pro license."
+msgstr "Переклад рядків за допомогою AI потребує ліцензії Pro."
+
+msgid "AI translation requires Pro"
+msgstr "Переклад AI потребує Pro"
+
+msgid "AI translation requires a Pro license."
+msgstr "Переклад AI потребує ліцензії Pro."
+
+msgid "Action"
+msgstr "Дія"
+
+msgid "Actions"
+msgstr "Дії"
+
+msgid "Active Languages"
+msgstr "Активні мови"
+
+msgid "Active Plugins"
+msgstr "Активні плагіни"
+
+msgid "Active Theme"
+msgstr "Активна тема"
+
+msgid "Add"
+msgstr "Додати"
+
+msgid "Add Custom Language"
+msgstr "Додати власну мову"
+
+msgid "Add String"
+msgstr "Додати рядок"
+
+msgid "Add Term"
+msgstr "Додати термін"
+
+msgid "Add string"
+msgstr "Додати рядок"
+
+msgid "Advanced"
+msgstr "Розширені"
+
+msgid "All"
+msgstr "Усі"
+
+msgid "All content already has translations for the selected languages."
+msgstr "Весь контент вже має переклади для вибраних мов."
+
+msgid "All content is fully translated!"
+msgstr "Весь контент повністю перекладено!"
+
+msgid "All fields already have a translation."
+msgstr "Усі поля вже мають переклад."
+
+msgid "All languages"
+msgstr "Усі мови"
+
+msgid "All packages"
+msgstr "Усі пакети"
+
+msgid "An unexpected error occurred during translation."
+msgstr "Під час перекладу сталася неочікувана помилка."
+
+msgid "Apply"
+msgstr "Застосувати"
+
+msgid "Are you sure you want to delete this translation?"
+msgstr "Ви впевнені, що хочете видалити цей переклад?"
+
+msgid "Author"
+msgstr "Автор"
+
+msgid "Auto-translate failed."
+msgstr "Автоматичний переклад не вдався."
+
+msgid "Auto-translate on creation"
+msgstr "Автоматичний переклад при створенні"
+
+msgid "Auto-translate pending"
+msgstr "Автоматичний переклад очікує"
+
+msgid "Automated translations and AI provider configuration are available in the Pro version. Bring Your Own Key — connect directly to OpenAI, Claude, or DeepL."
+msgstr "Автоматизовані переклади та налаштування постачальника AI доступні у версії Pro. Принесіть власний ключ — підключіться безпосередньо до OpenAI, Claude або DeepL."
+
+msgid "Automatically start AI translation when a new translation is created"
+msgstr "Автоматично запускати переклад AI при створенні нового перекладу"
+
+msgid "Back"
+msgstr "Назад"
+
+msgid "Back to list"
+msgstr "Назад до списку"
+
+msgid "Behaviour"
+msgstr "Поведінка"
+
+msgid "Bring Your Own Key (BYOK): connect directly to your chosen AI provider. Your API key is stored encrypted and never sent to Idiomattic servers."
+msgstr "Принесіть власний ключ (BYOK): підключіться безпосередньо до обраного постачальника AI. Ваш API-ключ зберігається в зашифрованому вигляді і ніколи не надсилається на сервери Idiomattic."
+
+msgid "Cache & Transients"
+msgstr "Кеш та тимчасові дані"
+
+msgid "Cache language detection results for improved performance."
+msgstr "Кешуйте результати виявлення мови для підвищення продуктивності."
+
+msgid "Cancel"
+msgstr "Скасувати"
+
+msgid "Child theme"
+msgstr "Дочірня тема"
+
+msgid "Choose the primary language your website content will be served in by default."
+msgstr "Виберіть основну мову, якою за замовчуванням відображатиметься контент вашого сайту."
+
+msgid "Claude API Key"
+msgstr "API-ключ Claude"
+
+msgid "Clean URLs with the language code as a path prefix. Requires pretty permalinks."
+msgstr "Чисті URL-адреси з кодом мови як префіксом шляху. Потребує красивих постійних посилань."
+
+msgid "Clear cached data if you are seeing stale content or unexpected behaviour."
+msgstr "Очистіть кешовані дані, якщо ви бачите застарілий контент або неочікувану поведінку."
+
+msgid "Clear language filter"
+msgstr "Очистити мовний фільтр"
+
+msgid "Close"
+msgstr "Закрити"
+
+msgid "Code, native name, and English name are required."
+msgstr "Код, рідна назва та англійська назва є обов'язковими."
+
+msgid "Compatibility"
+msgstr "Сумісність"
+
+msgid "Compatibility scan completed successfully."
+msgstr "Сканування сумісності успішно завершено."
+
+msgid "Complete"
+msgstr "Завершити"
+
+msgid "Configure how each post type behaves across languages."
+msgstr "Налаштуйте поведінку кожного типу публікацій для різних мов."
+
+msgid "Configure how taxonomy terms behave across languages."
+msgstr "Налаштуйте поведінку термінів таксономії для різних мов."
+
+msgid "Configure permalinks →"
+msgstr "Налаштувати постійні посилання →"
+
+msgid "Configure translation mode for registered custom fields. New fields can be added via the Compatibility tab or programmatically."
+msgstr "Налаштуйте режим перекладу для зареєстрованих власних полів. Нові поля можна додати через вкладку Сумісність або програмно."
+
+msgid "Content"
+msgstr "Контент"
+
+msgid "Content Translation"
+msgstr "Переклад контенту"
+
+msgid "Context"
+msgstr "Контекст"
+
+msgid "Context (optional)"
+msgstr "Контекст (необов'язково)"
+
+msgid "Continue →"
+msgstr "Продовжити →"
+
+msgid "Control how the plugin handles its data."
+msgstr "Контролюйте, як плагін обробляє свої дані."
+
+msgid "Copied!"
+msgstr "Скопійовано!"
+
+msgid "Copy from original:"
+msgstr "Копіювати з оригіналу:"
+
+msgid "Copy source string"
+msgstr "Копіювати вихідний рядок"
+
+msgid "Copy source to all empty translations"
+msgstr "Копіювати джерело до всіх порожніх перекладів"
+
+msgid "Copy to all"
+msgstr "Копіювати до всіх"
+
+msgid "Copy to clipboard"
+msgstr "Копіювати до буфера обміну"
+
+msgid "Could not create export archive."
+msgstr "Не вдалося створити архів для експорту."
+
+msgid "Could not link post."
+msgstr "Не вдалося зв'язати публікацію."
+
+msgid "Coverage"
+msgstr "Охоплення"
+
+msgid "Create a menu →"
+msgstr "Створити меню →"
+
+msgid "Creating..."
+msgstr "Створення..."
+
+msgid "Custom"
+msgstr "Власний"
+
+msgid "Custom Fields"
+msgstr "Власні поля"
+
+msgid "Daily digest — one email per day"
+msgstr "Щоденний дайджест — один лист на день"
+
+msgid "Dashboard"
+msgstr "Панель керування"
+
+msgid "Data Management"
+msgstr "Управління даними"
+
+msgid "Date"
+msgstr "Дата"
+
+msgid "Debug Log"
+msgstr "Журнал налагодження"
+
+msgid "Default Language"
+msgstr "Мова за замовчуванням"
+
+msgid "Default configured by %s"
+msgstr "Стандартне налаштування від %s"
+
+msgid "Define terms that must always be translated a specific way, or kept unchanged by the AI."
+msgstr "Визначте терміни, які завжди потрібно перекладати певним чином або залишати незмінними AI."
+
+msgid "Define terms that must always be translated a specific way, or kept unchanged. Glossary rules are automatically applied during AI translation."
+msgstr "Визначте терміни, які завжди потрібно перекладати певним чином або залишати незмінними. Правила глосарію автоматично застосовуються під час перекладу AI."
+
+msgid "Delete"
+msgstr "Видалити"
+
+msgid "Delete this custom language?"
+msgstr "Видалити цю власну мову?"
+
+msgid "Delete this term?"
+msgstr "Видалити цей термін?"
+
+msgid "Directory"
+msgstr "Каталог"
+
+msgid "Directory and Subdomain modes require pretty permalinks. %s"
+msgstr "Режими Каталог та Субдомен потребують красивих постійних посилань. %s"
+
+msgid "Directory not found."
+msgstr "Каталог не знайдено."
+
+msgid "Disabled"
+msgstr "Вимкнено"
+
+msgid "Display a language switcher."
+msgstr "Відображати перемикач мови."
+
+msgid "Done"
+msgstr "Готово"
+
+msgid "Download JSON"
+msgstr "Завантажити JSON"
+
+msgid "Download JSON template"
+msgstr "Завантажити шаблон JSON"
+
+msgid "Download ZIP"
+msgstr "Завантажити ZIP"
+
+msgid "Download all translations for a language as a ZIP of XLIFF 2.0 files, ready to be processed by any CAT tool."
+msgstr "Завантажте всі переклади для мови як ZIP файлів XLIFF 2.0, готових до обробки будь-яким інструментом CAT."
+
+msgid "Download as JSON"
+msgstr "Завантажити як JSON"
+
+msgid "Draft"
+msgstr "Чернетка"
+
+msgid "Draft / In Progress"
+msgstr "Чернетка / В процесі"
+
+msgid "Draft/WIP"
+msgstr "Чернетка/В роботі"
+
+msgid "Duplicate all"
+msgstr "Дублювати все"
+
+msgid "Duplicate untranslated"
+msgstr "Дублювати неперекладені"
+
+msgid "Each language has its own version of this content"
+msgstr "Кожна мова має власну версію цього контенту"
+
+msgid "Each language on its own subdomain. Requires wildcard DNS and SSL."
+msgstr "Кожна мова на власному субдомені. Потребує wildcard DNS та SSL."
+
+msgid "Each language on its own subdomain. Requires wildcard DNS."
+msgstr "Кожна мова на власному субдомені. Потребує wildcard DNS."
+
+msgid "Edit"
+msgstr "Редагувати"
+
+msgid "Email Notifications"
+msgstr "Email-повідомлення"
+
+msgid "Enable AI-powered string translation"
+msgstr "Увімкнути переклад рядків за допомогою AI"
+
+msgid "Enable caching"
+msgstr "Увімкнути кешування"
+
+msgid "Enable webhooks"
+msgstr "Увімкнути вебхуки"
+
+msgid "Error"
+msgstr "Помилка"
+
+msgid "Export"
+msgstr "Експортувати"
+
+msgid "Export Translations"
+msgstr "Експортувати переклади"
+
+msgid "Field"
+msgstr "Поле"
+
+msgid "Glossary"
+msgstr "Глосарій"
+
+msgid "Import"
+msgstr "Імпортувати"
+
+msgid "Import Translations"
+msgstr "Імпортувати переклади"
+
+msgid "Immediate — one email per event"
+msgstr "Негайно — один лист на подію"
+
+msgid "In Progress"
+msgstr "В процесі"
+
+msgid "Install"
+msgstr "Встановити"
+
+msgid "Invalid parameters."
+msgstr "Недійсні параметри."
+
+msgid "Invalid translation ID."
+msgstr "Недійсний ідентифікатор перекладу."
+
+msgid "Language"
+msgstr "Мова"
+
+msgid "Language Coverage"
+msgstr "Охоплення мови"
+
+msgid "Language Switcher"
+msgstr "Перемикач мови"
+
+msgid "Languages"
+msgstr "Мови"
+
+msgid "Link as translation"
+msgstr "Зв'язати як переклад"
+
+msgid "Link existing post"
+msgstr "Зв'язати існуючу публікацію"
+
+msgid "Loading..."
+msgstr "Завантаження..."
+
+msgid "Max words per segment"
+msgstr "Максимальна кількість слів на сегмент"
+
+msgid "Memory Hits"
+msgstr "Збіги в пам'яті"
+
+msgid "Menu"
+msgstr "Меню"
+
+msgid "Menus"
+msgstr "Меню"
+
+msgid "Missing"
+msgstr "Відсутній"
+
+msgid "Missing %d"
+msgstr "%d відсутній"
+
+msgid "N/A"
+msgstr "Н/Д"
+
+msgid "No compatibility file found. Custom fields from this plugin will not be automatically translated. Click \"Download JSON template\" to get a starter file you can fill in and place inside the plugin/theme directory, or ask the author to add support."
+msgstr "Файл сумісності не знайдено. Власні поля цього плагіна не будуть перекладені автоматично."
+
+msgid "No config file"
+msgstr "Немає файлу конфігурації"
+
+msgid "No items match the selected filter."
+msgstr "Жоден елемент не відповідає вибраному фільтру."
+
+msgid "No permissions."
+msgstr "Немає дозволів."
+
+msgid "No strings found for auto-translation."
+msgstr "Рядки для автоматичного перекладу не знайдено."
+
+msgid "No terms in glossary yet. Add your first term above."
+msgstr "У глосарії ще немає термінів. Додайте перший термін вище."
+
+msgid "No translation found."
+msgstr "Переклад не знайдено."
+
+msgid "No translations yet. Start by creating a translation from the post list."
+msgstr "Перекладів ще немає. Почніть зі створення перекладу зі списку публікацій."
+
+msgid "Not configured"
+msgstr "Не налаштовано"
+
+msgid "Not registered"
+msgstr "Не зареєстровано"
+
+msgid "Not translatable"
+msgstr "Не перекладається"
+
+msgid "Notes"
+msgstr "Нотатки"
+
+msgid "Notification Mode"
+msgstr "Режим сповіщень"
+
+msgid "Notify on outdated translations"
+msgstr "Повідомляти про застарілі переклади"
+
+msgid "Only .xliff or .xml files are accepted."
+msgstr "Приймаються лише файли .xliff або .xml."
+
+msgid "Open Translations Dashboard"
+msgstr "Відкрити панель перекладів"
+
+msgid "Open any post or page and click \"Translate\" to use the translation editor."
+msgstr "Відкрийте будь-яку публікацію або сторінку та натисніть «Перекласти», щоб скористатися редактором перекладів."
+
+msgid "OpenAI API Key"
+msgstr "API-ключ OpenAI"
+
+msgid "Optional HMAC-SHA256 secret"
+msgstr "Необов'язковий секрет HMAC-SHA256"
+
+msgid "Original"
+msgstr "Оригінал"
+
+msgid "Original post has been deleted."
+msgstr "Оригінальна публікація була видалена."
+
+msgid "Original post not found."
+msgstr "Оригінальну публікацію не знайдено."
+
+msgid "Outdated"
+msgstr "Застарілий"
+
+msgid "Overview of your multilingual content"
+msgstr "Огляд вашого багатомовного контенту"
+
+msgid "PHP Version"
+msgstr "Версія PHP"
+
+msgid "Package / Domain"
+msgstr "Пакет / Домен"
+
+msgid "Page %1$d of %2$d"
+msgstr "Сторінка %1$d з %2$d"
+
+msgid "Permalink Structure"
+msgstr "Структура постійних посилань"
+
+msgid "Permission denied."
+msgstr "Доступ заборонено."
+
+msgid "Please configure at least two active languages in Settings → Languages before using Content Translation."
+msgstr "Будь ласка, налаштуйте принаймні дві активні мови в Налаштуваннях → Мови перед використанням перекладу контенту."
+
+msgid "Please configure at least two active languages in Settings → Languages before using Import / Export."
+msgstr "Будь ласка, налаштуйте принаймні дві активні мови в Налаштуваннях → Мови перед використанням Імпорту / Експорту."
+
+msgid "Please configure at least two active languages in Settings → Languages before using String Translation."
+msgstr "Будь ласка, налаштуйте принаймні дві активні мови в Налаштуваннях → Мови перед використанням перекладу рядків."
+
+msgid "Plugin"
+msgstr "Плагін"
+
+msgid "Plugin & Theme Compatibility"
+msgstr "Сумісність плагіна та теми"
+
+msgid "Plugin / Theme"
+msgstr "Плагін / Тема"
+
+msgid "Plugin Activation Error"
+msgstr "Помилка активації плагіна"
+
+msgid "Plugin Version"
+msgstr "Версія плагіна"
+
+msgid "Polylang is active. Running two multilingual plugins simultaneously can cause conflicts. Please deactivate Polylang before using Idiomattic WP."
+msgstr "Polylang активний. Одночасне запускання двох багатомовних плагінів може спричинити конфлікти. Будь ласка, деактивуйте Polylang перед використанням Idiomattic WP."
+
+msgid "Post Title"
+msgstr "Заголовок публікації"
+
+msgid "Post Type"
+msgstr "Тип публікації"
+
+msgid "Post Type(s)"
+msgstr "Тип(и) публікації"
+
+msgid "Post Types"
+msgstr "Типи публікацій"
+
+msgid "Post not found."
+msgstr "Публікацію не знайдено."
+
+msgid "Prev"
+msgstr "Попередня"
+
+msgid "Preview flag"
+msgstr "Попередній перегляд прапора"
+
+msgid "Primary Language"
+msgstr "Основна мова"
+
+msgid "Pro"
+msgstr "Pro"
+
+msgid "Progress"
+msgstr "Прогрес"
+
+msgid "Publish"
+msgstr "Опублікувати"
+
+msgid "Publish Translation"
+msgstr "Опублікувати переклад"
+
+msgid "Queue AI translation"
+msgstr "Поставити переклад AI в чергу"
+
+msgid "Rate limit reached. Please wait a moment and try again."
+msgstr "Ліміт запитів досягнуто. Зачекайте хвилину і спробуйте ще раз."
+
+msgid "Re-scan"
+msgstr "Повторне сканування"
+
+msgid "Re-use previously translated segments to reduce API costs"
+msgstr "Повторно використовувати раніше перекладені сегменти для зменшення витрат на API"
+
+msgid "Recent Activity"
+msgstr "Остання активність"
+
+msgid "Recipient Email"
+msgstr "Email отримувача"
+
+msgid "Register string"
+msgstr "Зареєструвати рядок"
+
+msgid "Register this string for this language"
+msgstr "Зареєструвати цей рядок для цієї мови"
+
+msgid "Remove"
+msgstr "Видалити"
+
+msgid "Requires Pro licence"
+msgstr "Потребує ліцензії Pro"
+
+msgid "Retain data on uninstall"
+msgstr "Зберігати дані при видаленні"
+
+msgid "Rewrite Rules"
+msgstr "Правила переписування"
+
+msgid "Right-to-left language"
+msgstr "Мова справа наліво"
+
+msgid "Save"
+msgstr "Зберегти"
+
+msgid "Save Draft"
+msgstr "Зберегти чернетку"
+
+msgid "Save Translations"
+msgstr "Зберегти переклади"
+
+msgid "Scan complete."
+msgstr "Сканування завершено."
+
+msgid "Scan sources"
+msgstr "Сканувати джерела"
+
+msgid "Scan strings"
+msgstr "Сканувати рядки"
+
+msgid "Scanning..."
+msgstr "Сканування..."
+
+msgid "Search"
+msgstr "Пошук"
+
+msgid "Search by title…"
+msgstr "Пошук за заголовком…"
+
+msgid "Search in source and translations…"
+msgstr "Пошук у джерелі та перекладах…"
+
+msgid "Search languages…"
+msgstr "Пошук мов…"
+
+msgid "Search strings"
+msgstr "Пошук рядків"
+
+msgid "Security check failed."
+msgstr "Перевірка безпеки не пройдена."
+
+msgid "Select Language"
+msgstr "Вибрати мову"
+
+msgid "Send HTTP POST notifications to an external URL when translation events occur. Payloads are signed with HMAC-SHA256."
+msgstr "Надсилайте HTTP POST сповіщення на зовнішню URL-адресу, коли відбуваються події перекладу. Дані підписуються за допомогою HMAC-SHA256."
+
+msgid "Settings"
+msgstr "Налаштування"
+
+msgid "Show Flags"
+msgstr "Показати прапори"
+
+msgid "Show Names"
+msgstr "Показати назви"
+
+msgid "Show all"
+msgstr "Показати все"
+
+msgid "Show as translated"
+msgstr "Показати як перекладене"
+
+msgid "Show terms for:"
+msgstr "Показати терміни для:"
+
+msgid "Showing original posts only"
+msgstr "Відображаються лише оригінальні публікації"
+
+msgid "Showing translations into: %s"
+msgstr "Відображаються переклади на: %s"
+
+msgid "Shown in secondary languages even without a translation (uses default language content)"
+msgstr "Відображається на вторинних мовах навіть без перекладу (використовує контент мови за замовчуванням)"
+
+msgid "Signing Secret"
+msgstr "Секрет підпису"
+
+msgid "Site Default Language"
+msgstr "Мова сайту за замовчуванням"
+
+msgid "Slug"
+msgstr "Slug"
+
+msgid "Source Term"
+msgstr "Вихідний термін"
+
+msgid "Source post not found."
+msgstr "Вихідну публікацію не знайдено."
+
+msgid "Source string"
+msgstr "Вихідний рядок"
+
+msgid "Source string not found."
+msgstr "Вихідний рядок не знайдено."
+
+msgid "Standard ISO code for localization"
+msgstr "Стандартний код ISO для локалізації"
+
+msgid "Start Migration"
+msgstr "Почати міграцію"
+
+msgid "Status"
+msgstr "Статус"
+
+msgid "Step 1: Detection"
+msgstr "Крок 1: Виявлення"
+
+msgid "String Translation"
+msgstr "Переклад рядків"
+
+msgid "Style"
+msgstr "Стиль"
+
+msgid "Subdomain"
+msgstr "Субдомен"
+
+msgid "System Information"
+msgstr "Інформація про систему"
+
+msgid "System Report"
+msgstr "Системний звіт"
+
+msgid "Target language is required."
+msgstr "Цільова мова є обов'язковою."
+
+msgid "Taxonomies"
+msgstr "Таксономії"
+
+msgid "Taxonomy"
+msgstr "Таксономія"
+
+msgid "Theme"
+msgstr "Тема"
+
+msgid "This affects how visitors and search engines find your translated content."
+msgstr "Це впливає на те, як відвідувачі та пошукові системи знаходять ваш перекладений контент."
+
+msgid "This alert was sent by the %s plugin."
+msgstr "Це сповіщення надіслано плагіном %s."
+
+msgid "This is a translation of: %s"
+msgstr "Це переклад: %s"
+
+msgid "This is the original language of your posts and pages."
+msgstr "Це оригінальна мова ваших публікацій та сторінок."
+
+msgid "This plugin/theme ships with a native idiomattic-elements.json file. All its elements are automatically registered. No action needed."
+msgstr "Цей плагін/тема постачається з нативним файлом idiomattic-elements.json. Всі його елементи автоматично зареєстровані. Жодних дій не потрібно."
+
+msgid "This plugin/theme ships with a wpml-config.xml file. Idiomattic auto-imports its field definitions at runtime. Use \"Import WPML config\" to force-register them now, or \"Download as JSON\" to convert the file to a permanent idiomattic-elements.json."
+msgstr "Цей плагін/тема постачається з файлом wpml-config.xml. Idiomattic автоматично імпортує визначення полів під час виконання."
+
+msgid "This translation is outdated — the source post has been updated since it was last translated. Please review and re-translate."
+msgstr "Цей переклад застарів — вихідна публікація була оновлена після останнього перекладу. Будь ласка, перегляньте і перекладіть знову."
+
+msgid "This will overwrite all fields with the original content. Continue?"
+msgstr "Це перезапише всі поля оригінальним контентом. Продовжити?"
+
+msgid "Title"
+msgstr "Заголовок"
+
+msgid "To create or edit navigation menus visit %s."
+msgstr "Для створення або редагування навігаційних меню відвідайте %s."
+
+msgid "Total Translations"
+msgstr "Всього перекладів"
+
+msgid "Total scanned"
+msgstr "Всього відскановано"
+
+msgid "Translatable"
+msgstr "Перекладається"
+
+msgid "Translate all"
+msgstr "Перекласти все"
+
+msgid "Translate all languages"
+msgstr "Перекласти всі мови"
+
+msgid "Translate all missing"
+msgstr "Перекласти всі відсутні"
+
+msgid "Translate all missing (%d)"
+msgstr "Перекласти всі відсутні (%d)"
+
+msgid "Translate content →"
+msgstr "Перекласти контент →"
+
+msgid "Translate field"
+msgstr "Перекласти поле"
+
+msgid "Translate interface strings from plugins and themes"
+msgstr "Перекласти рядки інтерфейсу з плагінів та тем"
+
+msgid "Translate posts, pages, and custom content into all active languages"
+msgstr "Перекладати публікації, сторінки та власний контент на всі активні мови"
+
+msgid "Translate to all languages"
+msgstr "Перекласти на всі мови"
+
+msgid "Translate: %s"
+msgstr "Перекласти: %s"
+
+msgid "Translated %d strings successfully."
+msgstr "%d рядків успішно перекладено."
+
+msgid "Translating"
+msgstr "Перекладається"
+
+msgid "Translating…"
+msgstr "Перекладається…"
+
+msgid "Translation"
+msgstr "Переклад"
+
+msgid "Translation / Rule"
+msgstr "Переклад / Правило"
+
+msgid "Translation Alert"
+msgstr "Сповіщення про переклад"
+
+msgid "Translation Alert — %s"
+msgstr "Сповіщення про переклад — %s"
+
+msgid "Translation Details"
+msgstr "Деталі перекладу"
+
+msgid "Translation Editor"
+msgstr "Редактор перекладів"
+
+msgid "Translation Memory"
+msgstr "Пам'ять перекладів"
+
+msgid "Translation Mode"
+msgstr "Режим перекладу"
+
+msgid "Translation completed (AI finished)"
+msgstr "Переклад завершено (AI виконав)"
+
+msgid "Translation failed."
+msgstr "Переклад не вдався."
+
+msgid "Translation outdated (source post updated)"
+msgstr "Переклад застарів (вихідна публікація оновлена)"
+
+msgid "Translation provider is temporarily unavailable. Please try again."
+msgstr "Постачальник перекладу тимчасово недоступний. Будь ласка, спробуйте ще раз."
+
+msgid "Translation queued (job dispatched)"
+msgstr "Переклад у черзі (завдання відправлено)"
+
+msgid "Translation record not found."
+msgstr "Запис перекладу не знайдено."
+
+msgid "Translation saved successfully."
+msgstr "Переклад успішно збережено."
+
+msgid "Translations"
+msgstr "Переклади"
+
+msgid "Translations saved."
+msgstr "Переклади збережено."
+
+msgid "Triggered when you update a post that has translations."
+msgstr "Спрацьовує, коли ви оновлюєте публікацію, що має переклади."
+
+msgid "Troubleshooting"
+msgstr "Усунення неполадок"
+
+msgid "Type"
+msgstr "Тип"
+
+msgid "URL Mode"
+msgstr "Режим URL"
+
+msgid "URL Structure"
+msgstr "Структура URL"
+
+msgid "Unauthorized"
+msgstr "Несанкціонований"
+
+msgid "Update"
+msgstr "Оновити"
+
+msgid "Upgrade to Pro to unlock Directory and Subdomain modes →"
+msgstr "Оновіть до Pro, щоб розблокувати режими Каталог та Субдомен →"
+
+msgid "Upgrade to Pro →"
+msgstr "Оновити до Pro →"
+
+msgid "Upload an XLIFF file (2.0 or 1.2) exported from a CAT tool. Translations are written directly into the database."
+msgstr "Завантажте файл XLIFF (2.0 або 1.2), експортований із інструменту CAT. Переклади записуються безпосередньо в базу даних."
+
+msgid "Version"
+msgstr "Версія"
+
+msgid "View"
+msgstr "Переглянути"
+
+msgid "View Original"
+msgstr "Переглянути оригінал"
+
+msgid "View compatibility report →"
+msgstr "Переглянути звіт про сумісність →"
+
+msgid "View source post →"
+msgstr "Переглянути вихідну публікацію →"
+
+msgid "View strings"
+msgstr "Переглянути рядки"
+
+msgid "WPML Migration"
+msgstr "Міграція WPML"
+
+msgid "WPML Migration Wizard"
+msgstr "Майстер міграції WPML"
+
+msgid "WPML config"
+msgstr "Конфігурація WPML"
+
+msgid "WPML config imported successfully."
+msgstr "Конфігурацію WPML успішно імпортовано."
+
+msgid "WPML config imported with warnings: "
+msgstr "Конфігурацію WPML імпортовано з попередженнями: "
+
+msgid "WPML config imported: %1$d element(s) registered into the translation registry, %2$d skipped (action = ignore)."
+msgstr "Конфігурацію WPML імпортовано: %1$d елемент(ів) зареєстровано в реєстрі перекладів, %2$d пропущено (дія = ігнорування)."
+
+msgid "WPML is active. Running two multilingual plugins simultaneously can cause conflicts. Please deactivate WPML before using Idiomattic WP, or use the WPML migration tool."
+msgstr "WPML активний. Одночасне запускання двох багатомовних плагінів може спричинити конфлікти. Будь ласка, деактивуйте WPML перед використанням Idiomattic WP або скористайтесь інструментом міграції WPML."
+
+msgid "WPML is not active. Migration may not be possible."
+msgstr "WPML не активний. Міграція може бути неможливою."
+
+msgid "W3 Total Cache is active. Make sure page caching is configured to handle language-specific URLs correctly."
+msgstr "W3 Total Cache активний. Переконайтеся, що кешування сторінок налаштовано для правильної обробки URL-адрес, специфічних для мови."
+
+msgid "WP Debug"
+msgstr "WP налагодження"
+
+msgid "WP Debug Log"
+msgstr "Журнал налагодження WP"
+
+msgid "WP_DEBUG and WP_DEBUG_LOG are not both enabled. Add the following to wp-config.php to activate debug logging:"
+msgstr "WP_DEBUG та WP_DEBUG_LOG не обидва увімкнені. Додайте наступне до wp-config.php, щоб активувати ведення журналу налагодження:"
+
+msgid "Want AI-powered translations? Upgrade to Pro for BYOK (Bring Your Own Key) support."
+msgstr "Хочете переклади на основі AI? Оновіть до Pro для підтримки BYOK (Принесіть власний ключ)."
+
+msgid "Webhooks"
+msgstr "Вебхуки"
+
+msgid "What do these statuses mean?"
+msgstr "Що означають ці статуси?"
+
+msgid "What language is your content written in?"
+msgstr "Якою мовою написано ваш контент?"
+
+msgid "Which languages do you want to translate into?"
+msgstr "На які мови ви хочете перекладати?"
+
+msgid "WordPress Version"
+msgstr "Версія WordPress"
+
+msgid "Works with any permalink structure. Easiest to set up."
+msgstr "Працює з будь-якою структурою постійних посилань. Найпростіше налаштувати."
+
+msgid "Works with any permalink structure. Recommended for most sites."
+msgstr "Працює з будь-якою структурою постійних посилань. Рекомендується для більшості сайтів."
+
+msgid "XLIFF file (.xliff)"
+msgstr "Файл XLIFF (.xliff)"
+
+msgid "You can add or remove languages at any time from Settings."
+msgstr "Ви можете будь-коли додавати або видаляти мови з Налаштувань."
+
+msgid "You can disable these notifications in the plugin settings."
+msgstr "Ви можете вимкнути ці сповіщення в налаштуваннях плагіна."
+
+msgid "You do not have permission to edit this post."
+msgstr "У вас немає дозволу редагувати цю публікацію."
+
+msgid "debug.log not found or not readable."
+msgstr "debug.log не знайдено або не читається."
+
+msgid "default"
+msgstr "за замовчуванням"
+
+msgid "e.g. button, menu"
+msgstr "напр. кнопка, меню"
+
+msgid "e.g. my-plugin"
+msgstr "напр. мій-плагін"
+
+msgid "— Not assigned —"
+msgstr "— Не призначено —"
+
+msgid "→ Scan sources"
+msgstr "→ Сканувати джерела"
+
+msgid "Admin Language"
+msgstr "Мова адміністратора"
+
+msgid "Admin Interface Language"
+msgstr "Мова інтерфейсу адміністратора"
+
+msgid "Use site default"
+msgstr "Використовувати стандартні налаштування сайту"
+
+msgid "Select the language you prefer for the WordPress admin interface."
+msgstr "Виберіть мову, яку ви надаєте перевагу для інтерфейсу адміністратора WordPress."
+
+msgid "%d missing"
+msgid_plural "%d missing"
+msgstr[0] "%d відсутній"
+msgstr[1] "%d відсутніх"
+msgstr[2] "%d відсутніх"
+
+msgid "%d translation job queued. Jobs are processed in the background."
+msgid_plural "%d translation job queued. Jobs are processed in the background."
+msgstr[0] "%d завдання перекладу в черзі. Завдання обробляються у фоновому режимі."
+msgstr[1] "%d завдання перекладу в черзі. Завдання обробляються у фоновому режимі."
+msgstr[2] "%d завдань перекладу в черзі. Завдання обробляються у фоновому режимі."
+
+msgid "Retranslate %d outdated"
+msgid_plural "Retranslate %d outdated"
+msgstr[0] "Перекласти повторно %d застарілий"
+msgstr[1] "Перекласти повторно %d застарілих"
+msgstr[2] "Перекласти повторно %d застарілих"

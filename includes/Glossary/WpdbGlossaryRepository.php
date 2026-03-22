@@ -30,15 +30,51 @@ class WpdbGlossaryRepository
         return array_map([$this, 'mapToTerm'], $results);
     }
 
+    /**
+     * Get all glossary terms, optionally filtered by source and/or target lang.
+     *
+     * @param string $sourceLang Filter by source language code, or '' for all.
+     * @param string $targetLang Filter by target language code, or '' for all.
+     * @return GlossaryTerm[]
+     */
+    public function getAllTerms(string $sourceLang = '', string $targetLang = ''): array
+    {
+        $where  = [];
+        $params = [];
+
+        if ($sourceLang !== '') {
+            $where[]  = 'source_lang = %s';
+            $params[] = $sourceLang;
+        }
+
+        if ($targetLang !== '') {
+            $where[]  = 'target_lang = %s';
+            $params[] = $targetLang;
+        }
+
+        $sql = "SELECT * FROM {$this->table}";
+        if ($where) {
+            $sql .= ' WHERE ' . implode(' AND ', $where);
+        }
+        $sql .= ' ORDER BY source_lang, target_lang, source_term ASC';
+
+        $results = $params
+            ? $this->wpdb->get_results($this->wpdb->prepare($sql, ...$params), ARRAY_A)
+            : $this->wpdb->get_results($sql, ARRAY_A);
+
+        return array_map([$this, 'mapToTerm'], $results ?: []);
+    }
+
     public function addTerm(string $sourceTerm, string $translatedTerm, LanguageCode $source, LanguageCode $target, bool $forbidden = false, ?string $notes = null): int
     {
         $this->wpdb->insert($this->table, [
-            'source_lang' => (string)$source,
-            'target_lang' => (string)$target,
-            'source_term' => $sourceTerm,
+            'source_lang'     => (string) $source,
+            'target_lang'     => (string) $target,
+            'source_term'     => $sourceTerm,
             'translated_term' => $translatedTerm,
-            'forbidden' => $forbidden ? 1 : 0,
-            'notes' => $notes
+            'forbidden'       => $forbidden ? 1 : 0,
+            'notes'           => $notes,
+            'created_at'      => current_time('mysql', true),
         ]);
 
         return (int)$this->wpdb->insert_id;

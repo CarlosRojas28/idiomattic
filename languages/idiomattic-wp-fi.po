@@ -1,0 +1,1060 @@
+# Finnish translation for Idiomattic WP
+# Copyright (C) 2024 Idiomattic
+msgid ""
+msgstr ""
+"Project-Id-Version: Idiomattic WP\n"
+"POT-Creation-Date: 2024-01-01 00:00+0000\n"
+"PO-Revision-Date: 2024-01-01 00:00+0000\n"
+"Last-Translator: Idiomattic <hello@idiomattic.app>\n"
+"Language-Team: Finnish\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Idiomattic WP\n"
+"X-Domain: idiomattic-wp\n"
+
+msgid "%1$d draft, %2$d in progress"
+msgstr "%1$d luonnos, %2$d käynnissä"
+
+msgid "%d active plugins — click to expand"
+msgstr "%d aktiivista laajennusta — laajenna napsauttamalla"
+
+msgid "%s: %s"
+msgstr "%s: %s"
+
+msgid "(empty)"
+msgstr "(tyhjä)"
+
+msgid "(no title)"
+msgstr "(ei otsikkoa)"
+
+msgid "(optional)"
+msgstr "(valinnainen)"
+
+msgid "(saved — enter a new key to replace)"
+msgstr "(tallennettu — syötä uusi avain korvataksesi)"
+
+msgid "A translation already exists for this language. Delete it first."
+msgstr "Tälle kielelle on jo olemassa käännös. Poista se ensin."
+
+msgid "AI Translation Provider"
+msgstr "Tekoälykäännöspalveluntarjoaja"
+
+msgid "AI Translation — Pro Feature"
+msgstr "Tekoälykäännös — Pro-ominaisuus"
+
+msgid "AI error: "
+msgstr "Tekoälyvirhe: "
+
+msgid "AI string translation requires a Pro license."
+msgstr "Tekoälyn merkkijonojen kääntäminen vaatii Pro-lisenssin."
+
+msgid "AI translation requires Pro"
+msgstr "Tekoälykäännös vaatii Pro-version"
+
+msgid "AI translation requires a Pro license."
+msgstr "Tekoälykäännös vaatii Pro-lisenssin."
+
+msgid "Action"
+msgstr "Toiminto"
+
+msgid "Actions"
+msgstr "Toiminnot"
+
+msgid "Active Languages"
+msgstr "Aktiiviset kielet"
+
+msgid "Active Plugins"
+msgstr "Aktiiviset laajennukset"
+
+msgid "Active Theme"
+msgstr "Aktiivinen teema"
+
+msgid "Add"
+msgstr "Lisää"
+
+msgid "Add Custom Language"
+msgstr "Lisää mukautettu kieli"
+
+msgid "Add String"
+msgstr "Lisää merkkijono"
+
+msgid "Add Term"
+msgstr "Lisää termi"
+
+msgid "Add string"
+msgstr "Lisää merkkijono"
+
+msgid "Advanced"
+msgstr "Lisäasetukset"
+
+msgid "All"
+msgstr "Kaikki"
+
+msgid "All content already has translations for the selected languages."
+msgstr "Kaikella sisällöllä on jo käännökset valituille kielille."
+
+msgid "All content is fully translated!"
+msgstr "Kaikki sisältö on käännetty kokonaan!"
+
+msgid "All fields already have a translation."
+msgstr "Kaikilla kentillä on jo käännös."
+
+msgid "All languages"
+msgstr "Kaikki kielet"
+
+msgid "All packages"
+msgstr "Kaikki paketit"
+
+msgid "An unexpected error occurred during translation."
+msgstr "Käännöksen aikana tapahtui odottamaton virhe."
+
+msgid "Apply"
+msgstr "Käytä"
+
+msgid "Are you sure you want to delete this translation?"
+msgstr "Haluatko varmasti poistaa tämän käännöksen?"
+
+msgid "Author"
+msgstr "Tekijä"
+
+msgid "Auto-translate failed."
+msgstr "Automaattinen käännös epäonnistui."
+
+msgid "Auto-translate on creation"
+msgstr "Automaattinen käännös luomisen yhteydessä"
+
+msgid "Auto-translate pending"
+msgstr "Automaattinen käännös odottaa"
+
+msgid "Automated translations and AI provider configuration are available in the Pro version. Bring Your Own Key — connect directly to OpenAI, Claude, or DeepL."
+msgstr "Automaattiset käännökset ja tekoälypalveluntarjoajan konfigurointi ovat saatavilla Pro-versiossa. Tuo oma avaimesi — yhdistä suoraan OpenAI:hin, Claudeen tai DeepL:ään."
+
+msgid "Automatically start AI translation when a new translation is created"
+msgstr "Käynnistä tekoälykäännös automaattisesti, kun uusi käännös luodaan"
+
+msgid "Back"
+msgstr "Takaisin"
+
+msgid "Back to list"
+msgstr "Takaisin listaan"
+
+msgid "Behaviour"
+msgstr "Toiminta"
+
+msgid "Bring Your Own Key (BYOK): connect directly to your chosen AI provider. Your API key is stored encrypted and never sent to Idiomattic servers."
+msgstr "Tuo oma avaimesi (BYOK): yhdistä suoraan valitsemaasi tekoälypalveluntarjoajaan. API-avaimesi tallennetaan salattuna eikä sitä lähetetä koskaan Idiomattic-palvelimille."
+
+msgid "Cache & Transients"
+msgstr "Välimuisti ja lyhytaikaiset tiedot"
+
+msgid "Cache language detection results for improved performance."
+msgstr "Välimuistita kielentunnistuksen tulokset paremman suorituskyvyn saavuttamiseksi."
+
+msgid "Cancel"
+msgstr "Peruuta"
+
+msgid "Child theme"
+msgstr "Aliteema"
+
+msgid "Choose the primary language your website content will be served in by default."
+msgstr "Valitse ensisijainen kieli, jolla verkkosivustosi sisältö tarjoillaan oletuksena."
+
+msgid "Claude API Key"
+msgstr "Claude API-avain"
+
+msgid "Clean URLs with the language code as a path prefix. Requires pretty permalinks."
+msgstr "Siistit URL-osoitteet kielikoodilla polun etuliitteenä. Vaatii kauniit pysyväislinkit."
+
+msgid "Clear cached data if you are seeing stale content or unexpected behaviour."
+msgstr "Tyhjennä välimuistissa olevat tiedot, jos näet vanhentunutta sisältöä tai odottamatonta toimintaa."
+
+msgid "Clear language filter"
+msgstr "Tyhjennä kielisuodatin"
+
+msgid "Close"
+msgstr "Sulje"
+
+msgid "Code, native name, and English name are required."
+msgstr "Koodi, natiivi nimi ja englanninkielinen nimi ovat pakollisia."
+
+msgid "Compatibility"
+msgstr "Yhteensopivuus"
+
+msgid "Compatibility scan completed successfully."
+msgstr "Yhteensopivuusskannaus suoritettu onnistuneesti."
+
+msgid "Complete"
+msgstr "Valmis"
+
+msgid "Configure how each post type behaves across languages."
+msgstr "Määritä, miten kukin julkaisutyyppi toimii eri kielillä."
+
+msgid "Configure how taxonomy terms behave across languages."
+msgstr "Määritä, miten taksonomian termit toimivat eri kielillä."
+
+msgid "Configure permalinks →"
+msgstr "Määritä pysyväislinkit →"
+
+msgid "Configure translation mode for registered custom fields. New fields can be added via the Compatibility tab or programmatically."
+msgstr "Määritä käännöstila rekisteröidyille mukautetuille kentille. Uusia kenttiä voidaan lisätä Yhteensopivuus-välilehden kautta tai ohjelmallisesti."
+
+msgid "Content"
+msgstr "Sisältö"
+
+msgid "Content Translation"
+msgstr "Sisällön kääntäminen"
+
+msgid "Context"
+msgstr "Konteksti"
+
+msgid "Context (optional)"
+msgstr "Konteksti (valinnainen)"
+
+msgid "Continue →"
+msgstr "Jatka →"
+
+msgid "Control how the plugin handles its data."
+msgstr "Hallitse, miten laajennus käsittelee tietojaan."
+
+msgid "Copied!"
+msgstr "Kopioitu!"
+
+msgid "Copy from original:"
+msgstr "Kopioi alkuperäisestä:"
+
+msgid "Copy source string"
+msgstr "Kopioi lähdemerkkijono"
+
+msgid "Copy source to all empty translations"
+msgstr "Kopioi lähde kaikkiin tyhjiin käännöksiin"
+
+msgid "Copy to all"
+msgstr "Kopioi kaikkiin"
+
+msgid "Copy to clipboard"
+msgstr "Kopioi leikepöydälle"
+
+msgid "Could not create export archive."
+msgstr "Vientitiedostoa ei voitu luoda."
+
+msgid "Could not link post."
+msgstr "Julkaisua ei voitu linkittää."
+
+msgid "Coverage"
+msgstr "Kattavuus"
+
+msgid "Create a menu →"
+msgstr "Luo valikko →"
+
+msgid "Creating..."
+msgstr "Luodaan..."
+
+msgid "Custom"
+msgstr "Mukautettu"
+
+msgid "Custom Fields"
+msgstr "Mukautetut kentät"
+
+msgid "Daily digest — one email per day"
+msgstr "Päivittäinen kooste — yksi sähköposti päivässä"
+
+msgid "Dashboard"
+msgstr "Kojelauta"
+
+msgid "Data Management"
+msgstr "Tiedonhallinta"
+
+msgid "Date"
+msgstr "Päivämäärä"
+
+msgid "Debug Log"
+msgstr "Virheenkorjausloki"
+
+msgid "Default Language"
+msgstr "Oletuskieli"
+
+msgid "Default configured by %s"
+msgstr "Oletusasetus määritetty %s:n toimesta"
+
+msgid "Define terms that must always be translated a specific way, or kept unchanged by the AI."
+msgstr "Määritä termit, jotka on aina käännettävä tietyllä tavalla tai pidettävä muuttumattomina tekoälyn toimesta."
+
+msgid "Define terms that must always be translated a specific way, or kept unchanged. Glossary rules are automatically applied during AI translation."
+msgstr "Määritä termit, jotka on aina käännettävä tietyllä tavalla tai pidettävä muuttumattomina. Sanastoasäännöt otetaan automaattisesti käyttöön tekoälykäännösten aikana."
+
+msgid "Delete"
+msgstr "Poista"
+
+msgid "Delete this custom language?"
+msgstr "Poistetaanko tämä mukautettu kieli?"
+
+msgid "Delete this term?"
+msgstr "Poistetaanko tämä termi?"
+
+msgid "Directory"
+msgstr "Hakemisto"
+
+msgid "Directory and Subdomain modes require pretty permalinks. %s"
+msgstr "Hakemisto- ja alatunnustilat vaativat kauniit pysyväislinkit. %s"
+
+msgid "Directory not found."
+msgstr "Hakemistoa ei löydy."
+
+msgid "Disabled"
+msgstr "Poistettu käytöstä"
+
+msgid "Display a language switcher."
+msgstr "Näytä kielenvaihtaja."
+
+msgid "Done"
+msgstr "Valmis"
+
+msgid "Download JSON"
+msgstr "Lataa JSON"
+
+msgid "Download JSON template"
+msgstr "Lataa JSON-malli"
+
+msgid "Download ZIP"
+msgstr "Lataa ZIP"
+
+msgid "Download all translations for a language as a ZIP of XLIFF 2.0 files, ready to be processed by any CAT tool."
+msgstr "Lataa kaikki käännökset kielelle ZIP-tiedostona XLIFF 2.0 -muodossa, valmiina käsiteltäväksi millä tahansa CAT-työkalulla."
+
+msgid "Download as JSON"
+msgstr "Lataa JSON-muodossa"
+
+msgid "Draft"
+msgstr "Luonnos"
+
+msgid "Draft / In Progress"
+msgstr "Luonnos / Kesken"
+
+msgid "Draft/WIP"
+msgstr "Luonnos/Kesken"
+
+msgid "Duplicate all"
+msgstr "Kopioi kaikki"
+
+msgid "Duplicate untranslated"
+msgstr "Kopioi kääntämättömät"
+
+msgid "Each language has its own version of this content"
+msgstr "Jokaisella kielellä on oma versio tästä sisällöstä"
+
+msgid "Each language on its own subdomain. Requires wildcard DNS and SSL."
+msgstr "Jokainen kieli omalla alatunnuksellaan. Vaatii wildcard-DNS:n ja SSL:n."
+
+msgid "Each language on its own subdomain. Requires wildcard DNS."
+msgstr "Jokainen kieli omalla alatunnuksellaan. Vaatii wildcard-DNS:n."
+
+msgid "Edit"
+msgstr "Muokkaa"
+
+msgid "Email Notifications"
+msgstr "Sähköposti-ilmoitukset"
+
+msgid "Enable AI-powered string translation"
+msgstr "Ota käyttöön tekoälypohjainen merkkijonojen kääntäminen"
+
+msgid "Enable caching"
+msgstr "Ota välimuisti käyttöön"
+
+msgid "Enable webhooks"
+msgstr "Ota webhookit käyttöön"
+
+msgid "Error"
+msgstr "Virhe"
+
+msgid "Export"
+msgstr "Vie"
+
+msgid "Export Translations"
+msgstr "Vie käännökset"
+
+msgid "Field"
+msgstr "Kenttä"
+
+msgid "Glossary"
+msgstr "Sanasto"
+
+msgid "Import"
+msgstr "Tuo"
+
+msgid "Import Translations"
+msgstr "Tuo käännökset"
+
+msgid "Immediate — one email per event"
+msgstr "Välitön — yksi sähköposti per tapahtuma"
+
+msgid "In Progress"
+msgstr "Käynnissä"
+
+msgid "Install"
+msgstr "Asenna"
+
+msgid "Invalid parameters."
+msgstr "Virheelliset parametrit."
+
+msgid "Invalid translation ID."
+msgstr "Virheellinen käännöstunniste."
+
+msgid "Language"
+msgstr "Kieli"
+
+msgid "Language Coverage"
+msgstr "Kielen kattavuus"
+
+msgid "Language Switcher"
+msgstr "Kielenvaihtaja"
+
+msgid "Languages"
+msgstr "Kielet"
+
+msgid "Link as translation"
+msgstr "Linkitä käännökseksi"
+
+msgid "Link existing post"
+msgstr "Linkitä olemassa oleva julkaisu"
+
+msgid "Loading..."
+msgstr "Ladataan..."
+
+msgid "Max words per segment"
+msgstr "Enimmäissanamäärä segmenttiä kohti"
+
+msgid "Memory Hits"
+msgstr "Muistiosumia"
+
+msgid "Menu"
+msgstr "Valikko"
+
+msgid "Menus"
+msgstr "Valikot"
+
+msgid "Missing"
+msgstr "Puuttuu"
+
+msgid "Missing %d"
+msgstr "%d puuttuu"
+
+msgid "N/A"
+msgstr "Ei sovelleta"
+
+msgid "No compatibility file found. Custom fields from this plugin will not be automatically translated. Click \"Download JSON template\" to get a starter file you can fill in and place inside the plugin/theme directory, or ask the author to add support."
+msgstr "Yhteensopivuustiedostoa ei löydy. Tämän laajennuksen mukautettuja kenttiä ei käännetä automaattisesti."
+
+msgid "No config file"
+msgstr "Ei konfigurointitiedostoa"
+
+msgid "No items match the selected filter."
+msgstr "Mikään kohde ei vastaa valittua suodatinta."
+
+msgid "No permissions."
+msgstr "Ei oikeuksia."
+
+msgid "No strings found for auto-translation."
+msgstr "Automaattiseen käännökseen ei löydy merkkijonoja."
+
+msgid "No terms in glossary yet. Add your first term above."
+msgstr "Sanastossa ei ole vielä termejä. Lisää ensimmäinen termi yllä."
+
+msgid "No translation found."
+msgstr "Käännöstä ei löydy."
+
+msgid "No translations yet. Start by creating a translation from the post list."
+msgstr "Ei vielä käännöksiä. Aloita luomalla käännös julkaisuluettelosta."
+
+msgid "Not configured"
+msgstr "Ei konfiguroitu"
+
+msgid "Not registered"
+msgstr "Ei rekisteröity"
+
+msgid "Not translatable"
+msgstr "Ei käännettävissä"
+
+msgid "Notes"
+msgstr "Muistiinpanot"
+
+msgid "Notification Mode"
+msgstr "Ilmoitustila"
+
+msgid "Notify on outdated translations"
+msgstr "Ilmoita vanhentuneista käännöksistä"
+
+msgid "Only .xliff or .xml files are accepted."
+msgstr "Vain .xliff- tai .xml-tiedostot hyväksytään."
+
+msgid "Open Translations Dashboard"
+msgstr "Avaa käännösten kojelauta"
+
+msgid "Open any post or page and click \"Translate\" to use the translation editor."
+msgstr "Avaa mikä tahansa julkaisu tai sivu ja napsauta \"Käännä\" käyttääksesi käännösmuokkausohjelmaa."
+
+msgid "OpenAI API Key"
+msgstr "OpenAI API-avain"
+
+msgid "Optional HMAC-SHA256 secret"
+msgstr "Valinnainen HMAC-SHA256-salaisuus"
+
+msgid "Original"
+msgstr "Alkuperäinen"
+
+msgid "Original post has been deleted."
+msgstr "Alkuperäinen julkaisu on poistettu."
+
+msgid "Original post not found."
+msgstr "Alkuperäistä julkaisua ei löydy."
+
+msgid "Outdated"
+msgstr "Vanhentunut"
+
+msgid "Overview of your multilingual content"
+msgstr "Yleiskatsaus monikieliseen sisältöösi"
+
+msgid "PHP Version"
+msgstr "PHP-versio"
+
+msgid "Package / Domain"
+msgstr "Paketti / Toimialue"
+
+msgid "Page %1$d of %2$d"
+msgstr "Sivu %1$d / %2$d"
+
+msgid "Permalink Structure"
+msgstr "Pysyväislinkin rakenne"
+
+msgid "Permission denied."
+msgstr "Lupa evätty."
+
+msgid "Please configure at least two active languages in Settings → Languages before using Content Translation."
+msgstr "Määritä vähintään kaksi aktiivista kieltä Asetukset → Kielet -kohdassa ennen Sisällön kääntämisen käyttöä."
+
+msgid "Please configure at least two active languages in Settings → Languages before using Import / Export."
+msgstr "Määritä vähintään kaksi aktiivista kieltä Asetukset → Kielet -kohdassa ennen Tuonnin / Viennin käyttöä."
+
+msgid "Please configure at least two active languages in Settings → Languages before using String Translation."
+msgstr "Määritä vähintään kaksi aktiivista kieltä Asetukset → Kielet -kohdassa ennen Merkkijonojen kääntämisen käyttöä."
+
+msgid "Plugin"
+msgstr "Laajennus"
+
+msgid "Plugin & Theme Compatibility"
+msgstr "Laajennuksen ja teeman yhteensopivuus"
+
+msgid "Plugin / Theme"
+msgstr "Laajennus / Teema"
+
+msgid "Plugin Activation Error"
+msgstr "Laajennuksen aktivointivirhe"
+
+msgid "Plugin Version"
+msgstr "Laajennuksen versio"
+
+msgid "Polylang is active. Running two multilingual plugins simultaneously can cause conflicts. Please deactivate Polylang before using Idiomattic WP."
+msgstr "Polylang on aktiivinen. Kahden monikielisen laajennuksen samanaikainen käyttö voi aiheuttaa ristiriitoja. Poista Polylang käytöstä ennen Idiomattic WP:n käyttöä."
+
+msgid "Post Title"
+msgstr "Julkaisun otsikko"
+
+msgid "Post Type"
+msgstr "Julkaisutyyppi"
+
+msgid "Post Type(s)"
+msgstr "Julkaisutyyppi(t)"
+
+msgid "Post Types"
+msgstr "Julkaisutyypit"
+
+msgid "Post not found."
+msgstr "Julkaisua ei löydy."
+
+msgid "Prev"
+msgstr "Edellinen"
+
+msgid "Preview flag"
+msgstr "Esikatsele lippu"
+
+msgid "Primary Language"
+msgstr "Ensisijainen kieli"
+
+msgid "Pro"
+msgstr "Pro"
+
+msgid "Progress"
+msgstr "Edistyminen"
+
+msgid "Publish"
+msgstr "Julkaise"
+
+msgid "Publish Translation"
+msgstr "Julkaise käännös"
+
+msgid "Queue AI translation"
+msgstr "Lisää tekoälykäännös jonoon"
+
+msgid "Rate limit reached. Please wait a moment and try again."
+msgstr "Nopeusraja saavutettu. Odota hetki ja yritä uudelleen."
+
+msgid "Re-scan"
+msgstr "Skannaa uudelleen"
+
+msgid "Re-use previously translated segments to reduce API costs"
+msgstr "Käytä uudelleen aiemmin käännettyjä segmenttejä API-kustannusten vähentämiseksi"
+
+msgid "Recent Activity"
+msgstr "Viimeaikainen toiminta"
+
+msgid "Recipient Email"
+msgstr "Vastaanottajan sähköposti"
+
+msgid "Register string"
+msgstr "Rekisteröi merkkijono"
+
+msgid "Register this string for this language"
+msgstr "Rekisteröi tämä merkkijono tälle kielelle"
+
+msgid "Remove"
+msgstr "Poista"
+
+msgid "Requires Pro licence"
+msgstr "Vaatii Pro-lisenssin"
+
+msgid "Retain data on uninstall"
+msgstr "Säilytä tiedot poiston yhteydessä"
+
+msgid "Rewrite Rules"
+msgstr "Uudelleenkirjoitussäännöt"
+
+msgid "Right-to-left language"
+msgstr "Oikealta vasemmalle -kieli"
+
+msgid "Save"
+msgstr "Tallenna"
+
+msgid "Save Draft"
+msgstr "Tallenna luonnos"
+
+msgid "Save Translations"
+msgstr "Tallenna käännökset"
+
+msgid "Scan complete."
+msgstr "Skannaus valmis."
+
+msgid "Scan sources"
+msgstr "Skannaa lähteet"
+
+msgid "Scan strings"
+msgstr "Skannaa merkkijonot"
+
+msgid "Scanning..."
+msgstr "Skannataan..."
+
+msgid "Search"
+msgstr "Hae"
+
+msgid "Search by title…"
+msgstr "Hae otsikon mukaan…"
+
+msgid "Search in source and translations…"
+msgstr "Hae lähteestä ja käännöksistä…"
+
+msgid "Search languages…"
+msgstr "Hae kieliä…"
+
+msgid "Search strings"
+msgstr "Hae merkkijonoja"
+
+msgid "Security check failed."
+msgstr "Tietoturvatarkistus epäonnistui."
+
+msgid "Select Language"
+msgstr "Valitse kieli"
+
+msgid "Send HTTP POST notifications to an external URL when translation events occur. Payloads are signed with HMAC-SHA256."
+msgstr "Lähetä HTTP POST -ilmoituksia ulkoiseen URL-osoitteeseen, kun käännöstapahtumia esiintyy. Tiedot allekirjoitetaan HMAC-SHA256-menetelmällä."
+
+msgid "Settings"
+msgstr "Asetukset"
+
+msgid "Show Flags"
+msgstr "Näytä liput"
+
+msgid "Show Names"
+msgstr "Näytä nimet"
+
+msgid "Show all"
+msgstr "Näytä kaikki"
+
+msgid "Show as translated"
+msgstr "Näytä käännettynä"
+
+msgid "Show terms for:"
+msgstr "Näytä termit kohteelle:"
+
+msgid "Showing original posts only"
+msgstr "Näytetään vain alkuperäiset julkaisut"
+
+msgid "Showing translations into: %s"
+msgstr "Näytetään käännökset kielelle: %s"
+
+msgid "Shown in secondary languages even without a translation (uses default language content)"
+msgstr "Näytetään toissijaisilla kielillä myös ilman käännöstä (käyttää oletuskielen sisältöä)"
+
+msgid "Signing Secret"
+msgstr "Allekirjoitussalaisuus"
+
+msgid "Site Default Language"
+msgstr "Sivuston oletuskieli"
+
+msgid "Slug"
+msgstr "Tunniste"
+
+msgid "Source Term"
+msgstr "Lähdemuoto"
+
+msgid "Source post not found."
+msgstr "Lähdejulkaisua ei löydy."
+
+msgid "Source string"
+msgstr "Lähdemerkkijono"
+
+msgid "Source string not found."
+msgstr "Lähdemerkkijonoa ei löydy."
+
+msgid "Standard ISO code for localization"
+msgstr "Standardin ISO-koodi lokalisoinnille"
+
+msgid "Start Migration"
+msgstr "Aloita siirto"
+
+msgid "Status"
+msgstr "Tila"
+
+msgid "Step 1: Detection"
+msgstr "Vaihe 1: Tunnistus"
+
+msgid "String Translation"
+msgstr "Merkkijonojen kääntäminen"
+
+msgid "Style"
+msgstr "Tyyli"
+
+msgid "Subdomain"
+msgstr "Alatunnus"
+
+msgid "System Information"
+msgstr "Järjestelmätiedot"
+
+msgid "System Report"
+msgstr "Järjestelmäraportti"
+
+msgid "Target language is required."
+msgstr "Kohdekieli on pakollinen."
+
+msgid "Taxonomies"
+msgstr "Taksonomiat"
+
+msgid "Taxonomy"
+msgstr "Taksonomia"
+
+msgid "Theme"
+msgstr "Teema"
+
+msgid "This affects how visitors and search engines find your translated content."
+msgstr "Tämä vaikuttaa siihen, miten vierailijat ja hakukoneet löytävät käännetyn sisältösi."
+
+msgid "This alert was sent by the %s plugin."
+msgstr "Tämän hälytyksen lähetti laajennus %s."
+
+msgid "This is a translation of: %s"
+msgstr "Tämä on käännös kohteesta: %s"
+
+msgid "This is the original language of your posts and pages."
+msgstr "Tämä on julkaisujesi ja sivujesi alkuperäinen kieli."
+
+msgid "This plugin/theme ships with a native idiomattic-elements.json file. All its elements are automatically registered. No action needed."
+msgstr "Tämä laajennus/teema sisältää natiivin idiomattic-elements.json-tiedoston. Kaikki sen elementit rekisteröidään automaattisesti. Toimenpiteitä ei tarvita."
+
+msgid "This plugin/theme ships with a wpml-config.xml file. Idiomattic auto-imports its field definitions at runtime. Use \"Import WPML config\" to force-register them now, or \"Download as JSON\" to convert the file to a permanent idiomattic-elements.json."
+msgstr "Tämä laajennus/teema sisältää wpml-config.xml-tiedoston. Idiomattic tuo kenttämäärittelyt automaattisesti suorituksen aikana."
+
+msgid "This translation is outdated — the source post has been updated since it was last translated. Please review and re-translate."
+msgstr "Tämä käännös on vanhentunut — lähdejulkaisua on päivitetty viimeisen kääntämisen jälkeen. Tarkista ja käännä uudelleen."
+
+msgid "This will overwrite all fields with the original content. Continue?"
+msgstr "Tämä korvaa kaikki kentät alkuperäisellä sisällöllä. Jatketaanko?"
+
+msgid "Title"
+msgstr "Otsikko"
+
+msgid "To create or edit navigation menus visit %s."
+msgstr "Luo tai muokkaa navigointivalikkoja vierailemalla osoitteessa %s."
+
+msgid "Total Translations"
+msgstr "Käännöksiä yhteensä"
+
+msgid "Total scanned"
+msgstr "Yhteensä skannattu"
+
+msgid "Translatable"
+msgstr "Käännettävissä"
+
+msgid "Translate all"
+msgstr "Käännä kaikki"
+
+msgid "Translate all languages"
+msgstr "Käännä kaikille kielille"
+
+msgid "Translate all missing"
+msgstr "Käännä kaikki puuttuvat"
+
+msgid "Translate all missing (%d)"
+msgstr "Käännä kaikki puuttuvat (%d)"
+
+msgid "Translate content →"
+msgstr "Käännä sisältö →"
+
+msgid "Translate field"
+msgstr "Käännä kenttä"
+
+msgid "Translate interface strings from plugins and themes"
+msgstr "Käännä käyttöliittymämerkkijonoja laajennuksista ja teemoista"
+
+msgid "Translate posts, pages, and custom content into all active languages"
+msgstr "Käännä julkaisut, sivut ja mukautettu sisältö kaikille aktiivisille kielille"
+
+msgid "Translate to all languages"
+msgstr "Käännä kaikille kielille"
+
+msgid "Translate: %s"
+msgstr "Käännä: %s"
+
+msgid "Translated %d strings successfully."
+msgstr "%d merkkijonoa käännetty onnistuneesti."
+
+msgid "Translating"
+msgstr "Käännetään"
+
+msgid "Translating…"
+msgstr "Käännetään…"
+
+msgid "Translation"
+msgstr "Käännös"
+
+msgid "Translation / Rule"
+msgstr "Käännös / Sääntö"
+
+msgid "Translation Alert"
+msgstr "Käännöshälytys"
+
+msgid "Translation Alert — %s"
+msgstr "Käännöshälytys — %s"
+
+msgid "Translation Details"
+msgstr "Käännöksen tiedot"
+
+msgid "Translation Editor"
+msgstr "Käännösmuokkausohjelma"
+
+msgid "Translation Memory"
+msgstr "Käännösmuisti"
+
+msgid "Translation Mode"
+msgstr "Käännöstila"
+
+msgid "Translation completed (AI finished)"
+msgstr "Käännös valmis (tekoäly valmis)"
+
+msgid "Translation failed."
+msgstr "Käännös epäonnistui."
+
+msgid "Translation outdated (source post updated)"
+msgstr "Käännös vanhentunut (lähdejulkaisua päivitetty)"
+
+msgid "Translation provider is temporarily unavailable. Please try again."
+msgstr "Käännöspalveluntarjoaja on väliaikaisesti poissa käytöstä. Yritä uudelleen."
+
+msgid "Translation queued (job dispatched)"
+msgstr "Käännös jonossa (työ lähetetty)"
+
+msgid "Translation record not found."
+msgstr "Käännöstietuetta ei löydy."
+
+msgid "Translation saved successfully."
+msgstr "Käännös tallennettu onnistuneesti."
+
+msgid "Translations"
+msgstr "Käännökset"
+
+msgid "Translations saved."
+msgstr "Käännökset tallennettu."
+
+msgid "Triggered when you update a post that has translations."
+msgstr "Käynnistyy, kun päivität julkaisun, jolla on käännöksiä."
+
+msgid "Troubleshooting"
+msgstr "Vianetsintä"
+
+msgid "Type"
+msgstr "Tyyppi"
+
+msgid "URL Mode"
+msgstr "URL-tila"
+
+msgid "URL Structure"
+msgstr "URL-rakenne"
+
+msgid "Unauthorized"
+msgstr "Luvaton"
+
+msgid "Update"
+msgstr "Päivitä"
+
+msgid "Upgrade to Pro to unlock Directory and Subdomain modes →"
+msgstr "Päivitä Pro-versioon avataksesi Hakemisto- ja Alatunnus-tilat →"
+
+msgid "Upgrade to Pro →"
+msgstr "Päivitä Pro-versioon →"
+
+msgid "Upload an XLIFF file (2.0 or 1.2) exported from a CAT tool. Translations are written directly into the database."
+msgstr "Lataa CAT-työkalusta viety XLIFF-tiedosto (2.0 tai 1.2). Käännökset kirjoitetaan suoraan tietokantaan."
+
+msgid "Version"
+msgstr "Versio"
+
+msgid "View"
+msgstr "Näytä"
+
+msgid "View Original"
+msgstr "Näytä alkuperäinen"
+
+msgid "View compatibility report →"
+msgstr "Näytä yhteensopivuusraportti →"
+
+msgid "View source post →"
+msgstr "Näytä lähdejulkaisu →"
+
+msgid "View strings"
+msgstr "Näytä merkkijonot"
+
+msgid "WPML Migration"
+msgstr "WPML-siirto"
+
+msgid "WPML Migration Wizard"
+msgstr "WPML-siirtovelho"
+
+msgid "WPML config"
+msgstr "WPML-konfiguraatio"
+
+msgid "WPML config imported successfully."
+msgstr "WPML-konfiguraatio tuotu onnistuneesti."
+
+msgid "WPML config imported with warnings: "
+msgstr "WPML-konfiguraatio tuotu varoituksilla: "
+
+msgid "WPML config imported: %1$d element(s) registered into the translation registry, %2$d skipped (action = ignore)."
+msgstr "WPML-konfiguraatio tuotu: %1$d elementti(ä) rekisteröity käännösrekisteriin, %2$d ohitettu (toiminto = ohita)."
+
+msgid "WPML is active. Running two multilingual plugins simultaneously can cause conflicts. Please deactivate WPML before using Idiomattic WP, or use the WPML migration tool."
+msgstr "WPML on aktiivinen. Kahden monikielisen laajennuksen samanaikainen käyttö voi aiheuttaa ristiriitoja. Poista WPML käytöstä ennen Idiomattic WP:n käyttöä tai käytä WPML-siirtotyökalua."
+
+msgid "WPML is not active. Migration may not be possible."
+msgstr "WPML ei ole aktiivinen. Siirto ei ehkä ole mahdollinen."
+
+msgid "W3 Total Cache is active. Make sure page caching is configured to handle language-specific URLs correctly."
+msgstr "W3 Total Cache on aktiivinen. Varmista, että sivuvälimuisti on määritetty käsittelemään kielikohtaisia URL-osoitteita oikein."
+
+msgid "WP Debug"
+msgstr "WP-virheenkorjaus"
+
+msgid "WP Debug Log"
+msgstr "WP-virheenkorjausloki"
+
+msgid "WP_DEBUG and WP_DEBUG_LOG are not both enabled. Add the following to wp-config.php to activate debug logging:"
+msgstr "WP_DEBUG ja WP_DEBUG_LOG eivät ole molemmat käytössä. Lisää seuraava wp-config.php-tiedostoon aktivoidaksesi virheenkorjauksen kirjaamisen:"
+
+msgid "Want AI-powered translations? Upgrade to Pro for BYOK (Bring Your Own Key) support."
+msgstr "Haluatko tekoälypohjaisia käännöksiä? Päivitä Pro-versioon BYOK (Tuo oma avaimesi) -tuen saamiseksi."
+
+msgid "Webhooks"
+msgstr "Webhookit"
+
+msgid "What do these statuses mean?"
+msgstr "Mitä nämä tilat tarkoittavat?"
+
+msgid "What language is your content written in?"
+msgstr "Millä kielellä sisältösi on kirjoitettu?"
+
+msgid "Which languages do you want to translate into?"
+msgstr "Mille kielille haluat kääntää?"
+
+msgid "WordPress Version"
+msgstr "WordPress-versio"
+
+msgid "Works with any permalink structure. Easiest to set up."
+msgstr "Toimii minkä tahansa pysyväislinkkirakenteen kanssa. Helpoin asettaa."
+
+msgid "Works with any permalink structure. Recommended for most sites."
+msgstr "Toimii minkä tahansa pysyväislinkkirakenteen kanssa. Suositellaan useimmille sivustoille."
+
+msgid "XLIFF file (.xliff)"
+msgstr "XLIFF-tiedosto (.xliff)"
+
+msgid "You can add or remove languages at any time from Settings."
+msgstr "Voit lisätä tai poistaa kieliä milloin tahansa Asetuksista."
+
+msgid "You can disable these notifications in the plugin settings."
+msgstr "Voit poistaa nämä ilmoitukset käytöstä laajennuksen asetuksissa."
+
+msgid "You do not have permission to edit this post."
+msgstr "Sinulla ei ole oikeutta muokata tätä julkaisua."
+
+msgid "debug.log not found or not readable."
+msgstr "debug.log-tiedostoa ei löydy tai se ei ole luettavissa."
+
+msgid "default"
+msgstr "oletus"
+
+msgid "e.g. button, menu"
+msgstr "esim. painike, valikko"
+
+msgid "e.g. my-plugin"
+msgstr "esim. oma-laajennus"
+
+msgid "— Not assigned —"
+msgstr "— Ei määritetty —"
+
+msgid "→ Scan sources"
+msgstr "→ Skannaa lähteet"
+
+msgid "Admin Language"
+msgstr "Hallintakieli"
+
+msgid "Admin Interface Language"
+msgstr "Hallintaliittymän kieli"
+
+msgid "Use site default"
+msgstr "Käytä sivuston oletusta"
+
+msgid "Select the language you prefer for the WordPress admin interface."
+msgstr "Valitse haluamasi kieli WordPress-hallintaliittymälle."
+
+msgid "%d missing"
+msgid_plural "%d missing"
+msgstr[0] "%d puuttuu"
+msgstr[1] "%d puuttuu"
+
+msgid "%d translation job queued. Jobs are processed in the background."
+msgid_plural "%d translation job queued. Jobs are processed in the background."
+msgstr[0] "%d käännöstyö jonossa. Töitä käsitellään taustalla."
+msgstr[1] "%d käännöstyötä jonossa. Töitä käsitellään taustalla."
+
+msgid "Retranslate %d outdated"
+msgid_plural "Retranslate %d outdated"
+msgstr[0] "Käännä uudelleen %d vanhentunut"
+msgstr[1] "Käännä uudelleen %d vanhentunutta"

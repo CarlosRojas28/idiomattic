@@ -1,0 +1,1066 @@
+# Polish translation for Idiomattic WP
+# Copyright (C) 2024 Idiomattic
+msgid ""
+msgstr ""
+"Project-Id-Version: Idiomattic WP\n"
+"POT-Creation-Date: 2024-01-01 00:00+0000\n"
+"PO-Revision-Date: 2024-01-01 00:00+0000\n"
+"Last-Translator: Idiomattic <hello@idiomattic.app>\n"
+"Language-Team: Polish\n"
+"Language: pl_PL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
+"X-Generator: Idiomattic WP\n"
+"X-Domain: idiomattic-wp\n"
+
+msgid "%1$d draft, %2$d in progress"
+msgstr "%1$d wersja robocza, %2$d w toku"
+
+msgid "%d active plugins — click to expand"
+msgstr "%d aktywnych wtyczek — kliknij, aby rozwinąć"
+
+msgid "%s: %s"
+msgstr "%s: %s"
+
+msgid "(empty)"
+msgstr "(puste)"
+
+msgid "(no title)"
+msgstr "(bez tytułu)"
+
+msgid "(optional)"
+msgstr "(opcjonalne)"
+
+msgid "(saved — enter a new key to replace)"
+msgstr "(zapisano — wprowadź nowy klucz, aby zastąpić)"
+
+msgid "A translation already exists for this language. Delete it first."
+msgstr "Tłumaczenie dla tego języka już istnieje. Najpierw je usuń."
+
+msgid "AI Translation Provider"
+msgstr "Dostawca tłumaczeń AI"
+
+msgid "AI Translation — Pro Feature"
+msgstr "Tłumaczenie AI — funkcja Pro"
+
+msgid "AI error: "
+msgstr "Błąd AI: "
+
+msgid "AI string translation requires a Pro license."
+msgstr "Tłumaczenie ciągów przez AI wymaga licencji Pro."
+
+msgid "AI translation requires Pro"
+msgstr "Tłumaczenie AI wymaga Pro"
+
+msgid "AI translation requires a Pro license."
+msgstr "Tłumaczenie AI wymaga licencji Pro."
+
+msgid "Action"
+msgstr "Akcja"
+
+msgid "Actions"
+msgstr "Akcje"
+
+msgid "Active Languages"
+msgstr "Aktywne języki"
+
+msgid "Active Plugins"
+msgstr "Aktywne wtyczki"
+
+msgid "Active Theme"
+msgstr "Aktywny motyw"
+
+msgid "Add"
+msgstr "Dodaj"
+
+msgid "Add Custom Language"
+msgstr "Dodaj niestandardowy język"
+
+msgid "Add String"
+msgstr "Dodaj ciąg"
+
+msgid "Add Term"
+msgstr "Dodaj termin"
+
+msgid "Add string"
+msgstr "Dodaj ciąg"
+
+msgid "Advanced"
+msgstr "Zaawansowane"
+
+msgid "All"
+msgstr "Wszystkie"
+
+msgid "All content already has translations for the selected languages."
+msgstr "Wszystkie treści mają już tłumaczenia dla wybranych języków."
+
+msgid "All content is fully translated!"
+msgstr "Wszystkie treści są w pełni przetłumaczone!"
+
+msgid "All fields already have a translation."
+msgstr "Wszystkie pola mają już tłumaczenie."
+
+msgid "All languages"
+msgstr "Wszystkie języki"
+
+msgid "All packages"
+msgstr "Wszystkie pakiety"
+
+msgid "An unexpected error occurred during translation."
+msgstr "Podczas tłumaczenia wystąpił nieoczekiwany błąd."
+
+msgid "Apply"
+msgstr "Zastosuj"
+
+msgid "Are you sure you want to delete this translation?"
+msgstr "Czy na pewno chcesz usunąć to tłumaczenie?"
+
+msgid "Author"
+msgstr "Autor"
+
+msgid "Auto-translate failed."
+msgstr "Automatyczne tłumaczenie nie powiodło się."
+
+msgid "Auto-translate on creation"
+msgstr "Automatyczne tłumaczenie przy tworzeniu"
+
+msgid "Auto-translate pending"
+msgstr "Automatyczne tłumaczenie oczekuje"
+
+msgid "Automated translations and AI provider configuration are available in the Pro version. Bring Your Own Key — connect directly to OpenAI, Claude, or DeepL."
+msgstr "Zautomatyzowane tłumaczenia i konfiguracja dostawcy AI są dostępne w wersji Pro. Użyj własnego klucza — połącz się bezpośrednio z OpenAI, Claude lub DeepL."
+
+msgid "Automatically start AI translation when a new translation is created"
+msgstr "Automatycznie uruchamiaj tłumaczenie AI po utworzeniu nowego tłumaczenia"
+
+msgid "Back"
+msgstr "Wstecz"
+
+msgid "Back to list"
+msgstr "Wróć do listy"
+
+msgid "Behaviour"
+msgstr "Zachowanie"
+
+msgid "Bring Your Own Key (BYOK): connect directly to your chosen AI provider. Your API key is stored encrypted and never sent to Idiomattic servers."
+msgstr "Użyj własnego klucza (BYOK): połącz się bezpośrednio z wybranym dostawcą AI. Twój klucz API jest przechowywany w postaci zaszyfrowanej i nigdy nie jest wysyłany na serwery Idiomattic."
+
+msgid "Cache & Transients"
+msgstr "Pamięć podręczna i przejściowe"
+
+msgid "Cache language detection results for improved performance."
+msgstr "Buforuj wyniki wykrywania języka dla lepszej wydajności."
+
+msgid "Cancel"
+msgstr "Anuluj"
+
+msgid "Child theme"
+msgstr "Motyw potomny"
+
+msgid "Choose the primary language your website content will be served in by default."
+msgstr "Wybierz podstawowy język, w którym treść Twojej witryny będzie domyślnie wyświetlana."
+
+msgid "Claude API Key"
+msgstr "Klucz API Claude"
+
+msgid "Clean URLs with the language code as a path prefix. Requires pretty permalinks."
+msgstr "Czyste adresy URL z kodem języka jako prefiksem ścieżki. Wymaga przyjaznych bezpośrednich odnośników."
+
+msgid "Clear cached data if you are seeing stale content or unexpected behaviour."
+msgstr "Wyczyść dane z pamięci podręcznej, jeśli widzisz przestarzałe treści lub nieoczekiwane zachowanie."
+
+msgid "Clear language filter"
+msgstr "Wyczyść filtr języka"
+
+msgid "Close"
+msgstr "Zamknij"
+
+msgid "Code, native name, and English name are required."
+msgstr "Wymagane są: kod, nazwa rodzima i angielska."
+
+msgid "Compatibility"
+msgstr "Zgodność"
+
+msgid "Compatibility scan completed successfully."
+msgstr "Skanowanie zgodności zakończone pomyślnie."
+
+msgid "Complete"
+msgstr "Zakończ"
+
+msgid "Configure how each post type behaves across languages."
+msgstr "Skonfiguruj zachowanie każdego typu wpisów w różnych językach."
+
+msgid "Configure how taxonomy terms behave across languages."
+msgstr "Skonfiguruj zachowanie terminów taksonomii w różnych językach."
+
+msgid "Configure permalinks →"
+msgstr "Konfiguruj bezpośrednie odnośniki →"
+
+msgid "Configure translation mode for registered custom fields. New fields can be added via the Compatibility tab or programmatically."
+msgstr "Skonfiguruj tryb tłumaczenia dla zarejestrowanych pól niestandardowych. Nowe pola można dodawać za pomocą karty Zgodność lub programowo."
+
+msgid "Content"
+msgstr "Treść"
+
+msgid "Content Translation"
+msgstr "Tłumaczenie treści"
+
+msgid "Context"
+msgstr "Kontekst"
+
+msgid "Context (optional)"
+msgstr "Kontekst (opcjonalne)"
+
+msgid "Continue →"
+msgstr "Kontynuuj →"
+
+msgid "Control how the plugin handles its data."
+msgstr "Kontroluj sposób, w jaki wtyczka obsługuje swoje dane."
+
+msgid "Copied!"
+msgstr "Skopiowano!"
+
+msgid "Copy from original:"
+msgstr "Kopiuj z oryginału:"
+
+msgid "Copy source string"
+msgstr "Kopiuj ciąg źródłowy"
+
+msgid "Copy source to all empty translations"
+msgstr "Kopiuj źródło do wszystkich pustych tłumaczeń"
+
+msgid "Copy to all"
+msgstr "Kopiuj do wszystkich"
+
+msgid "Copy to clipboard"
+msgstr "Kopiuj do schowka"
+
+msgid "Could not create export archive."
+msgstr "Nie można utworzyć archiwum eksportu."
+
+msgid "Could not link post."
+msgstr "Nie można połączyć wpisu."
+
+msgid "Coverage"
+msgstr "Pokrycie"
+
+msgid "Create a menu →"
+msgstr "Utwórz menu →"
+
+msgid "Creating..."
+msgstr "Tworzenie..."
+
+msgid "Custom"
+msgstr "Niestandardowe"
+
+msgid "Custom Fields"
+msgstr "Pola niestandardowe"
+
+msgid "Daily digest — one email per day"
+msgstr "Dzienny skrót — jeden e-mail dziennie"
+
+msgid "Dashboard"
+msgstr "Panel"
+
+msgid "Data Management"
+msgstr "Zarządzanie danymi"
+
+msgid "Date"
+msgstr "Data"
+
+msgid "Debug Log"
+msgstr "Dziennik debugowania"
+
+msgid "Default Language"
+msgstr "Domyślny język"
+
+msgid "Default configured by %s"
+msgstr "Domyślny skonfigurowany przez %s"
+
+msgid "Define terms that must always be translated a specific way, or kept unchanged by the AI."
+msgstr "Zdefiniuj terminy, które muszą być zawsze tłumaczone w określony sposób lub pozostawione bez zmian przez AI."
+
+msgid "Define terms that must always be translated a specific way, or kept unchanged. Glossary rules are automatically applied during AI translation."
+msgstr "Zdefiniuj terminy, które muszą być zawsze tłumaczone w określony sposób lub pozostawione bez zmian. Reguły słownika są automatycznie stosowane podczas tłumaczenia AI."
+
+msgid "Delete"
+msgstr "Usuń"
+
+msgid "Delete this custom language?"
+msgstr "Usunąć ten niestandardowy język?"
+
+msgid "Delete this term?"
+msgstr "Usunąć ten termin?"
+
+msgid "Directory"
+msgstr "Katalog"
+
+msgid "Directory and Subdomain modes require pretty permalinks. %s"
+msgstr "Tryby katalogu i subdomeny wymagają przyjaznych bezpośrednich odnośników. %s"
+
+msgid "Directory not found."
+msgstr "Nie znaleziono katalogu."
+
+msgid "Disabled"
+msgstr "Wyłączone"
+
+msgid "Display a language switcher."
+msgstr "Wyświetl przełącznik języka."
+
+msgid "Done"
+msgstr "Gotowe"
+
+msgid "Download JSON"
+msgstr "Pobierz JSON"
+
+msgid "Download JSON template"
+msgstr "Pobierz szablon JSON"
+
+msgid "Download ZIP"
+msgstr "Pobierz ZIP"
+
+msgid "Download all translations for a language as a ZIP of XLIFF 2.0 files, ready to be processed by any CAT tool."
+msgstr "Pobierz wszystkie tłumaczenia dla języka jako ZIP plików XLIFF 2.0, gotowych do przetworzenia przez dowolne narzędzie CAT."
+
+msgid "Download as JSON"
+msgstr "Pobierz jako JSON"
+
+msgid "Draft"
+msgstr "Wersja robocza"
+
+msgid "Draft / In Progress"
+msgstr "Wersja robocza / W toku"
+
+msgid "Draft/WIP"
+msgstr "Wersja robocza/W toku"
+
+msgid "Duplicate all"
+msgstr "Duplikuj wszystkie"
+
+msgid "Duplicate untranslated"
+msgstr "Duplikuj nieprzetłumaczone"
+
+msgid "Each language has its own version of this content"
+msgstr "Każdy język ma własną wersję tej treści"
+
+msgid "Each language on its own subdomain. Requires wildcard DNS and SSL."
+msgstr "Każdy język na własnej subdomenie. Wymaga DNS z symbolem wieloznacznym i SSL."
+
+msgid "Each language on its own subdomain. Requires wildcard DNS."
+msgstr "Każdy język na własnej subdomenie. Wymaga DNS z symbolem wieloznacznym."
+
+msgid "Edit"
+msgstr "Edytuj"
+
+msgid "Email Notifications"
+msgstr "Powiadomienia e-mail"
+
+msgid "Enable AI-powered string translation"
+msgstr "Włącz tłumaczenie ciągów przez AI"
+
+msgid "Enable caching"
+msgstr "Włącz buforowanie"
+
+msgid "Enable webhooks"
+msgstr "Włącz webhooki"
+
+msgid "Error"
+msgstr "Błąd"
+
+msgid "Export"
+msgstr "Eksportuj"
+
+msgid "Export Translations"
+msgstr "Eksportuj tłumaczenia"
+
+msgid "Field"
+msgstr "Pole"
+
+msgid "Glossary"
+msgstr "Słownik"
+
+msgid "Import"
+msgstr "Importuj"
+
+msgid "Import Translations"
+msgstr "Importuj tłumaczenia"
+
+msgid "Immediate — one email per event"
+msgstr "Natychmiast — jeden e-mail na zdarzenie"
+
+msgid "In Progress"
+msgstr "W toku"
+
+msgid "Install"
+msgstr "Zainstaluj"
+
+msgid "Invalid parameters."
+msgstr "Nieprawidłowe parametry."
+
+msgid "Invalid translation ID."
+msgstr "Nieprawidłowy identyfikator tłumaczenia."
+
+msgid "Language"
+msgstr "Język"
+
+msgid "Language Coverage"
+msgstr "Pokrycie językowe"
+
+msgid "Language Switcher"
+msgstr "Przełącznik języka"
+
+msgid "Languages"
+msgstr "Języki"
+
+msgid "Link as translation"
+msgstr "Połącz jako tłumaczenie"
+
+msgid "Link existing post"
+msgstr "Połącz istniejący wpis"
+
+msgid "Loading..."
+msgstr "Ładowanie..."
+
+msgid "Max words per segment"
+msgstr "Maksymalna liczba słów na segment"
+
+msgid "Memory Hits"
+msgstr "Trafienia pamięci"
+
+msgid "Menu"
+msgstr "Menu"
+
+msgid "Menus"
+msgstr "Menu"
+
+msgid "Missing"
+msgstr "Brakujące"
+
+msgid "Missing %d"
+msgstr "Brakuje %d"
+
+msgid "N/A"
+msgstr "Nie dotyczy"
+
+msgid "No compatibility file found. Custom fields from this plugin will not be automatically translated. Click \"Download JSON template\" to get a starter file you can fill in and place inside the plugin/theme directory, or ask the author to add support."
+msgstr "Nie znaleziono pliku zgodności. Pola niestandardowe tej wtyczki nie będą automatycznie tłumaczone. Kliknij \"Pobierz szablon JSON\", aby uzyskać plik startowy, który możesz wypełnić i umieścić w katalogu wtyczki/motywu, lub poproś autora o dodanie obsługi."
+
+msgid "No config file"
+msgstr "Brak pliku konfiguracji"
+
+msgid "No items match the selected filter."
+msgstr "Żadne elementy nie pasują do wybranego filtra."
+
+msgid "No permissions."
+msgstr "Brak uprawnień."
+
+msgid "No strings found for auto-translation."
+msgstr "Nie znaleziono ciągów do automatycznego tłumaczenia."
+
+msgid "No terms in glossary yet. Add your first term above."
+msgstr "Słownik jest jeszcze pusty. Dodaj swój pierwszy termin powyżej."
+
+msgid "No translation found."
+msgstr "Nie znaleziono tłumaczenia."
+
+msgid "No translations yet. Start by creating a translation from the post list."
+msgstr "Brak tłumaczeń. Zacznij od utworzenia tłumaczenia z listy wpisów."
+
+msgid "Not configured"
+msgstr "Nie skonfigurowano"
+
+msgid "Not registered"
+msgstr "Nie zarejestrowano"
+
+msgid "Not translatable"
+msgstr "Nieprzetłumaczalne"
+
+msgid "Notes"
+msgstr "Uwagi"
+
+msgid "Notification Mode"
+msgstr "Tryb powiadomień"
+
+msgid "Notify on outdated translations"
+msgstr "Powiadamiaj o przestarzałych tłumaczeniach"
+
+msgid "Only .xliff or .xml files are accepted."
+msgstr "Akceptowane są tylko pliki .xliff lub .xml."
+
+msgid "Open Translations Dashboard"
+msgstr "Otwórz panel tłumaczeń"
+
+msgid "Open any post or page and click \"Translate\" to use the translation editor."
+msgstr "Otwórz dowolny wpis lub stronę i kliknij \"Przetłumacz\", aby użyć edytora tłumaczeń."
+
+msgid "OpenAI API Key"
+msgstr "Klucz API OpenAI"
+
+msgid "Optional HMAC-SHA256 secret"
+msgstr "Opcjonalny sekret HMAC-SHA256"
+
+msgid "Original"
+msgstr "Oryginał"
+
+msgid "Original post has been deleted."
+msgstr "Oryginalny wpis został usunięty."
+
+msgid "Original post not found."
+msgstr "Nie znaleziono oryginalnego wpisu."
+
+msgid "Outdated"
+msgstr "Przestarzałe"
+
+msgid "Overview of your multilingual content"
+msgstr "Przegląd treści wielojęzycznych"
+
+msgid "PHP Version"
+msgstr "Wersja PHP"
+
+msgid "Package / Domain"
+msgstr "Pakiet / Domena"
+
+msgid "Page %1$d of %2$d"
+msgstr "Strona %1$d z %2$d"
+
+msgid "Permalink Structure"
+msgstr "Struktura bezpośrednich odnośników"
+
+msgid "Permission denied."
+msgstr "Odmowa dostępu."
+
+msgid "Please configure at least two active languages in Settings → Languages before using Content Translation."
+msgstr "Przed skorzystaniem z tłumaczenia treści skonfiguruj co najmniej dwa aktywne języki w Ustawienia → Języki."
+
+msgid "Please configure at least two active languages in Settings → Languages before using Import / Export."
+msgstr "Przed skorzystaniem z importu/eksportu skonfiguruj co najmniej dwa aktywne języki w Ustawienia → Języki."
+
+msgid "Please configure at least two active languages in Settings → Languages before using String Translation."
+msgstr "Przed skorzystaniem z tłumaczenia ciągów skonfiguruj co najmniej dwa aktywne języki w Ustawienia → Języki."
+
+msgid "Plugin"
+msgstr "Wtyczka"
+
+msgid "Plugin & Theme Compatibility"
+msgstr "Zgodność wtyczek i motywów"
+
+msgid "Plugin / Theme"
+msgstr "Wtyczka / Motyw"
+
+msgid "Plugin Activation Error"
+msgstr "Błąd aktywacji wtyczki"
+
+msgid "Plugin Version"
+msgstr "Wersja wtyczki"
+
+msgid "Polylang is active. Running two multilingual plugins simultaneously can cause conflicts. Please deactivate Polylang before using Idiomattic WP."
+msgstr "Polylang jest aktywny. Jednoczesne uruchamianie dwóch wtyczek wielojęzycznych może powodować konflikty. Dezaktywuj Polylang przed użyciem Idiomattic WP."
+
+msgid "Post Title"
+msgstr "Tytuł wpisu"
+
+msgid "Post Type"
+msgstr "Typ wpisu"
+
+msgid "Post Type(s)"
+msgstr "Typ(y) wpisu"
+
+msgid "Post Types"
+msgstr "Typy wpisów"
+
+msgid "Post not found."
+msgstr "Nie znaleziono wpisu."
+
+msgid "Prev"
+msgstr "Poprzednia"
+
+msgid "Preview flag"
+msgstr "Podgląd flagi"
+
+msgid "Primary Language"
+msgstr "Język podstawowy"
+
+msgid "Pro"
+msgstr "Pro"
+
+msgid "Progress"
+msgstr "Postęp"
+
+msgid "Publish"
+msgstr "Opublikuj"
+
+msgid "Publish Translation"
+msgstr "Opublikuj tłumaczenie"
+
+msgid "Queue AI translation"
+msgstr "Dodaj tłumaczenie AI do kolejki"
+
+msgid "Rate limit reached. Please wait a moment and try again."
+msgstr "Osiągnięto limit szybkości. Poczekaj chwilę i spróbuj ponownie."
+
+msgid "Re-scan"
+msgstr "Skanuj ponownie"
+
+msgid "Re-use previously translated segments to reduce API costs"
+msgstr "Ponownie używaj wcześniej przetłumaczonych segmentów, aby zmniejszyć koszty API"
+
+msgid "Recent Activity"
+msgstr "Ostatnia aktywność"
+
+msgid "Recipient Email"
+msgstr "E-mail odbiorcy"
+
+msgid "Register string"
+msgstr "Zarejestruj ciąg"
+
+msgid "Register this string for this language"
+msgstr "Zarejestruj ten ciąg dla tego języka"
+
+msgid "Remove"
+msgstr "Usuń"
+
+msgid "Requires Pro licence"
+msgstr "Wymaga licencji Pro"
+
+msgid "Retain data on uninstall"
+msgstr "Zachowaj dane przy odinstalowaniu"
+
+msgid "Rewrite Rules"
+msgstr "Reguły przepisywania"
+
+msgid "Right-to-left language"
+msgstr "Język od prawej do lewej"
+
+msgid "Save"
+msgstr "Zapisz"
+
+msgid "Save Draft"
+msgstr "Zapisz wersję roboczą"
+
+msgid "Save Translations"
+msgstr "Zapisz tłumaczenia"
+
+msgid "Scan complete."
+msgstr "Skanowanie zakończone."
+
+msgid "Scan sources"
+msgstr "Skanuj źródła"
+
+msgid "Scan strings"
+msgstr "Skanuj ciągi"
+
+msgid "Scanning..."
+msgstr "Skanowanie..."
+
+msgid "Search"
+msgstr "Szukaj"
+
+msgid "Search by title…"
+msgstr "Szukaj według tytułu…"
+
+msgid "Search in source and translations…"
+msgstr "Szukaj w źródle i tłumaczeniach…"
+
+msgid "Search languages…"
+msgstr "Szukaj języków…"
+
+msgid "Search strings"
+msgstr "Szukaj ciągów"
+
+msgid "Security check failed."
+msgstr "Sprawdzanie bezpieczeństwa nie powiodło się."
+
+msgid "Select Language"
+msgstr "Wybierz język"
+
+msgid "Send HTTP POST notifications to an external URL when translation events occur. Payloads are signed with HMAC-SHA256."
+msgstr "Wysyłaj powiadomienia HTTP POST do zewnętrznego adresu URL, gdy wystąpią zdarzenia tłumaczenia. Dane są podpisywane za pomocą HMAC-SHA256."
+
+msgid "Settings"
+msgstr "Ustawienia"
+
+msgid "Show Flags"
+msgstr "Pokaż flagi"
+
+msgid "Show Names"
+msgstr "Pokaż nazwy"
+
+msgid "Show all"
+msgstr "Pokaż wszystkie"
+
+msgid "Show as translated"
+msgstr "Pokaż jako przetłumaczone"
+
+msgid "Show terms for:"
+msgstr "Pokaż terminy dla:"
+
+msgid "Showing original posts only"
+msgstr "Wyświetlanie tylko oryginalnych wpisów"
+
+msgid "Showing translations into: %s"
+msgstr "Wyświetlanie tłumaczeń na: %s"
+
+msgid "Shown in secondary languages even without a translation (uses default language content)"
+msgstr "Wyświetlane w językach dodatkowych nawet bez tłumaczenia (używa treści domyślnego języka)"
+
+msgid "Signing Secret"
+msgstr "Sekret podpisywania"
+
+msgid "Site Default Language"
+msgstr "Domyślny język witryny"
+
+msgid "Slug"
+msgstr "Slug"
+
+msgid "Source Term"
+msgstr "Termin źródłowy"
+
+msgid "Source post not found."
+msgstr "Nie znaleziono wpisu źródłowego."
+
+msgid "Source string"
+msgstr "Ciąg źródłowy"
+
+msgid "Source string not found."
+msgstr "Nie znaleziono ciągu źródłowego."
+
+msgid "Standard ISO code for localization"
+msgstr "Standardowy kod ISO dla lokalizacji"
+
+msgid "Start Migration"
+msgstr "Rozpocznij migrację"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Step 1: Detection"
+msgstr "Krok 1: Wykrywanie"
+
+msgid "String Translation"
+msgstr "Tłumaczenie ciągów"
+
+msgid "Style"
+msgstr "Styl"
+
+msgid "Subdomain"
+msgstr "Subdomena"
+
+msgid "System Information"
+msgstr "Informacje o systemie"
+
+msgid "System Report"
+msgstr "Raport systemowy"
+
+msgid "Target language is required."
+msgstr "Wymagany jest język docelowy."
+
+msgid "Taxonomies"
+msgstr "Taksonomie"
+
+msgid "Taxonomy"
+msgstr "Taksonomia"
+
+msgid "Theme"
+msgstr "Motyw"
+
+msgid "This affects how visitors and search engines find your translated content."
+msgstr "Wpływa to na sposób, w jaki odwiedzający i wyszukiwarki znajdą przetłumaczone treści."
+
+msgid "This alert was sent by the %s plugin."
+msgstr "Ten alert został wysłany przez wtyczkę %s."
+
+msgid "This is a translation of: %s"
+msgstr "To jest tłumaczenie: %s"
+
+msgid "This is the original language of your posts and pages."
+msgstr "To jest oryginalny język Twoich wpisów i stron."
+
+msgid "This plugin/theme ships with a native idiomattic-elements.json file. All its elements are automatically registered. No action needed."
+msgstr "Ta wtyczka/motyw jest dostarczana z natywnym plikiem idiomattic-elements.json. Wszystkie jej elementy są automatycznie rejestrowane. Nie jest wymagane żadne działanie."
+
+msgid "This plugin/theme ships with a wpml-config.xml file. Idiomattic auto-imports its field definitions at runtime. Use \"Import WPML config\" to force-register them now, or \"Download as JSON\" to convert the file to a permanent idiomattic-elements.json."
+msgstr "Ta wtyczka/motyw jest dostarczana z plikiem wpml-config.xml. Idiomattic automatycznie importuje definicje pól w czasie wykonywania. Użyj \"Importuj konfigurację WPML\", aby teraz je zarejestrować, lub \"Pobierz jako JSON\", aby przekonwertować plik na stały idiomattic-elements.json."
+
+msgid "This translation is outdated — the source post has been updated since it was last translated. Please review and re-translate."
+msgstr "To tłumaczenie jest przestarzałe — wpis źródłowy został zaktualizowany od czasu ostatniego tłumaczenia. Przejrzyj i przetłumacz ponownie."
+
+msgid "This will overwrite all fields with the original content. Continue?"
+msgstr "Spowoduje to nadpisanie wszystkich pól oryginalną treścią. Kontynuować?"
+
+msgid "Title"
+msgstr "Tytuł"
+
+msgid "To create or edit navigation menus visit %s."
+msgstr "Aby tworzyć lub edytować menu nawigacji, odwiedź %s."
+
+msgid "Total Translations"
+msgstr "Łączna liczba tłumaczeń"
+
+msgid "Total scanned"
+msgstr "Łącznie przeskanowano"
+
+msgid "Translatable"
+msgstr "Przetłumaczalne"
+
+msgid "Translate all"
+msgstr "Przetłumacz wszystkie"
+
+msgid "Translate all languages"
+msgstr "Przetłumacz wszystkie języki"
+
+msgid "Translate all missing"
+msgstr "Przetłumacz wszystkie brakujące"
+
+msgid "Translate all missing (%d)"
+msgstr "Przetłumacz wszystkie brakujące (%d)"
+
+msgid "Translate content →"
+msgstr "Przetłumacz treść →"
+
+msgid "Translate field"
+msgstr "Przetłumacz pole"
+
+msgid "Translate interface strings from plugins and themes"
+msgstr "Przetłumacz ciągi interfejsu z wtyczek i motywów"
+
+msgid "Translate posts, pages, and custom content into all active languages"
+msgstr "Przetłumacz wpisy, strony i niestandardowe treści na wszystkie aktywne języki"
+
+msgid "Translate to all languages"
+msgstr "Przetłumacz na wszystkie języki"
+
+msgid "Translate: %s"
+msgstr "Przetłumacz: %s"
+
+msgid "Translated %d strings successfully."
+msgstr "Pomyślnie przetłumaczono %d ciągów."
+
+msgid "Translating"
+msgstr "Tłumaczenie"
+
+msgid "Translating…"
+msgstr "Tłumaczenie…"
+
+msgid "Translation"
+msgstr "Tłumaczenie"
+
+msgid "Translation / Rule"
+msgstr "Tłumaczenie / Reguła"
+
+msgid "Translation Alert"
+msgstr "Alert tłumaczenia"
+
+msgid "Translation Alert — %s"
+msgstr "Alert tłumaczenia — %s"
+
+msgid "Translation Details"
+msgstr "Szczegóły tłumaczenia"
+
+msgid "Translation Editor"
+msgstr "Edytor tłumaczeń"
+
+msgid "Translation Memory"
+msgstr "Pamięć tłumaczeń"
+
+msgid "Translation Mode"
+msgstr "Tryb tłumaczenia"
+
+msgid "Translation completed (AI finished)"
+msgstr "Tłumaczenie zakończone (AI skończyło)"
+
+msgid "Translation failed."
+msgstr "Tłumaczenie nie powiodło się."
+
+msgid "Translation outdated (source post updated)"
+msgstr "Tłumaczenie przestarzałe (wpis źródłowy zaktualizowany)"
+
+msgid "Translation provider is temporarily unavailable. Please try again."
+msgstr "Dostawca tłumaczeń jest tymczasowo niedostępny. Spróbuj ponownie."
+
+msgid "Translation queued (job dispatched)"
+msgstr "Tłumaczenie w kolejce (zadanie wysłane)"
+
+msgid "Translation record not found."
+msgstr "Nie znaleziono rekordu tłumaczenia."
+
+msgid "Translation saved successfully."
+msgstr "Tłumaczenie zapisane pomyślnie."
+
+msgid "Translations"
+msgstr "Tłumaczenia"
+
+msgid "Translations saved."
+msgstr "Tłumaczenia zapisane."
+
+msgid "Triggered when you update a post that has translations."
+msgstr "Wyzwalane po aktualizacji wpisu z tłumaczeniami."
+
+msgid "Troubleshooting"
+msgstr "Rozwiązywanie problemów"
+
+msgid "Type"
+msgstr "Typ"
+
+msgid "URL Mode"
+msgstr "Tryb URL"
+
+msgid "URL Structure"
+msgstr "Struktura URL"
+
+msgid "Unauthorized"
+msgstr "Nieautoryzowane"
+
+msgid "Update"
+msgstr "Aktualizuj"
+
+msgid "Upgrade to Pro to unlock Directory and Subdomain modes →"
+msgstr "Uaktualnij do Pro, aby odblokować tryby katalogu i subdomeny →"
+
+msgid "Upgrade to Pro →"
+msgstr "Uaktualnij do Pro →"
+
+msgid "Upload an XLIFF file (2.0 or 1.2) exported from a CAT tool. Translations are written directly into the database."
+msgstr "Prześlij plik XLIFF (2.0 lub 1.2) wyeksportowany z narzędzia CAT. Tłumaczenia są zapisywane bezpośrednio w bazie danych."
+
+msgid "Version"
+msgstr "Wersja"
+
+msgid "View"
+msgstr "Wyświetl"
+
+msgid "View Original"
+msgstr "Wyświetl oryginał"
+
+msgid "View compatibility report →"
+msgstr "Wyświetl raport zgodności →"
+
+msgid "View source post →"
+msgstr "Wyświetl wpis źródłowy →"
+
+msgid "View strings"
+msgstr "Wyświetl ciągi"
+
+msgid "WPML Migration"
+msgstr "Migracja WPML"
+
+msgid "WPML Migration Wizard"
+msgstr "Kreator migracji WPML"
+
+msgid "WPML config"
+msgstr "Konfiguracja WPML"
+
+msgid "WPML config imported successfully."
+msgstr "Konfiguracja WPML zaimportowana pomyślnie."
+
+msgid "WPML config imported with warnings: "
+msgstr "Konfiguracja WPML zaimportowana z ostrzeżeniami: "
+
+msgid "WPML config imported: %1$d element(s) registered into the translation registry, %2$d skipped (action = ignore)."
+msgstr "Konfiguracja WPML zaimportowana: %1$d element(y) zarejestrowane w rejestrze tłumaczeń, %2$d pominięte (akcja = ignoruj)."
+
+msgid "WPML is active. Running two multilingual plugins simultaneously can cause conflicts. Please deactivate WPML before using Idiomattic WP, or use the WPML migration tool."
+msgstr "WPML jest aktywny. Jednoczesne uruchamianie dwóch wtyczek wielojęzycznych może powodować konflikty. Dezaktywuj WPML przed użyciem Idiomattic WP lub użyj narzędzia do migracji WPML."
+
+msgid "WPML is not active. Migration may not be possible."
+msgstr "WPML nie jest aktywny. Migracja może nie być możliwa."
+
+msgid "W3 Total Cache is active. Make sure page caching is configured to handle language-specific URLs correctly."
+msgstr "W3 Total Cache jest aktywny. Upewnij się, że buforowanie stron jest skonfigurowane do prawidłowej obsługi adresów URL specyficznych dla języka."
+
+msgid "WP Debug"
+msgstr "WP Debug"
+
+msgid "WP Debug Log"
+msgstr "Dziennik debugowania WP"
+
+msgid "WP_DEBUG and WP_DEBUG_LOG are not both enabled. Add the following to wp-config.php to activate debug logging:"
+msgstr "WP_DEBUG i WP_DEBUG_LOG nie są oba włączone. Dodaj poniższe do wp-config.php, aby aktywować rejestrowanie debugowania:"
+
+msgid "Want AI-powered translations? Upgrade to Pro for BYOK (Bring Your Own Key) support."
+msgstr "Chcesz tłumaczeń opartych na AI? Uaktualnij do Pro, aby uzyskać obsługę BYOK (Użyj własnego klucza)."
+
+msgid "Webhooks"
+msgstr "Webhooki"
+
+msgid "What do these statuses mean?"
+msgstr "Co oznaczają te statusy?"
+
+msgid "What language is your content written in?"
+msgstr "W jakim języku napisana jest Twoja treść?"
+
+msgid "Which languages do you want to translate into?"
+msgstr "Na jakie języki chcesz tłumaczyć?"
+
+msgid "WordPress Version"
+msgstr "Wersja WordPress"
+
+msgid "Works with any permalink structure. Easiest to set up."
+msgstr "Działa z dowolną strukturą bezpośrednich odnośników. Najłatwiejsze w konfiguracji."
+
+msgid "Works with any permalink structure. Recommended for most sites."
+msgstr "Działa z dowolną strukturą bezpośrednich odnośników. Zalecane dla większości witryn."
+
+msgid "XLIFF file (.xliff)"
+msgstr "Plik XLIFF (.xliff)"
+
+msgid "You can add or remove languages at any time from Settings."
+msgstr "Możesz dodawać lub usuwać języki w dowolnym momencie z Ustawień."
+
+msgid "You can disable these notifications in the plugin settings."
+msgstr "Możesz wyłączyć te powiadomienia w ustawieniach wtyczki."
+
+msgid "You do not have permission to edit this post."
+msgstr "Nie masz uprawnień do edycji tego wpisu."
+
+msgid "debug.log not found or not readable."
+msgstr "debug.log nie znaleziono lub nie można go odczytać."
+
+msgid "default"
+msgstr "domyślny"
+
+msgid "e.g. button, menu"
+msgstr "np. przycisk, menu"
+
+msgid "e.g. my-plugin"
+msgstr "np. moja-wtyczka"
+
+msgid "— Not assigned —"
+msgstr "— Nie przypisano —"
+
+msgid "→ Scan sources"
+msgstr "→ Skanuj źródła"
+
+msgid "Admin Language"
+msgstr "Język administratora"
+
+msgid "Admin Interface Language"
+msgstr "Język interfejsu administratora"
+
+msgid "Use site default"
+msgstr "Użyj domyślnego witryny"
+
+msgid "Select the language you prefer for the WordPress admin interface."
+msgstr "Wybierz preferowany język interfejsu administratora WordPress."
+
+msgid "%d missing"
+msgid_plural "%d missing"
+msgstr[0] "%d brakujące"
+msgstr[1] "%d brakujące"
+msgstr[2] "%d brakujących"
+msgstr[3] "%d brakujących"
+
+msgid "%d translation job queued. Jobs are processed in the background."
+msgid_plural "%d translation jobs queued. Jobs are processed in the background."
+msgstr[0] "%d zadanie tłumaczenia w kolejce. Zadania są przetwarzane w tle."
+msgstr[1] "%d zadania tłumaczenia w kolejce. Zadania są przetwarzane w tle."
+msgstr[2] "%d zadań tłumaczenia w kolejce. Zadania są przetwarzane w tle."
+msgstr[3] "%d zadań tłumaczenia w kolejce. Zadania są przetwarzane w tle."
+
+msgid "Retranslate %d outdated"
+msgid_plural "Retranslate %d outdated"
+msgstr[0] "Przetłumacz ponownie %d przestarzałe"
+msgstr[1] "Przetłumacz ponownie %d przestarzałe"
+msgstr[2] "Przetłumacz ponownie %d przestarzałych"
+msgstr[3] "Przetłumacz ponownie %d przestarzałych"

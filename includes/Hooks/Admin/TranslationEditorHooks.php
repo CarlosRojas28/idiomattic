@@ -41,6 +41,9 @@ class TranslationEditorHooks implements HookRegistrarInterface {
 
 		// Rewrite edit links for translated posts throughout the admin
 		add_filter( 'get_edit_post_link', [ $this, 'rewriteEditLink' ], 10, 3 );
+
+		// Show an admin notice when the translation being edited is outdated
+		add_action( 'admin_notices', [ $this, 'maybeShowOutdatedNotice' ] );
 	}
 
 	// ── Callbacks ─────────────────────────────────────────────────────────
@@ -63,6 +66,14 @@ class TranslationEditorHooks implements HookRegistrarInterface {
 		$action = $_GET['action'] ?? 'edit';
 		if ( $action !== 'edit' ) {
 			return;
+		}
+
+		// Skip when coming from the admin bar language switcher — the user
+		// wants the standard Gutenberg editor, not the Translation Editor.
+		// Also clean the bypass parameter from the URL immediately.
+		if ( ! empty( $_GET['idiomatticwp_direct_edit'] ) ) {
+			wp_safe_redirect( remove_query_arg( 'idiomatticwp_direct_edit' ) );
+			exit;
 		}
 
 		$postId = absint( $_GET['post'] ?? 0 );
@@ -95,8 +106,13 @@ class TranslationEditorHooks implements HookRegistrarInterface {
 			return $link;
 		}
 
-		$record = $this->repository->findByTranslatedPost( $postId );
-		if ( ! $record ) {
+		// Static cache avoids one DB query per post row in the admin list table
+		static $cache = [];
+		if ( ! array_key_exists( $postId, $cache ) ) {
+			$cache[ $postId ] = $this->repository->findByTranslatedPost( $postId );
+		}
+
+		if ( ! $cache[ $postId ] ) {
 			return $link; // Not a translated post, leave untouched
 		}
 
@@ -106,6 +122,35 @@ class TranslationEditorHooks implements HookRegistrarInterface {
 		], admin_url( 'post.php' ) );
 
 		return $context === 'display' ? esc_url( $url ) : $url;
+	}
+
+	/**
+	 * Show an admin notice when the open translation is marked outdated.
+	 * Fires on `admin_notices` — only on the Translation Editor screen.
+	 */
+	public function maybeShowOutdatedNotice(): void {
+		if ( ( $_GET['action'] ?? '' ) !== 'idiomatticwp_translate' ) {
+			return;
+		}
+
+		$postId = absint( $_GET['post'] ?? 0 );
+		if ( ! $postId ) {
+			return;
+		}
+
+		$record = $this->repository->findByTranslatedPost( $postId );
+		if ( ! $record || ( $record['status'] ?? '' ) !== 'outdated' ) {
+			return;
+		}
+
+		$sourceUrl = get_edit_post_link( (int) ( $record['source_post_id'] ?? 0 ) );
+		printf(
+			'<div class="notice notice-warning"><p>%s%s</p></div>',
+			esc_html__( 'This translation is outdated — the source post has been updated since it was last translated. Please review and re-translate.', 'idiomattic-wp' ),
+			$sourceUrl
+				? ' <a href="' . esc_url( $sourceUrl ) . '">' . esc_html__( 'View source post →', 'idiomattic-wp' ) . '</a>'
+				: ''
+		);
 	}
 
 	/**

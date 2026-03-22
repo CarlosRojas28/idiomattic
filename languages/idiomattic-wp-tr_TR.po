@@ -1,0 +1,1060 @@
+# Turkish translation for Idiomattic WP
+# Copyright (C) 2024 Idiomattic
+msgid ""
+msgstr ""
+"Project-Id-Version: Idiomattic WP\n"
+"POT-Creation-Date: 2024-01-01 00:00+0000\n"
+"PO-Revision-Date: 2024-01-01 00:00+0000\n"
+"Last-Translator: Idiomattic <hello@idiomattic.app>\n"
+"Language-Team: Turkish\n"
+"Language: tr_TR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Idiomattic WP\n"
+"X-Domain: idiomattic-wp\n"
+
+msgid "%1$d draft, %2$d in progress"
+msgstr "%1$d taslak, %2$d devam ediyor"
+
+msgid "%d active plugins — click to expand"
+msgstr "%d etkin eklenti — genişletmek için tıklayın"
+
+msgid "%s: %s"
+msgstr "%s: %s"
+
+msgid "(empty)"
+msgstr "(boş)"
+
+msgid "(no title)"
+msgstr "(başlık yok)"
+
+msgid "(optional)"
+msgstr "(isteğe bağlı)"
+
+msgid "(saved — enter a new key to replace)"
+msgstr "(kaydedildi — değiştirmek için yeni anahtar girin)"
+
+msgid "A translation already exists for this language. Delete it first."
+msgstr "Bu dil için zaten bir çeviri var. Önce silin."
+
+msgid "AI Translation Provider"
+msgstr "Yapay Zeka Çeviri Sağlayıcısı"
+
+msgid "AI Translation — Pro Feature"
+msgstr "Yapay Zeka Çevirisi — Pro Özelliği"
+
+msgid "AI error: "
+msgstr "Yapay zeka hatası: "
+
+msgid "AI string translation requires a Pro license."
+msgstr "Yapay zeka dize çevirisi Pro lisansı gerektirir."
+
+msgid "AI translation requires Pro"
+msgstr "Yapay zeka çevirisi Pro gerektirir"
+
+msgid "AI translation requires a Pro license."
+msgstr "Yapay zeka çevirisi Pro lisansı gerektirir."
+
+msgid "Action"
+msgstr "Eylem"
+
+msgid "Actions"
+msgstr "Eylemler"
+
+msgid "Active Languages"
+msgstr "Etkin Diller"
+
+msgid "Active Plugins"
+msgstr "Etkin Eklentiler"
+
+msgid "Active Theme"
+msgstr "Etkin Tema"
+
+msgid "Add"
+msgstr "Ekle"
+
+msgid "Add Custom Language"
+msgstr "Özel Dil Ekle"
+
+msgid "Add String"
+msgstr "Dize Ekle"
+
+msgid "Add Term"
+msgstr "Terim Ekle"
+
+msgid "Add string"
+msgstr "Dize ekle"
+
+msgid "Advanced"
+msgstr "Gelişmiş"
+
+msgid "All"
+msgstr "Tümü"
+
+msgid "All content already has translations for the selected languages."
+msgstr "Tüm içerik seçili diller için zaten çevirilere sahip."
+
+msgid "All content is fully translated!"
+msgstr "Tüm içerik tamamen çevrildi!"
+
+msgid "All fields already have a translation."
+msgstr "Tüm alanların zaten çevirisi var."
+
+msgid "All languages"
+msgstr "Tüm diller"
+
+msgid "All packages"
+msgstr "Tüm paketler"
+
+msgid "An unexpected error occurred during translation."
+msgstr "Çeviri sırasında beklenmeyen bir hata oluştu."
+
+msgid "Apply"
+msgstr "Uygula"
+
+msgid "Are you sure you want to delete this translation?"
+msgstr "Bu çeviriyi silmek istediğinizden emin misiniz?"
+
+msgid "Author"
+msgstr "Yazar"
+
+msgid "Auto-translate failed."
+msgstr "Otomatik çeviri başarısız oldu."
+
+msgid "Auto-translate on creation"
+msgstr "Oluşturmada otomatik çeviri"
+
+msgid "Auto-translate pending"
+msgstr "Otomatik çeviri bekliyor"
+
+msgid "Automated translations and AI provider configuration are available in the Pro version. Bring Your Own Key — connect directly to OpenAI, Claude, or DeepL."
+msgstr "Otomatik çeviriler ve yapay zeka sağlayıcısı yapılandırması Pro sürümünde mevcuttur. Kendi Anahtarınızı Getirin — OpenAI, Claude veya DeepL'e doğrudan bağlanın."
+
+msgid "Automatically start AI translation when a new translation is created"
+msgstr "Yeni bir çeviri oluşturulduğunda yapay zeka çevirisini otomatik olarak başlat"
+
+msgid "Back"
+msgstr "Geri"
+
+msgid "Back to list"
+msgstr "Listeye geri dön"
+
+msgid "Behaviour"
+msgstr "Davranış"
+
+msgid "Bring Your Own Key (BYOK): connect directly to your chosen AI provider. Your API key is stored encrypted and never sent to Idiomattic servers."
+msgstr "Kendi Anahtarınızı Getirin (BYOK): seçtiğiniz yapay zeka sağlayıcısına doğrudan bağlanın. API anahtarınız şifreli olarak saklanır ve asla Idiomattic sunucularına gönderilmez."
+
+msgid "Cache & Transients"
+msgstr "Önbellek ve Geçiciler"
+
+msgid "Cache language detection results for improved performance."
+msgstr "Geliştirilmiş performans için dil algılama sonuçlarını önbelleğe alın."
+
+msgid "Cancel"
+msgstr "İptal"
+
+msgid "Child theme"
+msgstr "Alt tema"
+
+msgid "Choose the primary language your website content will be served in by default."
+msgstr "Web sitenizin içeriğinin varsayılan olarak sunulacağı birincil dili seçin."
+
+msgid "Claude API Key"
+msgstr "Claude API Anahtarı"
+
+msgid "Clean URLs with the language code as a path prefix. Requires pretty permalinks."
+msgstr "Dil kodu yol ön ekli temiz URL'ler. Güzel kalıcı bağlantılar gerektirir."
+
+msgid "Clear cached data if you are seeing stale content or unexpected behaviour."
+msgstr "Eski içerik veya beklenmedik davranış görüyorsanız önbelleğe alınmış verileri temizleyin."
+
+msgid "Clear language filter"
+msgstr "Dil filtresini temizle"
+
+msgid "Close"
+msgstr "Kapat"
+
+msgid "Code, native name, and English name are required."
+msgstr "Kod, ana dil adı ve İngilizce ad gereklidir."
+
+msgid "Compatibility"
+msgstr "Uyumluluk"
+
+msgid "Compatibility scan completed successfully."
+msgstr "Uyumluluk taraması başarıyla tamamlandı."
+
+msgid "Complete"
+msgstr "Tamamla"
+
+msgid "Configure how each post type behaves across languages."
+msgstr "Her gönderi türünün diller arasında nasıl davranacağını yapılandırın."
+
+msgid "Configure how taxonomy terms behave across languages."
+msgstr "Taksonomi terimlerinin diller arasında nasıl davranacağını yapılandırın."
+
+msgid "Configure permalinks →"
+msgstr "Kalıcı bağlantıları yapılandır →"
+
+msgid "Configure translation mode for registered custom fields. New fields can be added via the Compatibility tab or programmatically."
+msgstr "Kayıtlı özel alanlar için çeviri modunu yapılandırın. Yeni alanlar Uyumluluk sekmesi aracılığıyla veya programlı olarak eklenebilir."
+
+msgid "Content"
+msgstr "İçerik"
+
+msgid "Content Translation"
+msgstr "İçerik Çevirisi"
+
+msgid "Context"
+msgstr "Bağlam"
+
+msgid "Context (optional)"
+msgstr "Bağlam (isteğe bağlı)"
+
+msgid "Continue →"
+msgstr "Devam et →"
+
+msgid "Control how the plugin handles its data."
+msgstr "Eklentinin verilerini nasıl işleyeceğini kontrol edin."
+
+msgid "Copied!"
+msgstr "Kopyalandı!"
+
+msgid "Copy from original:"
+msgstr "Orijinalden kopyala:"
+
+msgid "Copy source string"
+msgstr "Kaynak dizeyi kopyala"
+
+msgid "Copy source to all empty translations"
+msgstr "Kaynağı tüm boş çevirilere kopyala"
+
+msgid "Copy to all"
+msgstr "Tümüne kopyala"
+
+msgid "Copy to clipboard"
+msgstr "Panoya kopyala"
+
+msgid "Could not create export archive."
+msgstr "Dışa aktarma arşivi oluşturulamadı."
+
+msgid "Could not link post."
+msgstr "Gönderi bağlanamadı."
+
+msgid "Coverage"
+msgstr "Kapsam"
+
+msgid "Create a menu →"
+msgstr "Menü oluştur →"
+
+msgid "Creating..."
+msgstr "Oluşturuluyor..."
+
+msgid "Custom"
+msgstr "Özel"
+
+msgid "Custom Fields"
+msgstr "Özel Alanlar"
+
+msgid "Daily digest — one email per day"
+msgstr "Günlük özet — günde bir e-posta"
+
+msgid "Dashboard"
+msgstr "Gösterge Tablosu"
+
+msgid "Data Management"
+msgstr "Veri Yönetimi"
+
+msgid "Date"
+msgstr "Tarih"
+
+msgid "Debug Log"
+msgstr "Hata Ayıklama Günlüğü"
+
+msgid "Default Language"
+msgstr "Varsayılan Dil"
+
+msgid "Default configured by %s"
+msgstr "%s tarafından yapılandırılan varsayılan"
+
+msgid "Define terms that must always be translated a specific way, or kept unchanged by the AI."
+msgstr "Her zaman belirli bir şekilde çevrilmesi veya yapay zeka tarafından değiştirilmeden bırakılması gereken terimleri tanımlayın."
+
+msgid "Define terms that must always be translated a specific way, or kept unchanged. Glossary rules are automatically applied during AI translation."
+msgstr "Her zaman belirli bir şekilde çevrilmesi veya değiştirilmeden bırakılması gereken terimleri tanımlayın. Sözlük kuralları yapay zeka çevirisi sırasında otomatik olarak uygulanır."
+
+msgid "Delete"
+msgstr "Sil"
+
+msgid "Delete this custom language?"
+msgstr "Bu özel dil silinsin mi?"
+
+msgid "Delete this term?"
+msgstr "Bu terim silinsin mi?"
+
+msgid "Directory"
+msgstr "Dizin"
+
+msgid "Directory and Subdomain modes require pretty permalinks. %s"
+msgstr "Dizin ve Alt Alan Adı modları güzel kalıcı bağlantılar gerektirir. %s"
+
+msgid "Directory not found."
+msgstr "Dizin bulunamadı."
+
+msgid "Disabled"
+msgstr "Devre Dışı"
+
+msgid "Display a language switcher."
+msgstr "Dil değiştirici göster."
+
+msgid "Done"
+msgstr "Bitti"
+
+msgid "Download JSON"
+msgstr "JSON İndir"
+
+msgid "Download JSON template"
+msgstr "JSON şablonunu indir"
+
+msgid "Download ZIP"
+msgstr "ZIP İndir"
+
+msgid "Download all translations for a language as a ZIP of XLIFF 2.0 files, ready to be processed by any CAT tool."
+msgstr "Bir dil için tüm çevirileri herhangi bir CAT aracıyla işlenmeye hazır XLIFF 2.0 dosyaları ZIP'i olarak indirin."
+
+msgid "Download as JSON"
+msgstr "JSON olarak indir"
+
+msgid "Draft"
+msgstr "Taslak"
+
+msgid "Draft / In Progress"
+msgstr "Taslak / Devam Ediyor"
+
+msgid "Draft/WIP"
+msgstr "Taslak/Devam Eden"
+
+msgid "Duplicate all"
+msgstr "Tümünü çoğalt"
+
+msgid "Duplicate untranslated"
+msgstr "Çevrilmemişleri çoğalt"
+
+msgid "Each language has its own version of this content"
+msgstr "Her dilin bu içeriğin kendi sürümü vardır"
+
+msgid "Each language on its own subdomain. Requires wildcard DNS and SSL."
+msgstr "Her dil kendi alt alanında. Joker karakter DNS ve SSL gerektirir."
+
+msgid "Each language on its own subdomain. Requires wildcard DNS."
+msgstr "Her dil kendi alt alanında. Joker karakter DNS gerektirir."
+
+msgid "Edit"
+msgstr "Düzenle"
+
+msgid "Email Notifications"
+msgstr "E-posta Bildirimleri"
+
+msgid "Enable AI-powered string translation"
+msgstr "Yapay zeka destekli dize çevirisini etkinleştir"
+
+msgid "Enable caching"
+msgstr "Önbelleği etkinleştir"
+
+msgid "Enable webhooks"
+msgstr "Web kancalarını etkinleştir"
+
+msgid "Error"
+msgstr "Hata"
+
+msgid "Export"
+msgstr "Dışa Aktar"
+
+msgid "Export Translations"
+msgstr "Çevirileri Dışa Aktar"
+
+msgid "Field"
+msgstr "Alan"
+
+msgid "Glossary"
+msgstr "Sözlük"
+
+msgid "Import"
+msgstr "İçe Aktar"
+
+msgid "Import Translations"
+msgstr "Çevirileri İçe Aktar"
+
+msgid "Immediate — one email per event"
+msgstr "Anında — olayı başına bir e-posta"
+
+msgid "In Progress"
+msgstr "Devam Ediyor"
+
+msgid "Install"
+msgstr "Yükle"
+
+msgid "Invalid parameters."
+msgstr "Geçersiz parametreler."
+
+msgid "Invalid translation ID."
+msgstr "Geçersiz çeviri kimliği."
+
+msgid "Language"
+msgstr "Dil"
+
+msgid "Language Coverage"
+msgstr "Dil Kapsamı"
+
+msgid "Language Switcher"
+msgstr "Dil Değiştirici"
+
+msgid "Languages"
+msgstr "Diller"
+
+msgid "Link as translation"
+msgstr "Çeviri olarak bağla"
+
+msgid "Link existing post"
+msgstr "Mevcut gönderiyi bağla"
+
+msgid "Loading..."
+msgstr "Yükleniyor..."
+
+msgid "Max words per segment"
+msgstr "Segment başına maksimum kelime"
+
+msgid "Memory Hits"
+msgstr "Bellek İsabetleri"
+
+msgid "Menu"
+msgstr "Menü"
+
+msgid "Menus"
+msgstr "Menüler"
+
+msgid "Missing"
+msgstr "Eksik"
+
+msgid "Missing %d"
+msgstr "%d eksik"
+
+msgid "N/A"
+msgstr "Yok"
+
+msgid "No compatibility file found. Custom fields from this plugin will not be automatically translated. Click \"Download JSON template\" to get a starter file you can fill in and place inside the plugin/theme directory, or ask the author to add support."
+msgstr "Uyumluluk dosyası bulunamadı. Bu eklentiden özel alanlar otomatik olarak çevrilmeyecek."
+
+msgid "No config file"
+msgstr "Yapılandırma dosyası yok"
+
+msgid "No items match the selected filter."
+msgstr "Seçili filtreyle eşleşen öğe yok."
+
+msgid "No permissions."
+msgstr "İzin yok."
+
+msgid "No strings found for auto-translation."
+msgstr "Otomatik çeviri için dize bulunamadı."
+
+msgid "No terms in glossary yet. Add your first term above."
+msgstr "Sözlükte henüz terim yok. Yukarıya ilk terimi ekleyin."
+
+msgid "No translation found."
+msgstr "Çeviri bulunamadı."
+
+msgid "No translations yet. Start by creating a translation from the post list."
+msgstr "Henüz çeviri yok. Gönderi listesinden çeviri oluşturarak başlayın."
+
+msgid "Not configured"
+msgstr "Yapılandırılmamış"
+
+msgid "Not registered"
+msgstr "Kayıtlı değil"
+
+msgid "Not translatable"
+msgstr "Çevrilemez"
+
+msgid "Notes"
+msgstr "Notlar"
+
+msgid "Notification Mode"
+msgstr "Bildirim Modu"
+
+msgid "Notify on outdated translations"
+msgstr "Eski çeviriler için bildir"
+
+msgid "Only .xliff or .xml files are accepted."
+msgstr "Yalnızca .xliff veya .xml dosyaları kabul edilir."
+
+msgid "Open Translations Dashboard"
+msgstr "Çeviri Gösterge Tablosunu Aç"
+
+msgid "Open any post or page and click \"Translate\" to use the translation editor."
+msgstr "Herhangi bir gönderi veya sayfa açın ve çeviri düzenleyicisini kullanmak için \"Çevir\"e tıklayın."
+
+msgid "OpenAI API Key"
+msgstr "OpenAI API Anahtarı"
+
+msgid "Optional HMAC-SHA256 secret"
+msgstr "İsteğe bağlı HMAC-SHA256 gizlisi"
+
+msgid "Original"
+msgstr "Orijinal"
+
+msgid "Original post has been deleted."
+msgstr "Orijinal gönderi silindi."
+
+msgid "Original post not found."
+msgstr "Orijinal gönderi bulunamadı."
+
+msgid "Outdated"
+msgstr "Eski"
+
+msgid "Overview of your multilingual content"
+msgstr "Çok dilli içeriğinize genel bakış"
+
+msgid "PHP Version"
+msgstr "PHP Sürümü"
+
+msgid "Package / Domain"
+msgstr "Paket / Alan Adı"
+
+msgid "Page %1$d of %2$d"
+msgstr "%2$d sayfanın %1$d. sayfası"
+
+msgid "Permalink Structure"
+msgstr "Kalıcı Bağlantı Yapısı"
+
+msgid "Permission denied."
+msgstr "İzin reddedildi."
+
+msgid "Please configure at least two active languages in Settings → Languages before using Content Translation."
+msgstr "İçerik Çevirisini kullanmadan önce Ayarlar → Diller'de en az iki etkin dil yapılandırın."
+
+msgid "Please configure at least two active languages in Settings → Languages before using Import / Export."
+msgstr "İçe Aktarma / Dışa Aktarmayı kullanmadan önce Ayarlar → Diller'de en az iki etkin dil yapılandırın."
+
+msgid "Please configure at least two active languages in Settings → Languages before using String Translation."
+msgstr "Dize Çevirisini kullanmadan önce Ayarlar → Diller'de en az iki etkin dil yapılandırın."
+
+msgid "Plugin"
+msgstr "Eklenti"
+
+msgid "Plugin & Theme Compatibility"
+msgstr "Eklenti ve Tema Uyumluluğu"
+
+msgid "Plugin / Theme"
+msgstr "Eklenti / Tema"
+
+msgid "Plugin Activation Error"
+msgstr "Eklenti Etkinleştirme Hatası"
+
+msgid "Plugin Version"
+msgstr "Eklenti Sürümü"
+
+msgid "Polylang is active. Running two multilingual plugins simultaneously can cause conflicts. Please deactivate Polylang before using Idiomattic WP."
+msgstr "Polylang etkin. İki çok dilli eklentiyi aynı anda çalıştırmak çakışmalara neden olabilir. Idiomattic WP'yi kullanmadan önce Polylang'ı devre dışı bırakın."
+
+msgid "Post Title"
+msgstr "Gönderi Başlığı"
+
+msgid "Post Type"
+msgstr "Gönderi Türü"
+
+msgid "Post Type(s)"
+msgstr "Gönderi Türü(leri)"
+
+msgid "Post Types"
+msgstr "Gönderi Türleri"
+
+msgid "Post not found."
+msgstr "Gönderi bulunamadı."
+
+msgid "Prev"
+msgstr "Önceki"
+
+msgid "Preview flag"
+msgstr "Bayrağı önizle"
+
+msgid "Primary Language"
+msgstr "Birincil Dil"
+
+msgid "Pro"
+msgstr "Pro"
+
+msgid "Progress"
+msgstr "İlerleme"
+
+msgid "Publish"
+msgstr "Yayınla"
+
+msgid "Publish Translation"
+msgstr "Çeviriyi Yayınla"
+
+msgid "Queue AI translation"
+msgstr "Yapay zeka çevirisini sıraya al"
+
+msgid "Rate limit reached. Please wait a moment and try again."
+msgstr "Hız sınırına ulaşıldı. Lütfen bir süre bekleyin ve tekrar deneyin."
+
+msgid "Re-scan"
+msgstr "Yeniden Tara"
+
+msgid "Re-use previously translated segments to reduce API costs"
+msgstr "API maliyetlerini azaltmak için önceden çevrilmiş segmentleri yeniden kullanın"
+
+msgid "Recent Activity"
+msgstr "Son Etkinlik"
+
+msgid "Recipient Email"
+msgstr "Alıcı E-postası"
+
+msgid "Register string"
+msgstr "Dizeyi kaydet"
+
+msgid "Register this string for this language"
+msgstr "Bu dizeyi bu dil için kaydet"
+
+msgid "Remove"
+msgstr "Kaldır"
+
+msgid "Requires Pro licence"
+msgstr "Pro lisansı gerektirir"
+
+msgid "Retain data on uninstall"
+msgstr "Kaldırmada verileri koru"
+
+msgid "Rewrite Rules"
+msgstr "Yeniden Yazma Kuralları"
+
+msgid "Right-to-left language"
+msgstr "Sağdan sola dil"
+
+msgid "Save"
+msgstr "Kaydet"
+
+msgid "Save Draft"
+msgstr "Taslağı Kaydet"
+
+msgid "Save Translations"
+msgstr "Çevirileri Kaydet"
+
+msgid "Scan complete."
+msgstr "Tarama tamamlandı."
+
+msgid "Scan sources"
+msgstr "Kaynakları tara"
+
+msgid "Scan strings"
+msgstr "Dizeleri tara"
+
+msgid "Scanning..."
+msgstr "Taranıyor..."
+
+msgid "Search"
+msgstr "Ara"
+
+msgid "Search by title…"
+msgstr "Başlığa göre ara…"
+
+msgid "Search in source and translations…"
+msgstr "Kaynak ve çevirilerde ara…"
+
+msgid "Search languages…"
+msgstr "Dil ara…"
+
+msgid "Search strings"
+msgstr "Dizeleri ara"
+
+msgid "Security check failed."
+msgstr "Güvenlik denetimi başarısız oldu."
+
+msgid "Select Language"
+msgstr "Dil Seç"
+
+msgid "Send HTTP POST notifications to an external URL when translation events occur. Payloads are signed with HMAC-SHA256."
+msgstr "Çeviri olayları gerçekleştiğinde harici bir URL'ye HTTP POST bildirimleri gönderin."
+
+msgid "Settings"
+msgstr "Ayarlar"
+
+msgid "Show Flags"
+msgstr "Bayrakları Göster"
+
+msgid "Show Names"
+msgstr "İsimleri Göster"
+
+msgid "Show all"
+msgstr "Tümünü göster"
+
+msgid "Show as translated"
+msgstr "Çevrilmiş olarak göster"
+
+msgid "Show terms for:"
+msgstr "Şunun için terimleri göster:"
+
+msgid "Showing original posts only"
+msgstr "Yalnızca orijinal gönderiler gösteriliyor"
+
+msgid "Showing translations into: %s"
+msgstr "Çeviriler gösteriliyor: %s"
+
+msgid "Shown in secondary languages even without a translation (uses default language content)"
+msgstr "Çeviri olmasa bile ikincil dillerde gösterilir (varsayılan dil içeriği kullanır)"
+
+msgid "Signing Secret"
+msgstr "İmzalama Gizlisi"
+
+msgid "Site Default Language"
+msgstr "Site Varsayılan Dili"
+
+msgid "Slug"
+msgstr "Kısa Ad"
+
+msgid "Source Term"
+msgstr "Kaynak Terim"
+
+msgid "Source post not found."
+msgstr "Kaynak gönderi bulunamadı."
+
+msgid "Source string"
+msgstr "Kaynak dize"
+
+msgid "Source string not found."
+msgstr "Kaynak dize bulunamadı."
+
+msgid "Standard ISO code for localization"
+msgstr "Yerelleştirme için standart ISO kodu"
+
+msgid "Start Migration"
+msgstr "Geçişi Başlat"
+
+msgid "Status"
+msgstr "Durum"
+
+msgid "Step 1: Detection"
+msgstr "Adım 1: Algılama"
+
+msgid "String Translation"
+msgstr "Dize Çevirisi"
+
+msgid "Style"
+msgstr "Stil"
+
+msgid "Subdomain"
+msgstr "Alt Alan Adı"
+
+msgid "System Information"
+msgstr "Sistem Bilgisi"
+
+msgid "System Report"
+msgstr "Sistem Raporu"
+
+msgid "Target language is required."
+msgstr "Hedef dil gereklidir."
+
+msgid "Taxonomies"
+msgstr "Taksonomiler"
+
+msgid "Taxonomy"
+msgstr "Taksonomi"
+
+msgid "Theme"
+msgstr "Tema"
+
+msgid "This affects how visitors and search engines find your translated content."
+msgstr "Bu, ziyaretçilerin ve arama motorlarının çevrilmiş içeriğinizi nasıl bulduğunu etkiler."
+
+msgid "This alert was sent by the %s plugin."
+msgstr "Bu uyarı %s eklentisi tarafından gönderildi."
+
+msgid "This is a translation of: %s"
+msgstr "Bu şunun çevirisidir: %s"
+
+msgid "This is the original language of your posts and pages."
+msgstr "Bu, gönderilerinizin ve sayfalarınızın orijinal dilidir."
+
+msgid "This plugin/theme ships with a native idiomattic-elements.json file. All its elements are automatically registered. No action needed."
+msgstr "Bu eklenti/tema yerel bir idiomattic-elements.json dosyasıyla birlikte gelir. Tüm öğeleri otomatik olarak kaydedilir."
+
+msgid "This plugin/theme ships with a wpml-config.xml file. Idiomattic auto-imports its field definitions at runtime. Use \"Import WPML config\" to force-register them now, or \"Download as JSON\" to convert the file to a permanent idiomattic-elements.json."
+msgstr "Bu eklenti/tema bir wpml-config.xml dosyasıyla birlikte gelir. Idiomattic alan tanımlarını çalışma zamanında otomatik olarak içe aktarır."
+
+msgid "This translation is outdated — the source post has been updated since it was last translated. Please review and re-translate."
+msgstr "Bu çeviri güncel değil — kaynak gönderi son çeviri yapıldığından beri güncellendi."
+
+msgid "This will overwrite all fields with the original content. Continue?"
+msgstr "Bu, tüm alanların üzerine orijinal içerik ile yazılmasına neden olacak. Devam edilsin mi?"
+
+msgid "Title"
+msgstr "Başlık"
+
+msgid "To create or edit navigation menus visit %s."
+msgstr "Navigasyon menüleri oluşturmak veya düzenlemek için %s'yi ziyaret edin."
+
+msgid "Total Translations"
+msgstr "Toplam Çeviriler"
+
+msgid "Total scanned"
+msgstr "Toplam taranan"
+
+msgid "Translatable"
+msgstr "Çevrilebilir"
+
+msgid "Translate all"
+msgstr "Tümünü çevir"
+
+msgid "Translate all languages"
+msgstr "Tüm dilleri çevir"
+
+msgid "Translate all missing"
+msgstr "Tüm eksikleri çevir"
+
+msgid "Translate all missing (%d)"
+msgstr "Tüm eksikleri çevir (%d)"
+
+msgid "Translate content →"
+msgstr "İçeriği çevir →"
+
+msgid "Translate field"
+msgstr "Alanı çevir"
+
+msgid "Translate interface strings from plugins and themes"
+msgstr "Eklentiler ve temalardan arayüz dizelerini çevirin"
+
+msgid "Translate posts, pages, and custom content into all active languages"
+msgstr "Gönderileri, sayfaları ve özel içeriği tüm etkin dillere çevirin"
+
+msgid "Translate to all languages"
+msgstr "Tüm dillere çevir"
+
+msgid "Translate: %s"
+msgstr "Çevir: %s"
+
+msgid "Translated %d strings successfully."
+msgstr "%d dize başarıyla çevrildi."
+
+msgid "Translating"
+msgstr "Çeviriliyor"
+
+msgid "Translating…"
+msgstr "Çeviriliyor…"
+
+msgid "Translation"
+msgstr "Çeviri"
+
+msgid "Translation / Rule"
+msgstr "Çeviri / Kural"
+
+msgid "Translation Alert"
+msgstr "Çeviri Uyarısı"
+
+msgid "Translation Alert — %s"
+msgstr "Çeviri Uyarısı — %s"
+
+msgid "Translation Details"
+msgstr "Çeviri Ayrıntıları"
+
+msgid "Translation Editor"
+msgstr "Çeviri Düzenleyici"
+
+msgid "Translation Memory"
+msgstr "Çeviri Belleği"
+
+msgid "Translation Mode"
+msgstr "Çeviri Modu"
+
+msgid "Translation completed (AI finished)"
+msgstr "Çeviri tamamlandı (YZ bitti)"
+
+msgid "Translation failed."
+msgstr "Çeviri başarısız oldu."
+
+msgid "Translation outdated (source post updated)"
+msgstr "Çeviri güncel değil (kaynak gönderi güncellendi)"
+
+msgid "Translation provider is temporarily unavailable. Please try again."
+msgstr "Çeviri sağlayıcısı geçici olarak kullanılamıyor. Lütfen tekrar deneyin."
+
+msgid "Translation queued (job dispatched)"
+msgstr "Çeviri sıraya alındı (iş gönderildi)"
+
+msgid "Translation record not found."
+msgstr "Çeviri kaydı bulunamadı."
+
+msgid "Translation saved successfully."
+msgstr "Çeviri başarıyla kaydedildi."
+
+msgid "Translations"
+msgstr "Çeviriler"
+
+msgid "Translations saved."
+msgstr "Çeviriler kaydedildi."
+
+msgid "Triggered when you update a post that has translations."
+msgstr "Çevirisi olan bir gönderiyi güncellediğinizde tetiklenir."
+
+msgid "Troubleshooting"
+msgstr "Sorun Giderme"
+
+msgid "Type"
+msgstr "Tür"
+
+msgid "URL Mode"
+msgstr "URL Modu"
+
+msgid "URL Structure"
+msgstr "URL Yapısı"
+
+msgid "Unauthorized"
+msgstr "Yetkisiz"
+
+msgid "Update"
+msgstr "Güncelle"
+
+msgid "Upgrade to Pro to unlock Directory and Subdomain modes →"
+msgstr "Dizin ve Alt Alan Adı modlarını açmak için Pro'ya yükseltin →"
+
+msgid "Upgrade to Pro →"
+msgstr "Pro'ya yükselt →"
+
+msgid "Upload an XLIFF file (2.0 or 1.2) exported from a CAT tool. Translations are written directly into the database."
+msgstr "Bir CAT aracından dışa aktarılan XLIFF dosyası (2.0 veya 1.2) yükleyin."
+
+msgid "Version"
+msgstr "Sürüm"
+
+msgid "View"
+msgstr "Görüntüle"
+
+msgid "View Original"
+msgstr "Orijinali Görüntüle"
+
+msgid "View compatibility report →"
+msgstr "Uyumluluk raporunu görüntüle →"
+
+msgid "View source post →"
+msgstr "Kaynak gönderiyi görüntüle →"
+
+msgid "View strings"
+msgstr "Dizeleri görüntüle"
+
+msgid "WPML Migration"
+msgstr "WPML Geçişi"
+
+msgid "WPML Migration Wizard"
+msgstr "WPML Geçiş Sihirbazı"
+
+msgid "WPML config"
+msgstr "WPML yapılandırması"
+
+msgid "WPML config imported successfully."
+msgstr "WPML yapılandırması başarıyla içe aktarıldı."
+
+msgid "WPML config imported with warnings: "
+msgstr "WPML yapılandırması uyarılarla içe aktarıldı: "
+
+msgid "WPML config imported: %1$d element(s) registered into the translation registry, %2$d skipped (action = ignore)."
+msgstr "WPML yapılandırması içe aktarıldı: %1$d öğe çeviri kayıt defterine kaydedildi, %2$d atlandı."
+
+msgid "WPML is active. Running two multilingual plugins simultaneously can cause conflicts. Please deactivate WPML before using Idiomattic WP, or use the WPML migration tool."
+msgstr "WPML etkin. İki çok dilli eklentiyi aynı anda çalıştırmak çakışmalara neden olabilir."
+
+msgid "WPML is not active. Migration may not be possible."
+msgstr "WPML etkin değil. Geçiş mümkün olmayabilir."
+
+msgid "W3 Total Cache is active. Make sure page caching is configured to handle language-specific URLs correctly."
+msgstr "W3 Total Cache etkin. Sayfa önbelleğinin dile özgü URL'leri doğru işleyecek şekilde yapılandırıldığından emin olun."
+
+msgid "WP Debug"
+msgstr "WP Hata Ayıklama"
+
+msgid "WP Debug Log"
+msgstr "WP Hata Ayıklama Günlüğü"
+
+msgid "WP_DEBUG and WP_DEBUG_LOG are not both enabled. Add the following to wp-config.php to activate debug logging:"
+msgstr "WP_DEBUG ve WP_DEBUG_LOG her ikisi de etkin değil. Hata ayıklama günlüğünü etkinleştirmek için wp-config.php'ye aşağıdakini ekleyin:"
+
+msgid "Want AI-powered translations? Upgrade to Pro for BYOK (Bring Your Own Key) support."
+msgstr "Yapay zeka destekli çeviriler mi istiyorsunuz? BYOK desteği için Pro'ya yükseltin."
+
+msgid "Webhooks"
+msgstr "Web Kancaları"
+
+msgid "What do these statuses mean?"
+msgstr "Bu durumlar ne anlama geliyor?"
+
+msgid "What language is your content written in?"
+msgstr "İçeriğiniz hangi dilde yazılmış?"
+
+msgid "Which languages do you want to translate into?"
+msgstr "Hangi dillere çevirmek istiyorsunuz?"
+
+msgid "WordPress Version"
+msgstr "WordPress Sürümü"
+
+msgid "Works with any permalink structure. Easiest to set up."
+msgstr "Herhangi bir kalıcı bağlantı yapısıyla çalışır. Kurulumu en kolay."
+
+msgid "Works with any permalink structure. Recommended for most sites."
+msgstr "Herhangi bir kalıcı bağlantı yapısıyla çalışır. Çoğu site için önerilir."
+
+msgid "XLIFF file (.xliff)"
+msgstr "XLIFF dosyası (.xliff)"
+
+msgid "You can add or remove languages at any time from Settings."
+msgstr "Ayarlar'dan istediğiniz zaman dil ekleyebilir veya kaldırabilirsiniz."
+
+msgid "You can disable these notifications in the plugin settings."
+msgstr "Bu bildirimleri eklenti ayarlarından devre dışı bırakabilirsiniz."
+
+msgid "You do not have permission to edit this post."
+msgstr "Bu gönderiyi düzenleme izniniz yok."
+
+msgid "debug.log not found or not readable."
+msgstr "debug.log bulunamadı veya okunamıyor."
+
+msgid "default"
+msgstr "varsayılan"
+
+msgid "e.g. button, menu"
+msgstr "örn. düğme, menü"
+
+msgid "e.g. my-plugin"
+msgstr "örn. benim-eklentim"
+
+msgid "— Not assigned —"
+msgstr "— Atanmamış —"
+
+msgid "→ Scan sources"
+msgstr "→ Kaynakları tara"
+
+msgid "Admin Language"
+msgstr "Yönetici Dili"
+
+msgid "Admin Interface Language"
+msgstr "Yönetici Arayüz Dili"
+
+msgid "Use site default"
+msgstr "Site varsayılanını kullan"
+
+msgid "Select the language you prefer for the WordPress admin interface."
+msgstr "WordPress yönetici arayüzü için tercih ettiğiniz dili seçin."
+
+msgid "%d missing"
+msgid_plural "%d missing"
+msgstr[0] "%d eksik"
+msgstr[1] "%d eksik"
+
+msgid "%d translation job queued. Jobs are processed in the background."
+msgid_plural "%d translation job queued. Jobs are processed in the background."
+msgstr[0] "%d çeviri işi kuyruğa alındı. İşler arka planda işlenir."
+msgstr[1] "%d çeviri işi kuyruğa alındı. İşler arka planda işlenir."
+
+msgid "Retranslate %d outdated"
+msgid_plural "Retranslate %d outdated"
+msgstr[0] "%d eskiyi yeniden çevir"
+msgstr[1] "%d eskiyi yeniden çevir"

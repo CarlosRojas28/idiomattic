@@ -42,8 +42,6 @@ class RoutingHooks implements HookRegistrarInterface {
 		add_filter( 'the_permalink',  [ $this, 'filterPermalink'    ], 10, 2 );
 		add_filter( 'page_link',      [ $this, 'filterPageLink'     ], 10, 2 );
 		add_filter( 'post_type_link', [ $this, 'filterPostTypeLink' ], 10, 2 );
-		add_filter( 'attachment_link',[ $this, 'filterAttachmentLink'], 10, 2 );
-
 		// Filters where we don't have a post ID — fall back to current language
 		add_filter( 'term_link',              [ $this, 'filterTermLink'    ], 10, 3 );
 		add_filter( 'post_type_archive_link', [ $this, 'filterArchiveLink' ], 10, 2 );
@@ -53,11 +51,18 @@ class RoutingHooks implements HookRegistrarInterface {
 
 		// Strategy-specific setup
 		if ( $this->urlStrategy instanceof DirectoryStrategy ) {
-			add_action( 'init', [ $this->urlStrategy, 'registerRewriteRules' ], 1 );
+			add_action( 'admin_notices', [ $this, 'maybeStrategyCapabilityNotices' ] );
+
+			// Only register rewrite rules when the strategy is capable
+			add_action( 'init', function () {
+				if ( empty( $this->urlStrategy->checkCapabilities() ) ) {
+					$this->urlStrategy->registerRewriteRules();
+				}
+			}, 1 );
 		}
 
 		if ( $this->urlStrategy instanceof SubdomainStrategy ) {
-			add_action( 'admin_notices', [ $this, 'maybeCookieDomainNotice' ] );
+			add_action( 'admin_notices', [ $this, 'maybeStrategyCapabilityNotices' ] );
 		}
 	}
 
@@ -76,10 +81,6 @@ class RoutingHooks implements HookRegistrarInterface {
 		return $this->localizeForPost( $link, $post->ID );
 	}
 
-	public function filterAttachmentLink( string $link, int $postId ): string {
-		return $this->localizeForPost( $link, $postId );
-	}
-
 	public function filterTermLink( string $link, \WP_Term $term, string $taxonomy ): string {
 		return $this->localizeForCurrentLang( $link );
 	}
@@ -94,18 +95,40 @@ class RoutingHooks implements HookRegistrarInterface {
 	 * Prevent WordPress from stripping the language indicator via canonical redirect.
 	 *
 	 * ParameterStrategy: WP may redirect /page/?lang=es → /page/ (strips query param).
-	 * DirectoryStrategy: WP may redirect /es/my-post/ → /my-post/ (strips prefix).
+	 *   We suppress that redirect when the only difference is the ?lang= parameter.
+	 *
+	 * DirectoryStrategy: detection works by mutating $_SERVER['REQUEST_URI'] on
+	 *   parse_request (priority 1) — stripping the /{lang}/ prefix BEFORE WordPress
+	 *   reads it.  By the time redirect_canonical fires (at template_redirect),
+	 *   $requestedUrl is already built from the *stripped* URI (e.g. /fr-sample-page/,
+	 *   not /fr/fr-sample-page/).  WordPress therefore never sees a lang prefix to
+	 *   redirect away from.  Any suppression here based on "equal after lang-stripping"
+	 *   would incorrectly block legitimate canonical redirects (e.g. trailing-slash
+	 *   normalisation).  CanonicalHooks::suppressLangRedirect already guards against
+	 *   the only real risk (WP trying to redirect /fr/... → /...) via its own filter
+	 *   registered at the same hook.  For DirectoryStrategy we simply pass through.
+	 *
+	 * SubdomainStrategy: the host itself carries the language — WP never sees a lang
+	 *   prefix in the path, so no suppression is needed here either.
 	 */
 	public function filterCanonicalRedirect( string|false $redirectUrl, string $requestedUrl ): string|false {
 		if ( false === $redirectUrl ) {
 			return false;
 		}
 
+		// For DirectoryStrategy and SubdomainStrategy, the URL seen by redirect_canonical
+		// is already language-neutral (prefix stripped or on a different host).
+		// Only ParameterStrategy embeds the language in the URL as a query param that
+		// WordPress might try to strip, so restrict suppression to that case.
+		if ( $this->urlStrategy instanceof DirectoryStrategy || $this->urlStrategy instanceof SubdomainStrategy ) {
+			return $redirectUrl;
+		}
+
 		$cleanRedirect  = $this->stripLangIndicator( $redirectUrl );
 		$cleanRequested = $this->stripLangIndicator( $requestedUrl );
 
 		if ( untrailingslashit( $cleanRedirect ) === untrailingslashit( $cleanRequested ) ) {
-			return false; // Only difference is the lang indicator — suppress redirect
+			return false; // Only difference is the ?lang= param — suppress redirect
 		}
 
 		return $redirectUrl;
@@ -113,20 +136,24 @@ class RoutingHooks implements HookRegistrarInterface {
 
 	// ── Admin notices ─────────────────────────────────────────────────────
 
-	public function maybeCookieDomainNotice(): void {
+	/**
+	 * Show admin notices for any unmet strategy requirements.
+	 * Supports DirectoryStrategy and SubdomainStrategy via checkCapabilities().
+	 */
+	public function maybeStrategyCapabilityNotices(): void {
 		if ( ! current_user_can( 'manage_options' ) ) {
 			return;
 		}
 
-		$configured = defined( 'COOKIE_DOMAIN' ) && str_starts_with( (string) COOKIE_DOMAIN, '.' );
-		if ( ! $configured ) {
+		if ( ! method_exists( $this->urlStrategy, 'checkCapabilities' ) ) {
+			return;
+		}
+
+		foreach ( $this->urlStrategy->checkCapabilities() as $issue ) {
 			printf(
-				'<div class="notice notice-warning"><p><strong>Idiomattic WP:</strong> %s</p></div>',
-				esc_html__(
-					'Subdomain URL mode is active but COOKIE_DOMAIN is not set in wp-config.php. '
-					. 'Add: define(\'COOKIE_DOMAIN\', \'.yourdomain.com\'); to ensure login cookies work across language subdomains.',
-					'idiomattic-wp'
-				)
+				'<div class="notice notice-warning"><p><strong>%s</strong> %s</p></div>',
+				esc_html__( 'Idiomattic WP:', 'idiomattic-wp' ),
+				esc_html( $issue )
 			);
 		}
 	}

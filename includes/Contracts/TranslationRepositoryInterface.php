@@ -88,8 +88,30 @@ interface TranslationRepositoryInterface
 
     /**
      * Find all translations for a source post ID.
-     * 
+     *
      * @return array[] Array of associative arrays.
      */
     public function findBySourcePostId(int $sourcePostId): array;
+
+    /**
+     * Count translation records by status and target language.
+     */
+    public function countByStatusAndLang(string $status, string $lang): int;
+
+    /**
+     * Count all translation records for a target language.
+     */
+    public function countAllByLang(string $lang): int;
+
+    /**
+     * Count published posts of a given type that have no translation in the target language.
+     */
+    public function countUntranslatedByPostTypeAndLang( string $postType, string $lang ): int;
+
+    /**
+     * Return IDs of published posts of a given type that have no translation in the target language.
+     *
+     * @return int[]
+     */
+    public function getUntranslatedPostIdsByTypeAndLang( string $postType, string $lang, int $limit = 500 ): array;
 }

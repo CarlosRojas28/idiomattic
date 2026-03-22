@@ -42,8 +42,12 @@ class SaveFieldTranslationAjax {
 
 		$translatedPostId = absint( $_POST['translated_post_id'] ?? 0 );
 		$field            = sanitize_key( $_POST['field'] ?? '' );
-		// Value may contain HTML — sanitize only on output, not on storage
-		$value            = wp_unslash( $_POST['value'] ?? '' );
+		$rawValue         = wp_unslash( $_POST['value'] ?? '' );
+
+		// Sanitize the value according to the field being saved and user capability.
+		// Users with unfiltered_html (Admins on single-site) may store arbitrary HTML.
+		// Everyone else goes through wp_kses_post() so scripts cannot be injected.
+		$value = $this->sanitizeFieldValue( $field, $rawValue );
 
 		if ( ! $translatedPostId || $field === '' ) {
 			wp_send_json_error( [ 'message' => __( 'Missing parameters.', 'idiomattic-wp' ) ] );
@@ -95,6 +99,32 @@ class SaveFieldTranslationAjax {
 	}
 
 	// ── Helpers ───────────────────────────────────────────────────────────
+
+	/**
+	 * Sanitize a field value according to its type and the current user's capability.
+	 *
+	 * - title   → plain text (sanitize_text_field)
+	 * - excerpt → plain text with newlines (sanitize_textarea_field)
+	 * - content → HTML; wp_kses_post() for unprivileged users, raw for unfiltered_html
+	 * - custom  → passed through as-is (stored in meta, not rendered directly)
+	 *
+	 * wp_kses_post() preserves HTML comments including Gutenberg block markers
+	 * (<!-- wp:paragraph -->) so it is safe to apply even for block content.
+	 *
+	 * @param string $field    Field name: 'title' | 'content' | 'excerpt' | meta key.
+	 * @param string $rawValue Unslashed raw value from $_POST.
+	 * @return string Sanitized value.
+	 */
+	private function sanitizeFieldValue( string $field, string $rawValue ): string {
+		return match ( $field ) {
+			'title'   => sanitize_text_field( $rawValue ),
+			'excerpt' => sanitize_textarea_field( $rawValue ),
+			'content' => current_user_can( 'unfiltered_html' )
+				? $rawValue
+				: wp_kses_post( $rawValue ),
+			default   => $rawValue, // Custom meta — validated/typed by caller context
+		};
+	}
 
 	/**
 	 * Update a core WP post field (title, content, excerpt).

@@ -125,6 +125,24 @@ class SubdomainStrategy implements UrlStrategyInterface {
 		return [];
 	}
 
+	// ── Capability check ─────────────────────────────────────────────────
+
+	/**
+	 * Return a list of human-readable requirement errors.
+	 * An empty array means the strategy is fully functional.
+	 *
+	 * @return string[]
+	 */
+	public function checkCapabilities(): array {
+		$issues = [];
+
+		if ( ! defined( 'COOKIE_DOMAIN' ) || ! str_starts_with( (string) COOKIE_DOMAIN, '.' ) ) {
+			$issues[] = __( 'Subdomain URL mode requires COOKIE_DOMAIN to be set in wp-config.php. Add: define(\'COOKIE_DOMAIN\', \'.yourdomain.com\');', 'idiomattic-wp' );
+		}
+
+		return $issues;
+	}
+
 	// ── Helpers ───────────────────────────────────────────────────────────
 
 	/**
@@ -172,17 +190,22 @@ class SubdomainStrategy implements UrlStrategyInterface {
 	}
 
 	/**
-	 * Returns the root domain from home_url, stripping scheme, 'www.', and port.
+	 * Returns the root domain from the home option, stripping scheme, 'www.', and port.
 	 *
 	 * Example: 'https://www.example.com:8080' → 'example.com:8080'
 	 * (We keep the port so URLs remain valid in dev environments.)
+	 *
+	 * Uses get_option('home') instead of home_url() to avoid triggering the
+	 * 'home_url' filter, which calls buildUrl() → hostForLang() → getRootDomain()
+	 * again before $this->rootDomain is set — causing infinite recursion and
+	 * ERR_CONNECTION_RESET.
 	 */
 	private function getRootDomain(): string {
 		if ( $this->rootDomain !== null ) {
 			return $this->rootDomain;
 		}
 
-		$parsed = wp_parse_url( home_url() );
+		$parsed = wp_parse_url( (string) get_option( 'home', '' ) );
 		$host   = strtolower( $parsed['host'] ?? 'localhost' );
 		$port   = ! empty( $parsed['port'] ) ? ':' . $parsed['port'] : '';
 

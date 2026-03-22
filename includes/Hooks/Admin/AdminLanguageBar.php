@@ -17,6 +17,7 @@ declare( strict_types=1 );
 namespace IdiomatticWP\Hooks\Admin;
 
 use IdiomatticWP\Contracts\HookRegistrarInterface;
+use IdiomatticWP\Contracts\TranslationRepositoryInterface;
 use IdiomatticWP\Core\LanguageManager;
 use IdiomatticWP\ValueObjects\LanguageCode;
 
@@ -26,7 +27,8 @@ class AdminLanguageBar implements HookRegistrarInterface {
 	private const NONCE_ACTION  = 'idiomatticwp_switch_admin_lang';
 
 	public function __construct(
-		private LanguageManager $languageManager,
+		private LanguageManager                $languageManager,
+		private TranslationRepositoryInterface $repository,
 	) {}
 
 	// ── HookRegistrarInterface ────────────────────────────────────────────
@@ -70,6 +72,18 @@ class AdminLanguageBar implements HookRegistrarInterface {
 
 		// Redirect back to the same page without the switch params
 		$redirect = remove_query_arg( [ 'idiomatticwp_admin_lang', 'idiomatticwp_nonce' ] );
+
+		// On a post edit screen, redirect to the equivalent post in the new language
+		$action = sanitize_key( $_GET['action'] ?? '' );
+		$postId = (int) ( $_GET['post'] ?? 0 );
+
+		if ( $postId > 0 && $langCode !== 'all' && in_array( $action, [ 'edit', 'idiomatticwp_translate' ], true ) ) {
+			$targetPostId = $this->resolvePostForLang( $postId, $langCode );
+			if ( $targetPostId !== null ) {
+				$redirect = admin_url( 'post.php?post=' . $targetPostId . '&action=edit&idiomatticwp_direct_edit=1' );
+			}
+		}
+
 		wp_safe_redirect( $redirect );
 		exit;
 	}
@@ -391,6 +405,41 @@ class AdminLanguageBar implements HookRegistrarInterface {
 			esc_attr( $flagClass ),
 			esc_html( $initials ) // Fallback text visible until JS runs
 		);
+	}
+
+	/**
+	 * Given a post ID (source or translated) and a target language code,
+	 * return the post ID that corresponds to that language.
+	 *
+	 * Returns null if no matching post exists (no redirect needed or no translation yet).
+	 */
+	private function resolvePostForLang( int $postId, string $langCode ): ?int {
+		$default = (string) $this->languageManager->getDefaultLanguage();
+
+		// Determine source post ID (unwrap translated posts to their source)
+		$record   = $this->repository->findByTranslatedPost( $postId );
+		$sourceId = $record !== null ? (int) $record['source_post_id'] : $postId;
+
+		// Target is the default language → go to the source post
+		if ( $langCode === $default ) {
+			// Already on the source post — no redirect needed
+			return $sourceId !== $postId ? $sourceId : null;
+		}
+
+		// Target is a non-default language → find its translation
+		try {
+			$lang = LanguageCode::from( $langCode );
+			$row  = $this->repository->findBySourceAndLang( $sourceId, $lang );
+			if ( $row && ! empty( $row['translated_post_id'] ) ) {
+				$targetId = (int) $row['translated_post_id'];
+				// Already on that post — no redirect needed
+				return $targetId !== $postId ? $targetId : null;
+			}
+		} catch ( \Throwable $e ) {
+			// Invalid lang — ignore
+		}
+
+		return null;
 	}
 
 	private function isValidLang( string $code ): bool {

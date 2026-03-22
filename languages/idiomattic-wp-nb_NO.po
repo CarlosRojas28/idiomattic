@@ -1,0 +1,1060 @@
+# Norwegian Bokmål translation for Idiomattic WP
+# Copyright (C) 2024 Idiomattic
+msgid ""
+msgstr ""
+"Project-Id-Version: Idiomattic WP\n"
+"POT-Creation-Date: 2024-01-01 00:00+0000\n"
+"PO-Revision-Date: 2024-01-01 00:00+0000\n"
+"Last-Translator: Idiomattic <hello@idiomattic.app>\n"
+"Language-Team: Norwegian Bokmål\n"
+"Language: nb_NO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Idiomattic WP\n"
+"X-Domain: idiomattic-wp\n"
+
+msgid "%1$d draft, %2$d in progress"
+msgstr "%1$d utkast, %2$d pågår"
+
+msgid "%d active plugins — click to expand"
+msgstr "%d aktive plugins — klikk for å utvide"
+
+msgid "%s: %s"
+msgstr "%s: %s"
+
+msgid "(empty)"
+msgstr "(tom)"
+
+msgid "(no title)"
+msgstr "(ingen tittel)"
+
+msgid "(optional)"
+msgstr "(valgfritt)"
+
+msgid "(saved — enter a new key to replace)"
+msgstr "(lagret — skriv inn en ny nøkkel for å erstatte)"
+
+msgid "A translation already exists for this language. Delete it first."
+msgstr "Det finnes allerede en oversettelse for dette språket. Slett den først."
+
+msgid "AI Translation Provider"
+msgstr "AI-oversettingsleverandør"
+
+msgid "AI Translation — Pro Feature"
+msgstr "AI-oversettelse — Pro-funksjon"
+
+msgid "AI error: "
+msgstr "AI-feil: "
+
+msgid "AI string translation requires a Pro license."
+msgstr "AI-strengoversettelse krever en Pro-lisens."
+
+msgid "AI translation requires Pro"
+msgstr "AI-oversettelse krever Pro"
+
+msgid "AI translation requires a Pro license."
+msgstr "AI-oversettelse krever en Pro-lisens."
+
+msgid "Action"
+msgstr "Handling"
+
+msgid "Actions"
+msgstr "Handlinger"
+
+msgid "Active Languages"
+msgstr "Aktive språk"
+
+msgid "Active Plugins"
+msgstr "Aktive plugins"
+
+msgid "Active Theme"
+msgstr "Aktivt tema"
+
+msgid "Add"
+msgstr "Legg til"
+
+msgid "Add Custom Language"
+msgstr "Legg til egendefinert språk"
+
+msgid "Add String"
+msgstr "Legg til streng"
+
+msgid "Add Term"
+msgstr "Legg til begrep"
+
+msgid "Add string"
+msgstr "Legg til streng"
+
+msgid "Advanced"
+msgstr "Avansert"
+
+msgid "All"
+msgstr "Alle"
+
+msgid "All content already has translations for the selected languages."
+msgstr "Alt innhold har allerede oversettelser for de valgte språkene."
+
+msgid "All content is fully translated!"
+msgstr "Alt innhold er fullt oversatt!"
+
+msgid "All fields already have a translation."
+msgstr "Alle felt har allerede en oversettelse."
+
+msgid "All languages"
+msgstr "Alle språk"
+
+msgid "All packages"
+msgstr "Alle pakker"
+
+msgid "An unexpected error occurred during translation."
+msgstr "En uventet feil oppsto under oversettelse."
+
+msgid "Apply"
+msgstr "Bruk"
+
+msgid "Are you sure you want to delete this translation?"
+msgstr "Er du sikker på at du vil slette denne oversettelsen?"
+
+msgid "Author"
+msgstr "Forfatter"
+
+msgid "Auto-translate failed."
+msgstr "Automatisk oversettelse mislyktes."
+
+msgid "Auto-translate on creation"
+msgstr "Automatisk oversettelse ved opprettelse"
+
+msgid "Auto-translate pending"
+msgstr "Automatisk oversettelse venter"
+
+msgid "Automated translations and AI provider configuration are available in the Pro version. Bring Your Own Key — connect directly to OpenAI, Claude, or DeepL."
+msgstr "Automatiserte oversettelser og AI-leverandørkonfigurasjon er tilgjengelig i Pro-versjonen. Ta med din egen nøkkel — koble direkte til OpenAI, Claude eller DeepL."
+
+msgid "Automatically start AI translation when a new translation is created"
+msgstr "Start automatisk AI-oversettelse når en ny oversettelse opprettes"
+
+msgid "Back"
+msgstr "Tilbake"
+
+msgid "Back to list"
+msgstr "Tilbake til liste"
+
+msgid "Behaviour"
+msgstr "Atferd"
+
+msgid "Bring Your Own Key (BYOK): connect directly to your chosen AI provider. Your API key is stored encrypted and never sent to Idiomattic servers."
+msgstr "Ta med din egen nøkkel (BYOK): koble direkte til din valgte AI-leverandør. API-nøkkelen din lagres kryptert og sendes aldri til Idiomattic-servere."
+
+msgid "Cache & Transients"
+msgstr "Buffer og transienter"
+
+msgid "Cache language detection results for improved performance."
+msgstr "Buffer språkdetekteringsresultater for bedre ytelse."
+
+msgid "Cancel"
+msgstr "Avbryt"
+
+msgid "Child theme"
+msgstr "Undertema"
+
+msgid "Choose the primary language your website content will be served in by default."
+msgstr "Velg primærspråket som nettstedets innhold vil bli levert på som standard."
+
+msgid "Claude API Key"
+msgstr "Claude API-nøkkel"
+
+msgid "Clean URLs with the language code as a path prefix. Requires pretty permalinks."
+msgstr "Rene URL-er med språkkoden som stiprefiks. Krever pene permalenker."
+
+msgid "Clear cached data if you are seeing stale content or unexpected behaviour."
+msgstr "Tøm bufrede data hvis du ser utdatert innhold eller uventet atferd."
+
+msgid "Clear language filter"
+msgstr "Fjern språkfilter"
+
+msgid "Close"
+msgstr "Lukk"
+
+msgid "Code, native name, and English name are required."
+msgstr "Kode, innfødt navn og engelsk navn er påkrevd."
+
+msgid "Compatibility"
+msgstr "Kompatibilitet"
+
+msgid "Compatibility scan completed successfully."
+msgstr "Kompatibilitetsskanning fullført."
+
+msgid "Complete"
+msgstr "Fullfør"
+
+msgid "Configure how each post type behaves across languages."
+msgstr "Konfigurer hvordan hver innleggstype oppfører seg på tvers av språk."
+
+msgid "Configure how taxonomy terms behave across languages."
+msgstr "Konfigurer hvordan taksonomiord oppfører seg på tvers av språk."
+
+msgid "Configure permalinks →"
+msgstr "Konfigurer permalenker →"
+
+msgid "Configure translation mode for registered custom fields. New fields can be added via the Compatibility tab or programmatically."
+msgstr "Konfigurer oversettingsmodus for registrerte tilpassede felt."
+
+msgid "Content"
+msgstr "Innhold"
+
+msgid "Content Translation"
+msgstr "Innholdsoversettelse"
+
+msgid "Context"
+msgstr "Kontekst"
+
+msgid "Context (optional)"
+msgstr "Kontekst (valgfritt)"
+
+msgid "Continue →"
+msgstr "Fortsett →"
+
+msgid "Control how the plugin handles its data."
+msgstr "Kontroller hvordan pluginet håndterer dataene sine."
+
+msgid "Copied!"
+msgstr "Kopiert!"
+
+msgid "Copy from original:"
+msgstr "Kopier fra original:"
+
+msgid "Copy source string"
+msgstr "Kopier kildeststreng"
+
+msgid "Copy source to all empty translations"
+msgstr "Kopier kilde til alle tomme oversettelser"
+
+msgid "Copy to all"
+msgstr "Kopier til alle"
+
+msgid "Copy to clipboard"
+msgstr "Kopier til utklippstavle"
+
+msgid "Could not create export archive."
+msgstr "Kunne ikke opprette eksportarkiv."
+
+msgid "Could not link post."
+msgstr "Kunne ikke koble innlegg."
+
+msgid "Coverage"
+msgstr "Dekning"
+
+msgid "Create a menu →"
+msgstr "Opprett en meny →"
+
+msgid "Creating..."
+msgstr "Oppretter..."
+
+msgid "Custom"
+msgstr "Egendefinert"
+
+msgid "Custom Fields"
+msgstr "Egendefinerte felt"
+
+msgid "Daily digest — one email per day"
+msgstr "Daglig sammendrag — én e-post per dag"
+
+msgid "Dashboard"
+msgstr "Instrumentbord"
+
+msgid "Data Management"
+msgstr "Databehandling"
+
+msgid "Date"
+msgstr "Dato"
+
+msgid "Debug Log"
+msgstr "Feilsøkingslogg"
+
+msgid "Default Language"
+msgstr "Standardspråk"
+
+msgid "Default configured by %s"
+msgstr "Standard konfigurert av %s"
+
+msgid "Define terms that must always be translated a specific way, or kept unchanged by the AI."
+msgstr "Definer begreper som alltid må oversettes på en bestemt måte, eller holdes uendret av AI."
+
+msgid "Define terms that must always be translated a specific way, or kept unchanged. Glossary rules are automatically applied during AI translation."
+msgstr "Definer begreper som alltid må oversettes på en bestemt måte, eller holdes uendret. Ordbokregler brukes automatisk under AI-oversettelse."
+
+msgid "Delete"
+msgstr "Slett"
+
+msgid "Delete this custom language?"
+msgstr "Slette dette egendefinerte språket?"
+
+msgid "Delete this term?"
+msgstr "Slette dette begrepet?"
+
+msgid "Directory"
+msgstr "Mappe"
+
+msgid "Directory and Subdomain modes require pretty permalinks. %s"
+msgstr "Mappe- og underdomene-moduser krever pene permalenker. %s"
+
+msgid "Directory not found."
+msgstr "Mappe ikke funnet."
+
+msgid "Disabled"
+msgstr "Deaktivert"
+
+msgid "Display a language switcher."
+msgstr "Vis en språkbytter."
+
+msgid "Done"
+msgstr "Ferdig"
+
+msgid "Download JSON"
+msgstr "Last ned JSON"
+
+msgid "Download JSON template"
+msgstr "Last ned JSON-mal"
+
+msgid "Download ZIP"
+msgstr "Last ned ZIP"
+
+msgid "Download all translations for a language as a ZIP of XLIFF 2.0 files, ready to be processed by any CAT tool."
+msgstr "Last ned alle oversettelser for et språk som en ZIP av XLIFF 2.0-filer."
+
+msgid "Download as JSON"
+msgstr "Last ned som JSON"
+
+msgid "Draft"
+msgstr "Utkast"
+
+msgid "Draft / In Progress"
+msgstr "Utkast / Pågår"
+
+msgid "Draft/WIP"
+msgstr "Utkast/Pågår"
+
+msgid "Duplicate all"
+msgstr "Dupliser alle"
+
+msgid "Duplicate untranslated"
+msgstr "Dupliser uoversatte"
+
+msgid "Each language has its own version of this content"
+msgstr "Hvert språk har sin egen versjon av dette innholdet"
+
+msgid "Each language on its own subdomain. Requires wildcard DNS and SSL."
+msgstr "Hvert språk på sitt eget underdomene. Krever wildcard DNS og SSL."
+
+msgid "Each language on its own subdomain. Requires wildcard DNS."
+msgstr "Hvert språk på sitt eget underdomene. Krever wildcard DNS."
+
+msgid "Edit"
+msgstr "Rediger"
+
+msgid "Email Notifications"
+msgstr "E-postvarsler"
+
+msgid "Enable AI-powered string translation"
+msgstr "Aktiver AI-drevet strengoversettelse"
+
+msgid "Enable caching"
+msgstr "Aktiver bufring"
+
+msgid "Enable webhooks"
+msgstr "Aktiver webhooks"
+
+msgid "Error"
+msgstr "Feil"
+
+msgid "Export"
+msgstr "Eksporter"
+
+msgid "Export Translations"
+msgstr "Eksporter oversettelser"
+
+msgid "Field"
+msgstr "Felt"
+
+msgid "Glossary"
+msgstr "Ordbok"
+
+msgid "Import"
+msgstr "Importer"
+
+msgid "Import Translations"
+msgstr "Importer oversettelser"
+
+msgid "Immediate — one email per event"
+msgstr "Umiddelbart — én e-post per hendelse"
+
+msgid "In Progress"
+msgstr "Pågår"
+
+msgid "Install"
+msgstr "Installer"
+
+msgid "Invalid parameters."
+msgstr "Ugyldige parametere."
+
+msgid "Invalid translation ID."
+msgstr "Ugyldig oversettings-ID."
+
+msgid "Language"
+msgstr "Språk"
+
+msgid "Language Coverage"
+msgstr "Språkdekning"
+
+msgid "Language Switcher"
+msgstr "Språkbytter"
+
+msgid "Languages"
+msgstr "Språk"
+
+msgid "Link as translation"
+msgstr "Koble som oversettelse"
+
+msgid "Link existing post"
+msgstr "Koble eksisterende innlegg"
+
+msgid "Loading..."
+msgstr "Laster inn..."
+
+msgid "Max words per segment"
+msgstr "Maks ord per segment"
+
+msgid "Memory Hits"
+msgstr "Minnetreff"
+
+msgid "Menu"
+msgstr "Meny"
+
+msgid "Menus"
+msgstr "Menyer"
+
+msgid "Missing"
+msgstr "Mangler"
+
+msgid "Missing %d"
+msgstr "%d mangler"
+
+msgid "N/A"
+msgstr "I/T"
+
+msgid "No compatibility file found. Custom fields from this plugin will not be automatically translated. Click \"Download JSON template\" to get a starter file you can fill in and place inside the plugin/theme directory, or ask the author to add support."
+msgstr "Ingen kompatibilitetsfil funnet. Egendefinerte felt fra dette pluginet vil ikke bli oversatt automatisk."
+
+msgid "No config file"
+msgstr "Ingen konfigurasjonsfil"
+
+msgid "No items match the selected filter."
+msgstr "Ingen elementer samsvarer med det valgte filteret."
+
+msgid "No permissions."
+msgstr "Ingen tillatelser."
+
+msgid "No strings found for auto-translation."
+msgstr "Ingen strenger funnet for automatisk oversettelse."
+
+msgid "No terms in glossary yet. Add your first term above."
+msgstr "Ingen begreper i ordboken ennå. Legg til ditt første begrep ovenfor."
+
+msgid "No translation found."
+msgstr "Ingen oversettelse funnet."
+
+msgid "No translations yet. Start by creating a translation from the post list."
+msgstr "Ingen oversettelser ennå. Start med å opprette en oversettelse fra innleggslisten."
+
+msgid "Not configured"
+msgstr "Ikke konfigurert"
+
+msgid "Not registered"
+msgstr "Ikke registrert"
+
+msgid "Not translatable"
+msgstr "Ikke oversettbar"
+
+msgid "Notes"
+msgstr "Notater"
+
+msgid "Notification Mode"
+msgstr "Varslingsmodus"
+
+msgid "Notify on outdated translations"
+msgstr "Varsle om utdaterte oversettelser"
+
+msgid "Only .xliff or .xml files are accepted."
+msgstr "Bare .xliff- eller .xml-filer aksepteres."
+
+msgid "Open Translations Dashboard"
+msgstr "Åpne oversettingsinstrumentbord"
+
+msgid "Open any post or page and click \"Translate\" to use the translation editor."
+msgstr "Åpne et innlegg eller en side og klikk «Oversett» for å bruke oversettingseditoren."
+
+msgid "OpenAI API Key"
+msgstr "OpenAI API-nøkkel"
+
+msgid "Optional HMAC-SHA256 secret"
+msgstr "Valgfri HMAC-SHA256-hemmelighet"
+
+msgid "Original"
+msgstr "Original"
+
+msgid "Original post has been deleted."
+msgstr "Det originale innlegget er blitt slettet."
+
+msgid "Original post not found."
+msgstr "Originalt innlegg ikke funnet."
+
+msgid "Outdated"
+msgstr "Utdatert"
+
+msgid "Overview of your multilingual content"
+msgstr "Oversikt over flerspråklig innhold"
+
+msgid "PHP Version"
+msgstr "PHP-versjon"
+
+msgid "Package / Domain"
+msgstr "Pakke / Domene"
+
+msgid "Page %1$d of %2$d"
+msgstr "Side %1$d av %2$d"
+
+msgid "Permalink Structure"
+msgstr "Permalenkestruktur"
+
+msgid "Permission denied."
+msgstr "Tilgang nektet."
+
+msgid "Please configure at least two active languages in Settings → Languages before using Content Translation."
+msgstr "Konfigurer minst to aktive språk i Innstillinger → Språk før du bruker Innholdsoversettelse."
+
+msgid "Please configure at least two active languages in Settings → Languages before using Import / Export."
+msgstr "Konfigurer minst to aktive språk i Innstillinger → Språk før du bruker Import / Eksport."
+
+msgid "Please configure at least two active languages in Settings → Languages before using String Translation."
+msgstr "Konfigurer minst to aktive språk i Innstillinger → Språk før du bruker Strengoversettelse."
+
+msgid "Plugin"
+msgstr "Plugin"
+
+msgid "Plugin & Theme Compatibility"
+msgstr "Plugin- og temakompatibilitet"
+
+msgid "Plugin / Theme"
+msgstr "Plugin / Tema"
+
+msgid "Plugin Activation Error"
+msgstr "Pluginaktiveringsfeil"
+
+msgid "Plugin Version"
+msgstr "Pluginversjon"
+
+msgid "Polylang is active. Running two multilingual plugins simultaneously can cause conflicts. Please deactivate Polylang before using Idiomattic WP."
+msgstr "Polylang er aktivt. Å kjøre to flerspråklige plugins samtidig kan forårsake konflikter. Deaktiver Polylang før du bruker Idiomattic WP."
+
+msgid "Post Title"
+msgstr "Innleggstittel"
+
+msgid "Post Type"
+msgstr "Innleggstype"
+
+msgid "Post Type(s)"
+msgstr "Innleggstype(r)"
+
+msgid "Post Types"
+msgstr "Innleggstyper"
+
+msgid "Post not found."
+msgstr "Innlegg ikke funnet."
+
+msgid "Prev"
+msgstr "Forrige"
+
+msgid "Preview flag"
+msgstr "Forhåndsvis flagg"
+
+msgid "Primary Language"
+msgstr "Primærspråk"
+
+msgid "Pro"
+msgstr "Pro"
+
+msgid "Progress"
+msgstr "Fremgang"
+
+msgid "Publish"
+msgstr "Publiser"
+
+msgid "Publish Translation"
+msgstr "Publiser oversettelse"
+
+msgid "Queue AI translation"
+msgstr "Sett AI-oversettelse i kø"
+
+msgid "Rate limit reached. Please wait a moment and try again."
+msgstr "Hastighetsbegrensning nådd. Vent litt og prøv igjen."
+
+msgid "Re-scan"
+msgstr "Skann på nytt"
+
+msgid "Re-use previously translated segments to reduce API costs"
+msgstr "Gjenbruk tidligere oversatte segmenter for å redusere API-kostnader"
+
+msgid "Recent Activity"
+msgstr "Nylig aktivitet"
+
+msgid "Recipient Email"
+msgstr "Mottakers e-post"
+
+msgid "Register string"
+msgstr "Registrer streng"
+
+msgid "Register this string for this language"
+msgstr "Registrer denne strengen for dette språket"
+
+msgid "Remove"
+msgstr "Fjern"
+
+msgid "Requires Pro licence"
+msgstr "Krever Pro-lisens"
+
+msgid "Retain data on uninstall"
+msgstr "Behold data ved avinstallering"
+
+msgid "Rewrite Rules"
+msgstr "Omskrivningsregler"
+
+msgid "Right-to-left language"
+msgstr "Høyre-til-venstre-språk"
+
+msgid "Save"
+msgstr "Lagre"
+
+msgid "Save Draft"
+msgstr "Lagre utkast"
+
+msgid "Save Translations"
+msgstr "Lagre oversettelser"
+
+msgid "Scan complete."
+msgstr "Skanning fullført."
+
+msgid "Scan sources"
+msgstr "Skann kilder"
+
+msgid "Scan strings"
+msgstr "Skann strenger"
+
+msgid "Scanning..."
+msgstr "Skanner..."
+
+msgid "Search"
+msgstr "Søk"
+
+msgid "Search by title…"
+msgstr "Søk etter tittel…"
+
+msgid "Search in source and translations…"
+msgstr "Søk i kilde og oversettelser…"
+
+msgid "Search languages…"
+msgstr "Søk språk…"
+
+msgid "Search strings"
+msgstr "Søk strenger"
+
+msgid "Security check failed."
+msgstr "Sikkerhetssjekk mislyktes."
+
+msgid "Select Language"
+msgstr "Velg språk"
+
+msgid "Send HTTP POST notifications to an external URL when translation events occur. Payloads are signed with HMAC-SHA256."
+msgstr "Send HTTP POST-varsler til en ekstern URL når oversettelseshendelser oppstår."
+
+msgid "Settings"
+msgstr "Innstillinger"
+
+msgid "Show Flags"
+msgstr "Vis flagg"
+
+msgid "Show Names"
+msgstr "Vis navn"
+
+msgid "Show all"
+msgstr "Vis alle"
+
+msgid "Show as translated"
+msgstr "Vis som oversatt"
+
+msgid "Show terms for:"
+msgstr "Vis begreper for:"
+
+msgid "Showing original posts only"
+msgstr "Viser bare originale innlegg"
+
+msgid "Showing translations into: %s"
+msgstr "Viser oversettelser til: %s"
+
+msgid "Shown in secondary languages even without a translation (uses default language content)"
+msgstr "Vises på sekundære språk selv uten oversettelse (bruker standardspråkinnhold)"
+
+msgid "Signing Secret"
+msgstr "Signeringshemmelighet"
+
+msgid "Site Default Language"
+msgstr "Nettstedets standardspråk"
+
+msgid "Slug"
+msgstr "Slug"
+
+msgid "Source Term"
+msgstr "Kildebegrep"
+
+msgid "Source post not found."
+msgstr "Kildeinnlegg ikke funnet."
+
+msgid "Source string"
+msgstr "Kildeststreng"
+
+msgid "Source string not found."
+msgstr "Kildeststreng ikke funnet."
+
+msgid "Standard ISO code for localization"
+msgstr "Standard ISO-kode for lokalisering"
+
+msgid "Start Migration"
+msgstr "Start migrering"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Step 1: Detection"
+msgstr "Trinn 1: Deteksjon"
+
+msgid "String Translation"
+msgstr "Strengoversettelse"
+
+msgid "Style"
+msgstr "Stil"
+
+msgid "Subdomain"
+msgstr "Underdomene"
+
+msgid "System Information"
+msgstr "Systeminformasjon"
+
+msgid "System Report"
+msgstr "Systemrapport"
+
+msgid "Target language is required."
+msgstr "Målspråk er påkrevd."
+
+msgid "Taxonomies"
+msgstr "Taksonomier"
+
+msgid "Taxonomy"
+msgstr "Taksonomi"
+
+msgid "Theme"
+msgstr "Tema"
+
+msgid "This affects how visitors and search engines find your translated content."
+msgstr "Dette påvirker hvordan besøkende og søkemotorer finner ditt oversatte innhold."
+
+msgid "This alert was sent by the %s plugin."
+msgstr "Dette varselet ble sendt av pluginet %s."
+
+msgid "This is a translation of: %s"
+msgstr "Dette er en oversettelse av: %s"
+
+msgid "This is the original language of your posts and pages."
+msgstr "Dette er originalspråket for innleggene og sidene dine."
+
+msgid "This plugin/theme ships with a native idiomattic-elements.json file. All its elements are automatically registered. No action needed."
+msgstr "Dette pluginet/temaet leveres med en native idiomattic-elements.json-fil. Alle elementene registreres automatisk."
+
+msgid "This plugin/theme ships with a wpml-config.xml file. Idiomattic auto-imports its field definitions at runtime. Use \"Import WPML config\" to force-register them now, or \"Download as JSON\" to convert the file to a permanent idiomattic-elements.json."
+msgstr "Dette pluginet/temaet leveres med en wpml-config.xml-fil. Idiomattic importerer automatisk feltdefinisjoner ved kjøring."
+
+msgid "This translation is outdated — the source post has been updated since it was last translated. Please review and re-translate."
+msgstr "Denne oversettelsen er utdatert — kildeinnlegget er oppdatert siden det sist ble oversatt."
+
+msgid "This will overwrite all fields with the original content. Continue?"
+msgstr "Dette vil overskrive alle felt med det originale innholdet. Fortsette?"
+
+msgid "Title"
+msgstr "Tittel"
+
+msgid "To create or edit navigation menus visit %s."
+msgstr "Besøk %s for å opprette eller redigere navigasjonsmenyer."
+
+msgid "Total Translations"
+msgstr "Totalt antall oversettelser"
+
+msgid "Total scanned"
+msgstr "Totalt skannet"
+
+msgid "Translatable"
+msgstr "Oversettbar"
+
+msgid "Translate all"
+msgstr "Oversett alle"
+
+msgid "Translate all languages"
+msgstr "Oversett alle språk"
+
+msgid "Translate all missing"
+msgstr "Oversett alle manglende"
+
+msgid "Translate all missing (%d)"
+msgstr "Oversett alle manglende (%d)"
+
+msgid "Translate content →"
+msgstr "Oversett innhold →"
+
+msgid "Translate field"
+msgstr "Oversett felt"
+
+msgid "Translate interface strings from plugins and themes"
+msgstr "Oversett grensesnittstrenger fra plugins og temaer"
+
+msgid "Translate posts, pages, and custom content into all active languages"
+msgstr "Oversett innlegg, sider og egendefinert innhold til alle aktive språk"
+
+msgid "Translate to all languages"
+msgstr "Oversett til alle språk"
+
+msgid "Translate: %s"
+msgstr "Oversett: %s"
+
+msgid "Translated %d strings successfully."
+msgstr "%d strenger oversatt."
+
+msgid "Translating"
+msgstr "Oversetter"
+
+msgid "Translating…"
+msgstr "Oversetter…"
+
+msgid "Translation"
+msgstr "Oversettelse"
+
+msgid "Translation / Rule"
+msgstr "Oversettelse / Regel"
+
+msgid "Translation Alert"
+msgstr "Oversettelsevarsel"
+
+msgid "Translation Alert — %s"
+msgstr "Oversettelsevarsel — %s"
+
+msgid "Translation Details"
+msgstr "Oversettingsdetaljer"
+
+msgid "Translation Editor"
+msgstr "Oversettingseditor"
+
+msgid "Translation Memory"
+msgstr "Oversettingsminne"
+
+msgid "Translation Mode"
+msgstr "Oversettingsmodus"
+
+msgid "Translation completed (AI finished)"
+msgstr "Oversettelse fullført (AI ferdig)"
+
+msgid "Translation failed."
+msgstr "Oversettelse mislyktes."
+
+msgid "Translation outdated (source post updated)"
+msgstr "Oversettelse utdatert (kildeinnlegg oppdatert)"
+
+msgid "Translation provider is temporarily unavailable. Please try again."
+msgstr "Oversettingsleverandøren er midlertidig utilgjengelig. Prøv igjen."
+
+msgid "Translation queued (job dispatched)"
+msgstr "Oversettelse i kø (jobb sendt)"
+
+msgid "Translation record not found."
+msgstr "Oversettingspost ikke funnet."
+
+msgid "Translation saved successfully."
+msgstr "Oversettelse lagret."
+
+msgid "Translations"
+msgstr "Oversettelser"
+
+msgid "Translations saved."
+msgstr "Oversettelser lagret."
+
+msgid "Triggered when you update a post that has translations."
+msgstr "Utløses når du oppdaterer et innlegg med oversettelser."
+
+msgid "Troubleshooting"
+msgstr "Feilsøking"
+
+msgid "Type"
+msgstr "Type"
+
+msgid "URL Mode"
+msgstr "URL-modus"
+
+msgid "URL Structure"
+msgstr "URL-struktur"
+
+msgid "Unauthorized"
+msgstr "Uautorisert"
+
+msgid "Update"
+msgstr "Oppdater"
+
+msgid "Upgrade to Pro to unlock Directory and Subdomain modes →"
+msgstr "Oppgrader til Pro for å låse opp mappe- og underdomene-moduser →"
+
+msgid "Upgrade to Pro →"
+msgstr "Oppgrader til Pro →"
+
+msgid "Upload an XLIFF file (2.0 or 1.2) exported from a CAT tool. Translations are written directly into the database."
+msgstr "Last opp en XLIFF-fil (2.0 eller 1.2) eksportert fra et CAT-verktøy."
+
+msgid "Version"
+msgstr "Versjon"
+
+msgid "View"
+msgstr "Vis"
+
+msgid "View Original"
+msgstr "Vis original"
+
+msgid "View compatibility report →"
+msgstr "Vis kompatibilitetsrapport →"
+
+msgid "View source post →"
+msgstr "Vis kildeinnlegg →"
+
+msgid "View strings"
+msgstr "Vis strenger"
+
+msgid "WPML Migration"
+msgstr "WPML-migrering"
+
+msgid "WPML Migration Wizard"
+msgstr "WPML-migreringsveiviser"
+
+msgid "WPML config"
+msgstr "WPML-konfigurasjon"
+
+msgid "WPML config imported successfully."
+msgstr "WPML-konfigurasjon importert."
+
+msgid "WPML config imported with warnings: "
+msgstr "WPML-konfigurasjon importert med advarsler: "
+
+msgid "WPML config imported: %1$d element(s) registered into the translation registry, %2$d skipped (action = ignore)."
+msgstr "WPML-konfigurasjon importert: %1$d element(er) registrert, %2$d hoppet over."
+
+msgid "WPML is active. Running two multilingual plugins simultaneously can cause conflicts. Please deactivate WPML before using Idiomattic WP, or use the WPML migration tool."
+msgstr "WPML er aktivt. Å kjøre to flerspråklige plugins samtidig kan forårsake konflikter."
+
+msgid "WPML is not active. Migration may not be possible."
+msgstr "WPML er ikke aktivt. Migrering er kanskje ikke mulig."
+
+msgid "W3 Total Cache is active. Make sure page caching is configured to handle language-specific URLs correctly."
+msgstr "W3 Total Cache er aktivt. Sørg for at sidebufring er konfigurert til å håndtere språkspesifikke URL-er korrekt."
+
+msgid "WP Debug"
+msgstr "WP-feilsøking"
+
+msgid "WP Debug Log"
+msgstr "WP-feilsøkingslogg"
+
+msgid "WP_DEBUG and WP_DEBUG_LOG are not both enabled. Add the following to wp-config.php to activate debug logging:"
+msgstr "WP_DEBUG og WP_DEBUG_LOG er ikke begge aktivert. Legg til følgende i wp-config.php:"
+
+msgid "Want AI-powered translations? Upgrade to Pro for BYOK (Bring Your Own Key) support."
+msgstr "Ønsker du AI-drevne oversettelser? Oppgrader til Pro for BYOK-støtte."
+
+msgid "Webhooks"
+msgstr "Webhooks"
+
+msgid "What do these statuses mean?"
+msgstr "Hva betyr disse statusene?"
+
+msgid "What language is your content written in?"
+msgstr "Hvilket språk er innholdet ditt skrevet på?"
+
+msgid "Which languages do you want to translate into?"
+msgstr "Hvilke språk vil du oversette til?"
+
+msgid "WordPress Version"
+msgstr "WordPress-versjon"
+
+msgid "Works with any permalink structure. Easiest to set up."
+msgstr "Fungerer med alle permalenkestrukturer. Enklest å konfigurere."
+
+msgid "Works with any permalink structure. Recommended for most sites."
+msgstr "Fungerer med alle permalenkestrukturer. Anbefalt for de fleste nettsteder."
+
+msgid "XLIFF file (.xliff)"
+msgstr "XLIFF-fil (.xliff)"
+
+msgid "You can add or remove languages at any time from Settings."
+msgstr "Du kan når som helst legge til eller fjerne språk fra Innstillinger."
+
+msgid "You can disable these notifications in the plugin settings."
+msgstr "Du kan deaktivere disse varslene i plugin-innstillingene."
+
+msgid "You do not have permission to edit this post."
+msgstr "Du har ikke tillatelse til å redigere dette innlegget."
+
+msgid "debug.log not found or not readable."
+msgstr "debug.log ikke funnet eller ikke lesbar."
+
+msgid "default"
+msgstr "standard"
+
+msgid "e.g. button, menu"
+msgstr "f.eks. knapp, meny"
+
+msgid "e.g. my-plugin"
+msgstr "f.eks. mitt-plugin"
+
+msgid "— Not assigned —"
+msgstr "— Ikke tildelt —"
+
+msgid "→ Scan sources"
+msgstr "→ Skann kilder"
+
+msgid "Admin Language"
+msgstr "Administrasjonsspråk"
+
+msgid "Admin Interface Language"
+msgstr "Administrasjonsgrensesnittspråk"
+
+msgid "Use site default"
+msgstr "Bruk nettstedsstandard"
+
+msgid "Select the language you prefer for the WordPress admin interface."
+msgstr "Velg det språket du foretrekker for WordPress-administrasjonsgrensesnittet."
+
+msgid "%d missing"
+msgid_plural "%d missing"
+msgstr[0] "%d mangler"
+msgstr[1] "%d mangler"
+
+msgid "%d translation job queued. Jobs are processed in the background."
+msgid_plural "%d translation jobs queued. Jobs are processed in the background."
+msgstr[0] "%d oversettingsjobb i kø. Jobber behandles i bakgrunnen."
+msgstr[1] "%d oversettingsjobber i kø. Jobber behandles i bakgrunnen."
+
+msgid "Retranslate %d outdated"
+msgid_plural "Retranslate %d outdated"
+msgstr[0] "Overset %d utdatert på nytt"
+msgstr[1] "Overset %d utdaterte på nytt"

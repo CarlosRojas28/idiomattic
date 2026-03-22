@@ -76,7 +76,11 @@ class PostDuplicator
         // Build structural post data.
         // post_title uses the source title as a placeholder (WordPress rejects
         // posts where title + content + excerpt are all empty).
-        // The prefix signals to editors that this post needs translation.
+        // We intentionally do NOT embed the source title in the placeholder:
+        // the source title is already visible in the Translation Editor's left
+        // column, and embedding it here causes the right (editable) column to
+        // show English text, misleading editors into thinking the post is
+        // already written in the source language.
         // post_content and post_excerpt are intentionally empty — they will be
         // filled by the translator or AIOrchestrator.
         $postData = [
@@ -88,10 +92,9 @@ class PostDuplicator
             'ping_status'    => $source->ping_status,
             'post_parent'    => 0,
             'post_title'     => sprintf(
-                /* translators: %s = original post title */
-                /* @cache-bust */
-                __( '[Needs translation] %s', 'idiomattic-wp' ),
-                $source->post_title
+                /* translators: %s = target language code, e.g. "fr" */
+                __( '[%s — translation pending]', 'idiomattic-wp' ),
+                strtoupper( (string) $targetLang )
             ),
             'post_content'   => '',
             'post_excerpt'   => '',

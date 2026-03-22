@@ -1,0 +1,1063 @@
+# Czech translation for Idiomattic WP
+# Copyright (C) 2024 Idiomattic
+msgid ""
+msgstr ""
+"Project-Id-Version: Idiomattic WP\n"
+"POT-Creation-Date: 2024-01-01 00:00+0000\n"
+"PO-Revision-Date: 2024-01-01 00:00+0000\n"
+"Last-Translator: Idiomattic <hello@idiomattic.app>\n"
+"Language-Team: Czech\n"
+"Language: cs_CZ\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Idiomattic WP\n"
+"X-Domain: idiomattic-wp\n"
+
+msgid "%1$d draft, %2$d in progress"
+msgstr "%1$d koncept, %2$d probíhá"
+
+msgid "%d active plugins — click to expand"
+msgstr "%d aktivních pluginů — klikněte pro rozbalení"
+
+msgid "%s: %s"
+msgstr "%s: %s"
+
+msgid "(empty)"
+msgstr "(prázdné)"
+
+msgid "(no title)"
+msgstr "(bez názvu)"
+
+msgid "(optional)"
+msgstr "(volitelné)"
+
+msgid "(saved — enter a new key to replace)"
+msgstr "(uloženo — zadejte nový klíč pro nahrazení)"
+
+msgid "A translation already exists for this language. Delete it first."
+msgstr "Pro tento jazyk již překlad existuje. Nejprve jej odstraňte."
+
+msgid "AI Translation Provider"
+msgstr "Poskytovatel překladů AI"
+
+msgid "AI Translation — Pro Feature"
+msgstr "Překlad AI — Pro funkce"
+
+msgid "AI error: "
+msgstr "Chyba AI: "
+
+msgid "AI string translation requires a Pro license."
+msgstr "Překlad řetězců pomocí AI vyžaduje licenci Pro."
+
+msgid "AI translation requires Pro"
+msgstr "Překlad AI vyžaduje Pro"
+
+msgid "AI translation requires a Pro license."
+msgstr "Překlad AI vyžaduje licenci Pro."
+
+msgid "Action"
+msgstr "Akce"
+
+msgid "Actions"
+msgstr "Akce"
+
+msgid "Active Languages"
+msgstr "Aktivní jazyky"
+
+msgid "Active Plugins"
+msgstr "Aktivní pluginy"
+
+msgid "Active Theme"
+msgstr "Aktivní motiv"
+
+msgid "Add"
+msgstr "Přidat"
+
+msgid "Add Custom Language"
+msgstr "Přidat vlastní jazyk"
+
+msgid "Add String"
+msgstr "Přidat řetězec"
+
+msgid "Add Term"
+msgstr "Přidat termín"
+
+msgid "Add string"
+msgstr "Přidat řetězec"
+
+msgid "Advanced"
+msgstr "Pokročilé"
+
+msgid "All"
+msgstr "Vše"
+
+msgid "All content already has translations for the selected languages."
+msgstr "Veškerý obsah již má překlady pro vybrané jazyky."
+
+msgid "All content is fully translated!"
+msgstr "Veškerý obsah je plně přeložen!"
+
+msgid "All fields already have a translation."
+msgstr "Všechna pole již mají překlad."
+
+msgid "All languages"
+msgstr "Všechny jazyky"
+
+msgid "All packages"
+msgstr "Všechny balíčky"
+
+msgid "An unexpected error occurred during translation."
+msgstr "Při překladu došlo k neočekávané chybě."
+
+msgid "Apply"
+msgstr "Použít"
+
+msgid "Are you sure you want to delete this translation?"
+msgstr "Opravdu chcete smazat tento překlad?"
+
+msgid "Author"
+msgstr "Autor"
+
+msgid "Auto-translate failed."
+msgstr "Automatický překlad selhal."
+
+msgid "Auto-translate on creation"
+msgstr "Automatický překlad při vytvoření"
+
+msgid "Auto-translate pending"
+msgstr "Automatický překlad čeká"
+
+msgid "Automated translations and AI provider configuration are available in the Pro version. Bring Your Own Key — connect directly to OpenAI, Claude, or DeepL."
+msgstr "Automatizované překlady a konfigurace poskytovatele AI jsou dostupné v Pro verzi. Přineste si vlastní klíč — připojte se přímo k OpenAI, Claude nebo DeepL."
+
+msgid "Automatically start AI translation when a new translation is created"
+msgstr "Automaticky spustit překlad AI při vytvoření nového překladu"
+
+msgid "Back"
+msgstr "Zpět"
+
+msgid "Back to list"
+msgstr "Zpět na seznam"
+
+msgid "Behaviour"
+msgstr "Chování"
+
+msgid "Bring Your Own Key (BYOK): connect directly to your chosen AI provider. Your API key is stored encrypted and never sent to Idiomattic servers."
+msgstr "Přineste si vlastní klíč (BYOK): připojte se přímo k vybranému poskytovateli AI. Váš API klíč je uložen zašifrovaný a nikdy není odesílán na servery Idiomattic."
+
+msgid "Cache & Transients"
+msgstr "Mezipaměť a přechodná data"
+
+msgid "Cache language detection results for improved performance."
+msgstr "Ukládejte výsledky detekce jazyka do mezipaměti pro lepší výkon."
+
+msgid "Cancel"
+msgstr "Zrušit"
+
+msgid "Child theme"
+msgstr "Podřízený motiv"
+
+msgid "Choose the primary language your website content will be served in by default."
+msgstr "Vyberte primární jazyk, ve kterém bude obsah vašeho webu standardně zobrazen."
+
+msgid "Claude API Key"
+msgstr "Klíč API Claude"
+
+msgid "Clean URLs with the language code as a path prefix. Requires pretty permalinks."
+msgstr "Čisté adresy URL s kódem jazyka jako předponou cesty. Vyžaduje hezké trvalé odkazy."
+
+msgid "Clear cached data if you are seeing stale content or unexpected behaviour."
+msgstr "Vymažte data z mezipaměti, pokud vidíte zastaralý obsah nebo neočekávané chování."
+
+msgid "Clear language filter"
+msgstr "Vymazat jazykový filtr"
+
+msgid "Close"
+msgstr "Zavřít"
+
+msgid "Code, native name, and English name are required."
+msgstr "Kód, nativní název a anglický název jsou povinné."
+
+msgid "Compatibility"
+msgstr "Kompatibilita"
+
+msgid "Compatibility scan completed successfully."
+msgstr "Skenování kompatibility bylo úspěšně dokončeno."
+
+msgid "Complete"
+msgstr "Dokončit"
+
+msgid "Configure how each post type behaves across languages."
+msgstr "Nakonfigurujte, jak se každý typ příspěvku chová napříč jazyky."
+
+msgid "Configure how taxonomy terms behave across languages."
+msgstr "Nakonfigurujte, jak se termíny taxonomie chovají napříč jazyky."
+
+msgid "Configure permalinks →"
+msgstr "Konfigurovat trvalé odkazy →"
+
+msgid "Configure translation mode for registered custom fields. New fields can be added via the Compatibility tab or programmatically."
+msgstr "Nakonfigurujte režim překladu pro registrovaná vlastní pole. Nová pole lze přidat prostřednictvím záložky Kompatibilita nebo programově."
+
+msgid "Content"
+msgstr "Obsah"
+
+msgid "Content Translation"
+msgstr "Překlad obsahu"
+
+msgid "Context"
+msgstr "Kontext"
+
+msgid "Context (optional)"
+msgstr "Kontext (volitelné)"
+
+msgid "Continue →"
+msgstr "Pokračovat →"
+
+msgid "Control how the plugin handles its data."
+msgstr "Ovládejte, jak plugin nakládá se svými daty."
+
+msgid "Copied!"
+msgstr "Zkopírováno!"
+
+msgid "Copy from original:"
+msgstr "Kopírovat z originálu:"
+
+msgid "Copy source string"
+msgstr "Kopírovat zdrojový řetězec"
+
+msgid "Copy source to all empty translations"
+msgstr "Kopírovat zdroj do všech prázdných překladů"
+
+msgid "Copy to all"
+msgstr "Kopírovat do všech"
+
+msgid "Copy to clipboard"
+msgstr "Kopírovat do schránky"
+
+msgid "Could not create export archive."
+msgstr "Nelze vytvořit archiv pro export."
+
+msgid "Could not link post."
+msgstr "Nelze propojit příspěvek."
+
+msgid "Coverage"
+msgstr "Pokrytí"
+
+msgid "Create a menu →"
+msgstr "Vytvořit nabídku →"
+
+msgid "Creating..."
+msgstr "Vytváření..."
+
+msgid "Custom"
+msgstr "Vlastní"
+
+msgid "Custom Fields"
+msgstr "Vlastní pole"
+
+msgid "Daily digest — one email per day"
+msgstr "Denní přehled — jeden e-mail za den"
+
+msgid "Dashboard"
+msgstr "Přehled"
+
+msgid "Data Management"
+msgstr "Správa dat"
+
+msgid "Date"
+msgstr "Datum"
+
+msgid "Debug Log"
+msgstr "Protokol ladění"
+
+msgid "Default Language"
+msgstr "Výchozí jazyk"
+
+msgid "Default configured by %s"
+msgstr "Výchozí nastavení konfigurováno uživatelem %s"
+
+msgid "Define terms that must always be translated a specific way, or kept unchanged by the AI."
+msgstr "Definujte termíny, které musí být vždy přeloženy určitým způsobem nebo ponechány beze změny AI."
+
+msgid "Define terms that must always be translated a specific way, or kept unchanged. Glossary rules are automatically applied during AI translation."
+msgstr "Definujte termíny, které musí být vždy přeloženy určitým způsobem nebo ponechány beze změny. Pravidla slovníku se automaticky použijí při překladu AI."
+
+msgid "Delete"
+msgstr "Smazat"
+
+msgid "Delete this custom language?"
+msgstr "Smazat tento vlastní jazyk?"
+
+msgid "Delete this term?"
+msgstr "Smazat tento termín?"
+
+msgid "Directory"
+msgstr "Adresář"
+
+msgid "Directory and Subdomain modes require pretty permalinks. %s"
+msgstr "Režimy Adresář a Subdoména vyžadují hezké trvalé odkazy. %s"
+
+msgid "Directory not found."
+msgstr "Adresář nenalezen."
+
+msgid "Disabled"
+msgstr "Zakázáno"
+
+msgid "Display a language switcher."
+msgstr "Zobrazit přepínač jazyka."
+
+msgid "Done"
+msgstr "Hotovo"
+
+msgid "Download JSON"
+msgstr "Stáhnout JSON"
+
+msgid "Download JSON template"
+msgstr "Stáhnout šablonu JSON"
+
+msgid "Download ZIP"
+msgstr "Stáhnout ZIP"
+
+msgid "Download all translations for a language as a ZIP of XLIFF 2.0 files, ready to be processed by any CAT tool."
+msgstr "Stáhněte všechny překlady pro jazyk jako ZIP souborů XLIFF 2.0, připravených ke zpracování jakýmkoli nástrojem CAT."
+
+msgid "Download as JSON"
+msgstr "Stáhnout jako JSON"
+
+msgid "Draft"
+msgstr "Koncept"
+
+msgid "Draft / In Progress"
+msgstr "Koncept / Probíhá"
+
+msgid "Draft/WIP"
+msgstr "Koncept/Rozpracováno"
+
+msgid "Duplicate all"
+msgstr "Duplikovat vše"
+
+msgid "Duplicate untranslated"
+msgstr "Duplikovat nepřeložené"
+
+msgid "Each language has its own version of this content"
+msgstr "Každý jazyk má svou vlastní verzi tohoto obsahu"
+
+msgid "Each language on its own subdomain. Requires wildcard DNS and SSL."
+msgstr "Každý jazyk na vlastní subdoméně. Vyžaduje wildcard DNS a SSL."
+
+msgid "Each language on its own subdomain. Requires wildcard DNS."
+msgstr "Každý jazyk na vlastní subdoméně. Vyžaduje wildcard DNS."
+
+msgid "Edit"
+msgstr "Upravit"
+
+msgid "Email Notifications"
+msgstr "E-mailová oznámení"
+
+msgid "Enable AI-powered string translation"
+msgstr "Povolit překlad řetězců pomocí AI"
+
+msgid "Enable caching"
+msgstr "Povolit mezipaměť"
+
+msgid "Enable webhooks"
+msgstr "Povolit webhooky"
+
+msgid "Error"
+msgstr "Chyba"
+
+msgid "Export"
+msgstr "Exportovat"
+
+msgid "Export Translations"
+msgstr "Exportovat překlady"
+
+msgid "Field"
+msgstr "Pole"
+
+msgid "Glossary"
+msgstr "Slovník"
+
+msgid "Import"
+msgstr "Importovat"
+
+msgid "Import Translations"
+msgstr "Importovat překlady"
+
+msgid "Immediate — one email per event"
+msgstr "Okamžitě — jeden e-mail za událost"
+
+msgid "In Progress"
+msgstr "Probíhá"
+
+msgid "Install"
+msgstr "Nainstalovat"
+
+msgid "Invalid parameters."
+msgstr "Neplatné parametry."
+
+msgid "Invalid translation ID."
+msgstr "Neplatné ID překladu."
+
+msgid "Language"
+msgstr "Jazyk"
+
+msgid "Language Coverage"
+msgstr "Pokrytí jazyka"
+
+msgid "Language Switcher"
+msgstr "Přepínač jazyka"
+
+msgid "Languages"
+msgstr "Jazyky"
+
+msgid "Link as translation"
+msgstr "Propojit jako překlad"
+
+msgid "Link existing post"
+msgstr "Propojit existující příspěvek"
+
+msgid "Loading..."
+msgstr "Načítání..."
+
+msgid "Max words per segment"
+msgstr "Maximální počet slov na segment"
+
+msgid "Memory Hits"
+msgstr "Shody v paměti"
+
+msgid "Menu"
+msgstr "Nabídka"
+
+msgid "Menus"
+msgstr "Nabídky"
+
+msgid "Missing"
+msgstr "Chybí"
+
+msgid "Missing %d"
+msgstr "Chybí %d"
+
+msgid "N/A"
+msgstr "Není k dispozici"
+
+msgid "No compatibility file found. Custom fields from this plugin will not be automatically translated. Click \"Download JSON template\" to get a starter file you can fill in and place inside the plugin/theme directory, or ask the author to add support."
+msgstr "Soubor kompatibility nenalezen. Vlastní pole z tohoto pluginu nebudou automaticky přeložena."
+
+msgid "No config file"
+msgstr "Žádný konfigurační soubor"
+
+msgid "No items match the selected filter."
+msgstr "Žádné položky neodpovídají vybranému filtru."
+
+msgid "No permissions."
+msgstr "Žádná oprávnění."
+
+msgid "No strings found for auto-translation."
+msgstr "Pro automatický překlad nebyly nalezeny žádné řetězce."
+
+msgid "No terms in glossary yet. Add your first term above."
+msgstr "Ve slovníku zatím nejsou žádné termíny. Přidejte první termín výše."
+
+msgid "No translation found."
+msgstr "Překlad nenalezen."
+
+msgid "No translations yet. Start by creating a translation from the post list."
+msgstr "Zatím žádné překlady. Začněte vytvořením překladu ze seznamu příspěvků."
+
+msgid "Not configured"
+msgstr "Nenastaveno"
+
+msgid "Not registered"
+msgstr "Neregistrováno"
+
+msgid "Not translatable"
+msgstr "Nepřeložitelné"
+
+msgid "Notes"
+msgstr "Poznámky"
+
+msgid "Notification Mode"
+msgstr "Režim oznámení"
+
+msgid "Notify on outdated translations"
+msgstr "Upozornit na zastaralé překlady"
+
+msgid "Only .xliff or .xml files are accepted."
+msgstr "Jsou přijímány pouze soubory .xliff nebo .xml."
+
+msgid "Open Translations Dashboard"
+msgstr "Otevřít přehled překladů"
+
+msgid "Open any post or page and click \"Translate\" to use the translation editor."
+msgstr "Otevřete libovolný příspěvek nebo stránku a klikněte na „Přeložit" pro použití editoru překladů."
+
+msgid "OpenAI API Key"
+msgstr "Klíč API OpenAI"
+
+msgid "Optional HMAC-SHA256 secret"
+msgstr "Volitelné tajemství HMAC-SHA256"
+
+msgid "Original"
+msgstr "Originál"
+
+msgid "Original post has been deleted."
+msgstr "Původní příspěvek byl smazán."
+
+msgid "Original post not found."
+msgstr "Původní příspěvek nenalezen."
+
+msgid "Outdated"
+msgstr "Zastaralé"
+
+msgid "Overview of your multilingual content"
+msgstr "Přehled vašeho vícejazyčného obsahu"
+
+msgid "PHP Version"
+msgstr "Verze PHP"
+
+msgid "Package / Domain"
+msgstr "Balíček / Doména"
+
+msgid "Page %1$d of %2$d"
+msgstr "Stránka %1$d z %2$d"
+
+msgid "Permalink Structure"
+msgstr "Struktura trvalých odkazů"
+
+msgid "Permission denied."
+msgstr "Přístup odepřen."
+
+msgid "Please configure at least two active languages in Settings → Languages before using Content Translation."
+msgstr "Před použitím překladu obsahu nakonfigurujte alespoň dva aktivní jazyky v Nastavení → Jazyky."
+
+msgid "Please configure at least two active languages in Settings → Languages before using Import / Export."
+msgstr "Před použitím importu / exportu nakonfigurujte alespoň dva aktivní jazyky v Nastavení → Jazyky."
+
+msgid "Please configure at least two active languages in Settings → Languages before using String Translation."
+msgstr "Před použitím překladu řetězců nakonfigurujte alespoň dva aktivní jazyky v Nastavení → Jazyky."
+
+msgid "Plugin"
+msgstr "Plugin"
+
+msgid "Plugin & Theme Compatibility"
+msgstr "Kompatibilita pluginu a motivu"
+
+msgid "Plugin / Theme"
+msgstr "Plugin / Motiv"
+
+msgid "Plugin Activation Error"
+msgstr "Chyba aktivace pluginu"
+
+msgid "Plugin Version"
+msgstr "Verze pluginu"
+
+msgid "Polylang is active. Running two multilingual plugins simultaneously can cause conflicts. Please deactivate Polylang before using Idiomattic WP."
+msgstr "Polylang je aktivní. Současné spuštění dvou vícejazyčných pluginů může způsobit konflikty. Před použitím Idiomattic WP deaktivujte Polylang."
+
+msgid "Post Title"
+msgstr "Název příspěvku"
+
+msgid "Post Type"
+msgstr "Typ příspěvku"
+
+msgid "Post Type(s)"
+msgstr "Typ(y) příspěvku"
+
+msgid "Post Types"
+msgstr "Typy příspěvků"
+
+msgid "Post not found."
+msgstr "Příspěvek nenalezen."
+
+msgid "Prev"
+msgstr "Předchozí"
+
+msgid "Preview flag"
+msgstr "Náhled vlajky"
+
+msgid "Primary Language"
+msgstr "Primární jazyk"
+
+msgid "Pro"
+msgstr "Pro"
+
+msgid "Progress"
+msgstr "Průběh"
+
+msgid "Publish"
+msgstr "Publikovat"
+
+msgid "Publish Translation"
+msgstr "Publikovat překlad"
+
+msgid "Queue AI translation"
+msgstr "Zařadit překlad AI do fronty"
+
+msgid "Rate limit reached. Please wait a moment and try again."
+msgstr "Byl dosažen limit rychlosti. Chvíli počkejte a zkuste to znovu."
+
+msgid "Re-scan"
+msgstr "Znovu skenovat"
+
+msgid "Re-use previously translated segments to reduce API costs"
+msgstr "Znovu použít dříve přeložené segmenty pro snížení nákladů na API"
+
+msgid "Recent Activity"
+msgstr "Nedávná aktivita"
+
+msgid "Recipient Email"
+msgstr "E-mail příjemce"
+
+msgid "Register string"
+msgstr "Zaregistrovat řetězec"
+
+msgid "Register this string for this language"
+msgstr "Zaregistrovat tento řetězec pro tento jazyk"
+
+msgid "Remove"
+msgstr "Odebrat"
+
+msgid "Requires Pro licence"
+msgstr "Vyžaduje licenci Pro"
+
+msgid "Retain data on uninstall"
+msgstr "Zachovat data při odinstalování"
+
+msgid "Rewrite Rules"
+msgstr "Pravidla přepisování"
+
+msgid "Right-to-left language"
+msgstr "Jazyk zprava doleva"
+
+msgid "Save"
+msgstr "Uložit"
+
+msgid "Save Draft"
+msgstr "Uložit koncept"
+
+msgid "Save Translations"
+msgstr "Uložit překlady"
+
+msgid "Scan complete."
+msgstr "Skenování dokončeno."
+
+msgid "Scan sources"
+msgstr "Skenovat zdroje"
+
+msgid "Scan strings"
+msgstr "Skenovat řetězce"
+
+msgid "Scanning..."
+msgstr "Skenování..."
+
+msgid "Search"
+msgstr "Hledat"
+
+msgid "Search by title…"
+msgstr "Hledat podle názvu…"
+
+msgid "Search in source and translations…"
+msgstr "Hledat ve zdroji a překladech…"
+
+msgid "Search languages…"
+msgstr "Hledat jazyky…"
+
+msgid "Search strings"
+msgstr "Hledat řetězce"
+
+msgid "Security check failed."
+msgstr "Bezpečnostní kontrola selhala."
+
+msgid "Select Language"
+msgstr "Vybrat jazyk"
+
+msgid "Send HTTP POST notifications to an external URL when translation events occur. Payloads are signed with HMAC-SHA256."
+msgstr "Odesílat oznámení HTTP POST na externí URL, když dojde k překladovým událostem. Data jsou podepsána pomocí HMAC-SHA256."
+
+msgid "Settings"
+msgstr "Nastavení"
+
+msgid "Show Flags"
+msgstr "Zobrazit vlajky"
+
+msgid "Show Names"
+msgstr "Zobrazit názvy"
+
+msgid "Show all"
+msgstr "Zobrazit vše"
+
+msgid "Show as translated"
+msgstr "Zobrazit jako přeložené"
+
+msgid "Show terms for:"
+msgstr "Zobrazit termíny pro:"
+
+msgid "Showing original posts only"
+msgstr "Zobrazují se pouze původní příspěvky"
+
+msgid "Showing translations into: %s"
+msgstr "Zobrazují se překlady do: %s"
+
+msgid "Shown in secondary languages even without a translation (uses default language content)"
+msgstr "Zobrazeno v sekundárních jazycích i bez překladu (používá obsah výchozího jazyka)"
+
+msgid "Signing Secret"
+msgstr "Podpisové tajemství"
+
+msgid "Site Default Language"
+msgstr "Výchozí jazyk webu"
+
+msgid "Slug"
+msgstr "Slug"
+
+msgid "Source Term"
+msgstr "Zdrojový termín"
+
+msgid "Source post not found."
+msgstr "Zdrojový příspěvek nenalezen."
+
+msgid "Source string"
+msgstr "Zdrojový řetězec"
+
+msgid "Source string not found."
+msgstr "Zdrojový řetězec nenalezen."
+
+msgid "Standard ISO code for localization"
+msgstr "Standardní kód ISO pro lokalizaci"
+
+msgid "Start Migration"
+msgstr "Spustit migraci"
+
+msgid "Status"
+msgstr "Stav"
+
+msgid "Step 1: Detection"
+msgstr "Krok 1: Detekce"
+
+msgid "String Translation"
+msgstr "Překlad řetězců"
+
+msgid "Style"
+msgstr "Styl"
+
+msgid "Subdomain"
+msgstr "Subdoména"
+
+msgid "System Information"
+msgstr "Systémové informace"
+
+msgid "System Report"
+msgstr "Systémová zpráva"
+
+msgid "Target language is required."
+msgstr "Cílový jazyk je povinný."
+
+msgid "Taxonomies"
+msgstr "Taxonomie"
+
+msgid "Taxonomy"
+msgstr "Taxonomie"
+
+msgid "Theme"
+msgstr "Motiv"
+
+msgid "This affects how visitors and search engines find your translated content."
+msgstr "To ovlivňuje, jak návštěvníci a vyhledávače nalézají váš přeložený obsah."
+
+msgid "This alert was sent by the %s plugin."
+msgstr "Toto upozornění bylo odesláno pluginem %s."
+
+msgid "This is a translation of: %s"
+msgstr "Toto je překlad: %s"
+
+msgid "This is the original language of your posts and pages."
+msgstr "Toto je původní jazyk vašich příspěvků a stránek."
+
+msgid "This plugin/theme ships with a native idiomattic-elements.json file. All its elements are automatically registered. No action needed."
+msgstr "Tento plugin/motiv obsahuje nativní soubor idiomattic-elements.json. Všechny jeho prvky jsou automaticky registrovány. Není třeba provádět žádné akce."
+
+msgid "This plugin/theme ships with a wpml-config.xml file. Idiomattic auto-imports its field definitions at runtime. Use \"Import WPML config\" to force-register them now, or \"Download as JSON\" to convert the file to a permanent idiomattic-elements.json."
+msgstr "Tento plugin/motiv obsahuje soubor wpml-config.xml. Idiomattic automaticky importuje definice polí za běhu."
+
+msgid "This translation is outdated — the source post has been updated since it was last translated. Please review and re-translate."
+msgstr "Tento překlad je zastaralý — zdrojový příspěvek byl aktualizován od posledního překladu. Zkontrolujte a znovu přeložte."
+
+msgid "This will overwrite all fields with the original content. Continue?"
+msgstr "Tím se přepíší všechna pole původním obsahem. Pokračovat?"
+
+msgid "Title"
+msgstr "Název"
+
+msgid "To create or edit navigation menus visit %s."
+msgstr "Pro vytvoření nebo úpravu navigačních nabídek navštivte %s."
+
+msgid "Total Translations"
+msgstr "Celkem překlady"
+
+msgid "Total scanned"
+msgstr "Celkem skenováno"
+
+msgid "Translatable"
+msgstr "Přeložitelné"
+
+msgid "Translate all"
+msgstr "Přeložit vše"
+
+msgid "Translate all languages"
+msgstr "Přeložit všechny jazyky"
+
+msgid "Translate all missing"
+msgstr "Přeložit vše chybějící"
+
+msgid "Translate all missing (%d)"
+msgstr "Přeložit vše chybějící (%d)"
+
+msgid "Translate content →"
+msgstr "Přeložit obsah →"
+
+msgid "Translate field"
+msgstr "Přeložit pole"
+
+msgid "Translate interface strings from plugins and themes"
+msgstr "Přeložit řetězce rozhraní z pluginů a motivů"
+
+msgid "Translate posts, pages, and custom content into all active languages"
+msgstr "Přeložit příspěvky, stránky a vlastní obsah do všech aktivních jazyků"
+
+msgid "Translate to all languages"
+msgstr "Přeložit do všech jazyků"
+
+msgid "Translate: %s"
+msgstr "Přeložit: %s"
+
+msgid "Translated %d strings successfully."
+msgstr "Úspěšně přeloženo %d řetězců."
+
+msgid "Translating"
+msgstr "Překládání"
+
+msgid "Translating…"
+msgstr "Překládání…"
+
+msgid "Translation"
+msgstr "Překlad"
+
+msgid "Translation / Rule"
+msgstr "Překlad / Pravidlo"
+
+msgid "Translation Alert"
+msgstr "Upozornění na překlad"
+
+msgid "Translation Alert — %s"
+msgstr "Upozornění na překlad — %s"
+
+msgid "Translation Details"
+msgstr "Podrobnosti překladu"
+
+msgid "Translation Editor"
+msgstr "Editor překladů"
+
+msgid "Translation Memory"
+msgstr "Překladová paměť"
+
+msgid "Translation Mode"
+msgstr "Režim překladu"
+
+msgid "Translation completed (AI finished)"
+msgstr "Překlad dokončen (AI dokončila)"
+
+msgid "Translation failed."
+msgstr "Překlad selhal."
+
+msgid "Translation outdated (source post updated)"
+msgstr "Překlad zastaralý (zdrojový příspěvek aktualizován)"
+
+msgid "Translation provider is temporarily unavailable. Please try again."
+msgstr "Poskytovatel překladu je dočasně nedostupný. Zkuste to prosím znovu."
+
+msgid "Translation queued (job dispatched)"
+msgstr "Překlad ve frontě (úloha odeslána)"
+
+msgid "Translation record not found."
+msgstr "Záznam překladu nenalezen."
+
+msgid "Translation saved successfully."
+msgstr "Překlad byl úspěšně uložen."
+
+msgid "Translations"
+msgstr "Překlady"
+
+msgid "Translations saved."
+msgstr "Překlady uloženy."
+
+msgid "Triggered when you update a post that has translations."
+msgstr "Spustí se při aktualizaci příspěvku s překlady."
+
+msgid "Troubleshooting"
+msgstr "Řešení potíží"
+
+msgid "Type"
+msgstr "Typ"
+
+msgid "URL Mode"
+msgstr "Režim URL"
+
+msgid "URL Structure"
+msgstr "Struktura URL"
+
+msgid "Unauthorized"
+msgstr "Neautorizováno"
+
+msgid "Update"
+msgstr "Aktualizovat"
+
+msgid "Upgrade to Pro to unlock Directory and Subdomain modes →"
+msgstr "Upgradujte na Pro pro odemknutí režimů Adresář a Subdoména →"
+
+msgid "Upgrade to Pro →"
+msgstr "Upgradovat na Pro →"
+
+msgid "Upload an XLIFF file (2.0 or 1.2) exported from a CAT tool. Translations are written directly into the database."
+msgstr "Nahrajte soubor XLIFF (2.0 nebo 1.2) exportovaný z nástroje CAT. Překlady jsou zapsány přímo do databáze."
+
+msgid "Version"
+msgstr "Verze"
+
+msgid "View"
+msgstr "Zobrazit"
+
+msgid "View Original"
+msgstr "Zobrazit originál"
+
+msgid "View compatibility report →"
+msgstr "Zobrazit zprávu o kompatibilitě →"
+
+msgid "View source post →"
+msgstr "Zobrazit zdrojový příspěvek →"
+
+msgid "View strings"
+msgstr "Zobrazit řetězce"
+
+msgid "WPML Migration"
+msgstr "Migrace WPML"
+
+msgid "WPML Migration Wizard"
+msgstr "Průvodce migrací WPML"
+
+msgid "WPML config"
+msgstr "Konfigurace WPML"
+
+msgid "WPML config imported successfully."
+msgstr "Konfigurace WPML byla úspěšně importována."
+
+msgid "WPML config imported with warnings: "
+msgstr "Konfigurace WPML importována s varováními: "
+
+msgid "WPML config imported: %1$d element(s) registered into the translation registry, %2$d skipped (action = ignore)."
+msgstr "Konfigurace WPML importována: %1$d prvek(ů) zaregistrován v registru překladů, %2$d přeskočeno (akce = ignorovat)."
+
+msgid "WPML is active. Running two multilingual plugins simultaneously can cause conflicts. Please deactivate WPML before using Idiomattic WP, or use the WPML migration tool."
+msgstr "WPML je aktivní. Současné spuštění dvou vícejazyčných pluginů může způsobit konflikty. Před použitím Idiomattic WP deaktivujte WPML nebo použijte nástroj pro migraci WPML."
+
+msgid "WPML is not active. Migration may not be possible."
+msgstr "WPML není aktivní. Migrace nemusí být možná."
+
+msgid "W3 Total Cache is active. Make sure page caching is configured to handle language-specific URLs correctly."
+msgstr "W3 Total Cache je aktivní. Ujistěte se, že mezipaměť stránek je nakonfigurována pro správné zpracování URL specifických pro jazyk."
+
+msgid "WP Debug"
+msgstr "WP ladění"
+
+msgid "WP Debug Log"
+msgstr "WP protokol ladění"
+
+msgid "WP_DEBUG and WP_DEBUG_LOG are not both enabled. Add the following to wp-config.php to activate debug logging:"
+msgstr "WP_DEBUG a WP_DEBUG_LOG nejsou oba povoleny. Přidejte do wp-config.php následující pro aktivaci protokolování ladění:"
+
+msgid "Want AI-powered translations? Upgrade to Pro for BYOK (Bring Your Own Key) support."
+msgstr "Chcete překlady s podporou AI? Upgradujte na Pro pro podporu BYOK (Přineste vlastní klíč)."
+
+msgid "Webhooks"
+msgstr "Webhooky"
+
+msgid "What do these statuses mean?"
+msgstr "Co tyto stavy znamenají?"
+
+msgid "What language is your content written in?"
+msgstr "V jakém jazyce je napsán váš obsah?"
+
+msgid "Which languages do you want to translate into?"
+msgstr "Do jakých jazyků chcete překládat?"
+
+msgid "WordPress Version"
+msgstr "Verze WordPressu"
+
+msgid "Works with any permalink structure. Easiest to set up."
+msgstr "Funguje s jakoukoli strukturou trvalých odkazů. Nejjednodušší na nastavení."
+
+msgid "Works with any permalink structure. Recommended for most sites."
+msgstr "Funguje s jakoukoli strukturou trvalých odkazů. Doporučeno pro většinu webů."
+
+msgid "XLIFF file (.xliff)"
+msgstr "Soubor XLIFF (.xliff)"
+
+msgid "You can add or remove languages at any time from Settings."
+msgstr "Jazyky můžete kdykoli přidat nebo odebrat z Nastavení."
+
+msgid "You can disable these notifications in the plugin settings."
+msgstr "Tato oznámení můžete vypnout v nastavení pluginu."
+
+msgid "You do not have permission to edit this post."
+msgstr "Nemáte oprávnění upravovat tento příspěvek."
+
+msgid "debug.log not found or not readable."
+msgstr "debug.log nenalezen nebo není čitelný."
+
+msgid "default"
+msgstr "výchozí"
+
+msgid "e.g. button, menu"
+msgstr "např. tlačítko, nabídka"
+
+msgid "e.g. my-plugin"
+msgstr "např. můj-plugin"
+
+msgid "— Not assigned —"
+msgstr "— Nepřiřazeno —"
+
+msgid "→ Scan sources"
+msgstr "→ Skenovat zdroje"
+
+msgid "Admin Language"
+msgstr "Jazyk správce"
+
+msgid "Admin Interface Language"
+msgstr "Jazyk rozhraní správce"
+
+msgid "Use site default"
+msgstr "Použít výchozí nastavení webu"
+
+msgid "Select the language you prefer for the WordPress admin interface."
+msgstr "Vyberte jazyk, který preferujete pro rozhraní správce WordPressu."
+
+msgid "%d missing"
+msgid_plural "%d missing"
+msgstr[0] "%d chybí"
+msgstr[1] "%d chybí"
+msgstr[2] "%d chybí"
+
+msgid "%d translation job queued. Jobs are processed in the background."
+msgid_plural "%d translation job queued. Jobs are processed in the background."
+msgstr[0] "%d překladová úloha ve frontě. Úlohy jsou zpracovávány na pozadí."
+msgstr[1] "%d překladové úlohy ve frontě. Úlohy jsou zpracovávány na pozadí."
+msgstr[2] "%d překladových úloh ve frontě. Úlohy jsou zpracovávány na pozadí."
+
+msgid "Retranslate %d outdated"
+msgid_plural "Retranslate %d outdated"
+msgstr[0] "Znovu přeložit %d zastaralý"
+msgstr[1] "Znovu přeložit %d zastaralé"
+msgstr[2] "Znovu přeložit %d zastaralých"

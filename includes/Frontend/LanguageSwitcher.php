@@ -640,9 +640,12 @@ class LanguageSwitcherWidget extends \WP_Widget {
 	}
 
 	public function update( $new, $old ): array {
+		$allowedStyles = [ 'list', 'dropdown', 'nav-dropdown', 'flags-only', 'floating' ];
+		$style         = in_array( $new['style'] ?? '', $allowedStyles, true ) ? $new['style'] : 'list';
+
 		return [
-			'title'             => strip_tags( $new['title'] ),
-			'style'             => $new['style'],
+			'title'             => sanitize_text_field( $new['title'] ?? '' ),
+			'style'             => $style,
 			'show_flags'        => ! empty( $new['show_flags'] ),
 			'show_names'        => ! empty( $new['show_names'] ),
 			'show_native_names' => ! empty( $new['show_native_names'] ),

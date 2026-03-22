@@ -1,0 +1,1057 @@
+# Korean translation for Idiomattic WP
+# Copyright (C) 2024 Idiomattic
+msgid ""
+msgstr ""
+"Project-Id-Version: Idiomattic WP\n"
+"POT-Creation-Date: 2024-01-01 00:00+0000\n"
+"PO-Revision-Date: 2024-01-01 00:00+0000\n"
+"Last-Translator: Idiomattic <hello@idiomattic.app>\n"
+"Language-Team: Korean\n"
+"Language: ko_KR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Idiomattic WP\n"
+"X-Domain: idiomattic-wp\n"
+
+msgid "%1$d draft, %2$d in progress"
+msgstr "%1$d개 초안, %2$d개 진행 중"
+
+msgid "%d active plugins — click to expand"
+msgstr "활성 플러그인 %d개 — 클릭하여 펼치기"
+
+msgid "%s: %s"
+msgstr "%s: %s"
+
+msgid "(empty)"
+msgstr "(비어 있음)"
+
+msgid "(no title)"
+msgstr "(제목 없음)"
+
+msgid "(optional)"
+msgstr "(선택 사항)"
+
+msgid "(saved — enter a new key to replace)"
+msgstr "(저장됨 — 교체할 새 키를 입력하세요)"
+
+msgid "A translation already exists for this language. Delete it first."
+msgstr "이 언어에 대한 번역이 이미 존재합니다. 먼저 삭제하세요."
+
+msgid "AI Translation Provider"
+msgstr "AI 번역 제공업체"
+
+msgid "AI Translation — Pro Feature"
+msgstr "AI 번역 — Pro 기능"
+
+msgid "AI error: "
+msgstr "AI 오류: "
+
+msgid "AI string translation requires a Pro license."
+msgstr "AI 문자열 번역은 Pro 라이선스가 필요합니다."
+
+msgid "AI translation requires Pro"
+msgstr "AI 번역은 Pro가 필요합니다"
+
+msgid "AI translation requires a Pro license."
+msgstr "AI 번역은 Pro 라이선스가 필요합니다."
+
+msgid "Action"
+msgstr "작업"
+
+msgid "Actions"
+msgstr "작업"
+
+msgid "Active Languages"
+msgstr "활성 언어"
+
+msgid "Active Plugins"
+msgstr "활성 플러그인"
+
+msgid "Active Theme"
+msgstr "활성 테마"
+
+msgid "Add"
+msgstr "추가"
+
+msgid "Add Custom Language"
+msgstr "사용자 정의 언어 추가"
+
+msgid "Add String"
+msgstr "문자열 추가"
+
+msgid "Add Term"
+msgstr "용어 추가"
+
+msgid "Add string"
+msgstr "문자열 추가"
+
+msgid "Advanced"
+msgstr "고급"
+
+msgid "All"
+msgstr "전체"
+
+msgid "All content already has translations for the selected languages."
+msgstr "모든 콘텐츠에 선택한 언어에 대한 번역이 이미 있습니다."
+
+msgid "All content is fully translated!"
+msgstr "모든 콘텐츠가 완전히 번역되었습니다!"
+
+msgid "All fields already have a translation."
+msgstr "모든 필드에 이미 번역이 있습니다."
+
+msgid "All languages"
+msgstr "모든 언어"
+
+msgid "All packages"
+msgstr "모든 패키지"
+
+msgid "An unexpected error occurred during translation."
+msgstr "번역 중 예상치 못한 오류가 발생했습니다."
+
+msgid "Apply"
+msgstr "적용"
+
+msgid "Are you sure you want to delete this translation?"
+msgstr "이 번역을 삭제하시겠습니까?"
+
+msgid "Author"
+msgstr "작성자"
+
+msgid "Auto-translate failed."
+msgstr "자동 번역에 실패했습니다."
+
+msgid "Auto-translate on creation"
+msgstr "생성 시 자동 번역"
+
+msgid "Auto-translate pending"
+msgstr "자동 번역 대기 중"
+
+msgid "Automated translations and AI provider configuration are available in the Pro version. Bring Your Own Key — connect directly to OpenAI, Claude, or DeepL."
+msgstr "자동 번역 및 AI 제공업체 설정은 Pro 버전에서 사용할 수 있습니다. 자신의 키 사용 — OpenAI, Claude 또는 DeepL에 직접 연결하세요."
+
+msgid "Automatically start AI translation when a new translation is created"
+msgstr "새 번역이 생성될 때 AI 번역 자동 시작"
+
+msgid "Back"
+msgstr "뒤로"
+
+msgid "Back to list"
+msgstr "목록으로 돌아가기"
+
+msgid "Behaviour"
+msgstr "동작"
+
+msgid "Bring Your Own Key (BYOK): connect directly to your chosen AI provider. Your API key is stored encrypted and never sent to Idiomattic servers."
+msgstr "자신의 키 사용(BYOK): 선택한 AI 제공업체에 직접 연결하세요. API 키는 암호화되어 저장되며 Idiomattic 서버로 전송되지 않습니다."
+
+msgid "Cache & Transients"
+msgstr "캐시 및 일시 데이터"
+
+msgid "Cache language detection results for improved performance."
+msgstr "성능 향상을 위해 언어 감지 결과를 캐시합니다."
+
+msgid "Cancel"
+msgstr "취소"
+
+msgid "Child theme"
+msgstr "자식 테마"
+
+msgid "Choose the primary language your website content will be served in by default."
+msgstr "웹사이트 콘텐츠가 기본으로 제공될 주요 언어를 선택하세요."
+
+msgid "Claude API Key"
+msgstr "Claude API 키"
+
+msgid "Clean URLs with the language code as a path prefix. Requires pretty permalinks."
+msgstr "언어 코드를 경로 접두사로 하는 깔끔한 URL. 고유주소 사용이 필요합니다."
+
+msgid "Clear cached data if you are seeing stale content or unexpected behaviour."
+msgstr "오래된 콘텐츠나 예상치 못한 동작이 발생하면 캐시된 데이터를 지우세요."
+
+msgid "Clear language filter"
+msgstr "언어 필터 지우기"
+
+msgid "Close"
+msgstr "닫기"
+
+msgid "Code, native name, and English name are required."
+msgstr "코드, 기본 이름, 영문 이름이 필요합니다."
+
+msgid "Compatibility"
+msgstr "호환성"
+
+msgid "Compatibility scan completed successfully."
+msgstr "호환성 검사가 성공적으로 완료되었습니다."
+
+msgid "Complete"
+msgstr "완료"
+
+msgid "Configure how each post type behaves across languages."
+msgstr "각 게시물 유형이 언어별로 동작하는 방식을 설정합니다."
+
+msgid "Configure how taxonomy terms behave across languages."
+msgstr "분류 용어가 언어별로 동작하는 방식을 설정합니다."
+
+msgid "Configure permalinks →"
+msgstr "고유주소 설정 →"
+
+msgid "Configure translation mode for registered custom fields. New fields can be added via the Compatibility tab or programmatically."
+msgstr "등록된 사용자 정의 필드의 번역 모드를 설정합니다. 새 필드는 호환성 탭이나 프로그래밍 방식으로 추가할 수 있습니다."
+
+msgid "Content"
+msgstr "콘텐츠"
+
+msgid "Content Translation"
+msgstr "콘텐츠 번역"
+
+msgid "Context"
+msgstr "컨텍스트"
+
+msgid "Context (optional)"
+msgstr "컨텍스트 (선택 사항)"
+
+msgid "Continue →"
+msgstr "계속 →"
+
+msgid "Control how the plugin handles its data."
+msgstr "플러그인이 데이터를 처리하는 방식을 제어합니다."
+
+msgid "Copied!"
+msgstr "복사됨!"
+
+msgid "Copy from original:"
+msgstr "원본에서 복사:"
+
+msgid "Copy source string"
+msgstr "소스 문자열 복사"
+
+msgid "Copy source to all empty translations"
+msgstr "소스를 모든 빈 번역에 복사"
+
+msgid "Copy to all"
+msgstr "모두에 복사"
+
+msgid "Copy to clipboard"
+msgstr "클립보드에 복사"
+
+msgid "Could not create export archive."
+msgstr "내보내기 아카이브를 만들 수 없습니다."
+
+msgid "Could not link post."
+msgstr "게시물을 연결할 수 없습니다."
+
+msgid "Coverage"
+msgstr "커버리지"
+
+msgid "Create a menu →"
+msgstr "메뉴 만들기 →"
+
+msgid "Creating..."
+msgstr "만드는 중..."
+
+msgid "Custom"
+msgstr "사용자 정의"
+
+msgid "Custom Fields"
+msgstr "사용자 정의 필드"
+
+msgid "Daily digest — one email per day"
+msgstr "일일 요약 — 하루 1통 이메일"
+
+msgid "Dashboard"
+msgstr "대시보드"
+
+msgid "Data Management"
+msgstr "데이터 관리"
+
+msgid "Date"
+msgstr "날짜"
+
+msgid "Debug Log"
+msgstr "디버그 로그"
+
+msgid "Default Language"
+msgstr "기본 언어"
+
+msgid "Default configured by %s"
+msgstr "%s에 의해 구성된 기본값"
+
+msgid "Define terms that must always be translated a specific way, or kept unchanged by the AI."
+msgstr "항상 특정 방식으로 번역되거나 AI에 의해 변경되지 않아야 하는 용어를 정의합니다."
+
+msgid "Define terms that must always be translated a specific way, or kept unchanged. Glossary rules are automatically applied during AI translation."
+msgstr "항상 특정 방식으로 번역되거나 변경되지 않아야 하는 용어를 정의합니다. 용어집 규칙은 AI 번역 중 자동으로 적용됩니다."
+
+msgid "Delete"
+msgstr "삭제"
+
+msgid "Delete this custom language?"
+msgstr "이 사용자 정의 언어를 삭제하시겠습니까?"
+
+msgid "Delete this term?"
+msgstr "이 용어를 삭제하시겠습니까?"
+
+msgid "Directory"
+msgstr "디렉토리"
+
+msgid "Directory and Subdomain modes require pretty permalinks. %s"
+msgstr "디렉토리 및 서브도메인 모드는 고유주소 사용이 필요합니다. %s"
+
+msgid "Directory not found."
+msgstr "디렉토리를 찾을 수 없습니다."
+
+msgid "Disabled"
+msgstr "비활성화됨"
+
+msgid "Display a language switcher."
+msgstr "언어 전환기를 표시합니다."
+
+msgid "Done"
+msgstr "완료"
+
+msgid "Download JSON"
+msgstr "JSON 다운로드"
+
+msgid "Download JSON template"
+msgstr "JSON 템플릿 다운로드"
+
+msgid "Download ZIP"
+msgstr "ZIP 다운로드"
+
+msgid "Download all translations for a language as a ZIP of XLIFF 2.0 files, ready to be processed by any CAT tool."
+msgstr "언어의 모든 번역을 XLIFF 2.0 파일의 ZIP으로 다운로드합니다. 모든 CAT 도구로 처리할 준비가 됩니다."
+
+msgid "Download as JSON"
+msgstr "JSON으로 다운로드"
+
+msgid "Draft"
+msgstr "초안"
+
+msgid "Draft / In Progress"
+msgstr "초안 / 진행 중"
+
+msgid "Draft/WIP"
+msgstr "초안/작업 중"
+
+msgid "Duplicate all"
+msgstr "모두 복제"
+
+msgid "Duplicate untranslated"
+msgstr "번역되지 않은 항목 복제"
+
+msgid "Each language has its own version of this content"
+msgstr "각 언어는 이 콘텐츠의 자체 버전을 가집니다"
+
+msgid "Each language on its own subdomain. Requires wildcard DNS and SSL."
+msgstr "각 언어는 자체 서브도메인에. 와일드카드 DNS 및 SSL이 필요합니다."
+
+msgid "Each language on its own subdomain. Requires wildcard DNS."
+msgstr "각 언어는 자체 서브도메인에. 와일드카드 DNS가 필요합니다."
+
+msgid "Edit"
+msgstr "편집"
+
+msgid "Email Notifications"
+msgstr "이메일 알림"
+
+msgid "Enable AI-powered string translation"
+msgstr "AI 기반 문자열 번역 활성화"
+
+msgid "Enable caching"
+msgstr "캐싱 활성화"
+
+msgid "Enable webhooks"
+msgstr "웹훅 활성화"
+
+msgid "Error"
+msgstr "오류"
+
+msgid "Export"
+msgstr "내보내기"
+
+msgid "Export Translations"
+msgstr "번역 내보내기"
+
+msgid "Field"
+msgstr "필드"
+
+msgid "Glossary"
+msgstr "용어집"
+
+msgid "Import"
+msgstr "가져오기"
+
+msgid "Import Translations"
+msgstr "번역 가져오기"
+
+msgid "Immediate — one email per event"
+msgstr "즉시 — 이벤트당 1통 이메일"
+
+msgid "In Progress"
+msgstr "진행 중"
+
+msgid "Install"
+msgstr "설치"
+
+msgid "Invalid parameters."
+msgstr "잘못된 매개변수입니다."
+
+msgid "Invalid translation ID."
+msgstr "잘못된 번역 ID입니다."
+
+msgid "Language"
+msgstr "언어"
+
+msgid "Language Coverage"
+msgstr "언어 커버리지"
+
+msgid "Language Switcher"
+msgstr "언어 전환기"
+
+msgid "Languages"
+msgstr "언어"
+
+msgid "Link as translation"
+msgstr "번역으로 연결"
+
+msgid "Link existing post"
+msgstr "기존 게시물 연결"
+
+msgid "Loading..."
+msgstr "로딩 중..."
+
+msgid "Max words per segment"
+msgstr "세그먼트당 최대 단어 수"
+
+msgid "Memory Hits"
+msgstr "메모리 히트"
+
+msgid "Menu"
+msgstr "메뉴"
+
+msgid "Menus"
+msgstr "메뉴"
+
+msgid "Missing"
+msgstr "누락"
+
+msgid "Missing %d"
+msgstr "%d개 누락"
+
+msgid "N/A"
+msgstr "해당 없음"
+
+msgid "No compatibility file found. Custom fields from this plugin will not be automatically translated. Click \"Download JSON template\" to get a starter file you can fill in and place inside the plugin/theme directory, or ask the author to add support."
+msgstr "호환성 파일을 찾을 수 없습니다. 이 플러그인의 사용자 정의 필드는 자동으로 번역되지 않습니다. \"JSON 템플릿 다운로드\"를 클릭하여 플러그인/테마 디렉토리에 작성하고 배치할 수 있는 시작 파일을 얻거나, 작성자에게 지원 추가를 요청하세요."
+
+msgid "No config file"
+msgstr "설정 파일 없음"
+
+msgid "No items match the selected filter."
+msgstr "선택한 필터와 일치하는 항목이 없습니다."
+
+msgid "No permissions."
+msgstr "권한이 없습니다."
+
+msgid "No strings found for auto-translation."
+msgstr "자동 번역을 위한 문자열을 찾을 수 없습니다."
+
+msgid "No terms in glossary yet. Add your first term above."
+msgstr "아직 용어집에 용어가 없습니다. 위에 첫 번째 용어를 추가하세요."
+
+msgid "No translation found."
+msgstr "번역을 찾을 수 없습니다."
+
+msgid "No translations yet. Start by creating a translation from the post list."
+msgstr "아직 번역이 없습니다. 게시물 목록에서 번역을 만들어 시작하세요."
+
+msgid "Not configured"
+msgstr "설정되지 않음"
+
+msgid "Not registered"
+msgstr "등록되지 않음"
+
+msgid "Not translatable"
+msgstr "번역 불가"
+
+msgid "Notes"
+msgstr "메모"
+
+msgid "Notification Mode"
+msgstr "알림 모드"
+
+msgid "Notify on outdated translations"
+msgstr "오래된 번역에 대해 알림"
+
+msgid "Only .xliff or .xml files are accepted."
+msgstr ".xliff 또는 .xml 파일만 허용됩니다."
+
+msgid "Open Translations Dashboard"
+msgstr "번역 대시보드 열기"
+
+msgid "Open any post or page and click \"Translate\" to use the translation editor."
+msgstr "게시물이나 페이지를 열고 \"번역\"을 클릭하여 번역 편집기를 사용하세요."
+
+msgid "OpenAI API Key"
+msgstr "OpenAI API 키"
+
+msgid "Optional HMAC-SHA256 secret"
+msgstr "선택적 HMAC-SHA256 시크릿"
+
+msgid "Original"
+msgstr "원본"
+
+msgid "Original post has been deleted."
+msgstr "원본 게시물이 삭제되었습니다."
+
+msgid "Original post not found."
+msgstr "원본 게시물을 찾을 수 없습니다."
+
+msgid "Outdated"
+msgstr "오래됨"
+
+msgid "Overview of your multilingual content"
+msgstr "다국어 콘텐츠 개요"
+
+msgid "PHP Version"
+msgstr "PHP 버전"
+
+msgid "Package / Domain"
+msgstr "패키지 / 도메인"
+
+msgid "Page %1$d of %2$d"
+msgstr "%2$d 중 %1$d 페이지"
+
+msgid "Permalink Structure"
+msgstr "고유주소 구조"
+
+msgid "Permission denied."
+msgstr "권한이 거부되었습니다."
+
+msgid "Please configure at least two active languages in Settings → Languages before using Content Translation."
+msgstr "콘텐츠 번역을 사용하기 전에 설정 → 언어에서 최소 두 개의 활성 언어를 설정하세요."
+
+msgid "Please configure at least two active languages in Settings → Languages before using Import / Export."
+msgstr "가져오기 / 내보내기를 사용하기 전에 설정 → 언어에서 최소 두 개의 활성 언어를 설정하세요."
+
+msgid "Please configure at least two active languages in Settings → Languages before using String Translation."
+msgstr "문자열 번역을 사용하기 전에 설정 → 언어에서 최소 두 개의 활성 언어를 설정하세요."
+
+msgid "Plugin"
+msgstr "플러그인"
+
+msgid "Plugin & Theme Compatibility"
+msgstr "플러그인 및 테마 호환성"
+
+msgid "Plugin / Theme"
+msgstr "플러그인 / 테마"
+
+msgid "Plugin Activation Error"
+msgstr "플러그인 활성화 오류"
+
+msgid "Plugin Version"
+msgstr "플러그인 버전"
+
+msgid "Polylang is active. Running two multilingual plugins simultaneously can cause conflicts. Please deactivate Polylang before using Idiomattic WP."
+msgstr "Polylang이 활성화되어 있습니다. 두 개의 다국어 플러그인을 동시에 실행하면 충돌이 발생할 수 있습니다. Idiomattic WP를 사용하기 전에 Polylang을 비활성화하세요."
+
+msgid "Post Title"
+msgstr "게시물 제목"
+
+msgid "Post Type"
+msgstr "게시물 유형"
+
+msgid "Post Type(s)"
+msgstr "게시물 유형"
+
+msgid "Post Types"
+msgstr "게시물 유형"
+
+msgid "Post not found."
+msgstr "게시물을 찾을 수 없습니다."
+
+msgid "Prev"
+msgstr "이전"
+
+msgid "Preview flag"
+msgstr "플래그 미리보기"
+
+msgid "Primary Language"
+msgstr "주요 언어"
+
+msgid "Pro"
+msgstr "Pro"
+
+msgid "Progress"
+msgstr "진행률"
+
+msgid "Publish"
+msgstr "게시"
+
+msgid "Publish Translation"
+msgstr "번역 게시"
+
+msgid "Queue AI translation"
+msgstr "AI 번역 대기열에 추가"
+
+msgid "Rate limit reached. Please wait a moment and try again."
+msgstr "속도 제한에 도달했습니다. 잠시 기다린 후 다시 시도하세요."
+
+msgid "Re-scan"
+msgstr "재검색"
+
+msgid "Re-use previously translated segments to reduce API costs"
+msgstr "API 비용 절감을 위해 이전에 번역된 세그먼트 재사용"
+
+msgid "Recent Activity"
+msgstr "최근 활동"
+
+msgid "Recipient Email"
+msgstr "수신자 이메일"
+
+msgid "Register string"
+msgstr "문자열 등록"
+
+msgid "Register this string for this language"
+msgstr "이 언어에 이 문자열 등록"
+
+msgid "Remove"
+msgstr "제거"
+
+msgid "Requires Pro licence"
+msgstr "Pro 라이선스 필요"
+
+msgid "Retain data on uninstall"
+msgstr "제거 시 데이터 유지"
+
+msgid "Rewrite Rules"
+msgstr "재작성 규칙"
+
+msgid "Right-to-left language"
+msgstr "오른쪽에서 왼쪽으로 쓰는 언어"
+
+msgid "Save"
+msgstr "저장"
+
+msgid "Save Draft"
+msgstr "초안 저장"
+
+msgid "Save Translations"
+msgstr "번역 저장"
+
+msgid "Scan complete."
+msgstr "검색 완료."
+
+msgid "Scan sources"
+msgstr "소스 검색"
+
+msgid "Scan strings"
+msgstr "문자열 검색"
+
+msgid "Scanning..."
+msgstr "검색 중..."
+
+msgid "Search"
+msgstr "검색"
+
+msgid "Search by title…"
+msgstr "제목으로 검색…"
+
+msgid "Search in source and translations…"
+msgstr "소스 및 번역에서 검색…"
+
+msgid "Search languages…"
+msgstr "언어 검색…"
+
+msgid "Search strings"
+msgstr "문자열 검색"
+
+msgid "Security check failed."
+msgstr "보안 검사에 실패했습니다."
+
+msgid "Select Language"
+msgstr "언어 선택"
+
+msgid "Send HTTP POST notifications to an external URL when translation events occur. Payloads are signed with HMAC-SHA256."
+msgstr "번역 이벤트가 발생할 때 외부 URL로 HTTP POST 알림을 보냅니다. 페이로드는 HMAC-SHA256으로 서명됩니다."
+
+msgid "Settings"
+msgstr "설정"
+
+msgid "Show Flags"
+msgstr "국기 표시"
+
+msgid "Show Names"
+msgstr "이름 표시"
+
+msgid "Show all"
+msgstr "모두 표시"
+
+msgid "Show as translated"
+msgstr "번역됨으로 표시"
+
+msgid "Show terms for:"
+msgstr "다음에 대한 용어 표시:"
+
+msgid "Showing original posts only"
+msgstr "원본 게시물만 표시"
+
+msgid "Showing translations into: %s"
+msgstr "번역 표시 중: %s"
+
+msgid "Shown in secondary languages even without a translation (uses default language content)"
+msgstr "번역 없이도 보조 언어로 표시됨 (기본 언어 콘텐츠 사용)"
+
+msgid "Signing Secret"
+msgstr "서명 시크릿"
+
+msgid "Site Default Language"
+msgstr "사이트 기본 언어"
+
+msgid "Slug"
+msgstr "슬러그"
+
+msgid "Source Term"
+msgstr "소스 용어"
+
+msgid "Source post not found."
+msgstr "소스 게시물을 찾을 수 없습니다."
+
+msgid "Source string"
+msgstr "소스 문자열"
+
+msgid "Source string not found."
+msgstr "소스 문자열을 찾을 수 없습니다."
+
+msgid "Standard ISO code for localization"
+msgstr "현지화를 위한 표준 ISO 코드"
+
+msgid "Start Migration"
+msgstr "마이그레이션 시작"
+
+msgid "Status"
+msgstr "상태"
+
+msgid "Step 1: Detection"
+msgstr "1단계: 감지"
+
+msgid "String Translation"
+msgstr "문자열 번역"
+
+msgid "Style"
+msgstr "스타일"
+
+msgid "Subdomain"
+msgstr "서브도메인"
+
+msgid "System Information"
+msgstr "시스템 정보"
+
+msgid "System Report"
+msgstr "시스템 보고서"
+
+msgid "Target language is required."
+msgstr "대상 언어가 필요합니다."
+
+msgid "Taxonomies"
+msgstr "분류법"
+
+msgid "Taxonomy"
+msgstr "분류법"
+
+msgid "Theme"
+msgstr "테마"
+
+msgid "This affects how visitors and search engines find your translated content."
+msgstr "이는 방문자와 검색 엔진이 번역된 콘텐츠를 찾는 방식에 영향을 미칩니다."
+
+msgid "This alert was sent by the %s plugin."
+msgstr "이 알림은 %s 플러그인에서 보냈습니다."
+
+msgid "This is a translation of: %s"
+msgstr "이것은 다음의 번역입니다: %s"
+
+msgid "This is the original language of your posts and pages."
+msgstr "이것은 게시물과 페이지의 원래 언어입니다."
+
+msgid "This plugin/theme ships with a native idiomattic-elements.json file. All its elements are automatically registered. No action needed."
+msgstr "이 플러그인/테마에는 기본 idiomattic-elements.json 파일이 포함되어 있습니다. 모든 요소가 자동으로 등록됩니다. 조치가 필요하지 않습니다."
+
+msgid "This plugin/theme ships with a wpml-config.xml file. Idiomattic auto-imports its field definitions at runtime. Use \"Import WPML config\" to force-register them now, or \"Download as JSON\" to convert the file to a permanent idiomattic-elements.json."
+msgstr "이 플러그인/테마에는 wpml-config.xml 파일이 포함되어 있습니다. Idiomattic은 런타임에 필드 정의를 자동으로 가져옵니다. \"WPML 설정 가져오기\"를 사용하여 지금 강제 등록하거나 \"JSON으로 다운로드\"를 사용하여 파일을 영구적인 idiomattic-elements.json으로 변환하세요."
+
+msgid "This translation is outdated — the source post has been updated since it was last translated. Please review and re-translate."
+msgstr "이 번역은 오래되었습니다 — 소스 게시물이 마지막으로 번역된 이후 업데이트되었습니다. 검토 및 재번역하세요."
+
+msgid "This will overwrite all fields with the original content. Continue?"
+msgstr "이렇게 하면 모든 필드가 원본 콘텐츠로 덮어씌워집니다. 계속하시겠습니까?"
+
+msgid "Title"
+msgstr "제목"
+
+msgid "To create or edit navigation menus visit %s."
+msgstr "탐색 메뉴를 만들거나 편집하려면 %s을 방문하세요."
+
+msgid "Total Translations"
+msgstr "총 번역"
+
+msgid "Total scanned"
+msgstr "총 검색됨"
+
+msgid "Translatable"
+msgstr "번역 가능"
+
+msgid "Translate all"
+msgstr "모두 번역"
+
+msgid "Translate all languages"
+msgstr "모든 언어 번역"
+
+msgid "Translate all missing"
+msgstr "누락된 모두 번역"
+
+msgid "Translate all missing (%d)"
+msgstr "누락된 모두 번역 (%d)"
+
+msgid "Translate content →"
+msgstr "콘텐츠 번역 →"
+
+msgid "Translate field"
+msgstr "필드 번역"
+
+msgid "Translate interface strings from plugins and themes"
+msgstr "플러그인 및 테마의 인터페이스 문자열 번역"
+
+msgid "Translate posts, pages, and custom content into all active languages"
+msgstr "게시물, 페이지 및 사용자 정의 콘텐츠를 모든 활성 언어로 번역"
+
+msgid "Translate to all languages"
+msgstr "모든 언어로 번역"
+
+msgid "Translate: %s"
+msgstr "번역: %s"
+
+msgid "Translated %d strings successfully."
+msgstr "%d개의 문자열을 성공적으로 번역했습니다."
+
+msgid "Translating"
+msgstr "번역 중"
+
+msgid "Translating…"
+msgstr "번역 중…"
+
+msgid "Translation"
+msgstr "번역"
+
+msgid "Translation / Rule"
+msgstr "번역 / 규칙"
+
+msgid "Translation Alert"
+msgstr "번역 알림"
+
+msgid "Translation Alert — %s"
+msgstr "번역 알림 — %s"
+
+msgid "Translation Details"
+msgstr "번역 세부 정보"
+
+msgid "Translation Editor"
+msgstr "번역 편집기"
+
+msgid "Translation Memory"
+msgstr "번역 메모리"
+
+msgid "Translation Mode"
+msgstr "번역 모드"
+
+msgid "Translation completed (AI finished)"
+msgstr "번역 완료 (AI 완료)"
+
+msgid "Translation failed."
+msgstr "번역에 실패했습니다."
+
+msgid "Translation outdated (source post updated)"
+msgstr "번역 오래됨 (소스 게시물 업데이트됨)"
+
+msgid "Translation provider is temporarily unavailable. Please try again."
+msgstr "번역 제공업체를 일시적으로 사용할 수 없습니다. 다시 시도하세요."
+
+msgid "Translation queued (job dispatched)"
+msgstr "번역 대기 중 (작업 발송됨)"
+
+msgid "Translation record not found."
+msgstr "번역 레코드를 찾을 수 없습니다."
+
+msgid "Translation saved successfully."
+msgstr "번역이 성공적으로 저장되었습니다."
+
+msgid "Translations"
+msgstr "번역"
+
+msgid "Translations saved."
+msgstr "번역이 저장되었습니다."
+
+msgid "Triggered when you update a post that has translations."
+msgstr "번역이 있는 게시물을 업데이트할 때 트리거됩니다."
+
+msgid "Troubleshooting"
+msgstr "문제 해결"
+
+msgid "Type"
+msgstr "유형"
+
+msgid "URL Mode"
+msgstr "URL 모드"
+
+msgid "URL Structure"
+msgstr "URL 구조"
+
+msgid "Unauthorized"
+msgstr "인증되지 않음"
+
+msgid "Update"
+msgstr "업데이트"
+
+msgid "Upgrade to Pro to unlock Directory and Subdomain modes →"
+msgstr "디렉토리 및 서브도메인 모드를 잠금 해제하려면 Pro로 업그레이드 →"
+
+msgid "Upgrade to Pro →"
+msgstr "Pro로 업그레이드 →"
+
+msgid "Upload an XLIFF file (2.0 or 1.2) exported from a CAT tool. Translations are written directly into the database."
+msgstr "CAT 도구에서 내보낸 XLIFF 파일(2.0 또는 1.2)을 업로드합니다. 번역이 데이터베이스에 직접 작성됩니다."
+
+msgid "Version"
+msgstr "버전"
+
+msgid "View"
+msgstr "보기"
+
+msgid "View Original"
+msgstr "원본 보기"
+
+msgid "View compatibility report →"
+msgstr "호환성 보고서 보기 →"
+
+msgid "View source post →"
+msgstr "소스 게시물 보기 →"
+
+msgid "View strings"
+msgstr "문자열 보기"
+
+msgid "WPML Migration"
+msgstr "WPML 마이그레이션"
+
+msgid "WPML Migration Wizard"
+msgstr "WPML 마이그레이션 마법사"
+
+msgid "WPML config"
+msgstr "WPML 설정"
+
+msgid "WPML config imported successfully."
+msgstr "WPML 설정을 성공적으로 가져왔습니다."
+
+msgid "WPML config imported with warnings: "
+msgstr "WPML 설정을 경고와 함께 가져왔습니다: "
+
+msgid "WPML config imported: %1$d element(s) registered into the translation registry, %2$d skipped (action = ignore)."
+msgstr "WPML 설정 가져오기 완료: %1$d개의 요소가 번역 레지스트리에 등록되고, %2$d개가 건너뛰어졌습니다 (작업 = 무시)."
+
+msgid "WPML is active. Running two multilingual plugins simultaneously can cause conflicts. Please deactivate WPML before using Idiomattic WP, or use the WPML migration tool."
+msgstr "WPML이 활성화되어 있습니다. 두 개의 다국어 플러그인을 동시에 실행하면 충돌이 발생할 수 있습니다. Idiomattic WP를 사용하기 전에 WPML을 비활성화하거나 WPML 마이그레이션 도구를 사용하세요."
+
+msgid "WPML is not active. Migration may not be possible."
+msgstr "WPML이 활성화되어 있지 않습니다. 마이그레이션이 불가능할 수 있습니다."
+
+msgid "W3 Total Cache is active. Make sure page caching is configured to handle language-specific URLs correctly."
+msgstr "W3 Total Cache가 활성화되어 있습니다. 언어별 URL을 올바르게 처리하도록 페이지 캐싱이 설정되어 있는지 확인하세요."
+
+msgid "WP Debug"
+msgstr "WP 디버그"
+
+msgid "WP Debug Log"
+msgstr "WP 디버그 로그"
+
+msgid "WP_DEBUG and WP_DEBUG_LOG are not both enabled. Add the following to wp-config.php to activate debug logging:"
+msgstr "WP_DEBUG와 WP_DEBUG_LOG가 모두 활성화되어 있지 않습니다. 디버그 로깅을 활성화하려면 wp-config.php에 다음을 추가하세요:"
+
+msgid "Want AI-powered translations? Upgrade to Pro for BYOK (Bring Your Own Key) support."
+msgstr "AI 기반 번역을 원하시나요? BYOK(자신의 키 사용) 지원을 위해 Pro로 업그레이드하세요."
+
+msgid "Webhooks"
+msgstr "웹훅"
+
+msgid "What do these statuses mean?"
+msgstr "이러한 상태는 무엇을 의미합니까?"
+
+msgid "What language is your content written in?"
+msgstr "콘텐츠는 어떤 언어로 작성되어 있나요?"
+
+msgid "Which languages do you want to translate into?"
+msgstr "어떤 언어로 번역하시겠습니까?"
+
+msgid "WordPress Version"
+msgstr "WordPress 버전"
+
+msgid "Works with any permalink structure. Easiest to set up."
+msgstr "모든 고유주소 구조에서 작동합니다. 설정이 가장 쉽습니다."
+
+msgid "Works with any permalink structure. Recommended for most sites."
+msgstr "모든 고유주소 구조에서 작동합니다. 대부분의 사이트에 권장됩니다."
+
+msgid "XLIFF file (.xliff)"
+msgstr "XLIFF 파일 (.xliff)"
+
+msgid "You can add or remove languages at any time from Settings."
+msgstr "설정에서 언제든지 언어를 추가하거나 제거할 수 있습니다."
+
+msgid "You can disable these notifications in the plugin settings."
+msgstr "플러그인 설정에서 이러한 알림을 비활성화할 수 있습니다."
+
+msgid "You do not have permission to edit this post."
+msgstr "이 게시물을 편집할 권한이 없습니다."
+
+msgid "debug.log not found or not readable."
+msgstr "debug.log를 찾을 수 없거나 읽을 수 없습니다."
+
+msgid "default"
+msgstr "기본값"
+
+msgid "e.g. button, menu"
+msgstr "예: 버튼, 메뉴"
+
+msgid "e.g. my-plugin"
+msgstr "예: my-plugin"
+
+msgid "— Not assigned —"
+msgstr "— 할당되지 않음 —"
+
+msgid "→ Scan sources"
+msgstr "→ 소스 검색"
+
+msgid "Admin Language"
+msgstr "관리 언어"
+
+msgid "Admin Interface Language"
+msgstr "관리 인터페이스 언어"
+
+msgid "Use site default"
+msgstr "사이트 기본값 사용"
+
+msgid "Select the language you prefer for the WordPress admin interface."
+msgstr "WordPress 관리 인터페이스에 사용할 언어를 선택하세요."
+
+msgid "%d missing"
+msgid_plural "%d missing"
+msgstr[0] "%d개 누락"
+
+msgid "%d translation job queued. Jobs are processed in the background."
+msgid_plural "%d translation jobs queued. Jobs are processed in the background."
+msgstr[0] "%d개의 번역 작업이 대기 중입니다. 작업은 백그라운드에서 처리됩니다."
+
+msgid "Retranslate %d outdated"
+msgid_plural "Retranslate %d outdated"
+msgstr[0] "%d개의 오래된 항목 재번역"

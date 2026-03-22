@@ -27,6 +27,7 @@ declare( strict_types=1 );
 namespace IdiomatticWP\Hooks\Admin;
 
 use IdiomatticWP\Contracts\HookRegistrarInterface;
+use IdiomatticWP\Core\CustomElementRegistry;
 use IdiomatticWP\Core\LanguageManager;
 use IdiomatticWP\ValueObjects\LanguageCode;
 
@@ -36,6 +37,7 @@ class AdminLanguageFilter implements HookRegistrarInterface {
 		private LanguageManager $languageManager,
 		private AdminLanguageBar $bar,
 		private \wpdb $wpdb,
+		private CustomElementRegistry $registry,
 	) {}
 
 	// ── HookRegistrarInterface ────────────────────────────────────────────
@@ -205,13 +207,16 @@ class AdminLanguageFilter implements HookRegistrarInterface {
 	// ── Private helpers ───────────────────────────────────────────────────
 
 	private function isTranslatablePostType( string $postType ): bool {
-		$types = get_post_types( [ 'public' => true ] );
-		unset( $types['attachment'] );
-		$translatable = (array) apply_filters(
-			'idiomatticwp_translatable_post_types',
-			array_keys( $types )
-		);
-		return in_array( $postType, $translatable, true );
+		$config = get_option( 'idiomatticwp_post_type_config', [] );
+		$mode   = $config[ $postType ] ?? $this->registry->getPostTypeDefaultMode( $postType );
+
+		if ( ! in_array( $mode, [ 'translate', 'show_as_translated' ], true ) ) {
+			// Still allow integrations (e.g. WooCommerce) to opt types in.
+			$types = (array) apply_filters( 'idiomatticwp_translatable_post_types', [] );
+			return in_array( $postType, $types, true );
+		}
+
+		return true;
 	}
 
 	private function buildSwitchUrl( string $lang ): string {

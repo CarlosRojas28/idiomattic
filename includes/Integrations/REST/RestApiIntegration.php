@@ -29,6 +29,7 @@ use IdiomatticWP\Contracts\IntegrationInterface;
 use IdiomatticWP\Contracts\TranslationRepositoryInterface;
 use IdiomatticWP\Core\LanguageManager;
 use IdiomatticWP\License\LicenseChecker;
+use IdiomatticWP\Repositories\StringRepository;
 use IdiomatticWP\ValueObjects\LanguageCode;
 
 class RestApiIntegration implements IntegrationInterface {
@@ -37,6 +38,7 @@ class RestApiIntegration implements IntegrationInterface {
 		private LanguageManager                $languageManager,
 		private TranslationRepositoryInterface $repository,
 		private LicenseChecker                 $licenseChecker,
+		private StringRepository               $stringRepository,
 	) {}
 
 	// ── IntegrationInterface ──────────────────────────────────────────────
@@ -131,6 +133,23 @@ class RestApiIntegration implements IntegrationInterface {
 				'id'   => [ 'validate_callback' => 'is_numeric' ],
 				'lang' => [
 					'required'          => true,
+					'sanitize_callback' => 'sanitize_key',
+				],
+			],
+		] );
+
+		// GET /idiomattic-wp/v1/strings?lang=X[&domain=Y]
+		register_rest_route( $ns, '/strings', [
+			'methods'             => \WP_REST_Server::READABLE,
+			'callback'            => [ $this, 'handleGetStrings' ],
+			'permission_callback' => '__return_true',
+			'args'                => [
+				'lang'   => [
+					'required'          => true,
+					'sanitize_callback' => 'sanitize_key',
+				],
+				'domain' => [
+					'default'           => '',
 					'sanitize_callback' => 'sanitize_key',
 				],
 			],
@@ -231,6 +250,30 @@ class RestApiIntegration implements IntegrationInterface {
 		] );
 	}
 
+	/** GET /idiomattic-wp/v1/strings */
+	public function handleGetStrings( \WP_REST_Request $request ): \WP_REST_Response {
+		$lang   = sanitize_key( $request->get_param( 'lang' ) );
+		$domain = sanitize_key( $request->get_param( 'domain' ) ?: '' );
+
+		$rows = $this->stringRepository->getStrings( $lang, $domain, '', 1000, 0 );
+
+		// Return a flat source_string => translated_string map for easy consumption.
+		$strings = [];
+		foreach ( $rows as $row ) {
+			$translated = (string) ( $row->translated_string ?? '' );
+			if ( $translated !== '' ) {
+				$strings[ (string) $row->source_string ] = $translated;
+			}
+		}
+
+		return rest_ensure_response( [
+			'lang'    => $lang,
+			'domain'  => $domain ?: 'all',
+			'strings' => $strings,
+			'count'   => count( $strings ),
+		] );
+	}
+
 	// ── Post type extra fields ────────────────────────────────────────────
 
 	/**
@@ -249,7 +292,70 @@ class RestApiIntegration implements IntegrationInterface {
 					'type'        => 'object',
 				],
 			] );
+
+			// Swap translated content when ?lang= is provided.
+			add_filter( 'rest_prepare_' . $postType, [ $this, 'swapTranslatedContent' ], 10, 3 );
 		}
+	}
+
+	/**
+	 * When a REST response includes a ?lang= param and a published translation
+	 * exists for that language, swap the core content fields (title, content,
+	 * excerpt) with the translated post's values.
+	 *
+	 * This enables headless setups to call /wp/v2/posts/123?lang=es and receive
+	 * the Spanish content without needing to know the translated post's ID.
+	 */
+	public function swapTranslatedContent(
+		\WP_REST_Response $response,
+		\WP_Post          $post,
+		\WP_REST_Request  $request
+	): \WP_REST_Response {
+		$lang = sanitize_key( $request->get_param( 'lang' ) ?: '' );
+		if ( ! $lang ) {
+			return $response;
+		}
+
+		try {
+			$langCode = LanguageCode::from( $lang );
+		} catch ( \Throwable $e ) {
+			return $response;
+		}
+
+		// Don't swap if this post is itself a translation.
+		if ( $this->repository->findByTranslatedPost( $post->ID ) ) {
+			return $response;
+		}
+
+		$record = $this->repository->findBySourceAndLang( $post->ID, $langCode );
+		if ( ! $record || ( $record['status'] ?? '' ) === 'draft' ) {
+			return $response;
+		}
+
+		$translatedPost = get_post( (int) $record['translated_post_id'] );
+		if ( ! $translatedPost ) {
+			return $response;
+		}
+
+		$data = $response->get_data();
+
+		// Swap core rendered fields.
+		if ( isset( $data['title']['rendered'] ) ) {
+			$data['title']['rendered'] = apply_filters( 'the_title', $translatedPost->post_title, $translatedPost->ID );
+		}
+		if ( isset( $data['content']['rendered'] ) ) {
+			$data['content']['rendered'] = apply_filters( 'the_content', $translatedPost->post_content );
+		}
+		if ( isset( $data['excerpt']['rendered'] ) ) {
+			$data['excerpt']['rendered'] = apply_filters( 'the_excerpt', $translatedPost->post_excerpt );
+		}
+
+		// Annotate response with the translated post ID for reference.
+		$data['idiomatticwp_translated_post_id'] = $translatedPost->ID;
+		$data['idiomatticwp_source_post_id']      = $post->ID;
+
+		$response->set_data( $data );
+		return $response;
 	}
 
 	/**

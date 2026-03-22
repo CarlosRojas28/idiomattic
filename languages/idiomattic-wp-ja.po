@@ -1,0 +1,1057 @@
+# Japanese translation for Idiomattic WP
+# Copyright (C) 2024 Idiomattic
+msgid ""
+msgstr ""
+"Project-Id-Version: Idiomattic WP\n"
+"POT-Creation-Date: 2024-01-01 00:00+0000\n"
+"PO-Revision-Date: 2024-01-01 00:00+0000\n"
+"Last-Translator: Idiomattic <hello@idiomattic.app>\n"
+"Language-Team: Japanese\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Idiomattic WP\n"
+"X-Domain: idiomattic-wp\n"
+
+msgid "%1$d draft, %2$d in progress"
+msgstr "%1$d 件の下書き、%2$d 件が進行中"
+
+msgid "%d active plugins — click to expand"
+msgstr "%d 個のアクティブなプラグイン — クリックして展開"
+
+msgid "%s: %s"
+msgstr "%s: %s"
+
+msgid "(empty)"
+msgstr "（空）"
+
+msgid "(no title)"
+msgstr "（タイトルなし）"
+
+msgid "(optional)"
+msgstr "（任意）"
+
+msgid "(saved — enter a new key to replace)"
+msgstr "（保存済み — 新しいキーを入力して置き換えてください）"
+
+msgid "A translation already exists for this language. Delete it first."
+msgstr "この言語の翻訳はすでに存在します。まず削除してください。"
+
+msgid "AI Translation Provider"
+msgstr "AI 翻訳プロバイダー"
+
+msgid "AI Translation — Pro Feature"
+msgstr "AI 翻訳 — Pro 機能"
+
+msgid "AI error: "
+msgstr "AI エラー: "
+
+msgid "AI string translation requires a Pro license."
+msgstr "AI 文字列翻訳には Pro ライセンスが必要です。"
+
+msgid "AI translation requires Pro"
+msgstr "AI 翻訳には Pro が必要です"
+
+msgid "AI translation requires a Pro license."
+msgstr "AI 翻訳には Pro ライセンスが必要です。"
+
+msgid "Action"
+msgstr "アクション"
+
+msgid "Actions"
+msgstr "アクション"
+
+msgid "Active Languages"
+msgstr "アクティブな言語"
+
+msgid "Active Plugins"
+msgstr "アクティブなプラグイン"
+
+msgid "Active Theme"
+msgstr "アクティブなテーマ"
+
+msgid "Add"
+msgstr "追加"
+
+msgid "Add Custom Language"
+msgstr "カスタム言語を追加"
+
+msgid "Add String"
+msgstr "文字列を追加"
+
+msgid "Add Term"
+msgstr "用語を追加"
+
+msgid "Add string"
+msgstr "文字列を追加"
+
+msgid "Advanced"
+msgstr "高度な設定"
+
+msgid "All"
+msgstr "すべて"
+
+msgid "All content already has translations for the selected languages."
+msgstr "すべてのコンテンツには選択した言語の翻訳がすでにあります。"
+
+msgid "All content is fully translated!"
+msgstr "すべてのコンテンツが完全に翻訳されています！"
+
+msgid "All fields already have a translation."
+msgstr "すべてのフィールドにはすでに翻訳があります。"
+
+msgid "All languages"
+msgstr "すべての言語"
+
+msgid "All packages"
+msgstr "すべてのパッケージ"
+
+msgid "An unexpected error occurred during translation."
+msgstr "翻訳中に予期しないエラーが発生しました。"
+
+msgid "Apply"
+msgstr "適用"
+
+msgid "Are you sure you want to delete this translation?"
+msgstr "この翻訳を削除してもよろしいですか？"
+
+msgid "Author"
+msgstr "投稿者"
+
+msgid "Auto-translate failed."
+msgstr "自動翻訳に失敗しました。"
+
+msgid "Auto-translate on creation"
+msgstr "作成時に自動翻訳"
+
+msgid "Auto-translate pending"
+msgstr "自動翻訳保留中"
+
+msgid "Automated translations and AI provider configuration are available in the Pro version. Bring Your Own Key — connect directly to OpenAI, Claude, or DeepL."
+msgstr "自動翻訳と AI プロバイダーの設定は Pro バージョンで利用できます。自分のキーを持参 — OpenAI、Claude、または DeepL に直接接続します。"
+
+msgid "Automatically start AI translation when a new translation is created"
+msgstr "新しい翻訳が作成されたときに AI 翻訳を自動的に開始する"
+
+msgid "Back"
+msgstr "戻る"
+
+msgid "Back to list"
+msgstr "リストに戻る"
+
+msgid "Behaviour"
+msgstr "動作"
+
+msgid "Bring Your Own Key (BYOK): connect directly to your chosen AI provider. Your API key is stored encrypted and never sent to Idiomattic servers."
+msgstr "自分のキーを持参（BYOK）: 選択した AI プロバイダーに直接接続します。API キーは暗号化して保存され、Idiomattic サーバーに送信されることはありません。"
+
+msgid "Cache & Transients"
+msgstr "キャッシュとトランジェント"
+
+msgid "Cache language detection results for improved performance."
+msgstr "パフォーマンス向上のために言語検出結果をキャッシュします。"
+
+msgid "Cancel"
+msgstr "キャンセル"
+
+msgid "Child theme"
+msgstr "子テーマ"
+
+msgid "Choose the primary language your website content will be served in by default."
+msgstr "ウェブサイトのコンテンツがデフォルトで表示される主要言語を選択してください。"
+
+msgid "Claude API Key"
+msgstr "Claude API キー"
+
+msgid "Clean URLs with the language code as a path prefix. Requires pretty permalinks."
+msgstr "言語コードをパスのプレフィックスとしたクリーンな URL。きれいなパーマリンクが必要です。"
+
+msgid "Clear cached data if you are seeing stale content or unexpected behaviour."
+msgstr "古いコンテンツや予期しない動作が見られる場合は、キャッシュされたデータをクリアしてください。"
+
+msgid "Clear language filter"
+msgstr "言語フィルターをクリア"
+
+msgid "Close"
+msgstr "閉じる"
+
+msgid "Code, native name, and English name are required."
+msgstr "コード、ネイティブ名、英語名は必須です。"
+
+msgid "Compatibility"
+msgstr "互換性"
+
+msgid "Compatibility scan completed successfully."
+msgstr "互換性スキャンが正常に完了しました。"
+
+msgid "Complete"
+msgstr "完了"
+
+msgid "Configure how each post type behaves across languages."
+msgstr "各投稿タイプが言語間でどのように動作するかを設定します。"
+
+msgid "Configure how taxonomy terms behave across languages."
+msgstr "タクソノミー用語が言語間でどのように動作するかを設定します。"
+
+msgid "Configure permalinks →"
+msgstr "パーマリンクを設定 →"
+
+msgid "Configure translation mode for registered custom fields. New fields can be added via the Compatibility tab or programmatically."
+msgstr "登録されたカスタムフィールドの翻訳モードを設定します。新しいフィールドは互換性タブから、またはプログラムで追加できます。"
+
+msgid "Content"
+msgstr "コンテンツ"
+
+msgid "Content Translation"
+msgstr "コンテンツ翻訳"
+
+msgid "Context"
+msgstr "コンテキスト"
+
+msgid "Context (optional)"
+msgstr "コンテキスト（任意）"
+
+msgid "Continue →"
+msgstr "続行 →"
+
+msgid "Control how the plugin handles its data."
+msgstr "プラグインがデータを処理する方法を制御します。"
+
+msgid "Copied!"
+msgstr "コピーしました！"
+
+msgid "Copy from original:"
+msgstr "原文からコピー:"
+
+msgid "Copy source string"
+msgstr "ソース文字列をコピー"
+
+msgid "Copy source to all empty translations"
+msgstr "ソースをすべての空の翻訳にコピー"
+
+msgid "Copy to all"
+msgstr "すべてにコピー"
+
+msgid "Copy to clipboard"
+msgstr "クリップボードにコピー"
+
+msgid "Could not create export archive."
+msgstr "エクスポートアーカイブを作成できませんでした。"
+
+msgid "Could not link post."
+msgstr "投稿をリンクできませんでした。"
+
+msgid "Coverage"
+msgstr "カバレッジ"
+
+msgid "Create a menu →"
+msgstr "メニューを作成 →"
+
+msgid "Creating..."
+msgstr "作成中..."
+
+msgid "Custom"
+msgstr "カスタム"
+
+msgid "Custom Fields"
+msgstr "カスタムフィールド"
+
+msgid "Daily digest — one email per day"
+msgstr "毎日のダイジェスト — 1 日 1 通のメール"
+
+msgid "Dashboard"
+msgstr "ダッシュボード"
+
+msgid "Data Management"
+msgstr "データ管理"
+
+msgid "Date"
+msgstr "日付"
+
+msgid "Debug Log"
+msgstr "デバッグログ"
+
+msgid "Default Language"
+msgstr "デフォルト言語"
+
+msgid "Default configured by %s"
+msgstr "%s によって設定されたデフォルト"
+
+msgid "Define terms that must always be translated a specific way, or kept unchanged by the AI."
+msgstr "常に特定の方法で翻訳されるか、AI によって変更されないままにする用語を定義します。"
+
+msgid "Define terms that must always be translated a specific way, or kept unchanged. Glossary rules are automatically applied during AI translation."
+msgstr "常に特定の方法で翻訳されるか、変更されないままにする用語を定義します。用語集のルールは AI 翻訳中に自動的に適用されます。"
+
+msgid "Delete"
+msgstr "削除"
+
+msgid "Delete this custom language?"
+msgstr "このカスタム言語を削除しますか？"
+
+msgid "Delete this term?"
+msgstr "この用語を削除しますか？"
+
+msgid "Directory"
+msgstr "ディレクトリ"
+
+msgid "Directory and Subdomain modes require pretty permalinks. %s"
+msgstr "ディレクトリとサブドメインモードはきれいなパーマリンクが必要です。%s"
+
+msgid "Directory not found."
+msgstr "ディレクトリが見つかりません。"
+
+msgid "Disabled"
+msgstr "無効"
+
+msgid "Display a language switcher."
+msgstr "言語スイッチャーを表示します。"
+
+msgid "Done"
+msgstr "完了"
+
+msgid "Download JSON"
+msgstr "JSON をダウンロード"
+
+msgid "Download JSON template"
+msgstr "JSON テンプレートをダウンロード"
+
+msgid "Download ZIP"
+msgstr "ZIP をダウンロード"
+
+msgid "Download all translations for a language as a ZIP of XLIFF 2.0 files, ready to be processed by any CAT tool."
+msgstr "言語のすべての翻訳を XLIFF 2.0 ファイルの ZIP としてダウンロードします。任意の CAT ツールで処理できます。"
+
+msgid "Download as JSON"
+msgstr "JSON としてダウンロード"
+
+msgid "Draft"
+msgstr "下書き"
+
+msgid "Draft / In Progress"
+msgstr "下書き / 進行中"
+
+msgid "Draft/WIP"
+msgstr "下書き/作業中"
+
+msgid "Duplicate all"
+msgstr "すべてを複製"
+
+msgid "Duplicate untranslated"
+msgstr "未翻訳を複製"
+
+msgid "Each language has its own version of this content"
+msgstr "各言語にはこのコンテンツの独自のバージョンがあります"
+
+msgid "Each language on its own subdomain. Requires wildcard DNS and SSL."
+msgstr "各言語が独自のサブドメインに。ワイルドカード DNS と SSL が必要です。"
+
+msgid "Each language on its own subdomain. Requires wildcard DNS."
+msgstr "各言語が独自のサブドメインに。ワイルドカード DNS が必要です。"
+
+msgid "Edit"
+msgstr "編集"
+
+msgid "Email Notifications"
+msgstr "メール通知"
+
+msgid "Enable AI-powered string translation"
+msgstr "AI を利用した文字列翻訳を有効にする"
+
+msgid "Enable caching"
+msgstr "キャッシュを有効にする"
+
+msgid "Enable webhooks"
+msgstr "ウェブフックを有効にする"
+
+msgid "Error"
+msgstr "エラー"
+
+msgid "Export"
+msgstr "エクスポート"
+
+msgid "Export Translations"
+msgstr "翻訳をエクスポート"
+
+msgid "Field"
+msgstr "フィールド"
+
+msgid "Glossary"
+msgstr "用語集"
+
+msgid "Import"
+msgstr "インポート"
+
+msgid "Import Translations"
+msgstr "翻訳をインポート"
+
+msgid "Immediate — one email per event"
+msgstr "即時 — イベントごとに 1 通のメール"
+
+msgid "In Progress"
+msgstr "進行中"
+
+msgid "Install"
+msgstr "インストール"
+
+msgid "Invalid parameters."
+msgstr "無効なパラメーターです。"
+
+msgid "Invalid translation ID."
+msgstr "無効な翻訳 ID です。"
+
+msgid "Language"
+msgstr "言語"
+
+msgid "Language Coverage"
+msgstr "言語カバレッジ"
+
+msgid "Language Switcher"
+msgstr "言語スイッチャー"
+
+msgid "Languages"
+msgstr "言語"
+
+msgid "Link as translation"
+msgstr "翻訳としてリンク"
+
+msgid "Link existing post"
+msgstr "既存の投稿をリンク"
+
+msgid "Loading..."
+msgstr "読み込み中..."
+
+msgid "Max words per segment"
+msgstr "セグメントあたりの最大単語数"
+
+msgid "Memory Hits"
+msgstr "メモリヒット"
+
+msgid "Menu"
+msgstr "メニュー"
+
+msgid "Menus"
+msgstr "メニュー"
+
+msgid "Missing"
+msgstr "不足"
+
+msgid "Missing %d"
+msgstr "%d 件不足"
+
+msgid "N/A"
+msgstr "N/A"
+
+msgid "No compatibility file found. Custom fields from this plugin will not be automatically translated. Click \"Download JSON template\" to get a starter file you can fill in and place inside the plugin/theme directory, or ask the author to add support."
+msgstr "互換性ファイルが見つかりません。このプラグインのカスタムフィールドは自動的に翻訳されません。「JSON テンプレートをダウンロード」をクリックして、入力してプラグイン/テーマディレクトリ内に配置できるスターターファイルを取得するか、作者にサポートの追加を依頼してください。"
+
+msgid "No config file"
+msgstr "設定ファイルなし"
+
+msgid "No items match the selected filter."
+msgstr "選択したフィルターに一致するアイテムがありません。"
+
+msgid "No permissions."
+msgstr "権限がありません。"
+
+msgid "No strings found for auto-translation."
+msgstr "自動翻訳の文字列が見つかりません。"
+
+msgid "No terms in glossary yet. Add your first term above."
+msgstr "用語集にまだ用語がありません。上に最初の用語を追加してください。"
+
+msgid "No translation found."
+msgstr "翻訳が見つかりません。"
+
+msgid "No translations yet. Start by creating a translation from the post list."
+msgstr "まだ翻訳がありません。投稿リストから翻訳を作成することから始めてください。"
+
+msgid "Not configured"
+msgstr "未設定"
+
+msgid "Not registered"
+msgstr "未登録"
+
+msgid "Not translatable"
+msgstr "翻訳不可"
+
+msgid "Notes"
+msgstr "メモ"
+
+msgid "Notification Mode"
+msgstr "通知モード"
+
+msgid "Notify on outdated translations"
+msgstr "古い翻訳について通知する"
+
+msgid "Only .xliff or .xml files are accepted."
+msgstr ".xliff または .xml ファイルのみ受け付けます。"
+
+msgid "Open Translations Dashboard"
+msgstr "翻訳ダッシュボードを開く"
+
+msgid "Open any post or page and click \"Translate\" to use the translation editor."
+msgstr "任意の投稿またはページを開き、「翻訳」をクリックして翻訳エディターを使用します。"
+
+msgid "OpenAI API Key"
+msgstr "OpenAI API キー"
+
+msgid "Optional HMAC-SHA256 secret"
+msgstr "オプションの HMAC-SHA256 シークレット"
+
+msgid "Original"
+msgstr "原文"
+
+msgid "Original post has been deleted."
+msgstr "元の投稿は削除されました。"
+
+msgid "Original post not found."
+msgstr "元の投稿が見つかりません。"
+
+msgid "Outdated"
+msgstr "古い"
+
+msgid "Overview of your multilingual content"
+msgstr "多言語コンテンツの概要"
+
+msgid "PHP Version"
+msgstr "PHP バージョン"
+
+msgid "Package / Domain"
+msgstr "パッケージ / ドメイン"
+
+msgid "Page %1$d of %2$d"
+msgstr "%1$d / %2$d ページ"
+
+msgid "Permalink Structure"
+msgstr "パーマリンク構造"
+
+msgid "Permission denied."
+msgstr "権限がありません。"
+
+msgid "Please configure at least two active languages in Settings → Languages before using Content Translation."
+msgstr "コンテンツ翻訳を使用する前に、設定 → 言語でアクティブな言語を少なくとも 2 つ設定してください。"
+
+msgid "Please configure at least two active languages in Settings → Languages before using Import / Export."
+msgstr "インポート / エクスポートを使用する前に、設定 → 言語でアクティブな言語を少なくとも 2 つ設定してください。"
+
+msgid "Please configure at least two active languages in Settings → Languages before using String Translation."
+msgstr "文字列翻訳を使用する前に、設定 → 言語でアクティブな言語を少なくとも 2 つ設定してください。"
+
+msgid "Plugin"
+msgstr "プラグイン"
+
+msgid "Plugin & Theme Compatibility"
+msgstr "プラグインとテーマの互換性"
+
+msgid "Plugin / Theme"
+msgstr "プラグイン / テーマ"
+
+msgid "Plugin Activation Error"
+msgstr "プラグインのアクティベーションエラー"
+
+msgid "Plugin Version"
+msgstr "プラグインバージョン"
+
+msgid "Polylang is active. Running two multilingual plugins simultaneously can cause conflicts. Please deactivate Polylang before using Idiomattic WP."
+msgstr "Polylang がアクティブです。2 つの多言語プラグインを同時に実行すると競合が生じる可能性があります。Idiomattic WP を使用する前に Polylang を無効化してください。"
+
+msgid "Post Title"
+msgstr "投稿タイトル"
+
+msgid "Post Type"
+msgstr "投稿タイプ"
+
+msgid "Post Type(s)"
+msgstr "投稿タイプ"
+
+msgid "Post Types"
+msgstr "投稿タイプ"
+
+msgid "Post not found."
+msgstr "投稿が見つかりません。"
+
+msgid "Prev"
+msgstr "前へ"
+
+msgid "Preview flag"
+msgstr "フラグのプレビュー"
+
+msgid "Primary Language"
+msgstr "主要言語"
+
+msgid "Pro"
+msgstr "Pro"
+
+msgid "Progress"
+msgstr "進捗"
+
+msgid "Publish"
+msgstr "公開"
+
+msgid "Publish Translation"
+msgstr "翻訳を公開"
+
+msgid "Queue AI translation"
+msgstr "AI 翻訳をキューに追加"
+
+msgid "Rate limit reached. Please wait a moment and try again."
+msgstr "レート制限に達しました。しばらく待ってから再試行してください。"
+
+msgid "Re-scan"
+msgstr "再スキャン"
+
+msgid "Re-use previously translated segments to reduce API costs"
+msgstr "API コストを削減するために以前に翻訳したセグメントを再利用する"
+
+msgid "Recent Activity"
+msgstr "最近のアクティビティ"
+
+msgid "Recipient Email"
+msgstr "受信者メールアドレス"
+
+msgid "Register string"
+msgstr "文字列を登録"
+
+msgid "Register this string for this language"
+msgstr "この言語のこの文字列を登録"
+
+msgid "Remove"
+msgstr "削除"
+
+msgid "Requires Pro licence"
+msgstr "Pro ライセンスが必要"
+
+msgid "Retain data on uninstall"
+msgstr "アンインストール時にデータを保持"
+
+msgid "Rewrite Rules"
+msgstr "リライトルール"
+
+msgid "Right-to-left language"
+msgstr "右から左に書く言語"
+
+msgid "Save"
+msgstr "保存"
+
+msgid "Save Draft"
+msgstr "下書きを保存"
+
+msgid "Save Translations"
+msgstr "翻訳を保存"
+
+msgid "Scan complete."
+msgstr "スキャン完了。"
+
+msgid "Scan sources"
+msgstr "ソースをスキャン"
+
+msgid "Scan strings"
+msgstr "文字列をスキャン"
+
+msgid "Scanning..."
+msgstr "スキャン中..."
+
+msgid "Search"
+msgstr "検索"
+
+msgid "Search by title…"
+msgstr "タイトルで検索…"
+
+msgid "Search in source and translations…"
+msgstr "ソースと翻訳を検索…"
+
+msgid "Search languages…"
+msgstr "言語を検索…"
+
+msgid "Search strings"
+msgstr "文字列を検索"
+
+msgid "Security check failed."
+msgstr "セキュリティチェックに失敗しました。"
+
+msgid "Select Language"
+msgstr "言語を選択"
+
+msgid "Send HTTP POST notifications to an external URL when translation events occur. Payloads are signed with HMAC-SHA256."
+msgstr "翻訳イベントが発生したときに外部 URL に HTTP POST 通知を送信します。ペイロードは HMAC-SHA256 で署名されます。"
+
+msgid "Settings"
+msgstr "設定"
+
+msgid "Show Flags"
+msgstr "フラグを表示"
+
+msgid "Show Names"
+msgstr "名前を表示"
+
+msgid "Show all"
+msgstr "すべて表示"
+
+msgid "Show as translated"
+msgstr "翻訳済みとして表示"
+
+msgid "Show terms for:"
+msgstr "用語を表示:"
+
+msgid "Showing original posts only"
+msgstr "元の投稿のみ表示"
+
+msgid "Showing translations into: %s"
+msgstr "翻訳を表示中: %s"
+
+msgid "Shown in secondary languages even without a translation (uses default language content)"
+msgstr "翻訳がなくてもセカンダリ言語で表示（デフォルト言語のコンテンツを使用）"
+
+msgid "Signing Secret"
+msgstr "署名シークレット"
+
+msgid "Site Default Language"
+msgstr "サイトのデフォルト言語"
+
+msgid "Slug"
+msgstr "スラッグ"
+
+msgid "Source Term"
+msgstr "ソース用語"
+
+msgid "Source post not found."
+msgstr "ソース投稿が見つかりません。"
+
+msgid "Source string"
+msgstr "ソース文字列"
+
+msgid "Source string not found."
+msgstr "ソース文字列が見つかりません。"
+
+msgid "Standard ISO code for localization"
+msgstr "ローカライゼーション用の標準 ISO コード"
+
+msgid "Start Migration"
+msgstr "移行を開始"
+
+msgid "Status"
+msgstr "ステータス"
+
+msgid "Step 1: Detection"
+msgstr "ステップ 1: 検出"
+
+msgid "String Translation"
+msgstr "文字列翻訳"
+
+msgid "Style"
+msgstr "スタイル"
+
+msgid "Subdomain"
+msgstr "サブドメイン"
+
+msgid "System Information"
+msgstr "システム情報"
+
+msgid "System Report"
+msgstr "システムレポート"
+
+msgid "Target language is required."
+msgstr "ターゲット言語が必要です。"
+
+msgid "Taxonomies"
+msgstr "タクソノミー"
+
+msgid "Taxonomy"
+msgstr "タクソノミー"
+
+msgid "Theme"
+msgstr "テーマ"
+
+msgid "This affects how visitors and search engines find your translated content."
+msgstr "これは、訪問者と検索エンジンが翻訳されたコンテンツを見つける方法に影響します。"
+
+msgid "This alert was sent by the %s plugin."
+msgstr "このアラートは %s プラグインによって送信されました。"
+
+msgid "This is a translation of: %s"
+msgstr "これは次の翻訳です: %s"
+
+msgid "This is the original language of your posts and pages."
+msgstr "これはあなたの投稿とページの元の言語です。"
+
+msgid "This plugin/theme ships with a native idiomattic-elements.json file. All its elements are automatically registered. No action needed."
+msgstr "このプラグイン/テーマにはネイティブの idiomattic-elements.json ファイルが付属しています。すべての要素は自動的に登録されます。アクションは必要ありません。"
+
+msgid "This plugin/theme ships with a wpml-config.xml file. Idiomattic auto-imports its field definitions at runtime. Use \"Import WPML config\" to force-register them now, or \"Download as JSON\" to convert the file to a permanent idiomattic-elements.json."
+msgstr "このプラグイン/テーマには wpml-config.xml ファイルが付属しています。Idiomattic は実行時にフィールド定義を自動インポートします。「WPML 設定をインポート」を使用して今すぐ強制登録するか、「JSON としてダウンロード」を使用してファイルを永続的な idiomattic-elements.json に変換してください。"
+
+msgid "This translation is outdated — the source post has been updated since it was last translated. Please review and re-translate."
+msgstr "この翻訳は古くなっています — ソース投稿は最後に翻訳されてから更新されています。確認して再翻訳してください。"
+
+msgid "This will overwrite all fields with the original content. Continue?"
+msgstr "これにより、すべてのフィールドが元のコンテンツで上書きされます。続行しますか？"
+
+msgid "Title"
+msgstr "タイトル"
+
+msgid "To create or edit navigation menus visit %s."
+msgstr "ナビゲーションメニューを作成または編集するには %s を訪問してください。"
+
+msgid "Total Translations"
+msgstr "翻訳合計"
+
+msgid "Total scanned"
+msgstr "スキャン合計"
+
+msgid "Translatable"
+msgstr "翻訳可能"
+
+msgid "Translate all"
+msgstr "すべて翻訳"
+
+msgid "Translate all languages"
+msgstr "すべての言語を翻訳"
+
+msgid "Translate all missing"
+msgstr "不足しているすべてを翻訳"
+
+msgid "Translate all missing (%d)"
+msgstr "不足しているすべてを翻訳 (%d)"
+
+msgid "Translate content →"
+msgstr "コンテンツを翻訳 →"
+
+msgid "Translate field"
+msgstr "フィールドを翻訳"
+
+msgid "Translate interface strings from plugins and themes"
+msgstr "プラグインとテーマのインターフェース文字列を翻訳"
+
+msgid "Translate posts, pages, and custom content into all active languages"
+msgstr "投稿、ページ、カスタムコンテンツをすべてのアクティブな言語に翻訳"
+
+msgid "Translate to all languages"
+msgstr "すべての言語に翻訳"
+
+msgid "Translate: %s"
+msgstr "翻訳: %s"
+
+msgid "Translated %d strings successfully."
+msgstr "%d 件の文字列を正常に翻訳しました。"
+
+msgid "Translating"
+msgstr "翻訳中"
+
+msgid "Translating…"
+msgstr "翻訳中…"
+
+msgid "Translation"
+msgstr "翻訳"
+
+msgid "Translation / Rule"
+msgstr "翻訳 / ルール"
+
+msgid "Translation Alert"
+msgstr "翻訳アラート"
+
+msgid "Translation Alert — %s"
+msgstr "翻訳アラート — %s"
+
+msgid "Translation Details"
+msgstr "翻訳の詳細"
+
+msgid "Translation Editor"
+msgstr "翻訳エディター"
+
+msgid "Translation Memory"
+msgstr "翻訳メモリ"
+
+msgid "Translation Mode"
+msgstr "翻訳モード"
+
+msgid "Translation completed (AI finished)"
+msgstr "翻訳完了（AI 完了）"
+
+msgid "Translation failed."
+msgstr "翻訳に失敗しました。"
+
+msgid "Translation outdated (source post updated)"
+msgstr "翻訳が古い（ソース投稿が更新されました）"
+
+msgid "Translation provider is temporarily unavailable. Please try again."
+msgstr "翻訳プロバイダーは一時的に利用できません。再度お試しください。"
+
+msgid "Translation queued (job dispatched)"
+msgstr "翻訳がキューに追加されました（ジョブが送信されました）"
+
+msgid "Translation record not found."
+msgstr "翻訳レコードが見つかりません。"
+
+msgid "Translation saved successfully."
+msgstr "翻訳が正常に保存されました。"
+
+msgid "Translations"
+msgstr "翻訳"
+
+msgid "Translations saved."
+msgstr "翻訳が保存されました。"
+
+msgid "Triggered when you update a post that has translations."
+msgstr "翻訳がある投稿を更新するとトリガーされます。"
+
+msgid "Troubleshooting"
+msgstr "トラブルシューティング"
+
+msgid "Type"
+msgstr "タイプ"
+
+msgid "URL Mode"
+msgstr "URL モード"
+
+msgid "URL Structure"
+msgstr "URL 構造"
+
+msgid "Unauthorized"
+msgstr "未認証"
+
+msgid "Update"
+msgstr "更新"
+
+msgid "Upgrade to Pro to unlock Directory and Subdomain modes →"
+msgstr "Pro にアップグレードしてディレクトリとサブドメインモードをアンロック →"
+
+msgid "Upgrade to Pro →"
+msgstr "Pro にアップグレード →"
+
+msgid "Upload an XLIFF file (2.0 or 1.2) exported from a CAT tool. Translations are written directly into the database."
+msgstr "CAT ツールからエクスポートされた XLIFF ファイル（2.0 または 1.2）をアップロードします。翻訳はデータベースに直接書き込まれます。"
+
+msgid "Version"
+msgstr "バージョン"
+
+msgid "View"
+msgstr "表示"
+
+msgid "View Original"
+msgstr "原文を表示"
+
+msgid "View compatibility report →"
+msgstr "互換性レポートを表示 →"
+
+msgid "View source post →"
+msgstr "ソース投稿を表示 →"
+
+msgid "View strings"
+msgstr "文字列を表示"
+
+msgid "WPML Migration"
+msgstr "WPML 移行"
+
+msgid "WPML Migration Wizard"
+msgstr "WPML 移行ウィザード"
+
+msgid "WPML config"
+msgstr "WPML 設定"
+
+msgid "WPML config imported successfully."
+msgstr "WPML 設定が正常にインポートされました。"
+
+msgid "WPML config imported with warnings: "
+msgstr "WPML 設定が警告付きでインポートされました: "
+
+msgid "WPML config imported: %1$d element(s) registered into the translation registry, %2$d skipped (action = ignore)."
+msgstr "WPML 設定がインポートされました: %1$d 要素が翻訳レジストリに登録され、%2$d がスキップされました（アクション = 無視）。"
+
+msgid "WPML is active. Running two multilingual plugins simultaneously can cause conflicts. Please deactivate WPML before using Idiomattic WP, or use the WPML migration tool."
+msgstr "WPML がアクティブです。2 つの多言語プラグインを同時に実行すると競合が生じる可能性があります。Idiomattic WP を使用する前に WPML を無効化するか、WPML 移行ツールを使用してください。"
+
+msgid "WPML is not active. Migration may not be possible."
+msgstr "WPML がアクティブではありません。移行が不可能な場合があります。"
+
+msgid "W3 Total Cache is active. Make sure page caching is configured to handle language-specific URLs correctly."
+msgstr "W3 Total Cache がアクティブです。言語固有の URL を正しく処理するようにページキャッシュが設定されていることを確認してください。"
+
+msgid "WP Debug"
+msgstr "WP デバッグ"
+
+msgid "WP Debug Log"
+msgstr "WP デバッグログ"
+
+msgid "WP_DEBUG and WP_DEBUG_LOG are not both enabled. Add the following to wp-config.php to activate debug logging:"
+msgstr "WP_DEBUG と WP_DEBUG_LOG の両方が有効になっていません。デバッグログを有効にするには、wp-config.php に以下を追加してください:"
+
+msgid "Want AI-powered translations? Upgrade to Pro for BYOK (Bring Your Own Key) support."
+msgstr "AI による翻訳が必要ですか？BYOK（自分のキーを持参）サポートのために Pro にアップグレードしてください。"
+
+msgid "Webhooks"
+msgstr "ウェブフック"
+
+msgid "What do these statuses mean?"
+msgstr "これらのステータスは何を意味しますか？"
+
+msgid "What language is your content written in?"
+msgstr "コンテンツはどの言語で書かれていますか？"
+
+msgid "Which languages do you want to translate into?"
+msgstr "どの言語に翻訳しますか？"
+
+msgid "WordPress Version"
+msgstr "WordPress バージョン"
+
+msgid "Works with any permalink structure. Easiest to set up."
+msgstr "任意のパーマリンク構造で動作します。設定が最も簡単です。"
+
+msgid "Works with any permalink structure. Recommended for most sites."
+msgstr "任意のパーマリンク構造で動作します。ほとんどのサイトに推奨されます。"
+
+msgid "XLIFF file (.xliff)"
+msgstr "XLIFF ファイル (.xliff)"
+
+msgid "You can add or remove languages at any time from Settings."
+msgstr "設定からいつでも言語を追加または削除できます。"
+
+msgid "You can disable these notifications in the plugin settings."
+msgstr "プラグイン設定でこれらの通知を無効にできます。"
+
+msgid "You do not have permission to edit this post."
+msgstr "この投稿を編集する権限がありません。"
+
+msgid "debug.log not found or not readable."
+msgstr "debug.log が見つからないか、読み取れません。"
+
+msgid "default"
+msgstr "デフォルト"
+
+msgid "e.g. button, menu"
+msgstr "例: ボタン、メニュー"
+
+msgid "e.g. my-plugin"
+msgstr "例: my-plugin"
+
+msgid "— Not assigned —"
+msgstr "— 未割り当て —"
+
+msgid "→ Scan sources"
+msgstr "→ ソースをスキャン"
+
+msgid "Admin Language"
+msgstr "管理言語"
+
+msgid "Admin Interface Language"
+msgstr "管理インターフェース言語"
+
+msgid "Use site default"
+msgstr "サイトのデフォルトを使用"
+
+msgid "Select the language you prefer for the WordPress admin interface."
+msgstr "WordPress 管理インターフェースに使用する言語を選択してください。"
+
+msgid "%d missing"
+msgid_plural "%d missing"
+msgstr[0] "%d 件不足"
+
+msgid "%d translation job queued. Jobs are processed in the background."
+msgid_plural "%d translation jobs queued. Jobs are processed in the background."
+msgstr[0] "%d 件の翻訳ジョブがキューに追加されました。ジョブはバックグラウンドで処理されます。"
+
+msgid "Retranslate %d outdated"
+msgid_plural "Retranslate %d outdated"
+msgstr[0] "%d 件の古い翻訳を再翻訳"

@@ -1,0 +1,1063 @@
+# Romanian translation for Idiomattic WP
+# Copyright (C) 2024 Idiomattic
+msgid ""
+msgstr ""
+"Project-Id-Version: Idiomattic WP\n"
+"POT-Creation-Date: 2024-01-01 00:00+0000\n"
+"PO-Revision-Date: 2024-01-01 00:00+0000\n"
+"Last-Translator: Idiomattic <hello@idiomattic.app>\n"
+"Language-Team: Romanian\n"
+"Language: ro_RO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < 20)) ? 1 : 2);\n"
+"X-Generator: Idiomattic WP\n"
+"X-Domain: idiomattic-wp\n"
+
+msgid "%1$d draft, %2$d in progress"
+msgstr "%1$d schiță, %2$d în curs"
+
+msgid "%d active plugins — click to expand"
+msgstr "%d plugin-uri active — clic pentru a extinde"
+
+msgid "%s: %s"
+msgstr "%s: %s"
+
+msgid "(empty)"
+msgstr "(gol)"
+
+msgid "(no title)"
+msgstr "(fără titlu)"
+
+msgid "(optional)"
+msgstr "(opțional)"
+
+msgid "(saved — enter a new key to replace)"
+msgstr "(salvat — introduceți o cheie nouă pentru a înlocui)"
+
+msgid "A translation already exists for this language. Delete it first."
+msgstr "Există deja o traducere pentru această limbă. Ștergeți-o mai întâi."
+
+msgid "AI Translation Provider"
+msgstr "Furnizor de traducere AI"
+
+msgid "AI Translation — Pro Feature"
+msgstr "Traducere AI — Funcție Pro"
+
+msgid "AI error: "
+msgstr "Eroare AI: "
+
+msgid "AI string translation requires a Pro license."
+msgstr "Traducerea șirurilor cu AI necesită o licență Pro."
+
+msgid "AI translation requires Pro"
+msgstr "Traducerea AI necesită Pro"
+
+msgid "AI translation requires a Pro license."
+msgstr "Traducerea AI necesită o licență Pro."
+
+msgid "Action"
+msgstr "Acțiune"
+
+msgid "Actions"
+msgstr "Acțiuni"
+
+msgid "Active Languages"
+msgstr "Limbi active"
+
+msgid "Active Plugins"
+msgstr "Plugin-uri active"
+
+msgid "Active Theme"
+msgstr "Temă activă"
+
+msgid "Add"
+msgstr "Adăugare"
+
+msgid "Add Custom Language"
+msgstr "Adăugare limbă personalizată"
+
+msgid "Add String"
+msgstr "Adăugare șir"
+
+msgid "Add Term"
+msgstr "Adăugare termen"
+
+msgid "Add string"
+msgstr "Adăugare șir"
+
+msgid "Advanced"
+msgstr "Avansat"
+
+msgid "All"
+msgstr "Toate"
+
+msgid "All content already has translations for the selected languages."
+msgstr "Tot conținutul are deja traduceri pentru limbile selectate."
+
+msgid "All content is fully translated!"
+msgstr "Tot conținutul este complet tradus!"
+
+msgid "All fields already have a translation."
+msgstr "Toate câmpurile au deja o traducere."
+
+msgid "All languages"
+msgstr "Toate limbile"
+
+msgid "All packages"
+msgstr "Toate pachetele"
+
+msgid "An unexpected error occurred during translation."
+msgstr "A apărut o eroare neașteptată în timpul traducerii."
+
+msgid "Apply"
+msgstr "Aplicare"
+
+msgid "Are you sure you want to delete this translation?"
+msgstr "Sigur doriți să ștergeți această traducere?"
+
+msgid "Author"
+msgstr "Autor"
+
+msgid "Auto-translate failed."
+msgstr "Traducerea automată a eșuat."
+
+msgid "Auto-translate on creation"
+msgstr "Traducere automată la creare"
+
+msgid "Auto-translate pending"
+msgstr "Traducere automată în așteptare"
+
+msgid "Automated translations and AI provider configuration are available in the Pro version. Bring Your Own Key — connect directly to OpenAI, Claude, or DeepL."
+msgstr "Traducerile automate și configurarea furnizorului AI sunt disponibile în versiunea Pro. Aduceți propria cheie — conectați-vă direct la OpenAI, Claude sau DeepL."
+
+msgid "Automatically start AI translation when a new translation is created"
+msgstr "Pornire automată a traducerii AI când se creează o traducere nouă"
+
+msgid "Back"
+msgstr "Înapoi"
+
+msgid "Back to list"
+msgstr "Înapoi la listă"
+
+msgid "Behaviour"
+msgstr "Comportament"
+
+msgid "Bring Your Own Key (BYOK): connect directly to your chosen AI provider. Your API key is stored encrypted and never sent to Idiomattic servers."
+msgstr "Aduceți propria cheie (BYOK): conectați-vă direct la furnizorul AI ales. Cheia API este stocată criptat și nu este niciodată trimisă la serverele Idiomattic."
+
+msgid "Cache & Transients"
+msgstr "Cache și tranziitori"
+
+msgid "Cache language detection results for improved performance."
+msgstr "Memorați în cache rezultatele detecției limbii pentru performanțe îmbunătățite."
+
+msgid "Cancel"
+msgstr "Anulare"
+
+msgid "Child theme"
+msgstr "Temă copil"
+
+msgid "Choose the primary language your website content will be served in by default."
+msgstr "Alegeți limba principală în care va fi afișat conținutul site-ului dvs. implicit."
+
+msgid "Claude API Key"
+msgstr "Cheie API Claude"
+
+msgid "Clean URLs with the language code as a path prefix. Requires pretty permalinks."
+msgstr "URL-uri curate cu codul de limbă ca prefix de cale. Necesită permalink-uri frumoase."
+
+msgid "Clear cached data if you are seeing stale content or unexpected behaviour."
+msgstr "Ștergeți datele din cache dacă vedeți conținut vechi sau comportament neașteptat."
+
+msgid "Clear language filter"
+msgstr "Ștergere filtru limbă"
+
+msgid "Close"
+msgstr "Închidere"
+
+msgid "Code, native name, and English name are required."
+msgstr "Codul, numele nativ și numele în engleză sunt obligatorii."
+
+msgid "Compatibility"
+msgstr "Compatibilitate"
+
+msgid "Compatibility scan completed successfully."
+msgstr "Scanarea compatibilității a fost finalizată cu succes."
+
+msgid "Complete"
+msgstr "Finalizare"
+
+msgid "Configure how each post type behaves across languages."
+msgstr "Configurați modul în care fiecare tip de postare se comportă în diferite limbi."
+
+msgid "Configure how taxonomy terms behave across languages."
+msgstr "Configurați modul în care termenii de taxonomie se comportă în diferite limbi."
+
+msgid "Configure permalinks →"
+msgstr "Configurare permalink-uri →"
+
+msgid "Configure translation mode for registered custom fields. New fields can be added via the Compatibility tab or programmatically."
+msgstr "Configurați modul de traducere pentru câmpurile personalizate înregistrate. Câmpurile noi pot fi adăugate prin fila Compatibilitate sau programatic."
+
+msgid "Content"
+msgstr "Conținut"
+
+msgid "Content Translation"
+msgstr "Traducere conținut"
+
+msgid "Context"
+msgstr "Context"
+
+msgid "Context (optional)"
+msgstr "Context (opțional)"
+
+msgid "Continue →"
+msgstr "Continuare →"
+
+msgid "Control how the plugin handles its data."
+msgstr "Controlați modul în care plugin-ul gestionează datele sale."
+
+msgid "Copied!"
+msgstr "Copiat!"
+
+msgid "Copy from original:"
+msgstr "Copiere din original:"
+
+msgid "Copy source string"
+msgstr "Copiere șir sursă"
+
+msgid "Copy source to all empty translations"
+msgstr "Copiere sursă în toate traducerile goale"
+
+msgid "Copy to all"
+msgstr "Copiere la toate"
+
+msgid "Copy to clipboard"
+msgstr "Copiere în clipboard"
+
+msgid "Could not create export archive."
+msgstr "Nu s-a putut crea arhiva de export."
+
+msgid "Could not link post."
+msgstr "Nu s-a putut conecta postarea."
+
+msgid "Coverage"
+msgstr "Acoperire"
+
+msgid "Create a menu →"
+msgstr "Creare meniu →"
+
+msgid "Creating..."
+msgstr "Se creează..."
+
+msgid "Custom"
+msgstr "Personalizat"
+
+msgid "Custom Fields"
+msgstr "Câmpuri personalizate"
+
+msgid "Daily digest — one email per day"
+msgstr "Rezumat zilnic — un email pe zi"
+
+msgid "Dashboard"
+msgstr "Tablou de bord"
+
+msgid "Data Management"
+msgstr "Gestionare date"
+
+msgid "Date"
+msgstr "Dată"
+
+msgid "Debug Log"
+msgstr "Jurnal de depanare"
+
+msgid "Default Language"
+msgstr "Limbă implicită"
+
+msgid "Default configured by %s"
+msgstr "Implicit configurat de %s"
+
+msgid "Define terms that must always be translated a specific way, or kept unchanged by the AI."
+msgstr "Definiți termeni care trebuie să fie întotdeauna traduși într-un mod specific sau păstrați neschimbați de AI."
+
+msgid "Define terms that must always be translated a specific way, or kept unchanged. Glossary rules are automatically applied during AI translation."
+msgstr "Definiți termeni care trebuie să fie întotdeauna traduși într-un mod specific sau păstrați neschimbați. Regulile glosarului sunt aplicate automat în timpul traducerii AI."
+
+msgid "Delete"
+msgstr "Ștergere"
+
+msgid "Delete this custom language?"
+msgstr "Ștergeți această limbă personalizată?"
+
+msgid "Delete this term?"
+msgstr "Ștergeți acest termen?"
+
+msgid "Directory"
+msgstr "Director"
+
+msgid "Directory and Subdomain modes require pretty permalinks. %s"
+msgstr "Modurile Director și Subdomeniu necesită permalink-uri frumoase. %s"
+
+msgid "Directory not found."
+msgstr "Directorul nu a fost găsit."
+
+msgid "Disabled"
+msgstr "Dezactivat"
+
+msgid "Display a language switcher."
+msgstr "Afișare selector de limbă."
+
+msgid "Done"
+msgstr "Gata"
+
+msgid "Download JSON"
+msgstr "Descărcare JSON"
+
+msgid "Download JSON template"
+msgstr "Descărcare șablon JSON"
+
+msgid "Download ZIP"
+msgstr "Descărcare ZIP"
+
+msgid "Download all translations for a language as a ZIP of XLIFF 2.0 files, ready to be processed by any CAT tool."
+msgstr "Descărcați toate traducerile pentru o limbă ca ZIP de fișiere XLIFF 2.0, pregătite pentru procesare cu orice instrument CAT."
+
+msgid "Download as JSON"
+msgstr "Descărcare ca JSON"
+
+msgid "Draft"
+msgstr "Schiță"
+
+msgid "Draft / In Progress"
+msgstr "Schiță / În curs"
+
+msgid "Draft/WIP"
+msgstr "Schiță/În lucru"
+
+msgid "Duplicate all"
+msgstr "Duplicare toate"
+
+msgid "Duplicate untranslated"
+msgstr "Duplicare netraduse"
+
+msgid "Each language has its own version of this content"
+msgstr "Fiecare limbă are propria versiune a acestui conținut"
+
+msgid "Each language on its own subdomain. Requires wildcard DNS and SSL."
+msgstr "Fiecare limbă pe propriul subdomeniu. Necesită DNS wildcard și SSL."
+
+msgid "Each language on its own subdomain. Requires wildcard DNS."
+msgstr "Fiecare limbă pe propriul subdomeniu. Necesită DNS wildcard."
+
+msgid "Edit"
+msgstr "Editare"
+
+msgid "Email Notifications"
+msgstr "Notificări email"
+
+msgid "Enable AI-powered string translation"
+msgstr "Activare traducere șiruri bazată pe AI"
+
+msgid "Enable caching"
+msgstr "Activare cache"
+
+msgid "Enable webhooks"
+msgstr "Activare webhook-uri"
+
+msgid "Error"
+msgstr "Eroare"
+
+msgid "Export"
+msgstr "Export"
+
+msgid "Export Translations"
+msgstr "Export traduceri"
+
+msgid "Field"
+msgstr "Câmp"
+
+msgid "Glossary"
+msgstr "Glosar"
+
+msgid "Import"
+msgstr "Import"
+
+msgid "Import Translations"
+msgstr "Import traduceri"
+
+msgid "Immediate — one email per event"
+msgstr "Imediat — un email per eveniment"
+
+msgid "In Progress"
+msgstr "În curs"
+
+msgid "Install"
+msgstr "Instalare"
+
+msgid "Invalid parameters."
+msgstr "Parametri invalizi."
+
+msgid "Invalid translation ID."
+msgstr "ID de traducere invalid."
+
+msgid "Language"
+msgstr "Limbă"
+
+msgid "Language Coverage"
+msgstr "Acoperire limbă"
+
+msgid "Language Switcher"
+msgstr "Selector de limbă"
+
+msgid "Languages"
+msgstr "Limbi"
+
+msgid "Link as translation"
+msgstr "Conectare ca traducere"
+
+msgid "Link existing post"
+msgstr "Conectare postare existentă"
+
+msgid "Loading..."
+msgstr "Se încarcă..."
+
+msgid "Max words per segment"
+msgstr "Număr maxim de cuvinte per segment"
+
+msgid "Memory Hits"
+msgstr "Potriviri memorie"
+
+msgid "Menu"
+msgstr "Meniu"
+
+msgid "Menus"
+msgstr "Meniuri"
+
+msgid "Missing"
+msgstr "Lipsă"
+
+msgid "Missing %d"
+msgstr "%d lipsă"
+
+msgid "N/A"
+msgstr "N/A"
+
+msgid "No compatibility file found. Custom fields from this plugin will not be automatically translated. Click \"Download JSON template\" to get a starter file you can fill in and place inside the plugin/theme directory, or ask the author to add support."
+msgstr "Nu s-a găsit fișierul de compatibilitate. Câmpurile personalizate din acest plugin nu vor fi traduse automat."
+
+msgid "No config file"
+msgstr "Fără fișier de configurare"
+
+msgid "No items match the selected filter."
+msgstr "Niciun element nu corespunde filtrului selectat."
+
+msgid "No permissions."
+msgstr "Fără permisiuni."
+
+msgid "No strings found for auto-translation."
+msgstr "Nu s-au găsit șiruri pentru traducere automată."
+
+msgid "No terms in glossary yet. Add your first term above."
+msgstr "Nu există încă termeni în glosar. Adăugați primul termen mai sus."
+
+msgid "No translation found."
+msgstr "Nu s-a găsit nicio traducere."
+
+msgid "No translations yet. Start by creating a translation from the post list."
+msgstr "Nicio traducere încă. Începeți prin crearea unei traduceri din lista de postări."
+
+msgid "Not configured"
+msgstr "Neconfigurat"
+
+msgid "Not registered"
+msgstr "Neînregistrat"
+
+msgid "Not translatable"
+msgstr "Netradusabil"
+
+msgid "Notes"
+msgstr "Note"
+
+msgid "Notification Mode"
+msgstr "Mod notificare"
+
+msgid "Notify on outdated translations"
+msgstr "Notificare pentru traduceri depășite"
+
+msgid "Only .xliff or .xml files are accepted."
+msgstr "Sunt acceptate numai fișiere .xliff sau .xml."
+
+msgid "Open Translations Dashboard"
+msgstr "Deschidere tablou de bord traduceri"
+
+msgid "Open any post or page and click \"Translate\" to use the translation editor."
+msgstr "Deschideți orice postare sau pagină și faceți clic pe „Traducere" pentru a utiliza editorul de traduceri."
+
+msgid "OpenAI API Key"
+msgstr "Cheie API OpenAI"
+
+msgid "Optional HMAC-SHA256 secret"
+msgstr "Secret HMAC-SHA256 opțional"
+
+msgid "Original"
+msgstr "Original"
+
+msgid "Original post has been deleted."
+msgstr "Postarea originală a fost ștearsă."
+
+msgid "Original post not found."
+msgstr "Postarea originală nu a fost găsită."
+
+msgid "Outdated"
+msgstr "Depășit"
+
+msgid "Overview of your multilingual content"
+msgstr "Prezentare generală a conținutului dvs. multilingv"
+
+msgid "PHP Version"
+msgstr "Versiune PHP"
+
+msgid "Package / Domain"
+msgstr "Pachet / Domeniu"
+
+msgid "Page %1$d of %2$d"
+msgstr "Pagina %1$d din %2$d"
+
+msgid "Permalink Structure"
+msgstr "Structură permalink"
+
+msgid "Permission denied."
+msgstr "Acces interzis."
+
+msgid "Please configure at least two active languages in Settings → Languages before using Content Translation."
+msgstr "Configurați cel puțin două limbi active în Setări → Limbi înainte de a utiliza Traducerea conținutului."
+
+msgid "Please configure at least two active languages in Settings → Languages before using Import / Export."
+msgstr "Configurați cel puțin două limbi active în Setări → Limbi înainte de a utiliza Import / Export."
+
+msgid "Please configure at least two active languages in Settings → Languages before using String Translation."
+msgstr "Configurați cel puțin două limbi active în Setări → Limbi înainte de a utiliza Traducerea șirurilor."
+
+msgid "Plugin"
+msgstr "Plugin"
+
+msgid "Plugin & Theme Compatibility"
+msgstr "Compatibilitate plugin și temă"
+
+msgid "Plugin / Theme"
+msgstr "Plugin / Temă"
+
+msgid "Plugin Activation Error"
+msgstr "Eroare activare plugin"
+
+msgid "Plugin Version"
+msgstr "Versiune plugin"
+
+msgid "Polylang is active. Running two multilingual plugins simultaneously can cause conflicts. Please deactivate Polylang before using Idiomattic WP."
+msgstr "Polylang este activ. Rularea simultană a două plugin-uri multilingve poate cauza conflicte. Dezactivați Polylang înainte de a utiliza Idiomattic WP."
+
+msgid "Post Title"
+msgstr "Titlu postare"
+
+msgid "Post Type"
+msgstr "Tip postare"
+
+msgid "Post Type(s)"
+msgstr "Tip(uri) postare"
+
+msgid "Post Types"
+msgstr "Tipuri de postare"
+
+msgid "Post not found."
+msgstr "Postarea nu a fost găsită."
+
+msgid "Prev"
+msgstr "Anterior"
+
+msgid "Preview flag"
+msgstr "Previzualizare steag"
+
+msgid "Primary Language"
+msgstr "Limbă principală"
+
+msgid "Pro"
+msgstr "Pro"
+
+msgid "Progress"
+msgstr "Progres"
+
+msgid "Publish"
+msgstr "Publicare"
+
+msgid "Publish Translation"
+msgstr "Publicare traducere"
+
+msgid "Queue AI translation"
+msgstr "Adăugare traducere AI în coadă"
+
+msgid "Rate limit reached. Please wait a moment and try again."
+msgstr "Limita de rată a fost atinsă. Așteptați un moment și încercați din nou."
+
+msgid "Re-scan"
+msgstr "Rescanare"
+
+msgid "Re-use previously translated segments to reduce API costs"
+msgstr "Reutilizarea segmentelor traduse anterior pentru a reduce costurile API"
+
+msgid "Recent Activity"
+msgstr "Activitate recentă"
+
+msgid "Recipient Email"
+msgstr "Email destinatar"
+
+msgid "Register string"
+msgstr "Înregistrare șir"
+
+msgid "Register this string for this language"
+msgstr "Înregistrați acest șir pentru această limbă"
+
+msgid "Remove"
+msgstr "Eliminare"
+
+msgid "Requires Pro licence"
+msgstr "Necesită licență Pro"
+
+msgid "Retain data on uninstall"
+msgstr "Păstrare date la dezinstalare"
+
+msgid "Rewrite Rules"
+msgstr "Reguli de rescriere"
+
+msgid "Right-to-left language"
+msgstr "Limbă de la dreapta la stânga"
+
+msgid "Save"
+msgstr "Salvare"
+
+msgid "Save Draft"
+msgstr "Salvare schiță"
+
+msgid "Save Translations"
+msgstr "Salvare traduceri"
+
+msgid "Scan complete."
+msgstr "Scanare finalizată."
+
+msgid "Scan sources"
+msgstr "Scanare surse"
+
+msgid "Scan strings"
+msgstr "Scanare șiruri"
+
+msgid "Scanning..."
+msgstr "Se scanează..."
+
+msgid "Search"
+msgstr "Căutare"
+
+msgid "Search by title…"
+msgstr "Căutare după titlu…"
+
+msgid "Search in source and translations…"
+msgstr "Căutare în sursă și traduceri…"
+
+msgid "Search languages…"
+msgstr "Căutare limbi…"
+
+msgid "Search strings"
+msgstr "Căutare șiruri"
+
+msgid "Security check failed."
+msgstr "Verificarea de securitate a eșuat."
+
+msgid "Select Language"
+msgstr "Selectare limbă"
+
+msgid "Send HTTP POST notifications to an external URL when translation events occur. Payloads are signed with HMAC-SHA256."
+msgstr "Trimiteți notificări HTTP POST la un URL extern când apar evenimente de traducere. Datele sunt semnate cu HMAC-SHA256."
+
+msgid "Settings"
+msgstr "Setări"
+
+msgid "Show Flags"
+msgstr "Afișare steaguri"
+
+msgid "Show Names"
+msgstr "Afișare nume"
+
+msgid "Show all"
+msgstr "Afișare toate"
+
+msgid "Show as translated"
+msgstr "Afișare ca tradus"
+
+msgid "Show terms for:"
+msgstr "Afișare termeni pentru:"
+
+msgid "Showing original posts only"
+msgstr "Se afișează numai postările originale"
+
+msgid "Showing translations into: %s"
+msgstr "Se afișează traducerile în: %s"
+
+msgid "Shown in secondary languages even without a translation (uses default language content)"
+msgstr "Afișat în limbile secundare chiar și fără o traducere (folosește conținutul limbii implicite)"
+
+msgid "Signing Secret"
+msgstr "Secret de semnare"
+
+msgid "Site Default Language"
+msgstr "Limbă implicită a site-ului"
+
+msgid "Slug"
+msgstr "Slug"
+
+msgid "Source Term"
+msgstr "Termen sursă"
+
+msgid "Source post not found."
+msgstr "Postarea sursă nu a fost găsită."
+
+msgid "Source string"
+msgstr "Șir sursă"
+
+msgid "Source string not found."
+msgstr "Șirul sursă nu a fost găsit."
+
+msgid "Standard ISO code for localization"
+msgstr "Cod ISO standard pentru localizare"
+
+msgid "Start Migration"
+msgstr "Pornire migrare"
+
+msgid "Status"
+msgstr "Stare"
+
+msgid "Step 1: Detection"
+msgstr "Pasul 1: Detecție"
+
+msgid "String Translation"
+msgstr "Traducere șiruri"
+
+msgid "Style"
+msgstr "Stil"
+
+msgid "Subdomain"
+msgstr "Subdomeniu"
+
+msgid "System Information"
+msgstr "Informații sistem"
+
+msgid "System Report"
+msgstr "Raport sistem"
+
+msgid "Target language is required."
+msgstr "Limba țintă este obligatorie."
+
+msgid "Taxonomies"
+msgstr "Taxonomii"
+
+msgid "Taxonomy"
+msgstr "Taxonomie"
+
+msgid "Theme"
+msgstr "Temă"
+
+msgid "This affects how visitors and search engines find your translated content."
+msgstr "Aceasta afectează modul în care vizitatorii și motoarele de căutare găsesc conținutul dvs. tradus."
+
+msgid "This alert was sent by the %s plugin."
+msgstr "Această alertă a fost trimisă de plugin-ul %s."
+
+msgid "This is a translation of: %s"
+msgstr "Aceasta este o traducere a: %s"
+
+msgid "This is the original language of your posts and pages."
+msgstr "Aceasta este limba originală a postărilor și paginilor dvs."
+
+msgid "This plugin/theme ships with a native idiomattic-elements.json file. All its elements are automatically registered. No action needed."
+msgstr "Acest plugin/temă vine cu un fișier nativ idiomattic-elements.json. Toate elementele sale sunt înregistrate automat. Nu este necesară nicio acțiune."
+
+msgid "This plugin/theme ships with a wpml-config.xml file. Idiomattic auto-imports its field definitions at runtime. Use \"Import WPML config\" to force-register them now, or \"Download as JSON\" to convert the file to a permanent idiomattic-elements.json."
+msgstr "Acest plugin/temă vine cu un fișier wpml-config.xml. Idiomattic importă automat definițiile câmpurilor la rulare."
+
+msgid "This translation is outdated — the source post has been updated since it was last translated. Please review and re-translate."
+msgstr "Această traducere este depășită — postarea sursă a fost actualizată de la ultima traducere. Vă rugăm să revizuiți și să traduceți din nou."
+
+msgid "This will overwrite all fields with the original content. Continue?"
+msgstr "Aceasta va suprascrie toate câmpurile cu conținutul original. Continuați?"
+
+msgid "Title"
+msgstr "Titlu"
+
+msgid "To create or edit navigation menus visit %s."
+msgstr "Pentru a crea sau edita meniuri de navigare vizitați %s."
+
+msgid "Total Translations"
+msgstr "Total traduceri"
+
+msgid "Total scanned"
+msgstr "Total scanat"
+
+msgid "Translatable"
+msgstr "Traductibil"
+
+msgid "Translate all"
+msgstr "Traducere toate"
+
+msgid "Translate all languages"
+msgstr "Traducere toate limbile"
+
+msgid "Translate all missing"
+msgstr "Traducere toate lipsele"
+
+msgid "Translate all missing (%d)"
+msgstr "Traducere toate lipsele (%d)"
+
+msgid "Translate content →"
+msgstr "Traducere conținut →"
+
+msgid "Translate field"
+msgstr "Traducere câmp"
+
+msgid "Translate interface strings from plugins and themes"
+msgstr "Traducere șiruri de interfață din plugin-uri și teme"
+
+msgid "Translate posts, pages, and custom content into all active languages"
+msgstr "Traduceți postări, pagini și conținut personalizat în toate limbile active"
+
+msgid "Translate to all languages"
+msgstr "Traducere în toate limbile"
+
+msgid "Translate: %s"
+msgstr "Traducere: %s"
+
+msgid "Translated %d strings successfully."
+msgstr "%d șiruri traduse cu succes."
+
+msgid "Translating"
+msgstr "Se traduce"
+
+msgid "Translating…"
+msgstr "Se traduce…"
+
+msgid "Translation"
+msgstr "Traducere"
+
+msgid "Translation / Rule"
+msgstr "Traducere / Regulă"
+
+msgid "Translation Alert"
+msgstr "Alertă traducere"
+
+msgid "Translation Alert — %s"
+msgstr "Alertă traducere — %s"
+
+msgid "Translation Details"
+msgstr "Detalii traducere"
+
+msgid "Translation Editor"
+msgstr "Editor traduceri"
+
+msgid "Translation Memory"
+msgstr "Memorie traducere"
+
+msgid "Translation Mode"
+msgstr "Mod traducere"
+
+msgid "Translation completed (AI finished)"
+msgstr "Traducere finalizată (AI a terminat)"
+
+msgid "Translation failed."
+msgstr "Traducerea a eșuat."
+
+msgid "Translation outdated (source post updated)"
+msgstr "Traducere depășită (postarea sursă actualizată)"
+
+msgid "Translation provider is temporarily unavailable. Please try again."
+msgstr "Furnizorul de traducere este temporar indisponibil. Vă rugăm să încercați din nou."
+
+msgid "Translation queued (job dispatched)"
+msgstr "Traducere în coadă (lucrare trimisă)"
+
+msgid "Translation record not found."
+msgstr "Înregistrarea traducerii nu a fost găsită."
+
+msgid "Translation saved successfully."
+msgstr "Traducerea a fost salvată cu succes."
+
+msgid "Translations"
+msgstr "Traduceri"
+
+msgid "Translations saved."
+msgstr "Traduceri salvate."
+
+msgid "Triggered when you update a post that has translations."
+msgstr "Declanșat când actualizați o postare care are traduceri."
+
+msgid "Troubleshooting"
+msgstr "Depanare"
+
+msgid "Type"
+msgstr "Tip"
+
+msgid "URL Mode"
+msgstr "Mod URL"
+
+msgid "URL Structure"
+msgstr "Structură URL"
+
+msgid "Unauthorized"
+msgstr "Neautorizat"
+
+msgid "Update"
+msgstr "Actualizare"
+
+msgid "Upgrade to Pro to unlock Directory and Subdomain modes →"
+msgstr "Faceți upgrade la Pro pentru a debloca modurile Director și Subdomeniu →"
+
+msgid "Upgrade to Pro →"
+msgstr "Upgrade la Pro →"
+
+msgid "Upload an XLIFF file (2.0 or 1.2) exported from a CAT tool. Translations are written directly into the database."
+msgstr "Încărcați un fișier XLIFF (2.0 sau 1.2) exportat dintr-un instrument CAT. Traducerile sunt scrise direct în baza de date."
+
+msgid "Version"
+msgstr "Versiune"
+
+msgid "View"
+msgstr "Vizualizare"
+
+msgid "View Original"
+msgstr "Vizualizare original"
+
+msgid "View compatibility report →"
+msgstr "Vizualizare raport compatibilitate →"
+
+msgid "View source post →"
+msgstr "Vizualizare postare sursă →"
+
+msgid "View strings"
+msgstr "Vizualizare șiruri"
+
+msgid "WPML Migration"
+msgstr "Migrare WPML"
+
+msgid "WPML Migration Wizard"
+msgstr "Expert migrare WPML"
+
+msgid "WPML config"
+msgstr "Configurație WPML"
+
+msgid "WPML config imported successfully."
+msgstr "Configurația WPML a fost importată cu succes."
+
+msgid "WPML config imported with warnings: "
+msgstr "Configurația WPML importată cu avertismente: "
+
+msgid "WPML config imported: %1$d element(s) registered into the translation registry, %2$d skipped (action = ignore)."
+msgstr "Configurație WPML importată: %1$d element(e) înregistrate în registrul de traduceri, %2$d omise (acțiune = ignorare)."
+
+msgid "WPML is active. Running two multilingual plugins simultaneously can cause conflicts. Please deactivate WPML before using Idiomattic WP, or use the WPML migration tool."
+msgstr "WPML este activ. Rularea simultană a două plugin-uri multilingve poate cauza conflicte. Dezactivați WPML înainte de a utiliza Idiomattic WP sau utilizați instrumentul de migrare WPML."
+
+msgid "WPML is not active. Migration may not be possible."
+msgstr "WPML nu este activ. Migrarea poate să nu fie posibilă."
+
+msgid "W3 Total Cache is active. Make sure page caching is configured to handle language-specific URLs correctly."
+msgstr "W3 Total Cache este activ. Asigurați-vă că memoria cache a paginilor este configurată pentru a gestiona corect URL-urile specifice limbii."
+
+msgid "WP Debug"
+msgstr "WP Depanare"
+
+msgid "WP Debug Log"
+msgstr "WP Jurnal de depanare"
+
+msgid "WP_DEBUG and WP_DEBUG_LOG are not both enabled. Add the following to wp-config.php to activate debug logging:"
+msgstr "WP_DEBUG și WP_DEBUG_LOG nu sunt ambele activate. Adăugați următoarele la wp-config.php pentru a activa jurnalizarea de depanare:"
+
+msgid "Want AI-powered translations? Upgrade to Pro for BYOK (Bring Your Own Key) support."
+msgstr "Doriți traduceri bazate pe AI? Faceți upgrade la Pro pentru suport BYOK (Aduceți propria cheie)."
+
+msgid "Webhooks"
+msgstr "Webhook-uri"
+
+msgid "What do these statuses mean?"
+msgstr "Ce înseamnă aceste stări?"
+
+msgid "What language is your content written in?"
+msgstr "În ce limbă este scris conținutul dvs.?"
+
+msgid "Which languages do you want to translate into?"
+msgstr "În ce limbi doriți să traduceți?"
+
+msgid "WordPress Version"
+msgstr "Versiune WordPress"
+
+msgid "Works with any permalink structure. Easiest to set up."
+msgstr "Funcționează cu orice structură de permalink. Cel mai ușor de configurat."
+
+msgid "Works with any permalink structure. Recommended for most sites."
+msgstr "Funcționează cu orice structură de permalink. Recomandat pentru majoritatea site-urilor."
+
+msgid "XLIFF file (.xliff)"
+msgstr "Fișier XLIFF (.xliff)"
+
+msgid "You can add or remove languages at any time from Settings."
+msgstr "Puteți adăuga sau elimina limbi oricând din Setări."
+
+msgid "You can disable these notifications in the plugin settings."
+msgstr "Puteți dezactiva aceste notificări în setările plugin-ului."
+
+msgid "You do not have permission to edit this post."
+msgstr "Nu aveți permisiunea să editați această postare."
+
+msgid "debug.log not found or not readable."
+msgstr "debug.log nu a fost găsit sau nu poate fi citit."
+
+msgid "default"
+msgstr "implicit"
+
+msgid "e.g. button, menu"
+msgstr "de ex. buton, meniu"
+
+msgid "e.g. my-plugin"
+msgstr "de ex. plugin-ul-meu"
+
+msgid "— Not assigned —"
+msgstr "— Neatribuit —"
+
+msgid "→ Scan sources"
+msgstr "→ Scanare surse"
+
+msgid "Admin Language"
+msgstr "Limbă administrator"
+
+msgid "Admin Interface Language"
+msgstr "Limbă interfață administrator"
+
+msgid "Use site default"
+msgstr "Utilizare implicită a site-ului"
+
+msgid "Select the language you prefer for the WordPress admin interface."
+msgstr "Selectați limba preferată pentru interfața de administrare WordPress."
+
+msgid "%d missing"
+msgid_plural "%d missing"
+msgstr[0] "%d lipsă"
+msgstr[1] "%d lipsă"
+msgstr[2] "%d lipsă"
+
+msgid "%d translation job queued. Jobs are processed in the background."
+msgid_plural "%d translation job queued. Jobs are processed in the background."
+msgstr[0] "%d lucrare de traducere în coadă. Lucrările sunt procesate în fundal."
+msgstr[1] "%d lucrări de traducere în coadă. Lucrările sunt procesate în fundal."
+msgstr[2] "%d de lucrări de traducere în coadă. Lucrările sunt procesate în fundal."
+
+msgid "Retranslate %d outdated"
+msgid_plural "Retranslate %d outdated"
+msgstr[0] "Retraduce %d depășit"
+msgstr[1] "Retraduce %d depășite"
+msgstr[2] "Retraduce %d de depășite"

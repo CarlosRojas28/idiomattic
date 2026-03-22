@@ -33,123 +33,132 @@ class SettingsHooks implements HookRegistrarInterface {
 
 	// ── Callbacks ─────────────────────────────────────────────────────────
 
+	/**
+	 * Each settings tab uses its own option group (idiomatticwp_settings_{tab}).
+	 * This prevents WordPress from resetting options that belong to other tabs
+	 * when saving a tab whose form does not include those fields.
+	 */
 	public function registerSettings(): void {
 
-		// ── Languages ─────────────────────────────────────────────────────
-		register_setting( 'idiomatticwp_settings', 'idiomatticwp_active_langs', [
+		// ── Languages tab ─────────────────────────────────────────────────
+		register_setting( 'idiomatticwp_settings_languages', 'idiomatticwp_active_langs', [
 			'type'              => 'array',
 			'sanitize_callback' => [ $this, 'sanitizeActiveLanguages' ],
 			'default'           => [],
 		] );
 
-		register_setting( 'idiomatticwp_settings', 'idiomatticwp_default_lang', [
+		register_setting( 'idiomatticwp_settings_languages', 'idiomatticwp_default_lang', [
 			'type'              => 'string',
-			'sanitize_callback' => 'sanitize_key',
+			'sanitize_callback' => [ $this, 'sanitizeLangCode' ],
 			'default'           => 'en',
 		] );
 
-		// ── URL structure ─────────────────────────────────────────────────
-		register_setting( 'idiomatticwp_settings', 'idiomatticwp_url_mode', [
+		// ── URL tab ───────────────────────────────────────────────────────
+		register_setting( 'idiomatticwp_settings_url', 'idiomatticwp_url_mode', [
 			'type'              => 'string',
 			'sanitize_callback' => [ $this, 'sanitizeUrlMode' ],
 			'default'           => 'parameter',
 		] );
 
-		// ── Translation / AI providers ────────────────────────────────────
-		register_setting( 'idiomatticwp_settings', 'idiomatticwp_active_provider', [
+		// ── Translation tab ───────────────────────────────────────────────
+		register_setting( 'idiomatticwp_settings_translation', 'idiomatticwp_active_provider', [
 			'type'              => 'string',
 			'sanitize_callback' => 'sanitize_key',
 			'default'           => 'openai',
 		] );
 
-		register_setting( 'idiomatticwp_settings', 'idiomatticwp_tm_enabled', [
+		register_setting( 'idiomatticwp_settings_translation', 'idiomatticwp_tm_enabled', [
 			'type'    => 'string',
 			'default' => '',
 		] );
 
-		register_setting( 'idiomatticwp_settings', 'idiomatticwp_auto_translate', [
+		register_setting( 'idiomatticwp_settings_translation', 'idiomatticwp_auto_translate', [
 			'type'    => 'string',
 			'default' => '',
 		] );
 
-		register_setting( 'idiomatticwp_settings', 'idiomatticwp_openai_model', [
+		register_setting( 'idiomatticwp_settings_translation', 'idiomatticwp_openai_model', [
 			'type'              => 'string',
 			'sanitize_callback' => 'sanitize_text_field',
 			'default'           => 'gpt-4o-mini',
 		] );
 
-		// ── Content configuration ─────────────────────────────────────────
-		// Post type translation modes: [ 'slug' => 'translate'|'show_as_translated'|'ignore' ]
-		register_setting( 'idiomatticwp_settings', 'idiomatticwp_post_type_config', [
+		// ── Content tab ───────────────────────────────────────────────────
+		register_setting( 'idiomatticwp_settings_content', 'idiomatticwp_post_type_config', [
 			'type'              => 'array',
 			'sanitize_callback' => [ $this, 'sanitizeContentConfig' ],
 			'default'           => [],
 		] );
 
-		// Taxonomy translation modes
-		register_setting( 'idiomatticwp_settings', 'idiomatticwp_taxonomy_config', [
+		register_setting( 'idiomatticwp_settings_content', 'idiomatticwp_taxonomy_config', [
 			'type'              => 'array',
 			'sanitize_callback' => [ $this, 'sanitizeContentConfig' ],
 			'default'           => [],
 		] );
 
-		// Custom field translation modes: [ 'meta_key' => 'translate'|'copy'|'ignore' ]
-		register_setting( 'idiomatticwp_settings', 'idiomatticwp_custom_field_config', [
+		register_setting( 'idiomatticwp_settings_content', 'idiomatticwp_custom_field_config', [
 			'type'              => 'array',
 			'sanitize_callback' => [ $this, 'sanitizeFieldConfig' ],
 			'default'           => [],
 		] );
 
-		// ── Advanced ──────────────────────────────────────────────────────
-		register_setting( 'idiomatticwp_settings', 'idiomatticwp_uninstall_retention', [
-			'type'    => 'string',
-			'default' => '1',
+		register_setting( 'idiomatticwp_settings_content', 'idiomatticwp_translate_on_publish', [
+			'type'              => 'array',
+			'sanitize_callback' => [ $this, 'sanitizePostTypeSlugs' ],
+			'default'           => [],
 		] );
 
-		register_setting( 'idiomatticwp_settings', 'idiomatticwp_cache_lang_detect', [
-			'type'    => 'string',
-			'default' => '1',
-		] );
-
-		register_setting( 'idiomatticwp_settings', 'idiomatticwp_nav_menus', [
+		// ── Menus tab ─────────────────────────────────────────────────────
+		register_setting( 'idiomatticwp_settings_menus', 'idiomatticwp_nav_menus', [
 			'type'              => 'array',
 			'default'           => [],
 			'sanitize_callback' => [ $this, 'sanitizeNavMenus' ],
 		] );
 
-		register_setting( 'idiomatticwp_settings', 'idiomatticwp_custom_languages', [
+		// ── Advanced tab ──────────────────────────────────────────────────
+		// Includes general advanced settings + notifications + webhooks,
+		// since all are rendered within the single Advanced tab form.
+		register_setting( 'idiomatticwp_settings_advanced', 'idiomatticwp_uninstall_retention', [
+			'type'    => 'string',
+			'default' => '1',
+		] );
+
+		register_setting( 'idiomatticwp_settings_advanced', 'idiomatticwp_cache_lang_detect', [
+			'type'    => 'string',
+			'default' => '1',
+		] );
+
+		register_setting( 'idiomatticwp_settings_advanced', 'idiomatticwp_custom_languages', [
 			'type'    => 'array',
 			'default' => [],
 		] );
 
-		// ── Notifications ──────────────────────────────────────────────────
-		register_setting( 'idiomatticwp_settings', 'idiomatticwp_notify_outdated', [
+		register_setting( 'idiomatticwp_settings_advanced', 'idiomatticwp_notify_outdated', [
 			'type'    => 'string',
 			'default' => '',
 		] );
-		register_setting( 'idiomatticwp_settings', 'idiomatticwp_notify_email', [
+		register_setting( 'idiomatticwp_settings_advanced', 'idiomatticwp_notify_email', [
 			'type'              => 'string',
 			'sanitize_callback' => 'sanitize_email',
 			'default'           => '',
 		] );
-		register_setting( 'idiomatticwp_settings', 'idiomatticwp_notify_mode', [
+		register_setting( 'idiomatticwp_settings_advanced', 'idiomatticwp_notify_mode', [
 			'type'              => 'string',
 			'sanitize_callback' => [ $this, 'sanitizeNotifyMode' ],
 			'default'           => 'immediate',
 		] );
 
-		// ── Webhooks ───────────────────────────────────────────────────────
-		register_setting( 'idiomatticwp_settings', 'idiomatticwp_webhook_url', [
+		register_setting( 'idiomatticwp_settings_advanced', 'idiomatticwp_webhook_url', [
 			'type'              => 'string',
 			'sanitize_callback' => 'esc_url_raw',
 			'default'           => '',
 		] );
-		register_setting( 'idiomatticwp_settings', 'idiomatticwp_webhook_secret', [
+		register_setting( 'idiomatticwp_settings_advanced', 'idiomatticwp_webhook_secret', [
 			'type'              => 'string',
 			'sanitize_callback' => 'sanitize_text_field',
 			'default'           => '',
 		] );
-		register_setting( 'idiomatticwp_settings', 'idiomatticwp_webhook_events', [
+		register_setting( 'idiomatticwp_settings_advanced', 'idiomatticwp_webhook_events', [
 			'type'              => 'array',
 			'sanitize_callback' => [ $this, 'sanitizeWebhookEvents' ],
 			'default'           => [ 'translation.completed', 'translation.outdated' ],
@@ -190,9 +199,22 @@ class SettingsHooks implements HookRegistrarInterface {
 		return $clean;
 	}
 
+	public function sanitizePostTypeSlugs( mixed $input ): array {
+		if ( ! is_array( $input ) ) return [];
+		return array_values( array_map( 'sanitize_key', $input ) );
+	}
+
 	public function sanitizeActiveLanguages( mixed $input ): array {
 		if ( ! is_array( $input ) ) return [];
-		$langs = array_values( array_map( 'sanitize_key', $input ) );
+		// sanitize_key lowercases everything, breaking BCP-47 codes like en-GB, zh-CN.
+		// Strip any character that isn't alphanumeric or a hyphen while preserving case.
+		$langs = array_values( array_filter(
+			array_map(
+				fn( $v ) => preg_replace( '/[^a-zA-Z0-9\-]/', '', (string) $v ),
+				$input
+			),
+			fn( $v ) => $v !== ''
+		) );
 
 		// Clear the setup wizard flag as soon as the user saves at least one language
 		if ( ! empty( $langs ) ) {
@@ -206,6 +228,13 @@ class SettingsHooks implements HookRegistrarInterface {
 		$allowed = [ 'parameter', 'directory', 'subdomain' ];
 		$value   = sanitize_key( (string) $input );
 		return in_array( $value, $allowed, true ) ? $value : 'parameter';
+	}
+
+	/**
+	 * Sanitize a BCP-47 language code, preserving case (e.g. en-GB, zh-CN).
+	 */
+	public function sanitizeLangCode( mixed $input ): string {
+		return preg_replace( '/[^a-zA-Z0-9\-]/', '', (string) $input );
 	}
 
 	/**
@@ -316,10 +345,28 @@ class SettingsHooks implements HookRegistrarInterface {
 	}
 
 	/**
-	 * Set a transient flag so we flush rewrite rules on the next init.
+	 * Set a transient flag so we flush rewrite rules on the next init,
+	 * and clear all Idiomattic-related transients and object-cache entries.
 	 */
 	public function scheduleRewriteFlush(): void {
+		global $wpdb;
+
 		set_transient( 'idiomatticwp_flush_rewrite_rules', 1, MINUTE_IN_SECONDS * 5 );
+
+		// Delete all transients whose keys start with 'idiomatticwp_'.
+		$wpdb->query(
+			"DELETE FROM {$wpdb->options}
+			  WHERE option_name LIKE '_transient_idiomatticwp_%'
+			     OR option_name LIKE '_transient_timeout_idiomatticwp_%'"
+		);
+
+		// Re-set the flush flag (the query above may have deleted it).
+		set_transient( 'idiomatticwp_flush_rewrite_rules', 1, MINUTE_IN_SECONDS * 5 );
+
+		// Clear object-cache group if the backend supports it.
+		if ( function_exists( 'wp_cache_flush_group' ) ) {
+			wp_cache_flush_group( 'idiomatticwp' );
+		}
 	}
 
 	/**

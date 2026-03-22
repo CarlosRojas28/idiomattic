@@ -17,19 +17,20 @@ use IdiomatticWP\Contracts\HookRegistrarInterface;
 use IdiomatticWP\Contracts\TranslationRepositoryInterface;
 use IdiomatticWP\Admin\Metaboxes\TranslationsMetabox;
 use IdiomatticWP\Admin\Metaboxes\TranslationOriginMetabox;
+use IdiomatticWP\Core\CustomElementRegistry;
 use IdiomatticWP\Core\LanguageManager;
 
 class MetaboxHooks implements HookRegistrarInterface
 {
 
-    public function __construct(private
-        TranslationRepositoryInterface $repository, private
-        LanguageManager $languageManager, private
-        TranslationsMetabox $translationsMetabox, private
-        TranslationOriginMetabox $originMetabox
-        )
-    {
-    }
+    public function __construct(
+        private TranslationRepositoryInterface $repository,
+        private LanguageManager $languageManager,
+        private TranslationsMetabox $translationsMetabox,
+        private TranslationOriginMetabox $originMetabox,
+        private CustomElementRegistry $registry,
+    ) {}
+
 
     // ── HookRegistrarInterface ────────────────────────────────────────────
 
@@ -131,19 +132,14 @@ class MetaboxHooks implements HookRegistrarInterface
 
 	private function isTranslatable( string $postType ): bool {
 		$config = get_option( 'idiomatticwp_post_type_config', [] );
+		$mode   = $config[ $postType ] ?? $this->registry->getPostTypeDefaultMode( $postType );
 
-		if ( empty( $config ) ) {
-			$all = get_post_types( [ 'public' => true ] );
-			unset( $all['attachment'] );
-			$types = array_keys( $all );
-		} else {
-			$types = array_keys( array_filter(
-				$config,
-				fn( $mode ) => in_array( $mode, [ 'translate', 'show_as_translated' ], true )
-			) );
+		if ( ! in_array( $mode, [ 'translate', 'show_as_translated' ], true ) ) {
+			return false;
 		}
 
-		$types = (array) apply_filters( 'idiomatticwp_translatable_post_types', $types );
+		// Still apply the filter so integrations (e.g. WooCommerce) can override.
+		$types = (array) apply_filters( 'idiomatticwp_translatable_post_types', [ $postType ] );
 		return in_array( $postType, $types, true );
 	}
 }

@@ -18,13 +18,35 @@ class CustomElementRegistry
 
     private array $elements = [];
 
+    /**
+     * Post types declared translatable (or not) by a config file.
+     * Structure: [ 'slug' => ['mode' => 'translate'|'ignore', 'source' => 'wpml-config'|'idiomattic-elements.json'] ]
+     */
+    private array $discoveredPostTypes = [];
+
+    /**
+     * Taxonomies declared translatable (or not) by a config file.
+     */
+    private array $discoveredTaxonomies = [];
+
+    /**
+     * WordPress built-in post types that are translatable by default
+     * even without an explicit config file.
+     */
+    private const CORE_POST_TYPES = ['post', 'page'];
+
+    /**
+     * WordPress built-in taxonomies that are translatable by default.
+     */
+    private const CORE_TAXONOMIES = ['category', 'post_tag'];
+
     public function __construct()
     {
         // 1. Register built-in WordPress fields (source = 'core' so the
         //    Settings UI can exclude them from the Custom Fields section).
-        $this->registerPostField('*', 'post_title',   ['label' => 'Title',   'source' => 'core']);
-        $this->registerPostField('*', 'post_content', ['label' => 'Content', 'field_type' => 'html',     'source' => 'core']);
-        $this->registerPostField('*', 'post_excerpt', ['label' => 'Excerpt', 'field_type' => 'textarea', 'source' => 'core']);
+        $this->registerPostField('*', 'post_title',   ['label' => __( 'Title', 'idiomattic-wp' ),   'source' => 'core']);
+        $this->registerPostField('*', 'post_content', ['label' => __( 'Content', 'idiomattic-wp' ), 'field_type' => 'html',     'source' => 'core']);
+        $this->registerPostField('*', 'post_excerpt', ['label' => __( 'Excerpt', 'idiomattic-wp' ), 'field_type' => 'textarea', 'source' => 'core']);
 
         // 2. Scan JSON configs from themes and plugins
         $this->scanJsonConfigs();
@@ -81,6 +103,33 @@ class CustomElementRegistry
                 'mode' => 'translate',
             ], $options);
         }
+    }
+
+    /**
+     * Register a taxonomy as translatable (terms + their meta).
+     */
+    public function registerTaxonomy(string|array $postTypes, string $taxonomy, array $options = []): void
+    {
+        $postTypes = is_string($postTypes) ? [$postTypes] : $postTypes;
+        $id = "taxonomy:{$taxonomy}";
+        $this->elements[$id] = array_merge([
+            'id'         => $id,
+            'type'       => 'taxonomy',
+            'post_types' => $postTypes,
+            'key'        => $taxonomy,
+            'mode'       => 'translate',
+            'label'      => $taxonomy,
+        ], $options);
+    }
+
+    /**
+     * Return all registered taxonomy elements.
+     *
+     * @return array<string, array>
+     */
+    public function getTaxonomies(): array
+    {
+        return array_filter($this->elements, fn($el) => $el['type'] === 'taxonomy');
     }
 
     /**
@@ -323,6 +372,42 @@ class CustomElementRegistry
 				$this->registerShortcode( $tag, $attrs, [ 'source' => 'wpml-config' ] );
 			}
 		}
+
+		// <custom-types> (WPML format) and <post-types> (idiomattic native)
+		foreach ( [ 'custom-types', 'post-types' ] as $sectionName ) {
+			$childName = $sectionName === 'custom-types' ? 'custom-type' : 'post-type';
+			foreach ( $xml->{ $sectionName } ?? [] as $section ) {
+				foreach ( $section->{ $childName } ?? [] as $ptNode ) {
+					$name      = trim( (string) $ptNode );
+					$translate = trim( (string) ( $ptNode['translate'] ?? '1' ) );
+					if ( $name === '' ) {
+						continue;
+					}
+					// Don't overwrite a previously discovered declaration.
+					if ( ! isset( $this->discoveredPostTypes[ $name ] ) ) {
+						$this->discoveredPostTypes[ $name ] = [
+							'mode'   => $translate === '1' ? 'translate' : 'ignore',
+							'source' => 'wpml-config',
+						];
+					}
+				}
+			}
+		}
+
+		// taxonomies
+		foreach ( $xml->{'taxonomies'} ?? [] as $section ) {
+			foreach ( $section->{'taxonomy'} ?? [] as $taxNode ) {
+				$name      = trim( (string) $taxNode );
+				$translate = trim( (string) ( $taxNode['translate'] ?? '1' ) );
+				if ( $name === '' ) {
+					continue;
+				}
+				$this->discoveredTaxonomies[ $name ] = [
+					'mode'   => $translate === '1' ? 'translate' : 'ignore',
+					'source' => 'wpml-config',
+				];
+			}
+		}
 	}
 
 	private function loadWpmlAdminTextKey( \SimpleXMLElement $node, string $prefix ): void
@@ -358,6 +443,30 @@ class CustomElementRegistry
         $data = json_decode(file_get_contents($path), true);
         if (!is_array($data))
             return;
+
+        if (isset($data['post_types'])) {
+            foreach ($data['post_types'] as $pt) {
+                $name = $pt['key'] ?? '';
+                if ($name !== '') {
+                    $this->discoveredPostTypes[$name] = [
+                        'mode'   => $pt['mode'] ?? 'translate',
+                        'source' => 'idiomattic-elements.json',
+                    ];
+                }
+            }
+        }
+
+        if (isset($data['taxonomies'])) {
+            foreach ($data['taxonomies'] as $tax) {
+                $name = $tax['key'] ?? '';
+                if ($name !== '') {
+                    $this->discoveredTaxonomies[$name] = [
+                        'mode'   => $tax['mode'] ?? 'translate',
+                        'source' => 'idiomattic-elements.json',
+                    ];
+                }
+            }
+        }
 
         if (isset($data['post_fields'])) {
             foreach ($data['post_fields'] as $field) {
@@ -440,6 +549,60 @@ class CustomElementRegistry
             }
         }
     }
+
+    // ── Post-type / taxonomy discovery ─────────────────────────────────────
+
+    /**
+     * Post types discovered from config files (wpml-config.xml / idiomattic-elements.json).
+     *
+     * @return array<string, array{mode: string, source: string}>
+     */
+    public function getDiscoveredPostTypes(): array
+    {
+        return $this->discoveredPostTypes;
+    }
+
+    /**
+     * Taxonomies discovered from config files.
+     *
+     * @return array<string, array{mode: string, source: string}>
+     */
+    public function getDiscoveredTaxonomies(): array
+    {
+        return $this->discoveredTaxonomies;
+    }
+
+    /**
+     * Return the default translation mode for a post type based on config files
+     * and WordPress built-in defaults.  Does NOT read the user's saved options —
+     * callers are responsible for checking those first.
+     *
+     * Priority:
+     *  1. Config file declaration (wpml-config.xml / idiomattic-elements.json)
+     *  2. WordPress core built-ins (post, page) → 'translate'
+     *  3. Everything else → 'ignore'
+     */
+    public function getPostTypeDefaultMode(string $postType): string
+    {
+        if (isset($this->discoveredPostTypes[$postType])) {
+            return $this->discoveredPostTypes[$postType]['mode'];
+        }
+        return in_array($postType, self::CORE_POST_TYPES, true) ? 'translate' : 'ignore';
+    }
+
+    /**
+     * Return the default translation mode for a taxonomy.
+     * Same priority as getPostTypeDefaultMode().
+     */
+    public function getTaxonomyDefaultMode(string $taxonomy): string
+    {
+        if (isset($this->discoveredTaxonomies[$taxonomy])) {
+            return $this->discoveredTaxonomies[$taxonomy]['mode'];
+        }
+        return in_array($taxonomy, self::CORE_TAXONOMIES, true) ? 'translate' : 'ignore';
+    }
+
+    // ── Element list ────────────────────────────────────────────────────────
 
     public function getElements(): array
     {

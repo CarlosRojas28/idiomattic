@@ -56,6 +56,15 @@ class SetupWizard {
 	 * Only redirects once — the option is deleted after redirect.
 	 */
 	public function maybeRedirect(): void {
+		// Never redirect when languages are already configured.
+		$defaultLang = get_option( 'idiomatticwp_default_lang', '' );
+		$activeLangs = get_option( 'idiomatticwp_active_langs', [] );
+
+		if ( $defaultLang !== '' && ! empty( $activeLangs ) ) {
+			delete_option( 'idiomatticwp_needs_setup' );
+			return;
+		}
+
 		if ( ! get_option( 'idiomatticwp_needs_setup' ) ) {
 			return;
 		}
@@ -69,18 +78,9 @@ class SetupWizard {
 			return;
 		}
 
-		// Only redirect if we're in the admin and not already on the wizard
+		// Only redirect if not already on the wizard
 		$currentPage = $_GET['page'] ?? '';
 		if ( $currentPage === 'idiomatticwp-setup' ) {
-			return;
-		}
-
-		// Only redirect if languages genuinely are not configured
-		$defaultLang = get_option( 'idiomatticwp_default_lang', '' );
-		$activeLangs = get_option( 'idiomatticwp_active_langs', [] );
-
-		if ( $defaultLang !== '' && ! empty( $activeLangs ) ) {
-			delete_option( 'idiomatticwp_needs_setup' );
 			return;
 		}
 
@@ -105,7 +105,7 @@ class SetupWizard {
 
 		switch ( $step ) {
 			case 1:
-				$defaultLang = sanitize_key( $_POST['default_lang'] ?? 'en' );
+				$defaultLang = preg_replace( '/[^a-zA-Z0-9-]/', '', (string) ( $_POST['default_lang'] ?? 'en' ) );
 				update_option( 'idiomatticwp_default_lang', $defaultLang );
 				// Prime active langs with at least the default
 				$active = get_option( 'idiomatticwp_active_langs', [] );
@@ -117,7 +117,7 @@ class SetupWizard {
 				exit;
 
 			case 2:
-				$langs = array_map( 'sanitize_key', (array) ( $_POST['active_langs'] ?? [] ) );
+				$langs = array_values( array_filter( array_map( fn( $v ) => preg_replace( '/[^a-zA-Z0-9-]/', '', (string) $v ), (array) ( $_POST['active_langs'] ?? [] ) ), fn( $v ) => $v !== '' ) );
 				$defaultLang = get_option( 'idiomatticwp_default_lang', 'en' );
 				// Always keep default lang
 				if ( ! in_array( $defaultLang, $langs, true ) ) {

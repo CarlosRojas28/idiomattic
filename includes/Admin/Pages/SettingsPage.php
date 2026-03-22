@@ -19,6 +19,7 @@ declare( strict_types=1 );
 namespace IdiomatticWP\Admin\Pages;
 
 use IdiomatticWP\Core\LanguageManager;
+use IdiomatticWP\Glossary\WpdbGlossaryRepository;
 use IdiomatticWP\License\LicenseChecker;
 use IdiomatticWP\Providers\ProviderRegistry;
 use IdiomatticWP\Support\EncryptionService;
@@ -27,11 +28,12 @@ use IdiomatticWP\Core\CustomElementRegistry;
 class SettingsPage {
 
 	public function __construct(
-		private LanguageManager       $languageManager,
-		private LicenseChecker        $licenseChecker,
-		private ProviderRegistry      $providerRegistry,
-		private EncryptionService     $encryption,
-		private CustomElementRegistry $elementRegistry,
+		private LanguageManager          $languageManager,
+		private LicenseChecker           $licenseChecker,
+		private ProviderRegistry         $providerRegistry,
+		private EncryptionService        $encryption,
+		private CustomElementRegistry    $elementRegistry,
+		private WpdbGlossaryRepository   $glossaryRepo,
 	) {}
 
 	// ── Entry point ───────────────────────────────────────────────────────
@@ -71,7 +73,7 @@ class SettingsPage {
 				?>
 				<form method="post" action="options.php" style="margin-top: 20px;">
 					<?php
-					settings_fields( 'idiomatticwp_settings' );
+					settings_fields( 'idiomatticwp_settings_' . $currentTab );
 					$this->renderTab( $currentTab );
 
 					// Hide the standard submit button on pro-locked tabs
@@ -113,179 +115,238 @@ class SettingsPage {
 		$allLangs    = $this->languageManager->getAllSupportedLanguages();
 		$activeLangs = array_map( 'strval', $this->languageManager->getActiveLanguages() );
 		$defaultLang = (string) $this->languageManager->getDefaultLanguage();
+		?>
 
-		echo '<h3>' . esc_html__( 'Active Languages', 'idiomattic-wp' ) . '</h3>';
-		echo '<p class="description">' . esc_html__( 'Select the languages you want to translate your content into.', 'idiomattic-wp' ) . '</p>';
+		<div class="iwp-languages-page">
 
-		echo '<div class="idiomatticwp-lang-grid">';
-		foreach ( $allLangs as $code => $data ) {
-			$isActive = in_array( (string) $code, $activeLangs, true );
-			$flagUrl  = $this->getFlagUrl( (string) $code, $data['flag'] ?? '' );
+			<?php /* ── Default Language card ─────────────────────────────── */ ?>
+			<div class="iwp-card iwp-default-lang-card">
+				<div class="iwp-default-lang-card__info">
+					<strong class="iwp-default-lang-card__title">
+						<?php esc_html_e( 'Site Default Language', 'idiomattic-wp' ); ?>
+					</strong>
+					<p class="iwp-default-lang-card__desc">
+						<?php esc_html_e( 'Choose the primary language your website content will be served in by default.', 'idiomattic-wp' ); ?>
+					</p>
+				</div>
+				<div class="iwp-default-lang-card__control">
+					<span class="iwp-field-label"><?php esc_html_e( 'Primary Language', 'idiomattic-wp' ); ?></span>
+					<select name="idiomatticwp_default_lang" class="iwp-select">
+						<?php foreach ( $allLangs as $code => $data ) : ?>
+							<?php if ( ! in_array( (string) $code, $activeLangs, true ) ) continue; ?>
+							<option value="<?php echo esc_attr( (string) $code ); ?>" <?php selected( (string) $code, $defaultLang ); ?>>
+								<?php echo esc_html( $data['native_name'] . ' — ' . $data['name'] ); ?>
+							</option>
+						<?php endforeach; ?>
+					</select>
+				</div>
+			</div>
 
-			$flagHtml = $flagUrl
-				? sprintf(
-					'<img src="%s" alt="%s" width="20" height="15" class="idiomatticwp-lang-card__flag">',
-					esc_url( $flagUrl ),
-					esc_attr( $data['name'] )
-				)
-				: sprintf(
-					'<span class="idiomatticwp-lang-card__flag idiomatticwp-flag-fallback">%s</span>',
-					esc_html( strtoupper( substr( (string) $code, 0, 2 ) ) )
-				);
+			<?php /* ── Section header: title + search ─────────────────────── */ ?>
+			<div class="iwp-section-row">
+				<h2 class="iwp-section-title"><?php esc_html_e( 'Active Languages', 'idiomattic-wp' ); ?></h2>
+				<div class="iwp-lang-search-wrap">
+					<span class="dashicons dashicons-search iwp-lang-search-icon"></span>
+					<input type="text" id="iwp-lang-filter" class="iwp-lang-search"
+						placeholder="<?php esc_attr_e( 'Filter languages...', 'idiomattic-wp' ); ?>">
+				</div>
+			</div>
 
-			printf(
-				'<label class="idiomatticwp-lang-card%s">
-					<input type="checkbox" name="idiomatticwp_active_langs[]" value="%s"%s>
-					<span class="idiomatticwp-lang-card__check dashicons dashicons-yes"></span>
-					%s
-					<span class="idiomatticwp-lang-card__native">%s</span>
-					<span class="idiomatticwp-lang-card__english">%s</span>
-				</label>',
-				$isActive ? ' is-active' : '',
-				esc_attr( (string) $code ),
-				$isActive ? ' checked' : '',
-				$flagHtml,
-				esc_html( $data['native_name'] ),
-				esc_html( $data['name'] )
-			);
-		}
-		echo '</div>';
+			<?php /* ── Active language chips ────────────────────────────────── */ ?>
+			<div class="iwp-active-chips" id="iwp-active-chips">
+				<?php foreach ( $activeLangs as $code ) : ?>
+					<?php
+					$data      = $allLangs[ $code ] ?? null;
+					if ( ! $data ) continue;
+					$flagUrl   = $this->getFlagUrl( $code, $data['flag'] ?? '' );
+					$isDefault = ( $code === $defaultLang );
+					?>
+					<div class="iwp-lang-chip<?php echo $isDefault ? ' iwp-lang-chip--default' : ''; ?>"
+						 data-code="<?php echo esc_attr( $code ); ?>">
+						<?php if ( $flagUrl ) : ?>
+							<img src="<?php echo esc_url( $flagUrl ); ?>" class="iwp-chip-flag" alt="" width="24" height="16">
+						<?php else : ?>
+							<span class="iwp-chip-flag iwp-flag-fallback"><?php echo esc_html( strtoupper( substr( $code, 0, 2 ) ) ); ?></span>
+						<?php endif; ?>
+						<span class="iwp-chip-name"><?php echo esc_html( $data['name'] ); ?></span>
+						<?php if ( $isDefault ) : ?>
+							<span class="iwp-chip-check dashicons dashicons-yes-alt"></span>
+						<?php else : ?>
+							<button type="button" class="iwp-chip-remove" data-code="<?php echo esc_attr( $code ); ?>" title="<?php esc_attr_e( 'Remove', 'idiomattic-wp' ); ?>">&#x00D7;</button>
+						<?php endif; ?>
+					</div>
+				<?php endforeach; ?>
 
-		echo '<h3 style="margin-top:28px;">' . esc_html__( 'Default Language', 'idiomattic-wp' ) . '</h3>';
-		echo '<p class="description">' . esc_html__( 'The language your content is originally written in.', 'idiomattic-wp' ) . '</p>';
-		echo '<select name="idiomatticwp_default_lang" style="margin-top:6px;">';
-		foreach ( $allLangs as $code => $data ) {
-			if ( ! in_array( (string) $code, $activeLangs, true ) ) {
-				continue;
-			}
-			$selected = ( (string) $code === $defaultLang ) ? 'selected' : '';
-			printf(
-				'<option value="%s" %s>%s — %s</option>',
-				esc_attr( (string) $code ),
-				$selected,
-				esc_html( $data['native_name'] ),
-				esc_html( $data['name'] )
-			);
-		}
-		echo '</select>';
+				<button type="button" class="iwp-chip-add" id="iwp-lang-add-btn" aria-expanded="false">
+					<span class="dashicons dashicons-plus-alt2"></span>
+					<?php esc_html_e( 'ADD', 'idiomattic-wp' ); ?>
+				</button>
+			</div>
+
+			<?php /* ── Language picker (full grid, hidden by default) ────────── */ ?>
+			<div class="iwp-lang-picker" id="iwp-lang-picker" hidden aria-hidden="true">
+				<div class="iwp-lang-picker__grid">
+					<?php foreach ( $allLangs as $code => $data ) : ?>
+						<?php
+						$isActive    = in_array( (string) $code, $activeLangs, true );
+						$flagUrl     = $this->getFlagUrl( (string) $code, $data['flag'] ?? '' );
+						$searchTerms = strtolower( $data['name'] . ' ' . $data['native_name'] . ' ' . $code );
+						?>
+						<label class="iwp-picker-item<?php echo $isActive ? ' is-active' : ''; ?>"
+							   data-search="<?php echo esc_attr( $searchTerms ); ?>"
+							   data-code="<?php echo esc_attr( (string) $code ); ?>"
+							   data-name="<?php echo esc_attr( $data['name'] ); ?>"
+							   data-native="<?php echo esc_attr( $data['native_name'] ); ?>"
+							   data-flag="<?php echo esc_attr( $flagUrl ); ?>"
+							   data-flagfallback="<?php echo esc_attr( strtoupper( substr( (string) $code, 0, 2 ) ) ); ?>">
+							<input type="checkbox"
+								   name="idiomatticwp_active_langs[]"
+								   value="<?php echo esc_attr( (string) $code ); ?>"
+								   <?php checked( $isActive ); ?>>
+							<?php if ( $flagUrl ) : ?>
+								<img src="<?php echo esc_url( $flagUrl ); ?>" class="iwp-picker-item__flag" alt="" width="24" height="16">
+							<?php else : ?>
+								<span class="iwp-picker-item__flag iwp-flag-fallback"><?php echo esc_html( strtoupper( substr( (string) $code, 0, 2 ) ) ); ?></span>
+							<?php endif; ?>
+							<span class="iwp-picker-item__native"><?php echo esc_html( $data['native_name'] ); ?></span>
+							<span class="iwp-picker-item__english"><?php echo esc_html( $data['name'] ); ?></span>
+							<span class="iwp-picker-item__check dashicons dashicons-yes"></span>
+						</label>
+					<?php endforeach; ?>
+				</div>
+			</div>
+
+		</div>
+		<?php
 	}
 
 	/**
-	 * Render the "Custom Languages" add/delete section (rendered outside the main settings form).
+	 * Render the "Custom Languages" add/delete section (outside the main settings form).
 	 */
 	private function renderCustomLanguagesSection(): void {
 		$custom      = get_option( 'idiomatticwp_custom_languages', [] );
 		$customLangs = is_array( $custom ) ? $custom : [];
 
-		// Error notices from admin-post redirect
 		$error = sanitize_key( $_GET['idiomatticwp_error'] ?? '' );
-		if ( $error === 'invalid_code' ) {
-			echo '<div class="notice notice-error inline" style="margin:12px 0;"><p>'
-				. esc_html__( 'Invalid language code. Use a 2-letter ISO 639-1 code (e.g. "eo", "la") or a region variant like "zh-TW".', 'idiomattic-wp' )
-				. '</p></div>';
-		} elseif ( $error === 'missing_fields' ) {
-			echo '<div class="notice notice-error inline" style="margin:12px 0;"><p>'
-				. esc_html__( 'Code, native name, and English name are required.', 'idiomattic-wp' )
-				. '</p></div>';
-		}
-
-		echo '<h3 style="margin-top:36px;">' . esc_html__( 'Custom Languages', 'idiomattic-wp' ) . '</h3>';
-		echo '<p class="description">' . esc_html__( 'Add languages not included in the built-in list.', 'idiomattic-wp' ) . '</p>';
-
-		// ── Existing custom languages table ───────────────────────────────
-		if ( ! empty( $customLangs ) ) {
-			echo '<table class="wp-list-table widefat fixed striped" style="max-width:700px;margin-top:12px;">';
-			echo '<thead><tr>'
-				. '<th>' . esc_html__( 'Code',         'idiomattic-wp' ) . '</th>'
-				. '<th>' . esc_html__( 'Native Name',  'idiomattic-wp' ) . '</th>'
-				. '<th>' . esc_html__( 'English Name', 'idiomattic-wp' ) . '</th>'
-				. '<th>' . esc_html__( 'Flag Code',    'idiomattic-wp' ) . '</th>'
-				. '<th>' . esc_html__( 'RTL',          'idiomattic-wp' ) . '</th>'
-				. '<th></th>'
-				. '</tr></thead><tbody>';
-
-			foreach ( $customLangs as $code => $data ) {
-				$deleteUrl = wp_nonce_url(
-					add_query_arg(
-						[ 'action' => 'idiomatticwp_delete_custom_lang', 'code' => $code ],
-						admin_url( 'admin-post.php' )
-					),
-					'idiomatticwp_delete_custom_lang_' . $code
-				);
-
-				printf(
-					'<tr>
-						<td><code>%s</code></td>
-						<td>%s</td>
-						<td>%s</td>
-						<td>%s</td>
-						<td>%s</td>
-						<td><a href="%s" class="submitdelete" onclick="return confirm(\'%s\');">%s</a></td>
-					</tr>',
-					esc_html( (string) $code ),
-					esc_html( $data['native_name'] ?? '' ),
-					esc_html( $data['name'] ?? '' ),
-					esc_html( $data['flag'] ?? '' ),
-					! empty( $data['rtl'] ) ? esc_html__( 'Yes', 'idiomattic-wp' ) : esc_html__( 'No', 'idiomattic-wp' ),
-					esc_url( $deleteUrl ),
-					esc_js( __( 'Delete this custom language?', 'idiomattic-wp' ) ),
-					esc_html__( 'Delete', 'idiomattic-wp' )
-				);
-			}
-
-			echo '</tbody></table>';
-		}
-
-		// ── Add custom language form ──────────────────────────────────────
 		?>
-		<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" style="margin-top:16px;max-width:700px;">
-			<?php wp_nonce_field( 'idiomatticwp_add_custom_lang' ); ?>
-			<input type="hidden" name="action" value="idiomatticwp_add_custom_lang">
+		<div class="iwp-custom-langs-section">
 
-			<table class="form-table">
-				<tr>
-					<th scope="row">
-						<label for="custom_lang_code"><?php esc_html_e( 'Language Code', 'idiomattic-wp' ); ?> <span aria-hidden="true" style="color:red;">*</span></label>
-					</th>
-					<td>
-						<input type="text" id="custom_lang_code" name="custom_lang_code" value="" class="regular-text" placeholder="eo" pattern="[a-z]{2}(-[A-Z]{2})?" maxlength="6" required>
-						<p class="description"><?php esc_html_e( 'BCP-47: 2 lowercase letters, optionally + region (e.g. "eo", "zh-TW").', 'idiomattic-wp' ); ?></p>
-					</td>
-				</tr>
-				<tr>
-					<th scope="row">
-						<label for="custom_lang_native"><?php esc_html_e( 'Native Name', 'idiomattic-wp' ); ?> <span aria-hidden="true" style="color:red;">*</span></label>
-					</th>
-					<td><input type="text" id="custom_lang_native" name="custom_lang_native" value="" class="regular-text" placeholder="Esperanto" required></td>
-				</tr>
-				<tr>
-					<th scope="row">
-						<label for="custom_lang_name"><?php esc_html_e( 'English Name', 'idiomattic-wp' ); ?> <span aria-hidden="true" style="color:red;">*</span></label>
-					</th>
-					<td><input type="text" id="custom_lang_name" name="custom_lang_name" value="" class="regular-text" placeholder="Esperanto" required></td>
-				</tr>
-				<tr>
-					<th scope="row">
-						<label for="custom_lang_flag"><?php esc_html_e( 'Flag Country Code', 'idiomattic-wp' ); ?></label>
-					</th>
-					<td>
-						<input type="text" id="custom_lang_flag" name="custom_lang_flag" value="" class="small-text" placeholder="us" maxlength="6">
-						<p class="description"><?php esc_html_e( 'ISO 3166-1 alpha-2 country code (e.g. "us", "br"). Leave blank for no flag.', 'idiomattic-wp' ); ?></p>
-					</td>
-				</tr>
-				<tr>
-					<th scope="row"><?php esc_html_e( 'Right-to-Left', 'idiomattic-wp' ); ?></th>
-					<td>
-						<label>
+			<h2 class="iwp-custom-langs-title">
+				<?php esc_html_e( 'Custom', 'idiomattic-wp' ); ?>
+				<span class="iwp-custom-langs-title__accent"><?php esc_html_e( 'Languages', 'idiomattic-wp' ); ?></span>
+			</h2>
+			<p class="iwp-custom-langs-desc">
+				<?php esc_html_e( "Can't find your language in the list? Define your own custom parameters below.", 'idiomattic-wp' ); ?>
+			</p>
+
+			<?php if ( $error === 'invalid_code' ) : ?>
+				<div class="notice notice-error inline iwp-notice"><p>
+					<?php esc_html_e( 'Invalid language code. Use a 2-letter ISO 639-1 code (e.g. "eo") or a region variant like "zh-TW".', 'idiomattic-wp' ); ?>
+				</p></div>
+			<?php elseif ( $error === 'missing_fields' ) : ?>
+				<div class="notice notice-error inline iwp-notice"><p>
+					<?php esc_html_e( 'Code, native name, and English name are required.', 'idiomattic-wp' ); ?>
+				</p></div>
+			<?php endif; ?>
+
+			<?php /* ── Existing custom languages ─────────────────────────── */ ?>
+			<?php if ( ! empty( $customLangs ) ) : ?>
+				<div class="iwp-card iwp-custom-langs-list">
+					<?php foreach ( $customLangs as $code => $data ) : ?>
+						<?php
+						$deleteUrl = wp_nonce_url(
+							add_query_arg(
+								[ 'action' => 'idiomatticwp_delete_custom_lang', 'code' => $code ],
+								admin_url( 'admin-post.php' )
+							),
+							'idiomatticwp_delete_custom_lang_' . $code
+						);
+						$flagUrl = $this->getFlagUrl( (string) $code, $data['flag'] ?? '' );
+						?>
+						<div class="iwp-custom-lang-row">
+							<div class="iwp-custom-lang-row__flag">
+								<?php if ( $flagUrl ) : ?>
+									<img src="<?php echo esc_url( $flagUrl ); ?>" alt="" width="24" height="16">
+								<?php else : ?>
+									<span class="iwp-flag-fallback"><?php echo esc_html( strtoupper( substr( (string) $code, 0, 2 ) ) ); ?></span>
+								<?php endif; ?>
+							</div>
+							<div class="iwp-custom-lang-row__info">
+								<strong><?php echo esc_html( $data['native_name'] ?? $code ); ?></strong>
+								<span><?php echo esc_html( $data['name'] ?? '' ); ?></span>
+								<code><?php echo esc_html( (string) $code ); ?></code>
+							</div>
+							<a href="<?php echo esc_url( $deleteUrl ); ?>"
+							   class="iwp-custom-lang-row__delete"
+							   onclick="return confirm('<?php echo esc_js( __( 'Delete this custom language?', 'idiomattic-wp' ) ); ?>')">
+								<span class="dashicons dashicons-trash"></span>
+							</a>
+						</div>
+					<?php endforeach; ?>
+				</div>
+			<?php endif; ?>
+
+			<?php /* ── Add form ──────────────────────────────────────────── */ ?>
+			<div class="iwp-card iwp-custom-lang-form">
+				<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
+					<?php wp_nonce_field( 'idiomatticwp_add_custom_lang' ); ?>
+					<input type="hidden" name="action" value="idiomatticwp_add_custom_lang">
+
+					<div class="iwp-form-grid">
+						<div class="iwp-form-field">
+							<label class="iwp-field-label" for="custom_lang_code">
+								<?php esc_html_e( 'Language Code', 'idiomattic-wp' ); ?>
+							</label>
+							<input type="text" id="custom_lang_code" name="custom_lang_code"
+								   class="iwp-input" placeholder="e.g. pt_BR"
+								   pattern="[a-z]{2}(-[A-Z]{2})?" maxlength="6" required>
+							<p class="iwp-field-hint"><?php esc_html_e( 'Standard ISO code for localization', 'idiomattic-wp' ); ?></p>
+						</div>
+
+						<div class="iwp-form-field">
+							<label class="iwp-field-label" for="custom_lang_native">
+								<?php esc_html_e( 'Native Name', 'idiomattic-wp' ); ?>
+							</label>
+							<input type="text" id="custom_lang_native" name="custom_lang_native"
+								   class="iwp-input" placeholder="e.g. Português" required>
+						</div>
+
+						<div class="iwp-form-field">
+							<label class="iwp-field-label" for="custom_lang_name">
+								<?php esc_html_e( 'English Name', 'idiomattic-wp' ); ?>
+							</label>
+							<input type="text" id="custom_lang_name" name="custom_lang_name"
+								   class="iwp-input" placeholder="e.g. Portuguese (Brazil)" required>
+						</div>
+
+						<div class="iwp-form-field">
+							<label class="iwp-field-label" for="custom_lang_flag">
+								<?php esc_html_e( 'Flag Country Code', 'idiomattic-wp' ); ?>
+							</label>
+							<div class="iwp-flag-input-wrap">
+								<input type="text" id="custom_lang_flag" name="custom_lang_flag"
+									   class="iwp-input" placeholder="e.g. br" maxlength="6">
+								<button type="button" class="iwp-flag-preview-btn" id="iwp-flag-preview-btn"
+										title="<?php esc_attr_e( 'Preview flag', 'idiomattic-wp' ); ?>">
+									<span class="dashicons dashicons-flag"></span>
+								</button>
+							</div>
+						</div>
+					</div>
+
+					<div class="iwp-form-footer">
+						<label class="iwp-rtl-label">
 							<input type="checkbox" name="custom_lang_rtl" value="1">
-							<?php esc_html_e( 'This language is written right-to-left', 'idiomattic-wp' ); ?>
+							<?php esc_html_e( 'Right-to-left language', 'idiomattic-wp' ); ?>
 						</label>
-					</td>
-				</tr>
-			</table>
+						<button type="submit" name="submit_custom_lang" class="iwp-btn iwp-btn--primary">
+							<?php esc_html_e( 'Add Custom Language', 'idiomattic-wp' ); ?>
+						</button>
+					</div>
+				</form>
+			</div>
 
-			<?php submit_button( __( 'Add Custom Language', 'idiomattic-wp' ), 'secondary', 'submit_custom_lang' ); ?>
-		</form>
+		</div>
 		<?php
 	}
 
@@ -324,11 +385,8 @@ class SettingsPage {
 		$isPro           = $this->licenseChecker->isPro();
 		$plainPermalinks = get_option( 'permalink_structure', '' ) === '';
 
-		echo '<h3>' . esc_html__( 'URL Structure', 'idiomattic-wp' ) . '</h3>';
-		echo '<p class="description">' . esc_html__( 'Choose how the language is represented in the URL. Changes take effect immediately.', 'idiomattic-wp' ) . '</p>';
-
 		if ( $plainPermalinks ) {
-			echo '<div class="notice notice-warning inline" style="margin:12px 0;"><p>';
+			echo '<div class="notice notice-warning inline" style="margin:0 0 20px;"><p>';
 			printf(
 				esc_html__( 'Directory and Subdomain modes require pretty permalinks. %s', 'idiomattic-wp' ),
 				'<a href="' . esc_url( admin_url( 'options-permalink.php' ) ) . '">' . esc_html__( 'Configure permalinks →', 'idiomattic-wp' ) . '</a>'
@@ -338,66 +396,68 @@ class SettingsPage {
 
 		$options = [
 			'parameter' => [
-				'label'       => __( 'Query Parameter', 'idiomattic-wp' ),
-				'example'     => 'example.com/my-post/?lang=es',
-				'description' => __( 'Works with any permalink structure. Easiest to set up.', 'idiomattic-wp' ),
-				'pro'         => false,
+				'label'          => __( 'Query Parameter', 'idiomattic-wp' ),
+				'example'        => 'example.com/my-post/?lang=es',
+				'description'    => __( 'Works with any permalink structure. Easiest to set up.', 'idiomattic-wp' ),
+				'pro'            => false,
+				'needs_pretty'   => false,
 			],
 			'directory' => [
-				'label'       => __( 'Directory', 'idiomattic-wp' ),
-				'example'     => 'example.com/es/my-post/',
-				'description' => __( 'Clean URLs with the language code as a path prefix. Requires pretty permalinks.', 'idiomattic-wp' ),
-				'pro'         => true,
+				'label'          => __( 'Directory', 'idiomattic-wp' ),
+				'example'        => 'example.com/es/my-post/',
+				'description'    => __( 'Clean URLs with the language code as a path prefix. Requires pretty permalinks.', 'idiomattic-wp' ),
+				'pro'            => false,
+				'needs_pretty'   => true,
 			],
 			'subdomain' => [
-				'label'       => __( 'Subdomain', 'idiomattic-wp' ),
-				'example'     => 'es.example.com/my-post/',
-				'description' => __( 'Each language on its own subdomain. Requires wildcard DNS and SSL.', 'idiomattic-wp' ),
-				'pro'         => true,
+				'label'          => __( 'Subdomain', 'idiomattic-wp' ),
+				'example'        => 'es.example.com/my-post/',
+				'description'    => __( 'Each language on its own subdomain. Requires wildcard DNS and SSL.', 'idiomattic-wp' ),
+				'pro'            => true,
+				'needs_pretty'   => false,
 			],
 		];
 
-		echo '<table class="form-table" style="max-width:700px;"><tbody>';
+		echo '<div class="iwp-url-options">';
 		foreach ( $options as $val => $opt ) {
-			$isProLocked  = $opt['pro'] && ! $isPro;
-			$isPlainLocked = $opt['pro'] && $plainPermalinks;
-			$disabled = ( $isProLocked || $isPlainLocked ) ? 'disabled' : '';
-			$checked  = ( $mode === $val ) ? 'checked' : '';
-			$badge    = $isProLocked
-				? ' <span style="background:#e07b00;color:#fff;padding:2px 7px;border-radius:4px;font-size:10px;font-weight:700;text-transform:uppercase;margin-left:6px;">PRO</span>'
-				: '';
+			$isProLocked   = $opt['pro'] && ! $isPro;
+			$isPlainLocked = $opt['needs_pretty'] && $plainPermalinks;
+			$isLocked      = $isProLocked || $isPlainLocked;
+			$isSelected    = $mode === $val;
+
+			$classes = 'iwp-url-option';
+			if ( $isSelected ) $classes .= ' is-selected';
+			if ( $isLocked )   $classes .= ' is-locked';
 
 			printf(
-				'<tr style="%s">
-					<th scope="row" style="padding:10px 0;width:20px;">
-						<input type="radio" name="idiomatticwp_url_mode" value="%s" id="url_mode_%s" %s %s>
-					</th>
-					<td style="padding:10px 0 10px 8px;">
-						<label for="url_mode_%s" style="cursor:%s;">
-							<strong>%s</strong>%s
-							<code style="margin-left:10px;background:#f0f0f1;padding:2px 8px;border-radius:3px;font-size:12px;">%s</code>
-						</label>
-						<p class="description" style="margin:3px 0 0 0;">%s</p>
-					</td>
-				</tr>',
-				$isProLocked ? 'opacity:.6;' : '',
+				'<label class="%s" for="url_mode_%s">
+					<input type="radio" name="idiomatticwp_url_mode" value="%s" id="url_mode_%s" %s %s>
+					<div class="iwp-url-option__body">
+						<div class="iwp-url-option__label">
+							%s
+							%s
+							<code class="iwp-url-option__example">%s</code>
+						</div>
+						<p class="iwp-url-option__desc">%s</p>
+					</div>
+				</label>',
+				esc_attr( $classes ),
 				esc_attr( $val ),
 				esc_attr( $val ),
-				$checked,
-				$disabled,
 				esc_attr( $val ),
-				$isProLocked ? 'not-allowed' : 'pointer',
+				$isSelected ? 'checked' : '',
+				$isLocked   ? 'disabled' : '',
 				esc_html( $opt['label'] ),
-				$badge,
+				$isProLocked ? '<span class="iwp-pro-badge">PRO</span>' : '',
 				esc_html( $opt['example'] ),
 				esc_html( $opt['description'] )
 			);
 		}
-		echo '</tbody></table>';
+		echo '</div>';
 
 		if ( ! $isPro ) {
-			echo '<p style="margin-top:16px;"><a href="' . esc_url( idiomatticwp_upgrade_url( 'url-mode' ) ) . '" target="_blank" class="button button-secondary">';
-			esc_html_e( 'Upgrade to Pro to unlock Directory and Subdomain modes →', 'idiomattic-wp' );
+			echo '<p style="margin-top:20px;"><a href="' . esc_url( idiomatticwp_upgrade_url( 'url-mode' ) ) . '" target="_blank" class="iwp-btn iwp-btn--secondary">';
+			esc_html_e( 'Upgrade to Pro to unlock Subdomain mode →', 'idiomattic-wp' );
 			echo '</a></p>';
 		}
 	}
@@ -406,15 +466,16 @@ class SettingsPage {
 
 	private function renderTranslationTab(): void {
 		if ( ! $this->licenseChecker->isPro() ) {
-			echo '<div class="notice notice-info inline" style="margin:20px 0 0;"><p>';
-			printf(
-				esc_html__( 'Automated translations and AI provider configuration are available in the %s version.', 'idiomattic-wp' ),
-				'<strong>Pro</strong>'
-			);
-			echo '</p></div>';
-			echo '<p style="margin-top:16px;"><a href="' . esc_url( idiomatticwp_upgrade_url( 'translation-tab' ) ) . '" target="_blank" class="button button-primary">';
-			esc_html_e( 'Upgrade to Pro →', 'idiomattic-wp' );
-			echo '</a></p>';
+			?>
+			<div class="iwp-card iwp-pro-banner">
+				<div class="iwp-pro-banner__icon">🤖</div>
+				<h3><?php esc_html_e( 'AI Translation — Pro Feature', 'idiomattic-wp' ); ?></h3>
+				<p><?php esc_html_e( 'Automated translations and AI provider configuration are available in the Pro version. Bring Your Own Key — connect directly to OpenAI, Claude, or DeepL.', 'idiomattic-wp' ); ?></p>
+				<a href="<?php echo esc_url( idiomatticwp_upgrade_url( 'translation-tab' ) ); ?>" target="_blank" class="iwp-btn iwp-btn--primary">
+					<?php esc_html_e( 'Upgrade to Pro →', 'idiomattic-wp' ); ?>
+				</a>
+			</div>
+			<?php
 			return;
 		}
 
@@ -570,91 +631,195 @@ class SettingsPage {
 
 	private function renderGlossaryTab(): void {
 		if ( ! $this->licenseChecker->isPro() ) {
-			echo '<div class="notice notice-info inline" style="margin:20px 0 0;"><p>';
-			printf( esc_html__( 'Glossary management is available in the %s version.', 'idiomattic-wp' ), '<strong>Pro</strong>' );
-			echo '</p></div>';
-			echo '<p style="margin-top:16px;"><a href="' . esc_url( idiomatticwp_upgrade_url( 'glossary-tab' ) ) . '" target="_blank" class="button button-primary">';
-			esc_html_e( 'Upgrade to Pro →', 'idiomattic-wp' );
-			echo '</a></p>';
+			?>
+			<div class="iwp-card iwp-pro-banner">
+				<div class="iwp-pro-banner__icon">📖</div>
+				<h3><?php esc_html_e( 'Glossary — Pro Feature', 'idiomattic-wp' ); ?></h3>
+				<p><?php esc_html_e( 'Define terms that must always be translated a specific way, or kept unchanged. Glossary rules are automatically applied during AI translation.', 'idiomattic-wp' ); ?></p>
+				<a href="<?php echo esc_url( idiomatticwp_upgrade_url( 'glossary-tab' ) ); ?>" target="_blank" class="iwp-btn iwp-btn--primary">
+					<?php esc_html_e( 'Upgrade to Pro →', 'idiomattic-wp' ); ?>
+				</a>
+			</div>
+			<?php
+			return;
+		}
+
+		$this->handleGlossaryFormActions();
+
+		$defaultLang      = (string) $this->languageManager->getDefaultLanguage();
+		$activeLangs      = array_map( 'strval', $this->languageManager->getActiveLanguages() );
+		$nonDefaultLangs  = array_values( array_filter( $activeLangs, fn( $l ) => $l !== $defaultLang ) );
+		$targetLangFilter = sanitize_key( $_GET['glossary_lang'] ?? ( $nonDefaultLangs[0] ?? '' ) );
+
+		try {
+			$sourceLang = \IdiomatticWP\ValueObjects\LanguageCode::from( $defaultLang );
+			$targetLang = \IdiomatticWP\ValueObjects\LanguageCode::from( $targetLangFilter );
+			$terms      = $this->glossaryRepo->getTerms( $sourceLang, $targetLang );
+		} catch ( \Throwable ) {
+			$terms = [];
+		}
+		?>
+		<p class="description"><?php esc_html_e( 'Define terms that must always be translated a specific way, or kept unchanged by the AI.', 'idiomattic-wp' ); ?></p>
+
+		<div class="iwp-glossary-filter" style="margin-bottom:12px;">
+			<label class="iwp-field-label"><?php esc_html_e( 'Show terms for:', 'idiomattic-wp' ); ?></label>
+			<select id="glossary-lang-filter" class="iwp-select" style="width:auto;"
+				onchange="location.href='<?php echo esc_url( admin_url( 'admin.php?page=idiomatticwp-settings&tab=glossary&glossary_lang=' ) ); ?>'+this.value">
+				<?php foreach ( $nonDefaultLangs as $lang ) : ?>
+					<option value="<?php echo esc_attr( $lang ); ?>" <?php selected( $targetLangFilter, $lang ); ?>>
+						<?php echo esc_html( $defaultLang . ' → ' . $lang ); ?>
+					</option>
+				<?php endforeach; ?>
+			</select>
+		</div>
+
+		<table class="wp-list-table widefat fixed striped" style="max-width:960px;">
+			<thead>
+				<tr>
+					<th><?php esc_html_e( 'Source Term', 'idiomattic-wp' ); ?></th>
+					<th><?php esc_html_e( 'Translation / Rule', 'idiomattic-wp' ); ?></th>
+					<th><?php esc_html_e( 'Notes', 'idiomattic-wp' ); ?></th>
+					<th style="width:280px;"><?php esc_html_e( 'Edit / Delete', 'idiomattic-wp' ); ?></th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php if ( empty( $terms ) ) : ?>
+					<tr><td colspan="4"><em><?php esc_html_e( 'No glossary terms yet. Add one below.', 'idiomattic-wp' ); ?></em></td></tr>
+				<?php else : ?>
+					<?php foreach ( $terms as $term ) : ?>
+						<tr>
+							<td><strong><?php echo esc_html( $term->sourceTerm ); ?></strong></td>
+							<td>
+								<?php if ( $term->forbidden ) : ?>
+									<em><?php esc_html_e( 'Keep unchanged', 'idiomattic-wp' ); ?></em>
+								<?php else : ?>
+									<?php echo esc_html( $term->translatedTerm ); ?>
+								<?php endif; ?>
+							</td>
+							<td><?php echo esc_html( $term->notes ?? '' ); ?></td>
+							<td>
+								<?php /* inline edit form */ ?>
+								<form method="post" style="display:inline;margin-right:6px;">
+									<?php wp_nonce_field( 'idiomatticwp_glossary_edit_' . $term->id, '_gl_edit_nonce' ); ?>
+									<input type="hidden" name="glossary_action" value="edit">
+									<input type="hidden" name="term_id" value="<?php echo (int) $term->id; ?>">
+									<input type="hidden" name="glossary_lang" value="<?php echo esc_attr( $targetLangFilter ); ?>">
+									<input type="text" name="translated_term" value="<?php echo esc_attr( $term->translatedTerm ); ?>" style="width:100px;" placeholder="<?php esc_attr_e( 'Translation', 'idiomattic-wp' ); ?>">
+									<input type="text" name="notes" value="<?php echo esc_attr( $term->notes ?? '' ); ?>" style="width:80px;" placeholder="<?php esc_attr_e( 'Notes', 'idiomattic-wp' ); ?>">
+									<label style="font-size:12px;white-space:nowrap;">
+										<input type="checkbox" name="forbidden" value="1" <?php checked( $term->forbidden ); ?>>
+										<?php esc_html_e( 'Forbidden', 'idiomattic-wp' ); ?>
+									</label>
+									<button type="submit" class="button button-small"><?php esc_html_e( 'Save', 'idiomattic-wp' ); ?></button>
+								</form>
+								<?php /* delete */ ?>
+								<form method="post" style="display:inline;" onsubmit="return confirm('<?php esc_attr_e( 'Delete this term?', 'idiomattic-wp' ); ?>');">
+									<?php wp_nonce_field( 'idiomatticwp_glossary_delete_' . $term->id, '_gl_del_nonce' ); ?>
+									<input type="hidden" name="glossary_action" value="delete">
+									<input type="hidden" name="term_id" value="<?php echo (int) $term->id; ?>">
+									<input type="hidden" name="glossary_lang" value="<?php echo esc_attr( $targetLangFilter ); ?>">
+									<button type="submit" class="button button-small button-link-delete"><?php esc_html_e( 'Delete', 'idiomattic-wp' ); ?></button>
+								</form>
+							</td>
+						</tr>
+					<?php endforeach; ?>
+				<?php endif; ?>
+			</tbody>
+		</table>
+
+		<h4 style="margin-top:28px;"><?php esc_html_e( 'Add Term', 'idiomattic-wp' ); ?></h4>
+		<form method="post">
+			<?php wp_nonce_field( 'idiomatticwp_glossary_add', '_gl_add_nonce' ); ?>
+			<input type="hidden" name="glossary_action" value="add">
+			<input type="hidden" name="glossary_lang" value="<?php echo esc_attr( $targetLangFilter ); ?>">
+			<table class="form-table" style="max-width:700px;"><tbody>
+				<tr>
+					<th><label for="gl_src"><?php esc_html_e( 'Source Term', 'idiomattic-wp' ); ?></label></th>
+					<td><input type="text" id="gl_src" name="glossary_source_term" class="regular-text" required></td>
+				</tr>
+				<tr>
+					<th><?php esc_html_e( 'Translation', 'idiomattic-wp' ); ?></th>
+					<td>
+						<input type="text" name="glossary_translated_term" class="regular-text">
+						<label style="margin-left:12px;">
+							<input type="checkbox" name="glossary_forbidden" value="1">
+							<?php esc_html_e( 'Keep unchanged (do not translate)', 'idiomattic-wp' ); ?>
+						</label>
+					</td>
+				</tr>
+				<tr>
+					<th><label for="gl_notes"><?php esc_html_e( 'Notes', 'idiomattic-wp' ); ?></label></th>
+					<td><input type="text" id="gl_notes" name="glossary_notes" class="regular-text"></td>
+				</tr>
+			</tbody></table>
+			<?php submit_button( __( 'Add Term', 'idiomattic-wp' ), 'secondary', 'add_glossary_term', false ); ?>
+		</form>
+		<?php
+	}
+
+	/**
+	 * Process glossary CRUD form submissions (add / edit / delete).
+	 * Called at the top of renderGlossaryTab() before any output.
+	 */
+	private function handleGlossaryFormActions(): void {
+		$action = sanitize_key( $_POST['glossary_action'] ?? '' );
+
+		if ( ! $action || ! current_user_can( 'manage_options' ) ) {
 			return;
 		}
 
 		$defaultLang      = (string) $this->languageManager->getDefaultLanguage();
-		$activeLangs      = array_map( 'strval', $this->languageManager->getActiveLanguages() );
-		$targetLangFilter = sanitize_key( $_GET['glossary_lang'] ?? ( $activeLangs[1] ?? '' ) );
+		$targetLangFilter = sanitize_key( $_POST['glossary_lang'] ?? '' );
 
-		echo '<h3>' . esc_html__( 'Glossary', 'idiomattic-wp' ) . '</h3>';
-		echo '<p class="description">' . esc_html__( 'Define terms that must always be translated a specific way, or kept unchanged by the AI.', 'idiomattic-wp' ) . '</p>';
-
-		echo '<p><label>' . esc_html__( 'Show terms for:', 'idiomattic-wp' ) . ' <select id="glossary-lang-filter" onchange="window.location.search+=\'&glossary_lang=\'+this.value">';
-		foreach ( $activeLangs as $lang ) {
-			if ( $lang === $defaultLang ) continue;
-			printf( '<option value="%s" %s>%s → %s</option>', esc_attr( $lang ), selected( $targetLangFilter, $lang, false ), esc_html( $defaultLang ), esc_html( $lang ) );
-		}
-		echo '</select></label></p>';
-
-		global $wpdb;
-		$table = $wpdb->prefix . 'idiomatticwp_glossary';
-		$terms = $wpdb->get_results( $wpdb->prepare(
-			"SELECT * FROM {$table} WHERE source_lang = %s AND target_lang = %s ORDER BY source_term ASC",
-			$defaultLang, $targetLangFilter
-		), ARRAY_A ) ?: [];
-
-		echo '<table class="wp-list-table widefat fixed striped" style="margin-top:16px;max-width:900px;">';
-		echo '<thead><tr><th>' . esc_html__( 'Source Term', 'idiomattic-wp' ) . '</th><th>' . esc_html__( 'Translation', 'idiomattic-wp' ) . '</th><th>' . esc_html__( 'Type', 'idiomattic-wp' ) . '</th><th>' . esc_html__( 'Notes', 'idiomattic-wp' ) . '</th><th>' . esc_html__( 'Actions', 'idiomattic-wp' ) . '</th></tr></thead><tbody>';
-
-		if ( empty( $terms ) ) {
-			echo '<tr><td colspan="5"><em>' . esc_html__( 'No glossary terms yet.', 'idiomattic-wp' ) . '</em></td></tr>';
-		} else {
-			foreach ( $terms as $term ) {
-				$deleteUrl = wp_nonce_url(
-					admin_url( 'admin.php?page=idiomatticwp-settings&tab=glossary&glossary_lang=' . $targetLangFilter . '&delete_term=' . $term['id'] ),
-					'idiomatticwp_delete_term_' . $term['id']
-				);
-				printf(
-					'<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td><a href="%s" class="submitdelete" onclick="return confirm(\'%s\')">' . esc_html__( 'Delete', 'idiomattic-wp' ) . '</a></td></tr>',
-					esc_html( $term['source_term'] ),
-					esc_html( $term['translated_term'] ),
-					$term['forbidden'] ? esc_html__( 'Keep unchanged', 'idiomattic-wp' ) : esc_html__( 'Translate as', 'idiomattic-wp' ),
-					esc_html( $term['notes'] ?? '' ),
-					esc_url( $deleteUrl ),
-					esc_js( __( 'Delete this term?', 'idiomattic-wp' ) )
-				);
+		if ( $action === 'add' ) {
+			if ( ! isset( $_POST['_gl_add_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['_gl_add_nonce'] ) ), 'idiomatticwp_glossary_add' ) ) {
+				return;
 			}
-		}
-		echo '</tbody></table>';
 
-		if ( ! empty( $_GET['delete_term'] ) ) {
-			$termId = absint( $_GET['delete_term'] );
-			if ( check_admin_referer( 'idiomatticwp_delete_term_' . $termId ) ) {
-				$wpdb->delete( $table, [ 'id' => $termId ], [ '%d' ] );
-				echo '<div class="notice notice-success inline" style="margin-top:12px;"><p>' . esc_html__( 'Term deleted.', 'idiomattic-wp' ) . '</p></div>';
+			$sourceTerm = sanitize_text_field( wp_unslash( $_POST['glossary_source_term'] ?? '' ) );
+			if ( ! $sourceTerm || ! $targetLangFilter ) {
+				return;
 			}
+
+			try {
+				$this->glossaryRepo->addTerm(
+					$sourceTerm,
+					sanitize_text_field( wp_unslash( $_POST['glossary_translated_term'] ?? '' ) ),
+					\IdiomatticWP\ValueObjects\LanguageCode::from( $defaultLang ),
+					\IdiomatticWP\ValueObjects\LanguageCode::from( $targetLangFilter ),
+					! empty( $_POST['glossary_forbidden'] ),
+					sanitize_text_field( wp_unslash( $_POST['glossary_notes'] ?? '' ) ) ?: null
+				);
+			} catch ( \Throwable ) {}
+
+			return;
 		}
 
-		echo '<h4 style="margin-top:28px;">' . esc_html__( 'Add Term', 'idiomattic-wp' ) . '</h4>';
-		$addNonce = wp_nonce_field( 'idiomatticwp_add_glossary_term', '_wpnonce', true, false );
+		$termId = absint( $_POST['term_id'] ?? 0 );
+		if ( ! $termId ) {
+			return;
+		}
 
-		if ( ! empty( $_POST['glossary_source_term'] ) && check_admin_referer( 'idiomatticwp_add_glossary_term' ) ) {
-			$wpdb->insert( $table, [
-				'source_lang'     => $defaultLang,
-				'target_lang'     => $targetLangFilter,
-				'source_term'     => sanitize_text_field( wp_unslash( $_POST['glossary_source_term'] ) ),
-				'translated_term' => sanitize_text_field( wp_unslash( $_POST['glossary_translated_term'] ?? '' ) ),
-				'forbidden'       => ! empty( $_POST['glossary_forbidden'] ) ? 1 : 0,
-				'notes'           => sanitize_text_field( wp_unslash( $_POST['glossary_notes'] ?? '' ) ),
+		if ( $action === 'edit' ) {
+			if ( ! isset( $_POST['_gl_edit_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['_gl_edit_nonce'] ) ), 'idiomatticwp_glossary_edit_' . $termId ) ) {
+				return;
+			}
+
+			$this->glossaryRepo->updateTerm( $termId, [
+				'translated_term' => sanitize_text_field( wp_unslash( $_POST['translated_term'] ?? '' ) ),
+				'forbidden'       => ! empty( $_POST['forbidden'] ) ? 1 : 0,
+				'notes'           => sanitize_text_field( wp_unslash( $_POST['notes'] ?? '' ) ) ?: null,
 			] );
-			echo '<div class="notice notice-success inline" style="margin-top:8px;"><p>' . esc_html__( 'Term added.', 'idiomattic-wp' ) . '</p></div>';
+			return;
 		}
 
-		echo '<table class="form-table" style="max-width:700px;"><tbody>';
-		echo '<tr><th>' . esc_html__( 'Source Term', 'idiomattic-wp' ) . '</th><td><input type="text" name="glossary_source_term" class="regular-text" required></td></tr>';
-		echo '<tr><th>' . esc_html__( 'Translation', 'idiomattic-wp' ) . '</th><td><input type="text" name="glossary_translated_term" class="regular-text"> <label style="margin-left:12px;"><input type="checkbox" name="glossary_forbidden" value="1"> ' . esc_html__( 'Keep unchanged (do not translate)', 'idiomattic-wp' ) . '</label></td></tr>';
-		echo '<tr><th>' . esc_html__( 'Notes', 'idiomattic-wp' ) . '</th><td><input type="text" name="glossary_notes" class="regular-text"></td></tr>';
-		echo '</tbody></table>';
-		echo $addNonce;
-		echo '<input type="hidden" name="glossary_target_lang" value="' . esc_attr( $targetLangFilter ) . '">';
-		echo '<p>' . get_submit_button( __( 'Add Term', 'idiomattic-wp' ), 'secondary', 'add_glossary_term', false ) . '</p>';
+		if ( $action === 'delete' ) {
+			if ( ! isset( $_POST['_gl_del_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['_gl_del_nonce'] ) ), 'idiomatticwp_glossary_delete_' . $termId ) ) {
+				return;
+			}
+
+			$this->glossaryRepo->deleteTerm( $termId );
+		}
 	}
 
 	// ── Tab: Content ──────────────────────────────────────────────────────
@@ -667,6 +832,18 @@ class SettingsPage {
 
 		$allPostTypes = get_post_types( [ 'public' => true ], 'objects' );
 		unset( $allPostTypes['attachment'] );
+
+		// Full Site Editing post types are not public but should still be translatable.
+		if ( function_exists( 'wp_is_block_theme' ) && wp_is_block_theme() ) {
+			foreach ( [ 'wp_template', 'wp_template_part', 'wp_navigation' ] as $fseSlug ) {
+				if ( ! isset( $allPostTypes[ $fseSlug ] ) ) {
+					$ptObj = get_post_type_object( $fseSlug );
+					if ( $ptObj ) {
+						$allPostTypes[ $fseSlug ] = $ptObj;
+					}
+				}
+			}
+		}
 
 		$allTaxonomies = get_taxonomies( [ 'public' => true ], 'objects' );
 
@@ -720,6 +897,9 @@ class SettingsPage {
 		echo '<h3>' . esc_html__( 'Post Types', 'idiomattic-wp' ) . '</h3>';
 		echo '<p class="description">' . esc_html__( 'Configure how each post type behaves across languages.', 'idiomattic-wp' ) . '</p>';
 
+		$discoveredPostTypes  = $this->elementRegistry->getDiscoveredPostTypes();
+		$discoveredTaxonomies = $this->elementRegistry->getDiscoveredTaxonomies();
+
 		echo '<table class="wp-list-table widefat fixed idiomatticwp-config-table">';
 		echo '<thead><tr>';
 		echo '<th class="col-name">'  . esc_html__( 'Post Type', 'idiomattic-wp' ) . '</th>';
@@ -728,13 +908,50 @@ class SettingsPage {
 		echo '</tr></thead><tbody>';
 
 		foreach ( $allPostTypes as $ptSlug => $ptObj ) {
-			$saved = $ptConfig[ $ptSlug ] ?? 'translate';
+			$defaultMode = $this->elementRegistry->getPostTypeDefaultMode( $ptSlug );
+			$saved       = $ptConfig[ $ptSlug ] ?? $defaultMode;
+			$sourceLabel = $discoveredPostTypes[ $ptSlug ]['source'] ?? null;
 			echo '<tr>';
-			echo '<td class="col-name"><strong>' . esc_html( $ptObj->labels->name ) . '</strong></td>';
+			echo '<td class="col-name"><strong>' . esc_html( $ptObj->labels->name ) . '</strong>';
+			if ( $sourceLabel ) {
+				printf(
+					' <abbr class="idiomatticwp-config-source" title="%s" style="cursor:help; text-decoration:none; font-size:11px; color:#2271b1;">&#128196; %s</abbr>',
+					esc_attr( sprintf( __( 'Default configured by %s', 'idiomattic-wp' ), $sourceLabel ) ),
+					esc_html( $sourceLabel )
+				);
+			}
+			echo '</td>';
 			echo '<td class="col-slug"><code>' . esc_html( $ptSlug ) . '</code></td>';
 			echo '<td class="col-mode">';
 			$this->renderModeSelector( "idiomatticwp_post_type_config[{$ptSlug}]", $saved, $modeOptions, 'pt_' . $ptSlug );
 			echo '</td></tr>';
+		}
+		echo '</tbody></table>';
+
+		// ── Translate on Publish ──────────────────────────────────────────
+		$translateOnPublish = (array) get_option( 'idiomatticwp_translate_on_publish', [] );
+
+		echo '<h3 style="margin-top:32px;">' . esc_html__( 'Translate on Publish', 'idiomattic-wp' ) . '</h3>';
+		echo '<p class="description">' . esc_html__( 'When a post is published or updated, automatically queue AI translation into all active languages. Requires a Pro license and a configured AI provider.', 'idiomattic-wp' ) . '</p>';
+		echo '<table class="wp-list-table widefat fixed idiomatticwp-config-table">';
+		echo '<thead><tr>';
+		echo '<th class="col-name">' . esc_html__( 'Post Type', 'idiomattic-wp' ) . '</th>';
+		echo '<th class="col-slug">' . esc_html__( 'Slug', 'idiomattic-wp' ) . '</th>';
+		echo '<th class="col-mode" style="width:120px;">' . esc_html__( 'Auto-translate', 'idiomattic-wp' ) . '</th>';
+		echo '</tr></thead><tbody>';
+
+		foreach ( $allPostTypes as $ptSlug => $ptObj ) {
+			$checked = in_array( $ptSlug, $translateOnPublish, true );
+			echo '<tr>';
+			printf( '<td class="col-name"><strong>%s</strong></td>', esc_html( $ptObj->labels->name ) );
+			printf( '<td class="col-slug"><code>%s</code></td>', esc_html( $ptSlug ) );
+			printf(
+				'<td class="col-mode"><label><input type="checkbox" name="idiomatticwp_translate_on_publish[]" value="%s"%s> %s</label></td>',
+				esc_attr( $ptSlug ),
+				checked( $checked, true, false ),
+				esc_html__( 'Enabled', 'idiomattic-wp' )
+			);
+			echo '</tr>';
 		}
 		echo '</tbody></table>';
 
@@ -750,9 +967,19 @@ class SettingsPage {
 		echo '</tr></thead><tbody>';
 
 		foreach ( $allTaxonomies as $taxSlug => $taxObj ) {
-			$saved = $taxConfig[ $taxSlug ] ?? 'translate';
+			$defaultMode = $this->elementRegistry->getTaxonomyDefaultMode( $taxSlug );
+			$saved       = $taxConfig[ $taxSlug ] ?? $defaultMode;
+			$sourceLabel = $discoveredTaxonomies[ $taxSlug ]['source'] ?? null;
 			echo '<tr>';
-			echo '<td class="col-name"><strong>' . esc_html( $taxObj->labels->name ) . '</strong></td>';
+			echo '<td class="col-name"><strong>' . esc_html( $taxObj->labels->name ) . '</strong>';
+			if ( $sourceLabel ) {
+				printf(
+					' <abbr class="idiomatticwp-config-source" title="%s" style="cursor:help; text-decoration:none; font-size:11px; color:#2271b1;">&#128196; %s</abbr>',
+					esc_attr( sprintf( __( 'Default configured by %s', 'idiomattic-wp' ), $sourceLabel ) ),
+					esc_html( $sourceLabel )
+				);
+			}
+			echo '</td>';
 			echo '<td class="col-slug"><code>' . esc_html( $taxSlug ) . '</code></td>';
 			echo '<td class="col-mode">';
 			$this->renderModeSelector( "idiomatticwp_taxonomy_config[{$taxSlug}]", $saved, $modeOptions, 'tax_' . $taxSlug );
@@ -855,26 +1082,18 @@ class SettingsPage {
 		$activeLangs = $this->languageManager->getActiveLanguages();
 		$navMenus    = wp_get_nav_menus();
 
-		echo '<h3>' . esc_html__( 'Navigation Menu Translations', 'idiomattic-wp' ) . '</h3>';
-		echo '<p class="description">'
-			. esc_html__( 'Assign a WordPress navigation menu to each active language. The correct menu will be displayed automatically to visitors depending on their language.', 'idiomattic-wp' )
-			. '</p>';
-
 		if ( empty( $activeLangs ) ) {
-			echo '<div class="notice notice-warning inline" style="margin:12px 0;"><p>'
+			echo '<div class="notice notice-warning inline"><p>'
 				. esc_html__( 'No active languages configured. Go to the Languages tab first.', 'idiomattic-wp' )
 				. '</p></div>';
 			return;
 		}
 
 		if ( empty( $navMenus ) ) {
-			echo '<div class="notice notice-warning inline" style="margin:12px 0;"><p>';
+			echo '<div class="notice notice-warning inline"><p>';
 			printf(
-				/* translators: %s: link to menus admin page */
 				esc_html__( 'No navigation menus found. %s', 'idiomattic-wp' ),
-				'<a href="' . esc_url( admin_url( 'nav-menus.php' ) ) . '">'
-					. esc_html__( 'Create a menu →', 'idiomattic-wp' )
-					. '</a>'
+				'<a href="' . esc_url( admin_url( 'nav-menus.php' ) ) . '">' . esc_html__( 'Create a menu →', 'idiomattic-wp' ) . '</a>'
 			);
 			echo '</p></div>';
 			return;
@@ -882,66 +1101,54 @@ class SettingsPage {
 
 		$savedMenus  = (array) get_option( 'idiomatticwp_nav_menus', [] );
 		$defaultLang = (string) $this->languageManager->getDefaultLanguage();
-
-		echo '<table class="form-table idiomatticwp-menus-table" role="presentation" style="max-width:640px;">';
-		echo '<tbody>';
-
-		foreach ( $activeLangs as $lang ) {
-			$code        = (string) $lang;
-			$langData    = $this->languageManager->getAllSupportedLanguages()[ $code ] ?? [];
-			$savedMenuId = (int) ( $savedMenus[ $code ] ?? 0 );
-			$flagUrl     = $this->getFlagUrl( $code );
-			$isDefault   = $code === $defaultLang;
-
-			echo '<tr>';
-			echo '<th scope="row" style="padding:10px 20px 10px 0;vertical-align:middle;">';
-
-			// Flag + language name.
-			echo '<span style="display:flex;align-items:center;gap:8px;">';
-			if ( $flagUrl ) {
-				printf(
-					'<img src="%s" alt="%s" style="width:20px;height:15px;object-fit:cover;border-radius:2px;border:1px solid #dcdcde;">',
-					esc_url( $flagUrl ),
-					esc_attr( $langData['name'] ?? $code )
-				);
-			}
-			echo '<strong>' . esc_html( $langData['native_name'] ?? $code ) . '</strong>';
-			if ( $isDefault ) {
-				echo '&nbsp;<span class="description">(' . esc_html__( 'default', 'idiomattic-wp' ) . ')</span>';
-			}
-			echo '</span>';
-			echo '</th>';
-
-			echo '<td style="padding:10px 0;vertical-align:middle;">';
-			echo '<select name="idiomatticwp_nav_menus[' . esc_attr( $code ) . ']" style="min-width:220px;">';
-			echo '<option value="0">' . esc_html__( '— Not assigned —', 'idiomattic-wp' ) . '</option>';
-
-			foreach ( $navMenus as $menu ) {
-				printf(
-					'<option value="%d"%s>%s</option>',
-					(int) $menu->term_id,
-					selected( $savedMenuId, $menu->term_id, false ),
-					esc_html( $menu->name )
-				);
-			}
-
-			echo '</select>';
-			echo '</td>';
-			echo '</tr>';
-		}
-
-		echo '</tbody>';
-		echo '</table>';
-
-		echo '<p class="description" style="margin-top:16px;">';
-		printf(
-			/* translators: %s: link to menus admin page */
-			esc_html__( 'To create or edit navigation menus visit %s.', 'idiomattic-wp' ),
-			'<a href="' . esc_url( admin_url( 'nav-menus.php' ) ) . '">'
-				. esc_html__( 'Appearance → Menus', 'idiomattic-wp' )
-				. '</a>'
-		);
-		echo '</p>';
+		$allLangs    = $this->languageManager->getAllSupportedLanguages();
+		?>
+		<div class="iwp-card" style="max-width:640px;">
+			<table class="iwp-menus-table">
+				<tbody>
+				<?php foreach ( $activeLangs as $lang ) :
+					$code        = (string) $lang;
+					$langData    = $allLangs[ $code ] ?? [];
+					$savedMenuId = (int) ( $savedMenus[ $code ] ?? 0 );
+					$flagUrl     = $this->getFlagUrl( $code, $langData['flag'] ?? '' );
+					$isDefault   = $code === $defaultLang;
+				?>
+					<tr>
+						<td style="width:220px;">
+							<div class="iwp-menus-lang-cell">
+								<?php if ( $flagUrl ) : ?>
+									<img src="<?php echo esc_url( $flagUrl ); ?>" alt="" class="iwp-menus-flag">
+								<?php else : ?>
+									<span class="iwp-flag-fallback" style="width:22px;height:16px;"><?php echo esc_html( strtoupper( substr( $code, 0, 2 ) ) ); ?></span>
+								<?php endif; ?>
+								<strong><?php echo esc_html( $langData['native_name'] ?? $code ); ?></strong>
+								<?php if ( $isDefault ) : ?>
+									<span class="idiomatticwp-status-badge idiomatticwp-status-badge--draft" style="font-size:10px;"><?php esc_html_e( 'default', 'idiomattic-wp' ); ?></span>
+								<?php endif; ?>
+							</div>
+						</td>
+						<td>
+							<select name="idiomatticwp_nav_menus[<?php echo esc_attr( $code ); ?>]" class="iwp-select">
+								<option value="0"><?php esc_html_e( '— Not assigned —', 'idiomattic-wp' ); ?></option>
+								<?php foreach ( $navMenus as $menu ) : ?>
+									<option value="<?php echo (int) $menu->term_id; ?>" <?php selected( $savedMenuId, $menu->term_id ); ?>>
+										<?php echo esc_html( $menu->name ); ?>
+									</option>
+								<?php endforeach; ?>
+							</select>
+						</td>
+					</tr>
+				<?php endforeach; ?>
+				</tbody>
+			</table>
+		</div>
+		<p class="description" style="margin-top:12px;">
+			<?php printf(
+				esc_html__( 'To create or edit navigation menus visit %s.', 'idiomattic-wp' ),
+				'<a href="' . esc_url( admin_url( 'nav-menus.php' ) ) . '">' . esc_html__( 'Appearance → Menus', 'idiomattic-wp' ) . '</a>'
+			); ?>
+		</p>
+		<?php
 	}
 
 	// ── Tab: Advanced ─────────────────────────────────────────────────────
@@ -951,131 +1158,121 @@ class SettingsPage {
 		$cacheEnabled = get_option( 'idiomatticwp_cache_lang_detect', '1' );
 		$activeLangs  = array_map( 'strval', $this->languageManager->getActiveLanguages() );
 		$defaultLang  = (string) $this->languageManager->getDefaultLanguage();
+		?>
 
-		echo '<h3>' . esc_html__( 'Data Management', 'idiomattic-wp' ) . '</h3>';
-		echo '<table class="form-table" style="max-width:680px;"><tbody>';
+		<?php /* ── Data Management ── */ ?>
+		<div class="iwp-card iwp-tab-section">
+			<h3 class="iwp-tab-section__title"><?php esc_html_e( 'Data Management', 'idiomattic-wp' ); ?></h3>
+			<p class="iwp-tab-section__desc"><?php esc_html_e( 'Control how the plugin handles its data.', 'idiomattic-wp' ); ?></p>
+			<div class="iwp-form-grid" style="max-width:640px;">
+				<div class="iwp-check-field">
+					<label class="iwp-check-label">
+						<input type="checkbox" name="idiomatticwp_uninstall_retention" value="1" <?php checked( $retention, '1' ); ?>>
+						<strong><?php esc_html_e( 'Retain data on uninstall', 'idiomattic-wp' ); ?></strong>
+					</label>
+					<p class="iwp-check-hint"><?php esc_html_e( 'Keep all translation data when the plugin is deleted. Disable for a clean uninstall.', 'idiomattic-wp' ); ?></p>
+				</div>
+				<div class="iwp-check-field">
+					<label class="iwp-check-label">
+						<input type="checkbox" name="idiomatticwp_cache_lang_detect" value="1" <?php checked( $cacheEnabled, '1' ); ?>>
+						<strong><?php esc_html_e( 'Language detection cache', 'idiomattic-wp' ); ?></strong>
+					</label>
+					<p class="iwp-check-hint"><?php esc_html_e( 'Cache language detection results for improved performance.', 'idiomattic-wp' ); ?></p>
+				</div>
+			</div>
+		</div>
 
-		echo '<tr><th scope="row">' . esc_html__( 'Retain data on uninstall', 'idiomattic-wp' ) . '</th><td>';
-		printf(
-			'<label><input type="checkbox" name="idiomatticwp_uninstall_retention" value="1" %s> %s</label><p class="description">%s</p>',
-			checked( $retention, '1', false ),
-			esc_html__( 'Keep all translation data when the plugin is deleted', 'idiomattic-wp' ),
-			esc_html__( 'Disable to perform a clean uninstall that removes all plugin tables and settings.', 'idiomattic-wp' )
-		);
-		echo '</td></tr>';
-
-		echo '<tr><th scope="row">' . esc_html__( 'Language detection cache', 'idiomattic-wp' ) . '</th><td>';
-		printf(
-			'<label><input type="checkbox" name="idiomatticwp_cache_lang_detect" value="1" %s> %s</label>',
-			checked( $cacheEnabled, '1', false ),
-			esc_html__( 'Cache language detection results for improved performance', 'idiomattic-wp' )
-		);
-		echo '</td></tr>';
-
-		echo '</tbody></table>';
-
-		echo '<h3>' . esc_html__( 'Export / Import', 'idiomattic-wp' ) . '</h3>';
-		echo '<p class="description">' . esc_html__( 'Download all translations as XLIFF files for use with professional CAT tools.', 'idiomattic-wp' ) . '</p>';
-		echo '<p>';
-		foreach ( $activeLangs as $lang ) {
-			if ( $lang === $defaultLang ) continue;
-			$exportUrl = wp_nonce_url(
-				admin_url( 'admin.php?page=idiomatticwp-settings&tab=advanced&export_lang=' . $lang ),
-				'idiomatticwp_export_' . $lang
-			);
-			printf(
-				'<a href="%s" class="button button-secondary" style="margin-right:8px;">%s</a>',
-				esc_url( $exportUrl ),
-				sprintf( esc_html__( 'Export %s (XLIFF)', 'idiomattic-wp' ), strtoupper( $lang ) )
-			);
-		}
-		echo '</p>';
-
-		if ( ! empty( $_GET['export_lang'] ) ) {
-			$exportLangStr = sanitize_key( $_GET['export_lang'] );
-			if ( check_admin_referer( 'idiomatticwp_export_' . $exportLangStr ) ) {
-				try {
-					$exportLang = \IdiomatticWP\ValueObjects\LanguageCode::from( $exportLangStr );
-					$exporter   = \IdiomatticWP\Core\Plugin::getInstance()->getContainer()->get( \IdiomatticWP\ImportExport\Exporter::class );
-					$exporter->downloadZip( $exportLang );
-				} catch ( \Throwable $e ) {
-					echo '<div class="notice notice-error inline"><p>' . esc_html( $e->getMessage() ) . '</p></div>';
-				}
-			}
-		}
+		<?php /* ── Export / Import ── */ ?>
+		<div class="iwp-card iwp-tab-section">
+			<h3 class="iwp-tab-section__title"><?php esc_html_e( 'Export / Import', 'idiomattic-wp' ); ?></h3>
+			<p class="iwp-tab-section__desc">
+				<?php esc_html_e( 'Export translations as XLIFF files or import from professional CAT tools.', 'idiomattic-wp' ); ?>
+			</p>
+			<a href="<?php echo esc_url( admin_url( 'admin.php?page=idiomatticwp-import-export' ) ); ?>" class="iwp-btn iwp-btn--secondary">
+				<span class="dashicons dashicons-upload" style="font-size:16px;width:16px;height:16px;margin-top:1px;"></span>
+				<?php esc_html_e( 'Go to Import / Export', 'idiomattic-wp' ); ?>
+			</a>
+		</div>
+		<?php
 
 		// ── Notifications ─────────────────────────────────────────────────
 		$notifyEnabled = get_option( 'idiomatticwp_notify_outdated', '' );
 		$notifyEmail   = get_option( 'idiomatticwp_notify_email', get_option( 'admin_email' ) );
 		$notifyMode    = get_option( 'idiomatticwp_notify_mode', 'immediate' );
+		?>
 
-		echo '<h3>' . esc_html__( 'Email Notifications', 'idiomattic-wp' ) . '</h3>';
-		echo '<table class="form-table" style="max-width:680px;"><tbody>';
+		<div class="iwp-card iwp-tab-section">
+			<h3 class="iwp-tab-section__title"><?php esc_html_e( 'Email Notifications', 'idiomattic-wp' ); ?></h3>
+			<p class="iwp-tab-section__desc"><?php esc_html_e( 'Get notified when translations become outdated.', 'idiomattic-wp' ); ?></p>
+			<div class="iwp-form-grid" style="max-width:640px;">
+				<div class="iwp-check-field" style="grid-column:1/-1;">
+					<label class="iwp-check-label">
+						<input type="checkbox" name="idiomatticwp_notify_outdated" value="1" <?php checked( $notifyEnabled, '1' ); ?>>
+						<strong><?php esc_html_e( 'Notify on outdated translations', 'idiomattic-wp' ); ?></strong>
+					</label>
+					<p class="iwp-check-hint"><?php esc_html_e( 'Triggered when you update a post that has translations.', 'idiomattic-wp' ); ?></p>
+				</div>
+				<div class="iwp-form-field">
+					<label class="iwp-field-label" for="idiomatticwp_notify_email"><?php esc_html_e( 'Recipient Email', 'idiomattic-wp' ); ?></label>
+					<input type="email" id="idiomatticwp_notify_email" name="idiomatticwp_notify_email"
+						   value="<?php echo esc_attr( $notifyEmail ); ?>" class="iwp-input">
+				</div>
+				<div class="iwp-form-field">
+					<span class="iwp-field-label"><?php esc_html_e( 'Notification Mode', 'idiomattic-wp' ); ?></span>
+					<label class="iwp-check-label" style="margin-bottom:6px;">
+						<input type="radio" name="idiomatticwp_notify_mode" value="immediate" <?php checked( $notifyMode, 'immediate' ); ?>>
+						<?php esc_html_e( 'Immediate — one email per event', 'idiomattic-wp' ); ?>
+					</label>
+					<label class="iwp-check-label">
+						<input type="radio" name="idiomatticwp_notify_mode" value="digest" <?php checked( $notifyMode, 'digest' ); ?>>
+						<?php esc_html_e( 'Daily digest — one email per day', 'idiomattic-wp' ); ?>
+					</label>
+				</div>
+			</div>
+		</div>
 
-		echo '<tr><th scope="row">' . esc_html__( 'Outdated translations', 'idiomattic-wp' ) . '</th><td>';
-		printf(
-			'<label><input type="checkbox" name="idiomatticwp_notify_outdated" value="1" %s> %s</label><p class="description">%s</p>',
-			checked( $notifyEnabled, '1', false ),
-			esc_html__( 'Send an email when translations become outdated', 'idiomattic-wp' ),
-			esc_html__( 'Triggered when you update a post that has translations.', 'idiomattic-wp' )
-		);
-		echo '</td></tr>';
-
-		echo '<tr><th scope="row"><label for="idiomatticwp_notify_email">' . esc_html__( 'Recipient email', 'idiomattic-wp' ) . '</label></th><td>';
-		printf(
-			'<input type="email" id="idiomatticwp_notify_email" name="idiomatticwp_notify_email" value="%s" class="regular-text">',
-			esc_attr( $notifyEmail )
-		);
-		echo '</td></tr>';
-
-		echo '<tr><th scope="row">' . esc_html__( 'Notification mode', 'idiomattic-wp' ) . '</th><td>';
-		printf( '<label><input type="radio" name="idiomatticwp_notify_mode" value="immediate" %s> %s</label><br>', checked( $notifyMode, 'immediate', false ), esc_html__( 'Immediate — send one email per event', 'idiomattic-wp' ) );
-		printf( '<label><input type="radio" name="idiomatticwp_notify_mode" value="digest" %s> %s</label>', checked( $notifyMode, 'digest', false ), esc_html__( 'Daily digest — batch all events into one email per day', 'idiomattic-wp' ) );
-		echo '</td></tr>';
-
-		echo '</tbody></table>';
-
+		<?php
 		// ── Webhooks ─────────────────────────────────────────────────────
 		$webhookUrl    = get_option( 'idiomatticwp_webhook_url', '' );
 		$webhookSecret = get_option( 'idiomatticwp_webhook_secret', '' );
 		$webhookEvents = (array) get_option( 'idiomatticwp_webhook_events', [ 'translation.completed', 'translation.outdated' ] );
-
-		echo '<h3>' . esc_html__( 'Webhooks', 'idiomattic-wp' ) . '</h3>';
-		echo '<p class="description">' . esc_html__( 'Send HTTP POST notifications to an external URL when translation events occur. Payloads are signed with HMAC-SHA256.', 'idiomattic-wp' ) . '</p>';
-		echo '<table class="form-table" style="max-width:680px;"><tbody>';
-
-		echo '<tr><th scope="row"><label for="idiomatticwp_webhook_url">' . esc_html__( 'Endpoint URL', 'idiomattic-wp' ) . '</label></th><td>';
-		printf(
-			'<input type="url" id="idiomatticwp_webhook_url" name="idiomatticwp_webhook_url" value="%s" class="regular-text" placeholder="https://your-app.com/webhook">',
-			esc_attr( $webhookUrl )
-		);
-		echo '</td></tr>';
-
-		echo '<tr><th scope="row"><label for="idiomatticwp_webhook_secret">' . esc_html__( 'Signing secret', 'idiomattic-wp' ) . '</label></th><td>';
-		printf(
-			'<input type="text" id="idiomatticwp_webhook_secret" name="idiomatticwp_webhook_secret" value="%s" class="regular-text" placeholder="%s">',
-			esc_attr( $webhookSecret ),
-			esc_attr__( 'Optional — used to sign payloads with HMAC-SHA256', 'idiomattic-wp' )
-		);
-		echo '</td></tr>';
-
-		$allEvents = [
+		$allEvents     = [
 			'translation.completed' => __( 'Translation completed (AI finished)', 'idiomattic-wp' ),
 			'translation.outdated'  => __( 'Translation outdated (source post updated)', 'idiomattic-wp' ),
 			'translation.queued'    => __( 'Translation queued (job dispatched)', 'idiomattic-wp' ),
 		];
-		echo '<tr><th scope="row">' . esc_html__( 'Events', 'idiomattic-wp' ) . '</th><td>';
-		foreach ( $allEvents as $eventKey => $eventLabel ) {
-			printf(
-				'<label style="display:block;margin-bottom:4px;"><input type="checkbox" name="idiomatticwp_webhook_events[]" value="%s" %s> %s</label>',
-				esc_attr( $eventKey ),
-				in_array( $eventKey, $webhookEvents, true ) ? 'checked' : '',
-				esc_html( $eventLabel )
-			);
-		}
-		echo '</td></tr>';
+		?>
 
-		echo '</tbody></table>';
+		<div class="iwp-card iwp-tab-section">
+			<h3 class="iwp-tab-section__title"><?php esc_html_e( 'Webhooks', 'idiomattic-wp' ); ?></h3>
+			<p class="iwp-tab-section__desc"><?php esc_html_e( 'Send HTTP POST notifications to an external URL when translation events occur. Payloads are signed with HMAC-SHA256.', 'idiomattic-wp' ); ?></p>
+			<div class="iwp-form-grid" style="max-width:640px;">
+				<div class="iwp-form-field">
+					<label class="iwp-field-label" for="idiomatticwp_webhook_url"><?php esc_html_e( 'Endpoint URL', 'idiomattic-wp' ); ?></label>
+					<input type="url" id="idiomatticwp_webhook_url" name="idiomatticwp_webhook_url"
+						   value="<?php echo esc_attr( $webhookUrl ); ?>" class="iwp-input"
+						   placeholder="https://your-app.com/webhook">
+				</div>
+				<div class="iwp-form-field">
+					<label class="iwp-field-label" for="idiomatticwp_webhook_secret"><?php esc_html_e( 'Signing Secret', 'idiomattic-wp' ); ?></label>
+					<input type="text" id="idiomatticwp_webhook_secret" name="idiomatticwp_webhook_secret"
+						   value="<?php echo esc_attr( $webhookSecret ); ?>" class="iwp-input"
+						   placeholder="<?php esc_attr_e( 'Optional HMAC-SHA256 secret', 'idiomattic-wp' ); ?>">
+				</div>
+				<div class="iwp-form-field" style="grid-column:1/-1;">
+					<span class="iwp-field-label"><?php esc_html_e( 'Events to Send', 'idiomattic-wp' ); ?></span>
+					<?php foreach ( $allEvents as $eventKey => $eventLabel ) : ?>
+						<label class="iwp-check-label" style="margin-bottom:6px;">
+							<input type="checkbox" name="idiomatticwp_webhook_events[]"
+								   value="<?php echo esc_attr( $eventKey ); ?>"
+								   <?php checked( in_array( $eventKey, $webhookEvents, true ) ); ?>>
+							<?php echo esc_html( $eventLabel ); ?>
+						</label>
+					<?php endforeach; ?>
+				</div>
+			</div>
+		</div>
+		<?php
 	}
 
 	// ── Tab: Troubleshooting ──────────────────────────────────────────────
@@ -1083,12 +1280,9 @@ class SettingsPage {
 	private function renderTroubleshootingTab(): void {
 		$this->maybeHandleTroubleshootingActions();
 
-		echo '<h3>' . esc_html__( 'Troubleshooting', 'idiomattic-wp' ) . '</h3>';
-		echo '<p class="description">' . esc_html__( 'Tools to help identify and resolve issues with Idiomattic WP.', 'idiomattic-wp' ) . '</p>';
-
 		// ── System Info ───────────────────────────────────────────────────
-		echo '<div class="idiomatticwp-ts-section">';
-		echo '<h4>' . esc_html__( '🖥 System Information', 'idiomattic-wp' ) . '</h4>';
+		echo '<div class="iwp-card iwp-tab-section">';
+		echo '<h3 class="iwp-tab-section__title">' . esc_html__( 'System Information', 'idiomattic-wp' ) . '</h3>';
 
 		global $wpdb;
 		$info = [
@@ -1122,21 +1316,20 @@ class SettingsPage {
 			$info[ sprintf( __( 'Table: %s', 'idiomattic-wp' ), $table ) ] = $exists ? '✅ ' . __( 'Exists', 'idiomattic-wp' ) : '❌ ' . __( 'Missing', 'idiomattic-wp' );
 		}
 
-		echo '<table class="widefat striped idiomatticwp-info-table" style="max-width:700px;">';
-		echo '<tbody>';
+		echo '<table class="iwp-sysinfo-table">';
 		foreach ( $info as $label => $value ) {
 			printf(
-				'<tr><td style="width:220px;font-weight:500;">%s</td><td>%s</td></tr>',
+				'<tr><th>%s</th><td>%s</td></tr>',
 				esc_html( $label ),
 				esc_html( (string) $value )
 			);
 		}
-		echo '</tbody></table>';
+		echo '</table>';
 		echo '</div>';
 
 		// ── Active Plugins ────────────────────────────────────────────────
-		echo '<div class="idiomatticwp-ts-section">';
-		echo '<h4>' . esc_html__( '🔌 Active Plugins', 'idiomattic-wp' ) . '</h4>';
+		echo '<div class="iwp-card iwp-tab-section">';
+		echo '<h3 class="iwp-tab-section__title">' . esc_html__( 'Active Plugins', 'idiomattic-wp' ) . '</h3>';
 		$activePlugins = get_option( 'active_plugins', [] );
 		$pluginData    = [];
 		foreach ( $activePlugins as $pluginFile ) {
@@ -1152,8 +1345,8 @@ class SettingsPage {
 		echo '</div>';
 
 		// ── Cache & Transients ────────────────────────────────────────────
-		echo '<div class="idiomatticwp-ts-section">';
-		echo '<h4>' . esc_html__( '🗑 Cache & Transients', 'idiomattic-wp' ) . '</h4>';
+		echo '<div class="iwp-card iwp-tab-section">';
+		echo '<h3 class="iwp-tab-section__title">' . esc_html__( 'Cache & Transients', 'idiomattic-wp' ) . '</h3>';
 		echo '<p class="description">' . esc_html__( 'Clear cached data if you are seeing stale content or unexpected behaviour.', 'idiomattic-wp' ) . '</p>';
 
 		$clearUrl = wp_nonce_url(
@@ -1164,8 +1357,8 @@ class SettingsPage {
 		echo '</div>';
 
 		// ── Rewrite Rules ─────────────────────────────────────────────────
-		echo '<div class="idiomatticwp-ts-section">';
-		echo '<h4>' . esc_html__( '🔁 Rewrite Rules', 'idiomattic-wp' ) . '</h4>';
+		echo '<div class="iwp-card iwp-tab-section">';
+		echo '<h3 class="iwp-tab-section__title">' . esc_html__( 'Rewrite Rules', 'idiomattic-wp' ) . '</h3>';
 		echo '<p class="description">' . esc_html__( 'If language URLs are returning 404 errors, try flushing rewrite rules.', 'idiomattic-wp' ) . '</p>';
 
 		$flushUrl = wp_nonce_url(
@@ -1176,8 +1369,8 @@ class SettingsPage {
 		echo '</div>';
 
 		// ── Debug Log ─────────────────────────────────────────────────────
-		echo '<div class="idiomatticwp-ts-section">';
-		echo '<h4>' . esc_html__( '📋 Debug Log', 'idiomattic-wp' ) . '</h4>';
+		echo '<div class="iwp-card iwp-tab-section">';
+		echo '<h3 class="iwp-tab-section__title">' . esc_html__( 'Debug Log', 'idiomattic-wp' ) . '</h3>';
 
 		$debugEnabled = defined( 'WP_DEBUG' ) && WP_DEBUG && defined( 'WP_DEBUG_LOG' ) && WP_DEBUG_LOG;
 		if ( ! $debugEnabled ) {
@@ -1205,7 +1398,7 @@ define( \'WP_DEBUG_DISPLAY\', false );</pre>';
 			if ( empty( $filtered ) ) {
 				echo '<p style="color:#646970;font-style:italic;">' . esc_html__( 'No Idiomattic-related entries in the recent log.', 'idiomattic-wp' ) . '</p>';
 			} else {
-				echo '<textarea readonly style="width:100%;max-width:900px;height:220px;font-family:monospace;font-size:11px;background:#1e1e2e;color:#cdd6f4;padding:10px;border:1px solid #444;border-radius:4px;" spellcheck="false">';
+				echo '<textarea readonly class="iwp-log-area" spellcheck="false">';
 				echo esc_textarea( implode( "\n", array_values( $filtered ) ) );
 				echo '</textarea>';
 			}
@@ -1215,13 +1408,13 @@ define( \'WP_DEBUG_DISPLAY\', false );</pre>';
 		echo '</div>';
 
 		// ── Copy-to-clipboard system report ──────────────────────────────
-		echo '<div class="idiomatticwp-ts-section">';
-		echo '<h4>' . esc_html__( '📎 System Report', 'idiomattic-wp' ) . '</h4>';
+		echo '<div class="iwp-card iwp-tab-section">';
+		echo '<h3 class="iwp-tab-section__title">' . esc_html__( 'System Report', 'idiomattic-wp' ) . '</h3>';
 		echo '<p class="description">' . esc_html__( 'Copy this report and paste it when requesting support.', 'idiomattic-wp' ) . '</p>';
 
 		$report = $this->buildSystemReport( $info, $activePlugins );
-		echo '<textarea id="idiomatticwp-sys-report" readonly style="width:100%;max-width:900px;height:180px;font-family:monospace;font-size:11px;background:#f6f7f7;padding:10px;" spellcheck="false">' . esc_textarea( $report ) . '</textarea>';
-		echo '<p><button type="button" class="button button-secondary" onclick="(function(){var t=document.getElementById(\'idiomatticwp-sys-report\');t.select();document.execCommand(\'copy\');})();">' . esc_html__( '📋 Copy to clipboard', 'idiomattic-wp' ) . '</button></p>';
+		echo '<textarea id="idiomatticwp-sys-report" readonly class="iwp-log-area" style="background:#f6f7f7;color:#1d2327;height:180px;" spellcheck="false">' . esc_textarea( $report ) . '</textarea>';
+		echo '<p style="margin-top:12px;"><button type="button" class="iwp-btn iwp-btn--secondary" onclick="(function(){var t=document.getElementById(\'idiomatticwp-sys-report\');t.select();document.execCommand(\'copy\');})();">' . esc_html__( 'Copy to clipboard', 'idiomattic-wp' ) . '</button></p>';
 		echo '</div>';
 	}
 
@@ -1293,30 +1486,14 @@ define( \'WP_DEBUG_DISPLAY\', false );</pre>';
 	private function renderInlineStyles(): void {
 		?>
 		<style>
-		/* ── Language selector ── */
-		.idiomatticwp-language-selector {
-			display: grid;
-			grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-			gap: 8px;
-			margin: 16px 0;
-			max-height: 400px;
-			overflow-y: auto;
-			padding: 14px;
-			background: #fff;
-			border: 1px solid #ccd0d4;
-			border-radius: 3px;
+		/* ── Languages page: reset WP form margin so cards sit flush ── */
+		.iwp-languages-page {
+			margin-top: 4px;
 		}
-		.idiomatticwp-language-selector label {
-			display: flex;
-			align-items: center;
-			gap: 7px;
-			cursor: pointer;
-			padding: 3px 5px;
-			border-radius: 3px;
+		/* Suppress WP's default h2/h3 tab-nav bottom border on languages tab */
+		.iwp-section-title {
+			border-bottom: none !important;
 		}
-		.idiomatticwp-language-selector label:hover { background: #f6f7f7; }
-		.idiomatticwp-language-selector input { margin: 0; flex-shrink: 0; }
-		.idiomatticwp-language-selector em { color: #646970; font-size: 12px; }
 
 		/* ── Provider cards ── */
 		.idiomatticwp-provider-cards {

@@ -50,9 +50,7 @@ class UrlStrategyResolver {
 		$mode = get_option( 'idiomatticwp_url_mode', 'parameter' );
 
 		return match ( $mode ) {
-			'directory' => $this->licenseChecker->isPro()
-				? new DirectoryStrategy( $this->languageManager )
-				: new ParameterStrategy( $this->languageManager ),
+			'directory' => new DirectoryStrategy( $this->languageManager ),
 
 			'subdomain' => $this->licenseChecker->isPro()
 				? new SubdomainStrategy( $this->languageManager )

@@ -1,0 +1,1057 @@
+# Vietnamese translation for Idiomattic WP
+# Copyright (C) 2024 Idiomattic
+msgid ""
+msgstr ""
+"Project-Id-Version: Idiomattic WP\n"
+"POT-Creation-Date: 2024-01-01 00:00+0000\n"
+"PO-Revision-Date: 2024-01-01 00:00+0000\n"
+"Last-Translator: Idiomattic <hello@idiomattic.app>\n"
+"Language-Team: Vietnamese\n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Idiomattic WP\n"
+"X-Domain: idiomattic-wp\n"
+
+msgid "%1$d draft, %2$d in progress"
+msgstr "%1$d bản nháp, %2$d đang thực hiện"
+
+msgid "%d active plugins — click to expand"
+msgstr "%d plugin đang hoạt động — nhấp để mở rộng"
+
+msgid "%s: %s"
+msgstr "%s: %s"
+
+msgid "(empty)"
+msgstr "(trống)"
+
+msgid "(no title)"
+msgstr "(không có tiêu đề)"
+
+msgid "(optional)"
+msgstr "(tùy chọn)"
+
+msgid "(saved — enter a new key to replace)"
+msgstr "(đã lưu — nhập khóa mới để thay thế)"
+
+msgid "A translation already exists for this language. Delete it first."
+msgstr "Bản dịch đã tồn tại cho ngôn ngữ này. Hãy xóa nó trước."
+
+msgid "AI Translation Provider"
+msgstr "Nhà cung cấp dịch thuật AI"
+
+msgid "AI Translation — Pro Feature"
+msgstr "Dịch thuật AI — Tính năng Pro"
+
+msgid "AI error: "
+msgstr "Lỗi AI: "
+
+msgid "AI string translation requires a Pro license."
+msgstr "Dịch chuỗi bằng AI yêu cầu giấy phép Pro."
+
+msgid "AI translation requires Pro"
+msgstr "Dịch thuật AI yêu cầu Pro"
+
+msgid "AI translation requires a Pro license."
+msgstr "Dịch thuật AI yêu cầu giấy phép Pro."
+
+msgid "Action"
+msgstr "Hành động"
+
+msgid "Actions"
+msgstr "Hành động"
+
+msgid "Active Languages"
+msgstr "Ngôn ngữ đang hoạt động"
+
+msgid "Active Plugins"
+msgstr "Plugin đang hoạt động"
+
+msgid "Active Theme"
+msgstr "Giao diện đang hoạt động"
+
+msgid "Add"
+msgstr "Thêm"
+
+msgid "Add Custom Language"
+msgstr "Thêm ngôn ngữ tùy chỉnh"
+
+msgid "Add String"
+msgstr "Thêm chuỗi"
+
+msgid "Add Term"
+msgstr "Thêm thuật ngữ"
+
+msgid "Add string"
+msgstr "Thêm chuỗi"
+
+msgid "Advanced"
+msgstr "Nâng cao"
+
+msgid "All"
+msgstr "Tất cả"
+
+msgid "All content already has translations for the selected languages."
+msgstr "Tất cả nội dung đã có bản dịch cho các ngôn ngữ được chọn."
+
+msgid "All content is fully translated!"
+msgstr "Tất cả nội dung đã được dịch hoàn toàn!"
+
+msgid "All fields already have a translation."
+msgstr "Tất cả các trường đã có bản dịch."
+
+msgid "All languages"
+msgstr "Tất cả ngôn ngữ"
+
+msgid "All packages"
+msgstr "Tất cả gói"
+
+msgid "An unexpected error occurred during translation."
+msgstr "Đã xảy ra lỗi không mong đợi trong quá trình dịch."
+
+msgid "Apply"
+msgstr "Áp dụng"
+
+msgid "Are you sure you want to delete this translation?"
+msgstr "Bạn có chắc chắn muốn xóa bản dịch này không?"
+
+msgid "Author"
+msgstr "Tác giả"
+
+msgid "Auto-translate failed."
+msgstr "Dịch tự động thất bại."
+
+msgid "Auto-translate on creation"
+msgstr "Tự động dịch khi tạo"
+
+msgid "Auto-translate pending"
+msgstr "Dịch tự động đang chờ"
+
+msgid "Automated translations and AI provider configuration are available in the Pro version. Bring Your Own Key — connect directly to OpenAI, Claude, or DeepL."
+msgstr "Dịch tự động và cấu hình nhà cung cấp AI có sẵn trong phiên bản Pro. Mang khóa của bạn — kết nối trực tiếp với OpenAI, Claude hoặc DeepL."
+
+msgid "Automatically start AI translation when a new translation is created"
+msgstr "Tự động bắt đầu dịch thuật AI khi tạo bản dịch mới"
+
+msgid "Back"
+msgstr "Quay lại"
+
+msgid "Back to list"
+msgstr "Quay lại danh sách"
+
+msgid "Behaviour"
+msgstr "Hành vi"
+
+msgid "Bring Your Own Key (BYOK): connect directly to your chosen AI provider. Your API key is stored encrypted and never sent to Idiomattic servers."
+msgstr "Mang khóa của bạn (BYOK): kết nối trực tiếp với nhà cung cấp AI bạn chọn. Khóa API của bạn được lưu trữ mã hóa và không bao giờ được gửi đến máy chủ Idiomattic."
+
+msgid "Cache & Transients"
+msgstr "Bộ nhớ đệm & Dữ liệu tạm thời"
+
+msgid "Cache language detection results for improved performance."
+msgstr "Lưu vào bộ nhớ đệm kết quả phát hiện ngôn ngữ để cải thiện hiệu suất."
+
+msgid "Cancel"
+msgstr "Hủy"
+
+msgid "Child theme"
+msgstr "Giao diện con"
+
+msgid "Choose the primary language your website content will be served in by default."
+msgstr "Chọn ngôn ngữ chính mà nội dung trang web của bạn sẽ được hiển thị theo mặc định."
+
+msgid "Claude API Key"
+msgstr "Khóa API Claude"
+
+msgid "Clean URLs with the language code as a path prefix. Requires pretty permalinks."
+msgstr "URL sạch với mã ngôn ngữ làm tiền tố đường dẫn. Yêu cầu permalink đẹp."
+
+msgid "Clear cached data if you are seeing stale content or unexpected behaviour."
+msgstr "Xóa dữ liệu đã lưu trong bộ nhớ đệm nếu bạn thấy nội dung cũ hoặc hành vi không mong đợi."
+
+msgid "Clear language filter"
+msgstr "Xóa bộ lọc ngôn ngữ"
+
+msgid "Close"
+msgstr "Đóng"
+
+msgid "Code, native name, and English name are required."
+msgstr "Mã, tên bản ngữ và tên tiếng Anh là bắt buộc."
+
+msgid "Compatibility"
+msgstr "Tương thích"
+
+msgid "Compatibility scan completed successfully."
+msgstr "Quét tương thích đã hoàn thành thành công."
+
+msgid "Complete"
+msgstr "Hoàn thành"
+
+msgid "Configure how each post type behaves across languages."
+msgstr "Cấu hình cách mỗi loại bài đăng hoạt động trong các ngôn ngữ khác nhau."
+
+msgid "Configure how taxonomy terms behave across languages."
+msgstr "Cấu hình cách các thuật ngữ phân loại hoạt động trong các ngôn ngữ khác nhau."
+
+msgid "Configure permalinks →"
+msgstr "Cấu hình permalink →"
+
+msgid "Configure translation mode for registered custom fields. New fields can be added via the Compatibility tab or programmatically."
+msgstr "Cấu hình chế độ dịch cho các trường tùy chỉnh đã đăng ký. Các trường mới có thể được thêm qua tab Tương thích hoặc theo cách lập trình."
+
+msgid "Content"
+msgstr "Nội dung"
+
+msgid "Content Translation"
+msgstr "Dịch nội dung"
+
+msgid "Context"
+msgstr "Ngữ cảnh"
+
+msgid "Context (optional)"
+msgstr "Ngữ cảnh (tùy chọn)"
+
+msgid "Continue →"
+msgstr "Tiếp tục →"
+
+msgid "Control how the plugin handles its data."
+msgstr "Kiểm soát cách plugin xử lý dữ liệu của mình."
+
+msgid "Copied!"
+msgstr "Đã sao chép!"
+
+msgid "Copy from original:"
+msgstr "Sao chép từ bản gốc:"
+
+msgid "Copy source string"
+msgstr "Sao chép chuỗi nguồn"
+
+msgid "Copy source to all empty translations"
+msgstr "Sao chép nguồn vào tất cả bản dịch trống"
+
+msgid "Copy to all"
+msgstr "Sao chép vào tất cả"
+
+msgid "Copy to clipboard"
+msgstr "Sao chép vào clipboard"
+
+msgid "Could not create export archive."
+msgstr "Không thể tạo tệp lưu trữ xuất."
+
+msgid "Could not link post."
+msgstr "Không thể liên kết bài đăng."
+
+msgid "Coverage"
+msgstr "Phạm vi"
+
+msgid "Create a menu →"
+msgstr "Tạo menu →"
+
+msgid "Creating..."
+msgstr "Đang tạo..."
+
+msgid "Custom"
+msgstr "Tùy chỉnh"
+
+msgid "Custom Fields"
+msgstr "Trường tùy chỉnh"
+
+msgid "Daily digest — one email per day"
+msgstr "Tóm tắt hàng ngày — một email mỗi ngày"
+
+msgid "Dashboard"
+msgstr "Bảng điều khiển"
+
+msgid "Data Management"
+msgstr "Quản lý dữ liệu"
+
+msgid "Date"
+msgstr "Ngày"
+
+msgid "Debug Log"
+msgstr "Nhật ký gỡ lỗi"
+
+msgid "Default Language"
+msgstr "Ngôn ngữ mặc định"
+
+msgid "Default configured by %s"
+msgstr "Mặc định được cấu hình bởi %s"
+
+msgid "Define terms that must always be translated a specific way, or kept unchanged by the AI."
+msgstr "Xác định các thuật ngữ phải luôn được dịch theo một cách cụ thể hoặc giữ nguyên bởi AI."
+
+msgid "Define terms that must always be translated a specific way, or kept unchanged. Glossary rules are automatically applied during AI translation."
+msgstr "Xác định các thuật ngữ phải luôn được dịch theo một cách cụ thể hoặc giữ nguyên. Các quy tắc bảng thuật ngữ được áp dụng tự động trong quá trình dịch AI."
+
+msgid "Delete"
+msgstr "Xóa"
+
+msgid "Delete this custom language?"
+msgstr "Xóa ngôn ngữ tùy chỉnh này?"
+
+msgid "Delete this term?"
+msgstr "Xóa thuật ngữ này?"
+
+msgid "Directory"
+msgstr "Thư mục"
+
+msgid "Directory and Subdomain modes require pretty permalinks. %s"
+msgstr "Chế độ Thư mục và Tên miền phụ yêu cầu permalink đẹp. %s"
+
+msgid "Directory not found."
+msgstr "Không tìm thấy thư mục."
+
+msgid "Disabled"
+msgstr "Đã tắt"
+
+msgid "Display a language switcher."
+msgstr "Hiển thị bộ chuyển đổi ngôn ngữ."
+
+msgid "Done"
+msgstr "Xong"
+
+msgid "Download JSON"
+msgstr "Tải xuống JSON"
+
+msgid "Download JSON template"
+msgstr "Tải xuống mẫu JSON"
+
+msgid "Download ZIP"
+msgstr "Tải xuống ZIP"
+
+msgid "Download all translations for a language as a ZIP of XLIFF 2.0 files, ready to be processed by any CAT tool."
+msgstr "Tải xuống tất cả bản dịch cho một ngôn ngữ dưới dạng ZIP của các tệp XLIFF 2.0, sẵn sàng được xử lý bởi bất kỳ công cụ CAT nào."
+
+msgid "Download as JSON"
+msgstr "Tải xuống dưới dạng JSON"
+
+msgid "Draft"
+msgstr "Bản nháp"
+
+msgid "Draft / In Progress"
+msgstr "Bản nháp / Đang thực hiện"
+
+msgid "Draft/WIP"
+msgstr "Bản nháp/Đang làm"
+
+msgid "Duplicate all"
+msgstr "Nhân đôi tất cả"
+
+msgid "Duplicate untranslated"
+msgstr "Nhân đôi chưa dịch"
+
+msgid "Each language has its own version of this content"
+msgstr "Mỗi ngôn ngữ có phiên bản riêng của nội dung này"
+
+msgid "Each language on its own subdomain. Requires wildcard DNS and SSL."
+msgstr "Mỗi ngôn ngữ trên tên miền phụ của riêng nó. Yêu cầu DNS wildcard và SSL."
+
+msgid "Each language on its own subdomain. Requires wildcard DNS."
+msgstr "Mỗi ngôn ngữ trên tên miền phụ của riêng nó. Yêu cầu DNS wildcard."
+
+msgid "Edit"
+msgstr "Chỉnh sửa"
+
+msgid "Email Notifications"
+msgstr "Thông báo Email"
+
+msgid "Enable AI-powered string translation"
+msgstr "Bật dịch chuỗi bằng AI"
+
+msgid "Enable caching"
+msgstr "Bật bộ nhớ đệm"
+
+msgid "Enable webhooks"
+msgstr "Bật webhook"
+
+msgid "Error"
+msgstr "Lỗi"
+
+msgid "Export"
+msgstr "Xuất"
+
+msgid "Export Translations"
+msgstr "Xuất bản dịch"
+
+msgid "Field"
+msgstr "Trường"
+
+msgid "Glossary"
+msgstr "Bảng thuật ngữ"
+
+msgid "Import"
+msgstr "Nhập"
+
+msgid "Import Translations"
+msgstr "Nhập bản dịch"
+
+msgid "Immediate — one email per event"
+msgstr "Ngay lập tức — một email mỗi sự kiện"
+
+msgid "In Progress"
+msgstr "Đang thực hiện"
+
+msgid "Install"
+msgstr "Cài đặt"
+
+msgid "Invalid parameters."
+msgstr "Tham số không hợp lệ."
+
+msgid "Invalid translation ID."
+msgstr "ID bản dịch không hợp lệ."
+
+msgid "Language"
+msgstr "Ngôn ngữ"
+
+msgid "Language Coverage"
+msgstr "Phạm vi ngôn ngữ"
+
+msgid "Language Switcher"
+msgstr "Bộ chuyển đổi ngôn ngữ"
+
+msgid "Languages"
+msgstr "Ngôn ngữ"
+
+msgid "Link as translation"
+msgstr "Liên kết như bản dịch"
+
+msgid "Link existing post"
+msgstr "Liên kết bài đăng hiện có"
+
+msgid "Loading..."
+msgstr "Đang tải..."
+
+msgid "Max words per segment"
+msgstr "Số từ tối đa mỗi đoạn"
+
+msgid "Memory Hits"
+msgstr "Kết quả khớp bộ nhớ"
+
+msgid "Menu"
+msgstr "Menu"
+
+msgid "Menus"
+msgstr "Menu"
+
+msgid "Missing"
+msgstr "Thiếu"
+
+msgid "Missing %d"
+msgstr "Thiếu %d"
+
+msgid "N/A"
+msgstr "K/A"
+
+msgid "No compatibility file found. Custom fields from this plugin will not be automatically translated. Click \"Download JSON template\" to get a starter file you can fill in and place inside the plugin/theme directory, or ask the author to add support."
+msgstr "Không tìm thấy tệp tương thích. Các trường tùy chỉnh từ plugin này sẽ không được dịch tự động."
+
+msgid "No config file"
+msgstr "Không có tệp cấu hình"
+
+msgid "No items match the selected filter."
+msgstr "Không có mục nào khớp với bộ lọc đã chọn."
+
+msgid "No permissions."
+msgstr "Không có quyền."
+
+msgid "No strings found for auto-translation."
+msgstr "Không tìm thấy chuỗi nào để dịch tự động."
+
+msgid "No terms in glossary yet. Add your first term above."
+msgstr "Chưa có thuật ngữ nào trong bảng thuật ngữ. Thêm thuật ngữ đầu tiên của bạn ở trên."
+
+msgid "No translation found."
+msgstr "Không tìm thấy bản dịch."
+
+msgid "No translations yet. Start by creating a translation from the post list."
+msgstr "Chưa có bản dịch nào. Bắt đầu bằng cách tạo bản dịch từ danh sách bài đăng."
+
+msgid "Not configured"
+msgstr "Chưa cấu hình"
+
+msgid "Not registered"
+msgstr "Chưa đăng ký"
+
+msgid "Not translatable"
+msgstr "Không thể dịch"
+
+msgid "Notes"
+msgstr "Ghi chú"
+
+msgid "Notification Mode"
+msgstr "Chế độ thông báo"
+
+msgid "Notify on outdated translations"
+msgstr "Thông báo về bản dịch lỗi thời"
+
+msgid "Only .xliff or .xml files are accepted."
+msgstr "Chỉ chấp nhận tệp .xliff hoặc .xml."
+
+msgid "Open Translations Dashboard"
+msgstr "Mở bảng điều khiển bản dịch"
+
+msgid "Open any post or page and click \"Translate\" to use the translation editor."
+msgstr "Mở bất kỳ bài đăng hoặc trang nào và nhấp vào \"Dịch\" để sử dụng trình chỉnh sửa bản dịch."
+
+msgid "OpenAI API Key"
+msgstr "Khóa API OpenAI"
+
+msgid "Optional HMAC-SHA256 secret"
+msgstr "Bí mật HMAC-SHA256 tùy chọn"
+
+msgid "Original"
+msgstr "Bản gốc"
+
+msgid "Original post has been deleted."
+msgstr "Bài đăng gốc đã bị xóa."
+
+msgid "Original post not found."
+msgstr "Không tìm thấy bài đăng gốc."
+
+msgid "Outdated"
+msgstr "Lỗi thời"
+
+msgid "Overview of your multilingual content"
+msgstr "Tổng quan về nội dung đa ngôn ngữ của bạn"
+
+msgid "PHP Version"
+msgstr "Phiên bản PHP"
+
+msgid "Package / Domain"
+msgstr "Gói / Tên miền"
+
+msgid "Page %1$d of %2$d"
+msgstr "Trang %1$d trong %2$d"
+
+msgid "Permalink Structure"
+msgstr "Cấu trúc Permalink"
+
+msgid "Permission denied."
+msgstr "Quyền bị từ chối."
+
+msgid "Please configure at least two active languages in Settings → Languages before using Content Translation."
+msgstr "Vui lòng cấu hình ít nhất hai ngôn ngữ đang hoạt động trong Cài đặt → Ngôn ngữ trước khi sử dụng Dịch nội dung."
+
+msgid "Please configure at least two active languages in Settings → Languages before using Import / Export."
+msgstr "Vui lòng cấu hình ít nhất hai ngôn ngữ đang hoạt động trong Cài đặt → Ngôn ngữ trước khi sử dụng Nhập / Xuất."
+
+msgid "Please configure at least two active languages in Settings → Languages before using String Translation."
+msgstr "Vui lòng cấu hình ít nhất hai ngôn ngữ đang hoạt động trong Cài đặt → Ngôn ngữ trước khi sử dụng Dịch chuỗi."
+
+msgid "Plugin"
+msgstr "Plugin"
+
+msgid "Plugin & Theme Compatibility"
+msgstr "Tương thích Plugin & Giao diện"
+
+msgid "Plugin / Theme"
+msgstr "Plugin / Giao diện"
+
+msgid "Plugin Activation Error"
+msgstr "Lỗi kích hoạt Plugin"
+
+msgid "Plugin Version"
+msgstr "Phiên bản Plugin"
+
+msgid "Polylang is active. Running two multilingual plugins simultaneously can cause conflicts. Please deactivate Polylang before using Idiomattic WP."
+msgstr "Polylang đang hoạt động. Chạy hai plugin đa ngôn ngữ đồng thời có thể gây xung đột. Vui lòng tắt Polylang trước khi sử dụng Idiomattic WP."
+
+msgid "Post Title"
+msgstr "Tiêu đề bài đăng"
+
+msgid "Post Type"
+msgstr "Loại bài đăng"
+
+msgid "Post Type(s)"
+msgstr "Loại bài đăng"
+
+msgid "Post Types"
+msgstr "Loại bài đăng"
+
+msgid "Post not found."
+msgstr "Không tìm thấy bài đăng."
+
+msgid "Prev"
+msgstr "Trước"
+
+msgid "Preview flag"
+msgstr "Xem trước cờ"
+
+msgid "Primary Language"
+msgstr "Ngôn ngữ chính"
+
+msgid "Pro"
+msgstr "Pro"
+
+msgid "Progress"
+msgstr "Tiến trình"
+
+msgid "Publish"
+msgstr "Xuất bản"
+
+msgid "Publish Translation"
+msgstr "Xuất bản bản dịch"
+
+msgid "Queue AI translation"
+msgstr "Xếp hàng dịch thuật AI"
+
+msgid "Rate limit reached. Please wait a moment and try again."
+msgstr "Đã đạt giới hạn tốc độ. Vui lòng đợi một lúc và thử lại."
+
+msgid "Re-scan"
+msgstr "Quét lại"
+
+msgid "Re-use previously translated segments to reduce API costs"
+msgstr "Tái sử dụng các đoạn đã dịch trước đó để giảm chi phí API"
+
+msgid "Recent Activity"
+msgstr "Hoạt động gần đây"
+
+msgid "Recipient Email"
+msgstr "Email người nhận"
+
+msgid "Register string"
+msgstr "Đăng ký chuỗi"
+
+msgid "Register this string for this language"
+msgstr "Đăng ký chuỗi này cho ngôn ngữ này"
+
+msgid "Remove"
+msgstr "Xóa"
+
+msgid "Requires Pro licence"
+msgstr "Yêu cầu giấy phép Pro"
+
+msgid "Retain data on uninstall"
+msgstr "Giữ lại dữ liệu khi gỡ cài đặt"
+
+msgid "Rewrite Rules"
+msgstr "Quy tắc viết lại"
+
+msgid "Right-to-left language"
+msgstr "Ngôn ngữ phải sang trái"
+
+msgid "Save"
+msgstr "Lưu"
+
+msgid "Save Draft"
+msgstr "Lưu bản nháp"
+
+msgid "Save Translations"
+msgstr "Lưu bản dịch"
+
+msgid "Scan complete."
+msgstr "Quét hoàn thành."
+
+msgid "Scan sources"
+msgstr "Quét nguồn"
+
+msgid "Scan strings"
+msgstr "Quét chuỗi"
+
+msgid "Scanning..."
+msgstr "Đang quét..."
+
+msgid "Search"
+msgstr "Tìm kiếm"
+
+msgid "Search by title…"
+msgstr "Tìm kiếm theo tiêu đề…"
+
+msgid "Search in source and translations…"
+msgstr "Tìm kiếm trong nguồn và bản dịch…"
+
+msgid "Search languages…"
+msgstr "Tìm kiếm ngôn ngữ…"
+
+msgid "Search strings"
+msgstr "Tìm kiếm chuỗi"
+
+msgid "Security check failed."
+msgstr "Kiểm tra bảo mật thất bại."
+
+msgid "Select Language"
+msgstr "Chọn ngôn ngữ"
+
+msgid "Send HTTP POST notifications to an external URL when translation events occur. Payloads are signed with HMAC-SHA256."
+msgstr "Gửi thông báo HTTP POST đến URL bên ngoài khi xảy ra sự kiện dịch thuật. Dữ liệu được ký với HMAC-SHA256."
+
+msgid "Settings"
+msgstr "Cài đặt"
+
+msgid "Show Flags"
+msgstr "Hiển thị cờ"
+
+msgid "Show Names"
+msgstr "Hiển thị tên"
+
+msgid "Show all"
+msgstr "Hiển thị tất cả"
+
+msgid "Show as translated"
+msgstr "Hiển thị như đã dịch"
+
+msgid "Show terms for:"
+msgstr "Hiển thị thuật ngữ cho:"
+
+msgid "Showing original posts only"
+msgstr "Chỉ hiển thị bài đăng gốc"
+
+msgid "Showing translations into: %s"
+msgstr "Hiển thị bản dịch sang: %s"
+
+msgid "Shown in secondary languages even without a translation (uses default language content)"
+msgstr "Được hiển thị trong các ngôn ngữ phụ ngay cả khi không có bản dịch (sử dụng nội dung ngôn ngữ mặc định)"
+
+msgid "Signing Secret"
+msgstr "Bí mật ký"
+
+msgid "Site Default Language"
+msgstr "Ngôn ngữ mặc định của trang web"
+
+msgid "Slug"
+msgstr "Slug"
+
+msgid "Source Term"
+msgstr "Thuật ngữ nguồn"
+
+msgid "Source post not found."
+msgstr "Không tìm thấy bài đăng nguồn."
+
+msgid "Source string"
+msgstr "Chuỗi nguồn"
+
+msgid "Source string not found."
+msgstr "Không tìm thấy chuỗi nguồn."
+
+msgid "Standard ISO code for localization"
+msgstr "Mã ISO chuẩn cho bản địa hóa"
+
+msgid "Start Migration"
+msgstr "Bắt đầu di chuyển"
+
+msgid "Status"
+msgstr "Trạng thái"
+
+msgid "Step 1: Detection"
+msgstr "Bước 1: Phát hiện"
+
+msgid "String Translation"
+msgstr "Dịch chuỗi"
+
+msgid "Style"
+msgstr "Kiểu"
+
+msgid "Subdomain"
+msgstr "Tên miền phụ"
+
+msgid "System Information"
+msgstr "Thông tin hệ thống"
+
+msgid "System Report"
+msgstr "Báo cáo hệ thống"
+
+msgid "Target language is required."
+msgstr "Ngôn ngữ đích là bắt buộc."
+
+msgid "Taxonomies"
+msgstr "Phân loại"
+
+msgid "Taxonomy"
+msgstr "Phân loại"
+
+msgid "Theme"
+msgstr "Giao diện"
+
+msgid "This affects how visitors and search engines find your translated content."
+msgstr "Điều này ảnh hưởng đến cách khách truy cập và công cụ tìm kiếm tìm thấy nội dung đã dịch của bạn."
+
+msgid "This alert was sent by the %s plugin."
+msgstr "Cảnh báo này được gửi bởi plugin %s."
+
+msgid "This is a translation of: %s"
+msgstr "Đây là bản dịch của: %s"
+
+msgid "This is the original language of your posts and pages."
+msgstr "Đây là ngôn ngữ gốc của các bài đăng và trang của bạn."
+
+msgid "This plugin/theme ships with a native idiomattic-elements.json file. All its elements are automatically registered. No action needed."
+msgstr "Plugin/giao diện này đi kèm với tệp idiomattic-elements.json gốc. Tất cả các phần tử của nó được đăng ký tự động. Không cần hành động."
+
+msgid "This plugin/theme ships with a wpml-config.xml file. Idiomattic auto-imports its field definitions at runtime. Use \"Import WPML config\" to force-register them now, or \"Download as JSON\" to convert the file to a permanent idiomattic-elements.json."
+msgstr "Plugin/giao diện này đi kèm với tệp wpml-config.xml. Idiomattic tự động nhập định nghĩa trường trong thời gian chạy."
+
+msgid "This translation is outdated — the source post has been updated since it was last translated. Please review and re-translate."
+msgstr "Bản dịch này đã lỗi thời — bài đăng nguồn đã được cập nhật kể từ lần dịch cuối cùng. Vui lòng xem lại và dịch lại."
+
+msgid "This will overwrite all fields with the original content. Continue?"
+msgstr "Điều này sẽ ghi đè tất cả các trường bằng nội dung gốc. Tiếp tục?"
+
+msgid "Title"
+msgstr "Tiêu đề"
+
+msgid "To create or edit navigation menus visit %s."
+msgstr "Để tạo hoặc chỉnh sửa menu điều hướng hãy truy cập %s."
+
+msgid "Total Translations"
+msgstr "Tổng số bản dịch"
+
+msgid "Total scanned"
+msgstr "Tổng số đã quét"
+
+msgid "Translatable"
+msgstr "Có thể dịch"
+
+msgid "Translate all"
+msgstr "Dịch tất cả"
+
+msgid "Translate all languages"
+msgstr "Dịch tất cả ngôn ngữ"
+
+msgid "Translate all missing"
+msgstr "Dịch tất cả còn thiếu"
+
+msgid "Translate all missing (%d)"
+msgstr "Dịch tất cả còn thiếu (%d)"
+
+msgid "Translate content →"
+msgstr "Dịch nội dung →"
+
+msgid "Translate field"
+msgstr "Dịch trường"
+
+msgid "Translate interface strings from plugins and themes"
+msgstr "Dịch chuỗi giao diện từ các plugin và giao diện"
+
+msgid "Translate posts, pages, and custom content into all active languages"
+msgstr "Dịch bài đăng, trang và nội dung tùy chỉnh sang tất cả ngôn ngữ đang hoạt động"
+
+msgid "Translate to all languages"
+msgstr "Dịch sang tất cả ngôn ngữ"
+
+msgid "Translate: %s"
+msgstr "Dịch: %s"
+
+msgid "Translated %d strings successfully."
+msgstr "Đã dịch thành công %d chuỗi."
+
+msgid "Translating"
+msgstr "Đang dịch"
+
+msgid "Translating…"
+msgstr "Đang dịch…"
+
+msgid "Translation"
+msgstr "Bản dịch"
+
+msgid "Translation / Rule"
+msgstr "Bản dịch / Quy tắc"
+
+msgid "Translation Alert"
+msgstr "Cảnh báo bản dịch"
+
+msgid "Translation Alert — %s"
+msgstr "Cảnh báo bản dịch — %s"
+
+msgid "Translation Details"
+msgstr "Chi tiết bản dịch"
+
+msgid "Translation Editor"
+msgstr "Trình chỉnh sửa bản dịch"
+
+msgid "Translation Memory"
+msgstr "Bộ nhớ bản dịch"
+
+msgid "Translation Mode"
+msgstr "Chế độ dịch"
+
+msgid "Translation completed (AI finished)"
+msgstr "Dịch hoàn thành (AI đã xong)"
+
+msgid "Translation failed."
+msgstr "Dịch thất bại."
+
+msgid "Translation outdated (source post updated)"
+msgstr "Bản dịch lỗi thời (bài đăng nguồn đã được cập nhật)"
+
+msgid "Translation provider is temporarily unavailable. Please try again."
+msgstr "Nhà cung cấp dịch thuật tạm thời không khả dụng. Vui lòng thử lại."
+
+msgid "Translation queued (job dispatched)"
+msgstr "Bản dịch đã xếp hàng (công việc đã được gửi)"
+
+msgid "Translation record not found."
+msgstr "Không tìm thấy bản ghi dịch."
+
+msgid "Translation saved successfully."
+msgstr "Bản dịch đã được lưu thành công."
+
+msgid "Translations"
+msgstr "Bản dịch"
+
+msgid "Translations saved."
+msgstr "Bản dịch đã được lưu."
+
+msgid "Triggered when you update a post that has translations."
+msgstr "Được kích hoạt khi bạn cập nhật bài đăng có bản dịch."
+
+msgid "Troubleshooting"
+msgstr "Khắc phục sự cố"
+
+msgid "Type"
+msgstr "Loại"
+
+msgid "URL Mode"
+msgstr "Chế độ URL"
+
+msgid "URL Structure"
+msgstr "Cấu trúc URL"
+
+msgid "Unauthorized"
+msgstr "Không được phép"
+
+msgid "Update"
+msgstr "Cập nhật"
+
+msgid "Upgrade to Pro to unlock Directory and Subdomain modes →"
+msgstr "Nâng cấp lên Pro để mở khóa chế độ Thư mục và Tên miền phụ →"
+
+msgid "Upgrade to Pro →"
+msgstr "Nâng cấp lên Pro →"
+
+msgid "Upload an XLIFF file (2.0 or 1.2) exported from a CAT tool. Translations are written directly into the database."
+msgstr "Tải lên tệp XLIFF (2.0 hoặc 1.2) được xuất từ công cụ CAT. Bản dịch được ghi trực tiếp vào cơ sở dữ liệu."
+
+msgid "Version"
+msgstr "Phiên bản"
+
+msgid "View"
+msgstr "Xem"
+
+msgid "View Original"
+msgstr "Xem bản gốc"
+
+msgid "View compatibility report →"
+msgstr "Xem báo cáo tương thích →"
+
+msgid "View source post →"
+msgstr "Xem bài đăng nguồn →"
+
+msgid "View strings"
+msgstr "Xem chuỗi"
+
+msgid "WPML Migration"
+msgstr "Di chuyển WPML"
+
+msgid "WPML Migration Wizard"
+msgstr "Trình hướng dẫn di chuyển WPML"
+
+msgid "WPML config"
+msgstr "Cấu hình WPML"
+
+msgid "WPML config imported successfully."
+msgstr "Cấu hình WPML đã được nhập thành công."
+
+msgid "WPML config imported with warnings: "
+msgstr "Cấu hình WPML được nhập với cảnh báo: "
+
+msgid "WPML config imported: %1$d element(s) registered into the translation registry, %2$d skipped (action = ignore)."
+msgstr "Cấu hình WPML được nhập: %1$d phần tử đã đăng ký vào sổ đăng ký dịch, %2$d bị bỏ qua (hành động = bỏ qua)."
+
+msgid "WPML is active. Running two multilingual plugins simultaneously can cause conflicts. Please deactivate WPML before using Idiomattic WP, or use the WPML migration tool."
+msgstr "WPML đang hoạt động. Chạy hai plugin đa ngôn ngữ đồng thời có thể gây xung đột. Vui lòng tắt WPML trước khi sử dụng Idiomattic WP hoặc sử dụng công cụ di chuyển WPML."
+
+msgid "WPML is not active. Migration may not be possible."
+msgstr "WPML không hoạt động. Di chuyển có thể không thực hiện được."
+
+msgid "W3 Total Cache is active. Make sure page caching is configured to handle language-specific URLs correctly."
+msgstr "W3 Total Cache đang hoạt động. Đảm bảo bộ nhớ đệm trang được cấu hình để xử lý đúng các URL theo ngôn ngữ."
+
+msgid "WP Debug"
+msgstr "WP Debug"
+
+msgid "WP Debug Log"
+msgstr "Nhật ký WP Debug"
+
+msgid "WP_DEBUG and WP_DEBUG_LOG are not both enabled. Add the following to wp-config.php to activate debug logging:"
+msgstr "WP_DEBUG và WP_DEBUG_LOG không đều được bật. Thêm phần sau vào wp-config.php để kích hoạt ghi nhật ký gỡ lỗi:"
+
+msgid "Want AI-powered translations? Upgrade to Pro for BYOK (Bring Your Own Key) support."
+msgstr "Muốn dịch thuật được hỗ trợ bởi AI? Nâng cấp lên Pro để hỗ trợ BYOK (Mang Khóa Của Bạn)."
+
+msgid "Webhooks"
+msgstr "Webhook"
+
+msgid "What do these statuses mean?"
+msgstr "Những trạng thái này có nghĩa là gì?"
+
+msgid "What language is your content written in?"
+msgstr "Nội dung của bạn được viết bằng ngôn ngữ nào?"
+
+msgid "Which languages do you want to translate into?"
+msgstr "Bạn muốn dịch sang những ngôn ngữ nào?"
+
+msgid "WordPress Version"
+msgstr "Phiên bản WordPress"
+
+msgid "Works with any permalink structure. Easiest to set up."
+msgstr "Hoạt động với bất kỳ cấu trúc permalink nào. Dễ thiết lập nhất."
+
+msgid "Works with any permalink structure. Recommended for most sites."
+msgstr "Hoạt động với bất kỳ cấu trúc permalink nào. Được khuyến nghị cho hầu hết các trang web."
+
+msgid "XLIFF file (.xliff)"
+msgstr "Tệp XLIFF (.xliff)"
+
+msgid "You can add or remove languages at any time from Settings."
+msgstr "Bạn có thể thêm hoặc xóa ngôn ngữ bất kỳ lúc nào từ Cài đặt."
+
+msgid "You can disable these notifications in the plugin settings."
+msgstr "Bạn có thể tắt các thông báo này trong cài đặt plugin."
+
+msgid "You do not have permission to edit this post."
+msgstr "Bạn không có quyền chỉnh sửa bài đăng này."
+
+msgid "debug.log not found or not readable."
+msgstr "debug.log không tìm thấy hoặc không thể đọc."
+
+msgid "default"
+msgstr "mặc định"
+
+msgid "e.g. button, menu"
+msgstr "ví dụ: nút, menu"
+
+msgid "e.g. my-plugin"
+msgstr "ví dụ: plugin-cua-toi"
+
+msgid "— Not assigned —"
+msgstr "— Chưa được gán —"
+
+msgid "→ Scan sources"
+msgstr "→ Quét nguồn"
+
+msgid "Admin Language"
+msgstr "Ngôn ngữ quản trị"
+
+msgid "Admin Interface Language"
+msgstr "Ngôn ngữ giao diện quản trị"
+
+msgid "Use site default"
+msgstr "Sử dụng mặc định trang web"
+
+msgid "Select the language you prefer for the WordPress admin interface."
+msgstr "Chọn ngôn ngữ bạn thích cho giao diện quản trị WordPress."
+
+msgid "%d missing"
+msgid_plural "%d missing"
+msgstr[0] "Thiếu %d"
+
+msgid "%d translation job queued. Jobs are processed in the background."
+msgid_plural "%d translation job queued. Jobs are processed in the background."
+msgstr[0] "%d công việc dịch đang trong hàng đợi. Các công việc được xử lý ở nền."
+
+msgid "Retranslate %d outdated"
+msgid_plural "Retranslate %d outdated"
+msgstr[0] "Dịch lại %d lỗi thời"

@@ -1,0 +1,1061 @@
+# Copyright (C) 2024 Idiomattic
+# This file is distributed under the same license as the Idiomattic WP plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Idiomattic WP\n"
+"Report-Msgid-Bugs-To: https://idiomattic.app\n"
+"POT-Creation-Date: 2024-01-01 00:00+0000\n"
+"PO-Revision-Date: 2024-01-01 00:00+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Idiomattic WP\n"
+"X-Domain: idiomattic-wp\n"
+
+msgid "%1$d draft, %2$d in progress"
+msgstr ""
+
+msgid "%d active plugins — click to expand"
+msgstr ""
+
+msgid "%s: %s"
+msgstr ""
+
+msgid "(empty)"
+msgstr ""
+
+msgid "(no title)"
+msgstr ""
+
+msgid "(optional)"
+msgstr ""
+
+msgid "(saved — enter a new key to replace)"
+msgstr ""
+
+msgid "A translation already exists for this language. Delete it first."
+msgstr ""
+
+msgid "AI Translation Provider"
+msgstr ""
+
+msgid "AI Translation — Pro Feature"
+msgstr ""
+
+msgid "AI error: "
+msgstr ""
+
+msgid "AI string translation requires a Pro license."
+msgstr ""
+
+msgid "AI translation requires Pro"
+msgstr ""
+
+msgid "AI translation requires a Pro license."
+msgstr ""
+
+msgid "Action"
+msgstr ""
+
+msgid "Actions"
+msgstr ""
+
+msgid "Active Languages"
+msgstr ""
+
+msgid "Active Plugins"
+msgstr ""
+
+msgid "Active Theme"
+msgstr ""
+
+msgid "Add"
+msgstr ""
+
+msgid "Add Custom Language"
+msgstr ""
+
+msgid "Add String"
+msgstr ""
+
+msgid "Add Term"
+msgstr ""
+
+msgid "Add string"
+msgstr ""
+
+msgid "Advanced"
+msgstr ""
+
+msgid "All"
+msgstr ""
+
+msgid "All content already has translations for the selected languages."
+msgstr ""
+
+msgid "All content is fully translated!"
+msgstr ""
+
+msgid "All fields already have a translation."
+msgstr ""
+
+msgid "All languages"
+msgstr ""
+
+msgid "All packages"
+msgstr ""
+
+msgid "An unexpected error occurred during translation."
+msgstr ""
+
+msgid "Apply"
+msgstr ""
+
+msgid "Are you sure you want to delete this translation?"
+msgstr ""
+
+msgid "Author"
+msgstr ""
+
+msgid "Auto-translate failed."
+msgstr ""
+
+msgid "Auto-translate on creation"
+msgstr ""
+
+msgid "Auto-translate pending"
+msgstr ""
+
+msgid "Automated translations and AI provider configuration are available in the Pro version. Bring Your Own Key — connect directly to OpenAI, Claude, or DeepL."
+msgstr ""
+
+msgid "Automatically start AI translation when a new translation is created"
+msgstr ""
+
+msgid "Back"
+msgstr ""
+
+msgid "Back to list"
+msgstr ""
+
+msgid "Behaviour"
+msgstr ""
+
+msgid "Bring Your Own Key (BYOK): connect directly to your chosen AI provider. Your API key is stored encrypted and never sent to Idiomattic servers."
+msgstr ""
+
+msgid "Cache & Transients"
+msgstr ""
+
+msgid "Cache language detection results for improved performance."
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "Child theme"
+msgstr ""
+
+msgid "Choose the primary language your website content will be served in by default."
+msgstr ""
+
+msgid "Claude API Key"
+msgstr ""
+
+msgid "Clean URLs with the language code as a path prefix. Requires pretty permalinks."
+msgstr ""
+
+msgid "Clear cached data if you are seeing stale content or unexpected behaviour."
+msgstr ""
+
+msgid "Clear language filter"
+msgstr ""
+
+msgid "Close"
+msgstr ""
+
+msgid "Code, native name, and English name are required."
+msgstr ""
+
+msgid "Compatibility"
+msgstr ""
+
+msgid "Compatibility scan completed successfully."
+msgstr ""
+
+msgid "Complete"
+msgstr ""
+
+msgid "Configure how each post type behaves across languages."
+msgstr ""
+
+msgid "Configure how taxonomy terms behave across languages."
+msgstr ""
+
+msgid "Configure permalinks →"
+msgstr ""
+
+msgid "Configure translation mode for registered custom fields. New fields can be added via the Compatibility tab or programmatically."
+msgstr ""
+
+msgid "Content"
+msgstr ""
+
+msgid "Content Translation"
+msgstr ""
+
+msgid "Context"
+msgstr ""
+
+msgid "Context (optional)"
+msgstr ""
+
+msgid "Continue →"
+msgstr ""
+
+msgid "Control how the plugin handles its data."
+msgstr ""
+
+msgid "Copied!"
+msgstr ""
+
+msgid "Copy from original:"
+msgstr ""
+
+msgid "Copy source string"
+msgstr ""
+
+msgid "Copy source to all empty translations"
+msgstr ""
+
+msgid "Copy to all"
+msgstr ""
+
+msgid "Copy to clipboard"
+msgstr ""
+
+msgid "Could not create export archive."
+msgstr ""
+
+msgid "Could not link post."
+msgstr ""
+
+msgid "Coverage"
+msgstr ""
+
+msgid "Create a menu →"
+msgstr ""
+
+msgid "Creating..."
+msgstr ""
+
+msgid "Custom"
+msgstr ""
+
+msgid "Custom Fields"
+msgstr ""
+
+msgid "Daily digest — one email per day"
+msgstr ""
+
+msgid "Dashboard"
+msgstr ""
+
+msgid "Data Management"
+msgstr ""
+
+msgid "Date"
+msgstr ""
+
+msgid "Debug Log"
+msgstr ""
+
+msgid "Default Language"
+msgstr ""
+
+msgid "Default configured by %s"
+msgstr ""
+
+msgid "Define terms that must always be translated a specific way, or kept unchanged by the AI."
+msgstr ""
+
+msgid "Define terms that must always be translated a specific way, or kept unchanged. Glossary rules are automatically applied during AI translation."
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "Delete this custom language?"
+msgstr ""
+
+msgid "Delete this term?"
+msgstr ""
+
+msgid "Directory"
+msgstr ""
+
+msgid "Directory and Subdomain modes require pretty permalinks. %s"
+msgstr ""
+
+msgid "Directory not found."
+msgstr ""
+
+msgid "Disabled"
+msgstr ""
+
+msgid "Display a language switcher."
+msgstr ""
+
+msgid "Done"
+msgstr ""
+
+msgid "Download JSON"
+msgstr ""
+
+msgid "Download JSON template"
+msgstr ""
+
+msgid "Download ZIP"
+msgstr ""
+
+msgid "Download all translations for a language as a ZIP of XLIFF 2.0 files, ready to be processed by any CAT tool."
+msgstr ""
+
+msgid "Download as JSON"
+msgstr ""
+
+msgid "Draft"
+msgstr ""
+
+msgid "Draft / In Progress"
+msgstr ""
+
+msgid "Draft/WIP"
+msgstr ""
+
+msgid "Duplicate all"
+msgstr ""
+
+msgid "Duplicate untranslated"
+msgstr ""
+
+msgid "Each language has its own version of this content"
+msgstr ""
+
+msgid "Each language on its own subdomain. Requires wildcard DNS and SSL."
+msgstr ""
+
+msgid "Each language on its own subdomain. Requires wildcard DNS."
+msgstr ""
+
+msgid "Edit"
+msgstr ""
+
+msgid "Email Notifications"
+msgstr ""
+
+msgid "Enable AI-powered string translation"
+msgstr ""
+
+msgid "Enable caching"
+msgstr ""
+
+msgid "Enable webhooks"
+msgstr ""
+
+msgid "Error"
+msgstr ""
+
+msgid "Export"
+msgstr ""
+
+msgid "Export Translations"
+msgstr ""
+
+msgid "Field"
+msgstr ""
+
+msgid "Glossary"
+msgstr ""
+
+msgid "Import"
+msgstr ""
+
+msgid "Import Translations"
+msgstr ""
+
+msgid "Immediate — one email per event"
+msgstr ""
+
+msgid "In Progress"
+msgstr ""
+
+msgid "Install"
+msgstr ""
+
+msgid "Invalid parameters."
+msgstr ""
+
+msgid "Invalid translation ID."
+msgstr ""
+
+msgid "Language"
+msgstr ""
+
+msgid "Language Coverage"
+msgstr ""
+
+msgid "Language Switcher"
+msgstr ""
+
+msgid "Languages"
+msgstr ""
+
+msgid "Link as translation"
+msgstr ""
+
+msgid "Link existing post"
+msgstr ""
+
+msgid "Loading..."
+msgstr ""
+
+msgid "Max words per segment"
+msgstr ""
+
+msgid "Memory Hits"
+msgstr ""
+
+msgid "Menu"
+msgstr ""
+
+msgid "Menus"
+msgstr ""
+
+msgid "Missing"
+msgstr ""
+
+msgid "Missing %d"
+msgstr ""
+
+msgid "N/A"
+msgstr ""
+
+msgid "No compatibility file found. Custom fields from this plugin will not be automatically translated. Click \"Download JSON template\" to get a starter file you can fill in and place inside the plugin/theme directory, or ask the author to add support."
+msgstr ""
+
+msgid "No config file"
+msgstr ""
+
+msgid "No items match the selected filter."
+msgstr ""
+
+msgid "No permissions."
+msgstr ""
+
+msgid "No strings found for auto-translation."
+msgstr ""
+
+msgid "No terms in glossary yet. Add your first term above."
+msgstr ""
+
+msgid "No translation found."
+msgstr ""
+
+msgid "No translations yet. Start by creating a translation from the post list."
+msgstr ""
+
+msgid "Not configured"
+msgstr ""
+
+msgid "Not registered"
+msgstr ""
+
+msgid "Not translatable"
+msgstr ""
+
+msgid "Notes"
+msgstr ""
+
+msgid "Notification Mode"
+msgstr ""
+
+msgid "Notify on outdated translations"
+msgstr ""
+
+msgid "Only .xliff or .xml files are accepted."
+msgstr ""
+
+msgid "Open Translations Dashboard"
+msgstr ""
+
+msgid "Open any post or page and click \"Translate\" to use the translation editor."
+msgstr ""
+
+msgid "OpenAI API Key"
+msgstr ""
+
+msgid "Optional HMAC-SHA256 secret"
+msgstr ""
+
+msgid "Original"
+msgstr ""
+
+msgid "Original post has been deleted."
+msgstr ""
+
+msgid "Original post not found."
+msgstr ""
+
+msgid "Outdated"
+msgstr ""
+
+msgid "Overview of your multilingual content"
+msgstr ""
+
+msgid "PHP Version"
+msgstr ""
+
+msgid "Package / Domain"
+msgstr ""
+
+msgid "Page %1$d of %2$d"
+msgstr ""
+
+msgid "Permalink Structure"
+msgstr ""
+
+msgid "Permission denied."
+msgstr ""
+
+msgid "Please configure at least two active languages in Settings → Languages before using Content Translation."
+msgstr ""
+
+msgid "Please configure at least two active languages in Settings → Languages before using Import / Export."
+msgstr ""
+
+msgid "Please configure at least two active languages in Settings → Languages before using String Translation."
+msgstr ""
+
+msgid "Plugin"
+msgstr ""
+
+msgid "Plugin & Theme Compatibility"
+msgstr ""
+
+msgid "Plugin / Theme"
+msgstr ""
+
+msgid "Plugin Activation Error"
+msgstr ""
+
+msgid "Plugin Version"
+msgstr ""
+
+msgid "Polylang is active. Running two multilingual plugins simultaneously can cause conflicts. Please deactivate Polylang before using Idiomattic WP."
+msgstr ""
+
+msgid "Post Title"
+msgstr ""
+
+msgid "Post Type"
+msgstr ""
+
+msgid "Post Type(s)"
+msgstr ""
+
+msgid "Post Types"
+msgstr ""
+
+msgid "Post not found."
+msgstr ""
+
+msgid "Prev"
+msgstr ""
+
+msgid "Preview flag"
+msgstr ""
+
+msgid "Primary Language"
+msgstr ""
+
+msgid "Pro"
+msgstr ""
+
+msgid "Progress"
+msgstr ""
+
+msgid "Publish"
+msgstr ""
+
+msgid "Publish Translation"
+msgstr ""
+
+msgid "Queue AI translation"
+msgstr ""
+
+msgid "Rate limit reached. Please wait a moment and try again."
+msgstr ""
+
+msgid "Re-scan"
+msgstr ""
+
+msgid "Re-use previously translated segments to reduce API costs"
+msgstr ""
+
+msgid "Recent Activity"
+msgstr ""
+
+msgid "Recipient Email"
+msgstr ""
+
+msgid "Register string"
+msgstr ""
+
+msgid "Register this string for this language"
+msgstr ""
+
+msgid "Remove"
+msgstr ""
+
+msgid "Requires Pro licence"
+msgstr ""
+
+msgid "Retain data on uninstall"
+msgstr ""
+
+msgid "Rewrite Rules"
+msgstr ""
+
+msgid "Right-to-left language"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Save Draft"
+msgstr ""
+
+msgid "Save Translations"
+msgstr ""
+
+msgid "Scan complete."
+msgstr ""
+
+msgid "Scan sources"
+msgstr ""
+
+msgid "Scan strings"
+msgstr ""
+
+msgid "Scanning..."
+msgstr ""
+
+msgid "Search"
+msgstr ""
+
+msgid "Search by title…"
+msgstr ""
+
+msgid "Search in source and translations…"
+msgstr ""
+
+msgid "Search languages…"
+msgstr ""
+
+msgid "Search strings"
+msgstr ""
+
+msgid "Security check failed."
+msgstr ""
+
+msgid "Select Language"
+msgstr ""
+
+msgid "Send HTTP POST notifications to an external URL when translation events occur. Payloads are signed with HMAC-SHA256."
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "Show Flags"
+msgstr ""
+
+msgid "Show Names"
+msgstr ""
+
+msgid "Show all"
+msgstr ""
+
+msgid "Show as translated"
+msgstr ""
+
+msgid "Show terms for:"
+msgstr ""
+
+msgid "Showing original posts only"
+msgstr ""
+
+msgid "Showing translations into: %s"
+msgstr ""
+
+msgid "Shown in secondary languages even without a translation (uses default language content)"
+msgstr ""
+
+msgid "Signing Secret"
+msgstr ""
+
+msgid "Site Default Language"
+msgstr ""
+
+msgid "Slug"
+msgstr ""
+
+msgid "Source Term"
+msgstr ""
+
+msgid "Source post not found."
+msgstr ""
+
+msgid "Source string"
+msgstr ""
+
+msgid "Source string not found."
+msgstr ""
+
+msgid "Standard ISO code for localization"
+msgstr ""
+
+msgid "Start Migration"
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "Step 1: Detection"
+msgstr ""
+
+msgid "String Translation"
+msgstr ""
+
+msgid "Style"
+msgstr ""
+
+msgid "Subdomain"
+msgstr ""
+
+msgid "System Information"
+msgstr ""
+
+msgid "System Report"
+msgstr ""
+
+msgid "Target language is required."
+msgstr ""
+
+msgid "Taxonomies"
+msgstr ""
+
+msgid "Taxonomy"
+msgstr ""
+
+msgid "Theme"
+msgstr ""
+
+msgid "This affects how visitors and search engines find your translated content."
+msgstr ""
+
+msgid "This alert was sent by the %s plugin."
+msgstr ""
+
+msgid "This is a translation of: %s"
+msgstr ""
+
+msgid "This is the original language of your posts and pages."
+msgstr ""
+
+msgid "This plugin/theme ships with a native idiomattic-elements.json file. All its elements are automatically registered. No action needed."
+msgstr ""
+
+msgid "This plugin/theme ships with a wpml-config.xml file. Idiomattic auto-imports its field definitions at runtime. Use \"Import WPML config\" to force-register them now, or \"Download as JSON\" to convert the file to a permanent idiomattic-elements.json."
+msgstr ""
+
+msgid "This translation is outdated — the source post has been updated since it was last translated. Please review and re-translate."
+msgstr ""
+
+msgid "This will overwrite all fields with the original content. Continue?"
+msgstr ""
+
+msgid "Title"
+msgstr ""
+
+msgid "To create or edit navigation menus visit %s."
+msgstr ""
+
+msgid "Total Translations"
+msgstr ""
+
+msgid "Total scanned"
+msgstr ""
+
+msgid "Translatable"
+msgstr ""
+
+msgid "Translate all"
+msgstr ""
+
+msgid "Translate all languages"
+msgstr ""
+
+msgid "Translate all missing"
+msgstr ""
+
+msgid "Translate all missing (%d)"
+msgstr ""
+
+msgid "Translate content →"
+msgstr ""
+
+msgid "Translate field"
+msgstr ""
+
+msgid "Translate interface strings from plugins and themes"
+msgstr ""
+
+msgid "Translate posts, pages, and custom content into all active languages"
+msgstr ""
+
+msgid "Translate to all languages"
+msgstr ""
+
+msgid "Translate: %s"
+msgstr ""
+
+msgid "Translated %d strings successfully."
+msgstr ""
+
+msgid "Translating"
+msgstr ""
+
+msgid "Translating…"
+msgstr ""
+
+msgid "Translation"
+msgstr ""
+
+msgid "Translation / Rule"
+msgstr ""
+
+msgid "Translation Alert"
+msgstr ""
+
+msgid "Translation Alert — %s"
+msgstr ""
+
+msgid "Translation Details"
+msgstr ""
+
+msgid "Translation Editor"
+msgstr ""
+
+msgid "Translation Memory"
+msgstr ""
+
+msgid "Translation Mode"
+msgstr ""
+
+msgid "Translation completed (AI finished)"
+msgstr ""
+
+msgid "Translation failed."
+msgstr ""
+
+msgid "Translation outdated (source post updated)"
+msgstr ""
+
+msgid "Translation provider is temporarily unavailable. Please try again."
+msgstr ""
+
+msgid "Translation queued (job dispatched)"
+msgstr ""
+
+msgid "Translation record not found."
+msgstr ""
+
+msgid "Translation saved successfully."
+msgstr ""
+
+msgid "Translations"
+msgstr ""
+
+msgid "Translations saved."
+msgstr ""
+
+msgid "Triggered when you update a post that has translations."
+msgstr ""
+
+msgid "Troubleshooting"
+msgstr ""
+
+msgid "Type"
+msgstr ""
+
+msgid "URL Mode"
+msgstr ""
+
+msgid "URL Structure"
+msgstr ""
+
+msgid "Unauthorized"
+msgstr ""
+
+msgid "Update"
+msgstr ""
+
+msgid "Upgrade to Pro to unlock Directory and Subdomain modes →"
+msgstr ""
+
+msgid "Upgrade to Pro →"
+msgstr ""
+
+msgid "Upload an XLIFF file (2.0 or 1.2) exported from a CAT tool. Translations are written directly into the database."
+msgstr ""
+
+msgid "Version"
+msgstr ""
+
+msgid "View"
+msgstr ""
+
+msgid "View Original"
+msgstr ""
+
+msgid "View compatibility report →"
+msgstr ""
+
+msgid "View source post →"
+msgstr ""
+
+msgid "View strings"
+msgstr ""
+
+msgid "WPML Migration"
+msgstr ""
+
+msgid "WPML Migration Wizard"
+msgstr ""
+
+msgid "WPML config"
+msgstr ""
+
+msgid "WPML config imported successfully."
+msgstr ""
+
+msgid "WPML config imported with warnings: "
+msgstr ""
+
+msgid "WPML config imported: %1$d element(s) registered into the translation registry, %2$d skipped (action = ignore)."
+msgstr ""
+
+msgid "WPML is active. Running two multilingual plugins simultaneously can cause conflicts. Please deactivate WPML before using Idiomattic WP, or use the WPML migration tool."
+msgstr ""
+
+msgid "WPML is not active. Migration may not be possible."
+msgstr ""
+
+msgid "W3 Total Cache is active. Make sure page caching is configured to handle language-specific URLs correctly."
+msgstr ""
+
+msgid "WP Debug"
+msgstr ""
+
+msgid "WP Debug Log"
+msgstr ""
+
+msgid "WP_DEBUG and WP_DEBUG_LOG are not both enabled. Add the following to wp-config.php to activate debug logging:"
+msgstr ""
+
+msgid "Want AI-powered translations? Upgrade to Pro for BYOK (Bring Your Own Key) support."
+msgstr ""
+
+msgid "Webhooks"
+msgstr ""
+
+msgid "What do these statuses mean?"
+msgstr ""
+
+msgid "What language is your content written in?"
+msgstr ""
+
+msgid "Which languages do you want to translate into?"
+msgstr ""
+
+msgid "WordPress Version"
+msgstr ""
+
+msgid "Works with any permalink structure. Easiest to set up."
+msgstr ""
+
+msgid "Works with any permalink structure. Recommended for most sites."
+msgstr ""
+
+msgid "XLIFF file (.xliff)"
+msgstr ""
+
+msgid "You can add or remove languages at any time from Settings."
+msgstr ""
+
+msgid "You can disable these notifications in the plugin settings."
+msgstr ""
+
+msgid "You do not have permission to edit this post."
+msgstr ""
+
+msgid "debug.log not found or not readable."
+msgstr ""
+
+msgid "default"
+msgstr ""
+
+msgid "e.g. button, menu"
+msgstr ""
+
+msgid "e.g. my-plugin"
+msgstr ""
+
+msgid "— Not assigned —"
+msgstr ""
+
+msgid "→ Scan sources"
+msgstr ""
+
+msgid "Admin Language"
+msgstr ""
+
+msgid "Admin Interface Language"
+msgstr ""
+
+msgid "Use site default"
+msgstr ""
+
+msgid "Select the language you prefer for the WordPress admin interface."
+msgstr ""
+
+msgid "%d missing"
+msgid_plural "%d missing"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "%d translation job queued. Jobs are processed in the background."
+msgid_plural "%d translation jobs queued. Jobs are processed in the background."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Retranslate %d outdated"
+msgid_plural "Retranslate %d outdated"
+msgstr[0] ""
+msgstr[1] ""

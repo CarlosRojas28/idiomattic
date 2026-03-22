@@ -35,11 +35,20 @@ class AssetHooks implements HookRegistrarInterface
      */
     public function enqueueAssets(string $hookSuffix): void
     {
-        // Only load on post list and editor pages
-        $allowedHooks = ['edit.php', 'post.php', 'post-new.php'];
-        if (!in_array($hookSuffix, $allowedHooks, true)) {
+        // Load on post list/editor pages and all plugin admin pages
+        $isPostPage   = in_array($hookSuffix, ['edit.php', 'post.php', 'post-new.php'], true);
+        $isPluginPage = str_contains($hookSuffix, 'idiomatticwp');
+
+        if (!$isPostPage && !$isPluginPage) {
             return;
         }
+
+        wp_enqueue_style(
+            'idiomatticwp-admin',
+            IDIOMATTICWP_ASSETS_URL . 'css/admin' . IDIOMATTICWP_MIN . '.css',
+            [],
+            IDIOMATTICWP_VERSION
+        );
 
         wp_enqueue_script(
             'idiomatticwp-admin',
@@ -53,18 +62,15 @@ class AssetHooks implements HookRegistrarInterface
             'ajaxUrl'    => admin_url( 'admin-ajax.php' ),
             'nonce'      => wp_create_nonce( 'idiomatticwp_nonce' ),
             'upgradeUrl' => idiomatticwp_upgrade_url(),
+            'stringsUrl' => admin_url( 'admin.php?page=idiomatticwp-strings' ),
             'i18n'       => [
                 'creating'       => __( 'Creating...', 'idiomattic-wp' ),
                 'error'          => __( 'Error creating translation. Please try again.', 'idiomattic-wp' ),
                 'confirm_delete' => __( 'Are you sure you want to delete this translation?', 'idiomattic-wp' ),
+                'scanning'       => __( 'Scanning...', 'idiomattic-wp' ),
+                'scan_done'      => __( 'Scan complete.', 'idiomattic-wp' ),
+                'view_strings'   => __( 'View strings', 'idiomattic-wp' ),
             ],
         ] );
-
-        wp_enqueue_style(
-            'idiomatticwp-admin',
-            IDIOMATTICWP_ASSETS_URL . 'css/admin' . IDIOMATTICWP_MIN . '.css',
-            [],
-            IDIOMATTICWP_VERSION
-        );
     }
 }

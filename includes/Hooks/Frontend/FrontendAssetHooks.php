@@ -66,8 +66,17 @@ class FrontendAssetHooks implements HookRegistrarInterface {
 		}
 
 		echo '<style id="idiomatticwp-rtl">'
+			/* Base direction */
 			. '.idiomatticwp-switcher { direction: rtl; }'
+			/* List variant: mirror gap/padding */
 			. '.idiomatticwp-switcher--list { padding-right: 0; }'
+			/* Flags-only: already row layout, direction handles it */
+			. '.idiomatticwp-switcher--flags { direction: rtl; }'
+			/* Floating widget: anchor to bottom-left in RTL contexts */
+			. '.idiomatticwp-switcher--floating { left: 24px; right: auto; }'
+			. '.idiomatticwp-float-panel { right: auto; left: 0; transform-origin: bottom left; }'
+			/* Admin language bar (if shown on frontend) */
+			. '#wpadminbar .idiomatticwp-lang-bar { direction: rtl; }'
 			. '</style>' . PHP_EOL;
 	}
 

@@ -1,0 +1,1060 @@
+# Hungarian translation for Idiomattic WP
+# Copyright (C) 2024 Idiomattic
+msgid ""
+msgstr ""
+"Project-Id-Version: Idiomattic WP\n"
+"POT-Creation-Date: 2024-01-01 00:00+0000\n"
+"PO-Revision-Date: 2024-01-01 00:00+0000\n"
+"Last-Translator: Idiomattic <hello@idiomattic.app>\n"
+"Language-Team: Hungarian\n"
+"Language: hu_HU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Idiomattic WP\n"
+"X-Domain: idiomattic-wp\n"
+
+msgid "%1$d draft, %2$d in progress"
+msgstr "%1$d vázlat, %2$d folyamatban"
+
+msgid "%d active plugins — click to expand"
+msgstr "%d aktív bővítmény — kattintson a kibontáshoz"
+
+msgid "%s: %s"
+msgstr "%s: %s"
+
+msgid "(empty)"
+msgstr "(üres)"
+
+msgid "(no title)"
+msgstr "(nincs cím)"
+
+msgid "(optional)"
+msgstr "(választható)"
+
+msgid "(saved — enter a new key to replace)"
+msgstr "(mentve — új kulcs megadásával felváltható)"
+
+msgid "A translation already exists for this language. Delete it first."
+msgstr "Ehhez a nyelvhez már létezik fordítás. Először törölje azt."
+
+msgid "AI Translation Provider"
+msgstr "AI fordítási szolgáltató"
+
+msgid "AI Translation — Pro Feature"
+msgstr "AI fordítás — Pro funkció"
+
+msgid "AI error: "
+msgstr "AI hiba: "
+
+msgid "AI string translation requires a Pro license."
+msgstr "Az AI szöveg fordítása Pro licencet igényel."
+
+msgid "AI translation requires Pro"
+msgstr "Az AI fordítás Pro verziót igényel"
+
+msgid "AI translation requires a Pro license."
+msgstr "Az AI fordítás Pro licencet igényel."
+
+msgid "Action"
+msgstr "Művelet"
+
+msgid "Actions"
+msgstr "Műveletek"
+
+msgid "Active Languages"
+msgstr "Aktív nyelvek"
+
+msgid "Active Plugins"
+msgstr "Aktív bővítmények"
+
+msgid "Active Theme"
+msgstr "Aktív sablon"
+
+msgid "Add"
+msgstr "Hozzáadás"
+
+msgid "Add Custom Language"
+msgstr "Egyéni nyelv hozzáadása"
+
+msgid "Add String"
+msgstr "Szöveg hozzáadása"
+
+msgid "Add Term"
+msgstr "Kifejezés hozzáadása"
+
+msgid "Add string"
+msgstr "Szöveg hozzáadása"
+
+msgid "Advanced"
+msgstr "Speciális"
+
+msgid "All"
+msgstr "Összes"
+
+msgid "All content already has translations for the selected languages."
+msgstr "Minden tartalom már rendelkezik fordításokkal a kiválasztott nyelveken."
+
+msgid "All content is fully translated!"
+msgstr "Minden tartalom teljesen le van fordítva!"
+
+msgid "All fields already have a translation."
+msgstr "Minden mezőnek már van fordítása."
+
+msgid "All languages"
+msgstr "Összes nyelv"
+
+msgid "All packages"
+msgstr "Összes csomag"
+
+msgid "An unexpected error occurred during translation."
+msgstr "Váratlan hiba lépett fel a fordítás során."
+
+msgid "Apply"
+msgstr "Alkalmazás"
+
+msgid "Are you sure you want to delete this translation?"
+msgstr "Biztosan törölni szeretné ezt a fordítást?"
+
+msgid "Author"
+msgstr "Szerző"
+
+msgid "Auto-translate failed."
+msgstr "Az automatikus fordítás sikertelen volt."
+
+msgid "Auto-translate on creation"
+msgstr "Automatikus fordítás létrehozáskor"
+
+msgid "Auto-translate pending"
+msgstr "Automatikus fordítás folyamatban"
+
+msgid "Automated translations and AI provider configuration are available in the Pro version. Bring Your Own Key — connect directly to OpenAI, Claude, or DeepL."
+msgstr "Az automatizált fordítások és az AI szolgáltató konfigurálása a Pro verzióban érhető el. Hozza a saját kulcsát — csatlakozzon közvetlenül az OpenAI-hoz, Claude-hoz vagy DeepL-hez."
+
+msgid "Automatically start AI translation when a new translation is created"
+msgstr "AI fordítás automatikus indítása új fordítás létrehozásakor"
+
+msgid "Back"
+msgstr "Vissza"
+
+msgid "Back to list"
+msgstr "Vissza a listára"
+
+msgid "Behaviour"
+msgstr "Viselkedés"
+
+msgid "Bring Your Own Key (BYOK): connect directly to your chosen AI provider. Your API key is stored encrypted and never sent to Idiomattic servers."
+msgstr "Hozza a saját kulcsát (BYOK): csatlakozzon közvetlenül a választott AI szolgáltatóhoz. Az API kulcsát titkosítva tároljuk, és soha nem küldjük el az Idiomattic szervereinak."
+
+msgid "Cache & Transients"
+msgstr "Gyorsítótár és átmeneti adatok"
+
+msgid "Cache language detection results for improved performance."
+msgstr "Gyorsítótárazza a nyelvérzékelési eredményeket a jobb teljesítmény érdekében."
+
+msgid "Cancel"
+msgstr "Mégse"
+
+msgid "Child theme"
+msgstr "Gyermek sablon"
+
+msgid "Choose the primary language your website content will be served in by default."
+msgstr "Válassza ki azt az elsődleges nyelvet, amelyen a webhelye tartalma alapértelmezés szerint megjelenik."
+
+msgid "Claude API Key"
+msgstr "Claude API kulcs"
+
+msgid "Clean URLs with the language code as a path prefix. Requires pretty permalinks."
+msgstr "Tiszta URL-ek a nyelvkóddal elérési útvonal előtagjaként. Szép állandó hivatkozásokat igényel."
+
+msgid "Clear cached data if you are seeing stale content or unexpected behaviour."
+msgstr "Törölje a gyorsítótárazott adatokat, ha elavult tartalmat vagy váratlan viselkedést tapasztal."
+
+msgid "Clear language filter"
+msgstr "Nyelvszűrő törlése"
+
+msgid "Close"
+msgstr "Bezárás"
+
+msgid "Code, native name, and English name are required."
+msgstr "A kód, a natív név és az angol név kötelező."
+
+msgid "Compatibility"
+msgstr "Kompatibilitás"
+
+msgid "Compatibility scan completed successfully."
+msgstr "A kompatibilitás-vizsgálat sikeresen befejeződött."
+
+msgid "Complete"
+msgstr "Befejezés"
+
+msgid "Configure how each post type behaves across languages."
+msgstr "Konfigurálja, hogyan viselkedjen minden bejegyzéstípus a különböző nyelveken."
+
+msgid "Configure how taxonomy terms behave across languages."
+msgstr "Konfigurálja, hogyan viselkedjenek a taxonómia kifejezések a különböző nyelveken."
+
+msgid "Configure permalinks →"
+msgstr "Állandó hivatkozások konfigurálása →"
+
+msgid "Configure translation mode for registered custom fields. New fields can be added via the Compatibility tab or programmatically."
+msgstr "Konfigurálja a fordítási módot a regisztrált egyéni mezőkhöz. Új mezők hozzáadhatók a Kompatibilitás lapon keresztül vagy programozottan."
+
+msgid "Content"
+msgstr "Tartalom"
+
+msgid "Content Translation"
+msgstr "Tartalom fordítása"
+
+msgid "Context"
+msgstr "Kontextus"
+
+msgid "Context (optional)"
+msgstr "Kontextus (választható)"
+
+msgid "Continue →"
+msgstr "Folytatás →"
+
+msgid "Control how the plugin handles its data."
+msgstr "Szabályozza, hogyan kezeli a bővítmény az adatait."
+
+msgid "Copied!"
+msgstr "Másolva!"
+
+msgid "Copy from original:"
+msgstr "Másolás az eredetiből:"
+
+msgid "Copy source string"
+msgstr "Forrásszöveg másolása"
+
+msgid "Copy source to all empty translations"
+msgstr "Forrás másolása az összes üres fordításba"
+
+msgid "Copy to all"
+msgstr "Másolás mindenkihez"
+
+msgid "Copy to clipboard"
+msgstr "Másolás a vágólapra"
+
+msgid "Could not create export archive."
+msgstr "Nem sikerült létrehozni az exportálási archívumot."
+
+msgid "Could not link post."
+msgstr "Nem sikerült a bejegyzés összekapcsolása."
+
+msgid "Coverage"
+msgstr "Lefedettség"
+
+msgid "Create a menu →"
+msgstr "Menü létrehozása →"
+
+msgid "Creating..."
+msgstr "Létrehozás..."
+
+msgid "Custom"
+msgstr "Egyéni"
+
+msgid "Custom Fields"
+msgstr "Egyéni mezők"
+
+msgid "Daily digest — one email per day"
+msgstr "Napi összefoglaló — napi egy e-mail"
+
+msgid "Dashboard"
+msgstr "Vezérlőpult"
+
+msgid "Data Management"
+msgstr "Adatkezelés"
+
+msgid "Date"
+msgstr "Dátum"
+
+msgid "Debug Log"
+msgstr "Hibakeresési napló"
+
+msgid "Default Language"
+msgstr "Alapértelmezett nyelv"
+
+msgid "Default configured by %s"
+msgstr "Alapértelmezett konfigurálva: %s"
+
+msgid "Define terms that must always be translated a specific way, or kept unchanged by the AI."
+msgstr "Határozzon meg kifejezéseket, amelyeket mindig egy adott módon kell lefordítani, vagy amelyeket az AI-nak változatlanul kell hagynia."
+
+msgid "Define terms that must always be translated a specific way, or kept unchanged. Glossary rules are automatically applied during AI translation."
+msgstr "Határozzon meg kifejezéseket, amelyeket mindig egy adott módon kell lefordítani, vagy változatlanul kell hagyni. A szójegyzék szabályai automatikusan alkalmazásra kerülnek az AI fordítás során."
+
+msgid "Delete"
+msgstr "Törlés"
+
+msgid "Delete this custom language?"
+msgstr "Törli ezt az egyéni nyelvet?"
+
+msgid "Delete this term?"
+msgstr "Törli ezt a kifejezést?"
+
+msgid "Directory"
+msgstr "Könyvtár"
+
+msgid "Directory and Subdomain modes require pretty permalinks. %s"
+msgstr "A Könyvtár és Altartomány módok szép állandó hivatkozásokat igényelnek. %s"
+
+msgid "Directory not found."
+msgstr "A könyvtár nem található."
+
+msgid "Disabled"
+msgstr "Letiltva"
+
+msgid "Display a language switcher."
+msgstr "Nyelvváltó megjelenítése."
+
+msgid "Done"
+msgstr "Kész"
+
+msgid "Download JSON"
+msgstr "JSON letöltése"
+
+msgid "Download JSON template"
+msgstr "JSON sablon letöltése"
+
+msgid "Download ZIP"
+msgstr "ZIP letöltése"
+
+msgid "Download all translations for a language as a ZIP of XLIFF 2.0 files, ready to be processed by any CAT tool."
+msgstr "Töltse le az összes fordítást egy nyelvhez XLIFF 2.0 fájlok ZIP-jeként, amelyet bármely CAT eszköz feldolgozhat."
+
+msgid "Download as JSON"
+msgstr "Letöltés JSON-ként"
+
+msgid "Draft"
+msgstr "Vázlat"
+
+msgid "Draft / In Progress"
+msgstr "Vázlat / Folyamatban"
+
+msgid "Draft/WIP"
+msgstr "Vázlat/Folyamatban"
+
+msgid "Duplicate all"
+msgstr "Összes duplikálása"
+
+msgid "Duplicate untranslated"
+msgstr "Lefordítatlanok duplikálása"
+
+msgid "Each language has its own version of this content"
+msgstr "Minden nyelvnek megvan a saját verziója ebből a tartalomból"
+
+msgid "Each language on its own subdomain. Requires wildcard DNS and SSL."
+msgstr "Minden nyelv a saját altartományán. Wildcard DNS-t és SSL-t igényel."
+
+msgid "Each language on its own subdomain. Requires wildcard DNS."
+msgstr "Minden nyelv a saját altartományán. Wildcard DNS-t igényel."
+
+msgid "Edit"
+msgstr "Szerkesztés"
+
+msgid "Email Notifications"
+msgstr "E-mail értesítések"
+
+msgid "Enable AI-powered string translation"
+msgstr "AI alapú szöveg fordítás engedélyezése"
+
+msgid "Enable caching"
+msgstr "Gyorsítótár engedélyezése"
+
+msgid "Enable webhooks"
+msgstr "Webhookok engedélyezése"
+
+msgid "Error"
+msgstr "Hiba"
+
+msgid "Export"
+msgstr "Exportálás"
+
+msgid "Export Translations"
+msgstr "Fordítások exportálása"
+
+msgid "Field"
+msgstr "Mező"
+
+msgid "Glossary"
+msgstr "Szójegyzék"
+
+msgid "Import"
+msgstr "Importálás"
+
+msgid "Import Translations"
+msgstr "Fordítások importálása"
+
+msgid "Immediate — one email per event"
+msgstr "Azonnali — eseményenként egy e-mail"
+
+msgid "In Progress"
+msgstr "Folyamatban"
+
+msgid "Install"
+msgstr "Telepítés"
+
+msgid "Invalid parameters."
+msgstr "Érvénytelen paraméterek."
+
+msgid "Invalid translation ID."
+msgstr "Érvénytelen fordítási azonosító."
+
+msgid "Language"
+msgstr "Nyelv"
+
+msgid "Language Coverage"
+msgstr "Nyelvi lefedettség"
+
+msgid "Language Switcher"
+msgstr "Nyelvváltó"
+
+msgid "Languages"
+msgstr "Nyelvek"
+
+msgid "Link as translation"
+msgstr "Összekapcsolás fordításként"
+
+msgid "Link existing post"
+msgstr "Meglévő bejegyzés összekapcsolása"
+
+msgid "Loading..."
+msgstr "Betöltés..."
+
+msgid "Max words per segment"
+msgstr "Maximum szavak száma szegmensenként"
+
+msgid "Memory Hits"
+msgstr "Memória találatok"
+
+msgid "Menu"
+msgstr "Menü"
+
+msgid "Menus"
+msgstr "Menük"
+
+msgid "Missing"
+msgstr "Hiányzó"
+
+msgid "Missing %d"
+msgstr "%d hiányzó"
+
+msgid "N/A"
+msgstr "Nem alkalmazható"
+
+msgid "No compatibility file found. Custom fields from this plugin will not be automatically translated. Click \"Download JSON template\" to get a starter file you can fill in and place inside the plugin/theme directory, or ask the author to add support."
+msgstr "Nem található kompatibilitási fájl. Ebből a bővítményből az egyéni mezők nem lesznek automatikusan lefordítva."
+
+msgid "No config file"
+msgstr "Nincs konfigurációs fájl"
+
+msgid "No items match the selected filter."
+msgstr "Nincs a kiválasztott szűrőnek megfelelő elem."
+
+msgid "No permissions."
+msgstr "Nincs jogosultság."
+
+msgid "No strings found for auto-translation."
+msgstr "Nem találhatók szövegek az automatikus fordításhoz."
+
+msgid "No terms in glossary yet. Add your first term above."
+msgstr "A szójegyzékben még nincsenek kifejezések. Adja hozzá az első kifejezést fent."
+
+msgid "No translation found."
+msgstr "Nem található fordítás."
+
+msgid "No translations yet. Start by creating a translation from the post list."
+msgstr "Még nincs fordítás. Kezdje el egy fordítás létrehozásával a bejegyzések listájából."
+
+msgid "Not configured"
+msgstr "Nincs konfigurálva"
+
+msgid "Not registered"
+msgstr "Nincs regisztrálva"
+
+msgid "Not translatable"
+msgstr "Nem fordítható"
+
+msgid "Notes"
+msgstr "Megjegyzések"
+
+msgid "Notification Mode"
+msgstr "Értesítési mód"
+
+msgid "Notify on outdated translations"
+msgstr "Értesítés az elavult fordításokról"
+
+msgid "Only .xliff or .xml files are accepted."
+msgstr "Csak .xliff vagy .xml fájlok fogadhatók el."
+
+msgid "Open Translations Dashboard"
+msgstr "Fordítási vezérlőpult megnyitása"
+
+msgid "Open any post or page and click \"Translate\" to use the translation editor."
+msgstr "Nyisson meg bármely bejegyzést vagy oldalt, és kattintson a „Fordítás" gombra a fordítási szerkesztő használatához."
+
+msgid "OpenAI API Key"
+msgstr "OpenAI API kulcs"
+
+msgid "Optional HMAC-SHA256 secret"
+msgstr "Választható HMAC-SHA256 titkos kulcs"
+
+msgid "Original"
+msgstr "Eredeti"
+
+msgid "Original post has been deleted."
+msgstr "Az eredeti bejegyzés törölve lett."
+
+msgid "Original post not found."
+msgstr "Az eredeti bejegyzés nem található."
+
+msgid "Outdated"
+msgstr "Elavult"
+
+msgid "Overview of your multilingual content"
+msgstr "Többnyelvű tartalmának áttekintése"
+
+msgid "PHP Version"
+msgstr "PHP verzió"
+
+msgid "Package / Domain"
+msgstr "Csomag / Tartomány"
+
+msgid "Page %1$d of %2$d"
+msgstr "%2$d / %1$d. oldal"
+
+msgid "Permalink Structure"
+msgstr "Állandó hivatkozás szerkezete"
+
+msgid "Permission denied."
+msgstr "Hozzáférés megtagadva."
+
+msgid "Please configure at least two active languages in Settings → Languages before using Content Translation."
+msgstr "A Tartalom fordítása használata előtt konfiguráljon legalább két aktív nyelvet a Beállítások → Nyelvek menüpontban."
+
+msgid "Please configure at least two active languages in Settings → Languages before using Import / Export."
+msgstr "Az Importálás / Exportálás használata előtt konfiguráljon legalább két aktív nyelvet a Beállítások → Nyelvek menüpontban."
+
+msgid "Please configure at least two active languages in Settings → Languages before using String Translation."
+msgstr "A Szöveg fordítása használata előtt konfiguráljon legalább két aktív nyelvet a Beállítások → Nyelvek menüpontban."
+
+msgid "Plugin"
+msgstr "Bővítmény"
+
+msgid "Plugin & Theme Compatibility"
+msgstr "Bővítmény és sablon kompatibilitása"
+
+msgid "Plugin / Theme"
+msgstr "Bővítmény / Sablon"
+
+msgid "Plugin Activation Error"
+msgstr "Bővítmény aktiválási hiba"
+
+msgid "Plugin Version"
+msgstr "Bővítmény verzió"
+
+msgid "Polylang is active. Running two multilingual plugins simultaneously can cause conflicts. Please deactivate Polylang before using Idiomattic WP."
+msgstr "A Polylang aktív. Két többnyelvű bővítmény egyidejű futtatása konfliktusokat okozhat. Az Idiomattic WP használata előtt tiltsa le a Polylang-t."
+
+msgid "Post Title"
+msgstr "Bejegyzés cím"
+
+msgid "Post Type"
+msgstr "Bejegyzéstípus"
+
+msgid "Post Type(s)"
+msgstr "Bejegyzéstípus(ok)"
+
+msgid "Post Types"
+msgstr "Bejegyzéstípusok"
+
+msgid "Post not found."
+msgstr "A bejegyzés nem található."
+
+msgid "Prev"
+msgstr "Előző"
+
+msgid "Preview flag"
+msgstr "Zászló előnézete"
+
+msgid "Primary Language"
+msgstr "Elsődleges nyelv"
+
+msgid "Pro"
+msgstr "Pro"
+
+msgid "Progress"
+msgstr "Haladás"
+
+msgid "Publish"
+msgstr "Közzététel"
+
+msgid "Publish Translation"
+msgstr "Fordítás közzététele"
+
+msgid "Queue AI translation"
+msgstr "AI fordítás sorba állítása"
+
+msgid "Rate limit reached. Please wait a moment and try again."
+msgstr "Elérte a sebességkorlátot. Kérjük, várjon egy pillanatot, és próbálja újra."
+
+msgid "Re-scan"
+msgstr "Újraszkennelés"
+
+msgid "Re-use previously translated segments to reduce API costs"
+msgstr "Korábban lefordított szegmensek újrafelhasználása az API-költségek csökkentéséhez"
+
+msgid "Recent Activity"
+msgstr "Legutóbbi tevékenység"
+
+msgid "Recipient Email"
+msgstr "Fogadó e-mail"
+
+msgid "Register string"
+msgstr "Szöveg regisztrálása"
+
+msgid "Register this string for this language"
+msgstr "Regisztrálja ezt a szöveget ehhez a nyelvhez"
+
+msgid "Remove"
+msgstr "Eltávolítás"
+
+msgid "Requires Pro licence"
+msgstr "Pro licencet igényel"
+
+msgid "Retain data on uninstall"
+msgstr "Adatok megőrzése eltávolításkor"
+
+msgid "Rewrite Rules"
+msgstr "Átírási szabályok"
+
+msgid "Right-to-left language"
+msgstr "Jobbról balra haladó nyelv"
+
+msgid "Save"
+msgstr "Mentés"
+
+msgid "Save Draft"
+msgstr "Vázlat mentése"
+
+msgid "Save Translations"
+msgstr "Fordítások mentése"
+
+msgid "Scan complete."
+msgstr "Szkennelés befejezve."
+
+msgid "Scan sources"
+msgstr "Források szkennelése"
+
+msgid "Scan strings"
+msgstr "Szövegek szkennelése"
+
+msgid "Scanning..."
+msgstr "Szkennelés..."
+
+msgid "Search"
+msgstr "Keresés"
+
+msgid "Search by title…"
+msgstr "Keresés cím szerint…"
+
+msgid "Search in source and translations…"
+msgstr "Keresés forrásban és fordításokban…"
+
+msgid "Search languages…"
+msgstr "Nyelvek keresése…"
+
+msgid "Search strings"
+msgstr "Szövegek keresése"
+
+msgid "Security check failed."
+msgstr "A biztonsági ellenőrzés sikertelen."
+
+msgid "Select Language"
+msgstr "Nyelv kiválasztása"
+
+msgid "Send HTTP POST notifications to an external URL when translation events occur. Payloads are signed with HMAC-SHA256."
+msgstr "HTTP POST értesítések küldése egy külső URL-re, amikor fordítási események történnek. A tartalmak HMAC-SHA256 aláírással vannak ellátva."
+
+msgid "Settings"
+msgstr "Beállítások"
+
+msgid "Show Flags"
+msgstr "Zászlók megjelenítése"
+
+msgid "Show Names"
+msgstr "Nevek megjelenítése"
+
+msgid "Show all"
+msgstr "Összes megjelenítése"
+
+msgid "Show as translated"
+msgstr "Megjelenítés lefordítottként"
+
+msgid "Show terms for:"
+msgstr "Kifejezések megjelenítése ehhez:"
+
+msgid "Showing original posts only"
+msgstr "Csak eredeti bejegyzések megjelenítése"
+
+msgid "Showing translations into: %s"
+msgstr "Fordítások megjelenítése: %s"
+
+msgid "Shown in secondary languages even without a translation (uses default language content)"
+msgstr "Másodlagos nyelveken is megjelenik fordítás nélkül (az alapértelmezett nyelv tartalmát használja)"
+
+msgid "Signing Secret"
+msgstr "Aláírási titkos kulcs"
+
+msgid "Site Default Language"
+msgstr "Webhely alapértelmezett nyelve"
+
+msgid "Slug"
+msgstr "Slug"
+
+msgid "Source Term"
+msgstr "Forrás kifejezés"
+
+msgid "Source post not found."
+msgstr "A forrás bejegyzés nem található."
+
+msgid "Source string"
+msgstr "Forrásszöveg"
+
+msgid "Source string not found."
+msgstr "A forrásszöveg nem található."
+
+msgid "Standard ISO code for localization"
+msgstr "Szabványos ISO kód a lokalizációhoz"
+
+msgid "Start Migration"
+msgstr "Migráció indítása"
+
+msgid "Status"
+msgstr "Állapot"
+
+msgid "Step 1: Detection"
+msgstr "1. lépés: Észlelés"
+
+msgid "String Translation"
+msgstr "Szöveg fordítása"
+
+msgid "Style"
+msgstr "Stílus"
+
+msgid "Subdomain"
+msgstr "Altartomány"
+
+msgid "System Information"
+msgstr "Rendszerinformáció"
+
+msgid "System Report"
+msgstr "Rendszerjelentés"
+
+msgid "Target language is required."
+msgstr "A célnyelv kötelező."
+
+msgid "Taxonomies"
+msgstr "Taxonómiák"
+
+msgid "Taxonomy"
+msgstr "Taxonómia"
+
+msgid "Theme"
+msgstr "Sablon"
+
+msgid "This affects how visitors and search engines find your translated content."
+msgstr "Ez befolyásolja, hogy a látogatók és a keresőmotorok hogyan találják meg a lefordított tartalmát."
+
+msgid "This alert was sent by the %s plugin."
+msgstr "Ezt a figyelmeztetést a(z) %s bővítmény küldte."
+
+msgid "This is a translation of: %s"
+msgstr "Ez egy fordítás: %s"
+
+msgid "This is the original language of your posts and pages."
+msgstr "Ez a bejegyzések és oldalak eredeti nyelve."
+
+msgid "This plugin/theme ships with a native idiomattic-elements.json file. All its elements are automatically registered. No action needed."
+msgstr "Ez a bővítmény/sablon natív idiomattic-elements.json fájllal rendelkezik. Minden eleme automatikusan regisztrálva van. Nem szükséges semmit tenni."
+
+msgid "This plugin/theme ships with a wpml-config.xml file. Idiomattic auto-imports its field definitions at runtime. Use \"Import WPML config\" to force-register them now, or \"Download as JSON\" to convert the file to a permanent idiomattic-elements.json."
+msgstr "Ez a bővítmény/sablon wpml-config.xml fájllal rendelkezik. Az Idiomattic futásidőben automatikusan importálja a mezőmeghatározásokat."
+
+msgid "This translation is outdated — the source post has been updated since it was last translated. Please review and re-translate."
+msgstr "Ez a fordítás elavult — a forrás bejegyzés frissítve lett az utolsó fordítás óta. Kérjük, ellenőrizze és fordítsa újra."
+
+msgid "This will overwrite all fields with the original content. Continue?"
+msgstr "Ez az összes mezőt felülírja az eredeti tartalommal. Folytatja?"
+
+msgid "Title"
+msgstr "Cím"
+
+msgid "To create or edit navigation menus visit %s."
+msgstr "Navigációs menük létrehozásához vagy szerkesztéséhez látogasson el ide: %s."
+
+msgid "Total Translations"
+msgstr "Összes fordítás"
+
+msgid "Total scanned"
+msgstr "Összesen beszkennelve"
+
+msgid "Translatable"
+msgstr "Fordítható"
+
+msgid "Translate all"
+msgstr "Összes fordítása"
+
+msgid "Translate all languages"
+msgstr "Összes nyelv fordítása"
+
+msgid "Translate all missing"
+msgstr "Összes hiányzó fordítása"
+
+msgid "Translate all missing (%d)"
+msgstr "Összes hiányzó fordítása (%d)"
+
+msgid "Translate content →"
+msgstr "Tartalom fordítása →"
+
+msgid "Translate field"
+msgstr "Mező fordítása"
+
+msgid "Translate interface strings from plugins and themes"
+msgstr "Felületi szövegek fordítása bővítményekből és sablonokból"
+
+msgid "Translate posts, pages, and custom content into all active languages"
+msgstr "Bejegyzések, oldalak és egyéni tartalom fordítása az összes aktív nyelvre"
+
+msgid "Translate to all languages"
+msgstr "Fordítás az összes nyelvre"
+
+msgid "Translate: %s"
+msgstr "Fordítás: %s"
+
+msgid "Translated %d strings successfully."
+msgstr "%d szöveg sikeresen lefordítva."
+
+msgid "Translating"
+msgstr "Fordítás"
+
+msgid "Translating…"
+msgstr "Fordítás…"
+
+msgid "Translation"
+msgstr "Fordítás"
+
+msgid "Translation / Rule"
+msgstr "Fordítás / Szabály"
+
+msgid "Translation Alert"
+msgstr "Fordítási figyelmeztetés"
+
+msgid "Translation Alert — %s"
+msgstr "Fordítási figyelmeztetés — %s"
+
+msgid "Translation Details"
+msgstr "Fordítás részletei"
+
+msgid "Translation Editor"
+msgstr "Fordítási szerkesztő"
+
+msgid "Translation Memory"
+msgstr "Fordítási memória"
+
+msgid "Translation Mode"
+msgstr "Fordítási mód"
+
+msgid "Translation completed (AI finished)"
+msgstr "Fordítás befejezve (AI kész)"
+
+msgid "Translation failed."
+msgstr "A fordítás sikertelen."
+
+msgid "Translation outdated (source post updated)"
+msgstr "Fordítás elavult (forrás bejegyzés frissítve)"
+
+msgid "Translation provider is temporarily unavailable. Please try again."
+msgstr "A fordítási szolgáltató átmenetileg nem elérhető. Kérjük, próbálja újra."
+
+msgid "Translation queued (job dispatched)"
+msgstr "Fordítás sorba állítva (feladat elküldve)"
+
+msgid "Translation record not found."
+msgstr "A fordítási rekord nem található."
+
+msgid "Translation saved successfully."
+msgstr "A fordítás sikeresen mentve."
+
+msgid "Translations"
+msgstr "Fordítások"
+
+msgid "Translations saved."
+msgstr "Fordítások mentve."
+
+msgid "Triggered when you update a post that has translations."
+msgstr "Akkor aktiválódik, amikor frissít egy fordításokkal rendelkező bejegyzést."
+
+msgid "Troubleshooting"
+msgstr "Hibaelhárítás"
+
+msgid "Type"
+msgstr "Típus"
+
+msgid "URL Mode"
+msgstr "URL mód"
+
+msgid "URL Structure"
+msgstr "URL szerkezete"
+
+msgid "Unauthorized"
+msgstr "Jogosulatlan"
+
+msgid "Update"
+msgstr "Frissítés"
+
+msgid "Upgrade to Pro to unlock Directory and Subdomain modes →"
+msgstr "Frissítsen Pro verzióra a Könyvtár és Altartomány módok feloldásához →"
+
+msgid "Upgrade to Pro →"
+msgstr "Frissítés Pro verzióra →"
+
+msgid "Upload an XLIFF file (2.0 or 1.2) exported from a CAT tool. Translations are written directly into the database."
+msgstr "Töltse fel a CAT eszközből exportált XLIFF fájlt (2.0 vagy 1.2). A fordítások közvetlenül az adatbázisba íródnak."
+
+msgid "Version"
+msgstr "Verzió"
+
+msgid "View"
+msgstr "Megtekintés"
+
+msgid "View Original"
+msgstr "Eredeti megtekintése"
+
+msgid "View compatibility report →"
+msgstr "Kompatibilitási jelentés megtekintése →"
+
+msgid "View source post →"
+msgstr "Forrás bejegyzés megtekintése →"
+
+msgid "View strings"
+msgstr "Szövegek megtekintése"
+
+msgid "WPML Migration"
+msgstr "WPML migráció"
+
+msgid "WPML Migration Wizard"
+msgstr "WPML migrációs varázsló"
+
+msgid "WPML config"
+msgstr "WPML konfiguráció"
+
+msgid "WPML config imported successfully."
+msgstr "A WPML konfiguráció sikeresen importálva."
+
+msgid "WPML config imported with warnings: "
+msgstr "WPML konfiguráció figyelmeztetésekkel importálva: "
+
+msgid "WPML config imported: %1$d element(s) registered into the translation registry, %2$d skipped (action = ignore)."
+msgstr "WPML konfiguráció importálva: %1$d elem regisztrálva a fordítási nyilvántartásba, %2$d kihagyva (művelet = figyelmen kívül hagyás)."
+
+msgid "WPML is active. Running two multilingual plugins simultaneously can cause conflicts. Please deactivate WPML before using Idiomattic WP, or use the WPML migration tool."
+msgstr "A WPML aktív. Két többnyelvű bővítmény egyidejű futtatása konfliktusokat okozhat. Az Idiomattic WP használata előtt tiltsa le a WPML-t, vagy használja a WPML migrációs eszközt."
+
+msgid "WPML is not active. Migration may not be possible."
+msgstr "A WPML nem aktív. A migráció esetleg nem lehetséges."
+
+msgid "W3 Total Cache is active. Make sure page caching is configured to handle language-specific URLs correctly."
+msgstr "A W3 Total Cache aktív. Győződjön meg arról, hogy az oldalgyorsítótár megfelelően van konfigurálva a nyelvspecifikus URL-ek kezeléséhez."
+
+msgid "WP Debug"
+msgstr "WP hibakeresés"
+
+msgid "WP Debug Log"
+msgstr "WP hibakeresési napló"
+
+msgid "WP_DEBUG and WP_DEBUG_LOG are not both enabled. Add the following to wp-config.php to activate debug logging:"
+msgstr "A WP_DEBUG és a WP_DEBUG_LOG nincs mindkettő engedélyezve. A hibakeresési naplózás aktiválásához adja hozzá a következőket a wp-config.php fájlhoz:"
+
+msgid "Want AI-powered translations? Upgrade to Pro for BYOK (Bring Your Own Key) support."
+msgstr "AI alapú fordításokat szeretne? Frissítsen Pro verzióra a BYOK (Hozza a saját kulcsát) támogatáshoz."
+
+msgid "Webhooks"
+msgstr "Webhookok"
+
+msgid "What do these statuses mean?"
+msgstr "Mit jelentenek ezek az állapotok?"
+
+msgid "What language is your content written in?"
+msgstr "Milyen nyelven van írva a tartalma?"
+
+msgid "Which languages do you want to translate into?"
+msgstr "Mely nyelvekre szeretne fordítani?"
+
+msgid "WordPress Version"
+msgstr "WordPress verzió"
+
+msgid "Works with any permalink structure. Easiest to set up."
+msgstr "Bármely állandó hivatkozás szerkezettel működik. A legkönnyebb beállítani."
+
+msgid "Works with any permalink structure. Recommended for most sites."
+msgstr "Bármely állandó hivatkozás szerkezettel működik. A legtöbb webhelyhez ajánlott."
+
+msgid "XLIFF file (.xliff)"
+msgstr "XLIFF fájl (.xliff)"
+
+msgid "You can add or remove languages at any time from Settings."
+msgstr "A Beállításokból bármikor hozzáadhat vagy eltávolíthat nyelveket."
+
+msgid "You can disable these notifications in the plugin settings."
+msgstr "Ezeket az értesítéseket letilthatja a bővítmény beállításaiban."
+
+msgid "You do not have permission to edit this post."
+msgstr "Nincs jogosultsága a bejegyzés szerkesztéséhez."
+
+msgid "debug.log not found or not readable."
+msgstr "A debug.log nem található vagy nem olvasható."
+
+msgid "default"
+msgstr "alapértelmezett"
+
+msgid "e.g. button, menu"
+msgstr "pl. gomb, menü"
+
+msgid "e.g. my-plugin"
+msgstr "pl. saját-bővítmény"
+
+msgid "— Not assigned —"
+msgstr "— Nincs hozzárendelve —"
+
+msgid "→ Scan sources"
+msgstr "→ Források szkennelése"
+
+msgid "Admin Language"
+msgstr "Adminisztrátori nyelv"
+
+msgid "Admin Interface Language"
+msgstr "Adminisztrátori felület nyelve"
+
+msgid "Use site default"
+msgstr "Webhely alapértelmezés használata"
+
+msgid "Select the language you prefer for the WordPress admin interface."
+msgstr "Válassza ki a WordPress adminisztrátori felülethez preferált nyelvet."
+
+msgid "%d missing"
+msgid_plural "%d missing"
+msgstr[0] "%d hiányzó"
+msgstr[1] "%d hiányzó"
+
+msgid "%d translation job queued. Jobs are processed in the background."
+msgid_plural "%d translation job queued. Jobs are processed in the background."
+msgstr[0] "%d fordítási feladat sorban. A feladatok a háttérben kerülnek feldolgozásra."
+msgstr[1] "%d fordítási feladat sorban. A feladatok a háttérben kerülnek feldolgozásra."
+
+msgid "Retranslate %d outdated"
+msgid_plural "Retranslate %d outdated"
+msgstr[0] "%d elavult újrafordítása"
+msgstr[1] "%d elavult újrafordítása"

@@ -14,13 +14,20 @@ namespace IdiomatticWP\Hooks\Admin;
 
 use IdiomatticWP\Contracts\HookRegistrarInterface;
 use IdiomatticWP\Contracts\TranslationRepositoryInterface;
+use IdiomatticWP\Core\CustomElementRegistry;
 use IdiomatticWP\Core\LanguageManager;
+use IdiomatticWP\Queue\TranslationQueue;
+use IdiomatticWP\Translation\CreateTranslation;
+use IdiomatticWP\ValueObjects\LanguageCode;
 
 class PostListHooks implements HookRegistrarInterface {
 
 	public function __construct(
 		private LanguageManager $languageManager,
-		private TranslationRepositoryInterface $repository
+		private TranslationRepositoryInterface $repository,
+		private CustomElementRegistry $registry,
+		private CreateTranslation $createTranslation,
+		private TranslationQueue $queue,
 	) {}
 
 	// ── HookRegistrarInterface ────────────────────────────────────────────
@@ -29,9 +36,12 @@ class PostListHooks implements HookRegistrarInterface {
 		foreach ( $this->getTranslatablePostTypes() as $postType ) {
 			add_filter( "manage_{$postType}_posts_columns",       [ $this, 'addLanguageColumn'    ] );
 			add_action( "manage_{$postType}_posts_custom_column", [ $this, 'renderLanguageColumn' ], 10, 2 );
+			add_filter( "bulk_actions-edit-{$postType}",          [ $this, 'addBulkActions'       ] );
+			add_filter( "handle_bulk_actions-edit-{$postType}",   [ $this, 'handleBulkTranslate' ], 10, 3 );
 		}
 
-		add_action( 'admin_head', [ $this, 'inlineColumnStyles' ] );
+		add_action( 'admin_head',    [ $this, 'inlineColumnStyles' ] );
+		add_action( 'admin_notices', [ $this, 'maybeBulkQueueNotice' ] );
 	}
 
 	// ── Callbacks ─────────────────────────────────────────────────────────
@@ -151,20 +161,87 @@ class PostListHooks implements HookRegistrarInterface {
 		echo '</a>';
 	}
 
-	private function getTranslatablePostTypes(): array {
-		$config = get_option( 'idiomatticwp_post_type_config', [] );
+	// ── Bulk translation ──────────────────────────────────────────────────
 
-		if ( empty( $config ) ) {
-			// Default: all public post types are translatable
-			$all = get_post_types( [ 'public' => true ] );
-			unset( $all['attachment'] );
-			$types = array_keys( $all );
-		} else {
-			// Only include post types configured as 'translate' or 'show_as_translated'
-			$types = array_keys( array_filter(
-				$config,
-				fn( $mode ) => in_array( $mode, [ 'translate', 'show_as_translated' ], true )
-			) );
+	public function addBulkActions( array $actions ): array {
+		$actions['idiomatticwp_translate_all'] = __( 'Translate to all languages', 'idiomattic-wp' );
+		return $actions;
+	}
+
+	/**
+	 * Handle the "Translate to all languages" bulk action.
+	 *
+	 * @param string   $sendback Redirect URL.
+	 * @param string   $doaction The action slug.
+	 * @param int[]    $postIds  Selected post IDs.
+	 * @return string  Modified redirect URL.
+	 */
+	public function handleBulkTranslate( string $sendback, string $doaction, array $postIds ): string {
+		if ( $doaction !== 'idiomatticwp_translate_all' ) {
+			return $sendback;
+		}
+
+		$defaultLang = (string) $this->languageManager->getDefaultLanguage();
+		$targetLangs = array_filter(
+			$this->languageManager->getActiveLanguages(),
+			fn( $l ) => (string) $l !== $defaultLang
+		);
+
+		$queued = 0;
+
+		foreach ( $postIds as $rawId ) {
+			$postId = (int) $rawId;
+			foreach ( $targetLangs as $lang ) {
+				$langCode = LanguageCode::from( (string) $lang );
+				if ( $this->repository->existsForSourceAndLang( $postId, $langCode ) ) {
+					continue;
+				}
+				try {
+					$result = ( $this->createTranslation )( $postId, $langCode );
+					$this->queue->dispatch(
+						(int) $result['translation_id'],
+						$postId,
+						$defaultLang,
+						(string) $lang
+					);
+					$queued++;
+				} catch ( \Throwable ) {
+					// Continue with remaining posts/languages.
+				}
+			}
+		}
+
+		return add_query_arg( 'iwp_bulk_queued', $queued, $sendback );
+	}
+
+	public function maybeBulkQueueNotice(): void {
+		$queued = isset( $_GET['iwp_bulk_queued'] ) ? (int) $_GET['iwp_bulk_queued'] : -1;
+		if ( $queued < 0 ) {
+			return;
+		}
+		printf(
+			'<div class="notice notice-success is-dismissible"><p>%s</p></div>',
+			esc_html(
+				$queued > 0
+					/* translators: %d: number of translation jobs queued */
+					? sprintf( __( 'Idiomattic WP: %d translation job(s) queued.', 'idiomattic-wp' ), $queued )
+					: __( 'Idiomattic WP: All selected posts already have translations for every active language.', 'idiomattic-wp' )
+			)
+		);
+	}
+
+	private function getTranslatablePostTypes(): array {
+		$config   = get_option( 'idiomatticwp_post_type_config', [] );
+		$allTypes = get_post_types( [ 'public' => true ] );
+		unset( $allTypes['attachment'] );
+
+		$types = [];
+		foreach ( array_keys( $allTypes ) as $postType ) {
+			// User-saved option always wins.
+			$mode = $config[ $postType ] ?? $this->registry->getPostTypeDefaultMode( $postType );
+			if ( in_array( $mode, [ 'translate', 'show_as_translated' ], true ) ) {
+				$types[] = $postType;
+			}
 		}
 
 		return (array) apply_filters( 'idiomatticwp_translatable_post_types', $types );
