@@ -308,13 +308,19 @@ URLs, and emits a `COOKIE_DOMAIN` admin notice. `RoutingHooks` wires both at boo
 
 ---
 
-## Technical Debt
+## Technical Debt — Resolved ✅
 
-- `StringTranslator::register()` uses obsolete schema (`original_string` column, combined hash).
-  Either align it with `StringRepository` or remove it — it is currently unused.
-- `MoCompiler` still depends on `StringTranslator` in its constructor even though
-  `compile()` only uses `$wpdb`. Remove the dead dependency.
-- `DirectoryStrategy` and `SubdomainStrategy` return empty strings / throw no exceptions;
-  activating them silently breaks all URLs. Add a runtime capability check and a fallback.
-- `TranslationQueue` does not enforce concurrency limits. Bulk-translating a large site
-  can exhaust PHP memory. Implement a batch size cap and WP-Cron scheduling.
+All four previously documented items are now resolved:
+
+- **`StringTranslator::register()`** — method was removed; `StringTranslator` only exposes
+  `translate()`, `saveTranslation()`, and `getPendingStrings()`. Registration goes through
+  `StringRepository` exclusively.
+- **`MoCompiler` dead dependency** — constructor takes only `\wpdb`; `StringTranslator`
+  dependency was removed.
+- **`DirectoryStrategy` / `SubdomainStrategy` silent failure** — both implement
+  `checkCapabilities(): array`. `RoutingHooks` calls this on `init` and skips rewrite-rule
+  registration when issues are found; `maybeStrategyCapabilityNotices()` renders a clear
+  admin notice (e.g. "Directory URL mode requires pretty permalinks").
+- **`TranslationQueue` concurrency** — enforces `DEFAULT_MAX_PENDING = 200` (filterable via
+  `idiomatticwp_queue_max_pending`); `dispatch()` returns `false` when the cap is hit so
+  callers can skip or retry, and fires `idiomatticwp_translation_queue_full` for monitoring.
