@@ -15,6 +15,10 @@ defined( 'WP_UNINSTALL_PLUGIN' ) || exit;
 
 global $wpdb;
 
+// Remove translator roles regardless of retention setting.
+require_once __DIR__ . '/includes/Roles/TranslationRoles.php';
+\IdiomatticWP\Roles\TranslationRoles::remove();
+
 // Only delete data if the user opted out of retention (option '1' = keep data, default)
 $retention = get_option( 'idiomatticwp_uninstall_retention', '1' );
 

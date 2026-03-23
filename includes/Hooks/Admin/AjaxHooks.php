@@ -10,6 +10,7 @@ declare( strict_types=1 );
 namespace IdiomatticWP\Hooks\Admin;
 
 use IdiomatticWP\Contracts\HookRegistrarInterface;
+use IdiomatticWP\Admin\Ajax\AssignTranslatorAjax;
 use IdiomatticWP\Admin\Ajax\AutoTranslateAjax;
 use IdiomatticWP\Admin\Ajax\AutoTranslateStringsAjax;
 use IdiomatticWP\Admin\Ajax\CreateTranslationAjax;
@@ -32,6 +33,7 @@ class AjaxHooks implements HookRegistrarInterface {
 		private RegisterStringLangAjax   $registerStringLangAjax,
 		private LinkTranslationAjax      $linkTranslationAjax,
 		private TranslateSingleStringAjax $translateSingleStringAjax,
+		private AssignTranslatorAjax     $assignTranslatorAjax,
 	) {}
 
 	// ── HookRegistrarInterface ────────────────────────────────────────────
@@ -63,6 +65,9 @@ class AjaxHooks implements HookRegistrarInterface {
 
 		// AI translate a single UI string on demand
 		add_action( 'wp_ajax_idiomatticwp_translate_single_string', [ $this, 'handleTranslateSingleString' ] );
+
+		// Assign a translator to a translation post
+		add_action( 'wp_ajax_idiomatticwp_assign_translator', [ $this, 'handleAssignTranslator' ] );
 	}
 
 	// ── Callbacks ─────────────────────────────────────────────────────────
@@ -109,5 +114,9 @@ class AjaxHooks implements HookRegistrarInterface {
 
 	public function handleTranslateSingleString(): void {
 		$this->translateSingleStringAjax->handle();
+	}
+
+	public function handleAssignTranslator(): void {
+		$this->assignTranslatorAjax->handle();
 	}
 }

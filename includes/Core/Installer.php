@@ -13,7 +13,7 @@ namespace IdiomatticWP\Core;
 class Installer
 {
 
-	private const DB_VERSION = '1.0.0';
+	private const DB_VERSION = '1.1.0';
 
 	// ── Activation ────────────────────────────────────────────────────────────
 
@@ -37,8 +37,9 @@ class Installer
 			);
 		}
 
-		self::createTables();
+		self::maybeUpgradeTables();
 		self::setDefaultOptions();
+		\IdiomatticWP\Roles\TranslationRoles::register();
 		update_option('idiomatticwp_db_version', self::DB_VERSION);
 
 		// Signal setup wizard only on genuinely fresh installations
@@ -96,6 +97,21 @@ class Installer
 
 			// Show a one-time admin notice pointing to the Compatibility page.
 			update_option( 'idiomatticwp_show_compat_notice', true );
+		}
+	}
+
+	// ── Table upgrades ────────────────────────────────────────────────────────
+
+	/**
+	 * Run table creation/upgrades whenever the stored DB version is behind
+	 * the current DB_VERSION constant. Safe to call on every activation.
+	 */
+	public static function maybeUpgradeTables(): void
+	{
+		$stored = get_option( 'idiomatticwp_db_version', '' );
+		if ( version_compare( (string) $stored, self::DB_VERSION, '<' ) ) {
+			self::createTables();
+			update_option( 'idiomatticwp_db_version', self::DB_VERSION );
 		}
 	}
 
@@ -187,6 +203,21 @@ class Installer
 		  created_at      DATETIME NOT NULL,
 		  PRIMARY KEY  (id),
 		  KEY lang_pair (source_lang, target_lang)
+		) {$charset};");
+
+		// ── idiomatticwp_term_translations ────────────────────────────────
+		dbDelta("CREATE TABLE IF NOT EXISTS {$p}idiomatticwp_term_translations (
+		  id          BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+		  term_id     BIGINT UNSIGNED NOT NULL,
+		  taxonomy    VARCHAR(200) NOT NULL,
+		  lang        VARCHAR(10)  NOT NULL,
+		  name        VARCHAR(500) DEFAULT NULL,
+		  slug        VARCHAR(500) DEFAULT NULL,
+		  description LONGTEXT     DEFAULT NULL,
+		  PRIMARY KEY  (id),
+		  UNIQUE KEY term_lang (term_id, lang),
+		  KEY taxonomy (taxonomy),
+		  KEY lang (lang)
 		) {$charset};");
 	}
 

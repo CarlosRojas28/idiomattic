@@ -61,6 +61,12 @@ class SettingsHooks implements HookRegistrarInterface {
 		] );
 
 		// ── Translation tab ───────────────────────────────────────────────
+		register_setting( 'idiomatticwp_settings_translation', 'idiomatticwp_wc_currencies', [
+			'type'              => 'array',
+			'sanitize_callback' => [ $this, 'sanitizeCurrencies' ],
+			'default'           => [],
+		] );
+
 		register_setting( 'idiomatticwp_settings_translation', 'idiomatticwp_active_provider', [
 			'type'              => 'string',
 			'sanitize_callback' => 'sanitize_key',
@@ -108,6 +114,13 @@ class SettingsHooks implements HookRegistrarInterface {
 			'default'           => [],
 		] );
 
+		// ── URL tab (continued) — WooCommerce taxonomy base slugs ────────
+		register_setting( 'idiomatticwp_settings_url', 'idiomatticwp_taxonomy_slugs', [
+			'type'              => 'array',
+			'sanitize_callback' => [ $this, 'sanitizeTaxonomySlugs' ],
+			'default'           => [],
+		] );
+
 		// ── Menus tab ─────────────────────────────────────────────────────
 		register_setting( 'idiomatticwp_settings_menus', 'idiomatticwp_nav_menus', [
 			'type'              => 'array',
@@ -124,6 +137,11 @@ class SettingsHooks implements HookRegistrarInterface {
 		] );
 
 		register_setting( 'idiomatticwp_settings_advanced', 'idiomatticwp_cache_lang_detect', [
+			'type'    => 'string',
+			'default' => '1',
+		] );
+
+		register_setting( 'idiomatticwp_settings_advanced', 'idiomatticwp_browser_lang_detect', [
 			'type'    => 'string',
 			'default' => '1',
 		] );
@@ -180,7 +198,13 @@ class SettingsHooks implements HookRegistrarInterface {
 	// ── Sanitize callbacks ────────────────────────────────────────────────
 
 	/**
-	 * Sanitize the nav menus option: array of [ lang_code => menu_id ].
+	 * Sanitize the nav menus option.
+	 *
+	 * Accepts the new 2-D shape: [ theme_location => [ lang_code => menu_id ] ]
+	 *
+	 * Legacy flat shape [ lang_code => menu_id ] is silently ignored so that
+	 * existing installs do not break — admins simply re-save the Menus tab to
+	 * migrate to the new format.
 	 */
 	public function sanitizeNavMenus( mixed $input ): array {
 		if ( ! is_array( $input ) ) {
@@ -188,11 +212,22 @@ class SettingsHooks implements HookRegistrarInterface {
 		}
 
 		$clean = [];
-		foreach ( $input as $code => $menuId ) {
-			$code   = sanitize_key( $code );
-			$menuId = absint( $menuId );
-			if ( $code && $menuId > 0 ) {
-				$clean[ $code ] = $menuId;
+		foreach ( $input as $location => $langMap ) {
+			$location = sanitize_key( (string) $location );
+			if ( ! $location ) {
+				continue;
+			}
+			if ( ! is_array( $langMap ) ) {
+				// Skip legacy flat entries (scalar menu IDs keyed by lang code).
+				continue;
+			}
+			foreach ( $langMap as $lang => $menuId ) {
+				// Preserve BCP-47 case (e.g. en-GB) while stripping invalid chars.
+				$lang   = preg_replace( '/[^a-zA-Z0-9\-]/', '', (string) $lang );
+				$menuId = absint( $menuId );
+				if ( $lang && $menuId > 0 ) {
+					$clean[ $location ][ $lang ] = $menuId;
+				}
 			}
 		}
 
@@ -256,6 +291,37 @@ class SettingsHooks implements HookRegistrarInterface {
 	}
 
 	/**
+	 * Sanitize the WooCommerce taxonomy base slug translations.
+	 *
+	 * Expected shape: [ lang => [ slug_key => 'translated-slug' ] ]
+	 * Each slug is run through sanitize_title() to produce a URL-safe string.
+	 */
+	public function sanitizeTaxonomySlugs( mixed $input ): array {
+		if ( ! is_array( $input ) ) {
+			return [];
+		}
+
+		$allowed_keys = [ 'product_slug', 'product_category_slug', 'product_tag_slug' ];
+		$clean        = [];
+
+		foreach ( $input as $lang => $slugMap ) {
+			$lang = preg_replace( '/[^a-zA-Z0-9\-]/', '', (string) $lang );
+			if ( $lang === '' || ! is_array( $slugMap ) ) {
+				continue;
+			}
+			foreach ( $slugMap as $key => $slug ) {
+				$key  = sanitize_key( (string) $key );
+				$slug = sanitize_title( (string) $slug );
+				if ( $key !== '' && $slug !== '' && in_array( $key, $allowed_keys, true ) ) {
+					$clean[ $lang ][ $key ] = $slug;
+				}
+			}
+		}
+
+		return $clean;
+	}
+
+	/**
 	 * Sanitize custom field config arrays.
 	 * Values must be one of: translate | copy | ignore
 	 */
@@ -270,6 +336,44 @@ class SettingsHooks implements HookRegistrarInterface {
 				$out[ $k ] = $v;
 			}
 		}
+		return $out;
+	}
+
+	/**
+	 * Sanitize the per-language WooCommerce currency config.
+	 *
+	 * Expected shape:
+	 *   [ lang_code => [ 'code' => 'EUR', 'symbol' => '€', 'rate' => 1.08 ] ]
+	 */
+	public function sanitizeCurrencies( mixed $input ): array {
+		if ( ! is_array( $input ) ) {
+			return [];
+		}
+
+		$out = [];
+		foreach ( $input as $lang => $config ) {
+			$lang = preg_replace( '/[^a-zA-Z0-9\-]/', '', (string) $lang );
+			if ( ! $lang ) {
+				continue;
+			}
+
+			if ( ! is_array( $config ) ) {
+				continue;
+			}
+
+			$code   = strtoupper( sanitize_text_field( (string) ( $config['code']   ?? '' ) ) );
+			$symbol = sanitize_text_field( (string) ( $config['symbol'] ?? '' ) );
+			$rate   = (float) ( $config['rate'] ?? 1.0 );
+
+			if ( $code ) {
+				$out[ $lang ] = [
+					'code'   => $code,
+					'symbol' => $symbol,
+					'rate'   => max( 0.0001, $rate ),
+				];
+			}
+		}
+
 		return $out;
 	}
 

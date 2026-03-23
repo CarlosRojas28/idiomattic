@@ -267,13 +267,26 @@ class ContainerConfig {
 				$c->get( \IdiomatticWP\Admin\Ajax\ScanStringsAjax::class ),
 				$c->get( \IdiomatticWP\Admin\Ajax\RegisterStringLangAjax::class ),
 				$c->get( \IdiomatticWP\Admin\Ajax\LinkTranslationAjax::class ),
-				$c->get( \IdiomatticWP\Admin\Ajax\TranslateSingleStringAjax::class )
+				$c->get( \IdiomatticWP\Admin\Ajax\TranslateSingleStringAjax::class ),
+				$c->get( \IdiomatticWP\Admin\Ajax\AssignTranslatorAjax::class )
 			)
 		);
 
 		$c->singleton(
 			\IdiomatticWP\Hooks\Admin\AssetHooks::class,
 			fn( $c ) => new \IdiomatticWP\Hooks\Admin\AssetHooks()
+		);
+
+		$c->singleton(
+			\IdiomatticWP\Admin\Ajax\AssignTranslatorAjax::class,
+			fn( $c ) => new \IdiomatticWP\Admin\Ajax\AssignTranslatorAjax()
+		);
+
+		$c->singleton(
+			\IdiomatticWP\Hooks\Admin\TranslatorAccessHooks::class,
+			fn( $c ) => new \IdiomatticWP\Hooks\Admin\TranslatorAccessHooks(
+				$c->get( \IdiomatticWP\Contracts\TranslationRepositoryInterface::class )
+			)
 		);
 
 		$c->singleton(
@@ -555,6 +568,35 @@ class ContainerConfig {
 			)
 		);
 
+		$c->singleton(
+			\IdiomatticWP\Hooks\Frontend\BrowserLanguageRedirectHooks::class,
+			fn( $c ) => new \IdiomatticWP\Hooks\Frontend\BrowserLanguageRedirectHooks(
+				$c->get( \IdiomatticWP\Core\LanguageManager::class ),
+				$c->get( \IdiomatticWP\Contracts\UrlStrategyInterface::class )
+			)
+		);
+
+		$c->singleton(
+			\IdiomatticWP\Hooks\Frontend\MenuTranslationHooks::class,
+			fn( $c ) => new \IdiomatticWP\Hooks\Frontend\MenuTranslationHooks(
+				$c->get( \IdiomatticWP\Core\LanguageManager::class )
+			)
+		);
+
+		$c->singleton(
+			\IdiomatticWP\Hooks\Frontend\LoginPageTranslationHooks::class,
+			fn( $c ) => new \IdiomatticWP\Hooks\Frontend\LoginPageTranslationHooks(
+				$c->get( \IdiomatticWP\Core\LanguageManager::class )
+			)
+		);
+
+		$c->singleton(
+			\IdiomatticWP\Hooks\Frontend\TaxonomyPermalinkHooks::class,
+			fn( $c ) => new \IdiomatticWP\Hooks\Frontend\TaxonomyPermalinkHooks(
+				$c->get( \IdiomatticWP\Core\LanguageManager::class )
+			)
+		);
+
 		// ── Phase 6: String services ──────────────────────────────────────────
 
 		$c->singleton(
@@ -605,6 +647,14 @@ class ContainerConfig {
 			\IdiomatticWP\Hooks\Translation\FieldTranslationHooks::class,
 			fn( $c ) => new \IdiomatticWP\Hooks\Translation\FieldTranslationHooks(
 				$c->get( \IdiomatticWP\Translation\FieldTranslator::class )
+			)
+		);
+
+		$c->singleton(
+			\IdiomatticWP\Hooks\Translation\FieldSyncHooks::class,
+			fn( $c ) => new \IdiomatticWP\Hooks\Translation\FieldSyncHooks(
+				$c->get( \IdiomatticWP\Contracts\TranslationRepositoryInterface::class ),
+				$c->get( \IdiomatticWP\Core\CustomElementRegistry::class )
 			)
 		);
 
@@ -990,6 +1040,68 @@ class ContainerConfig {
 		$glossary = $c->get( \IdiomatticWP\Glossary\GlossaryManager::class );
 		$glossary->setRepository( $c->get( \IdiomatticWP\Glossary\WpdbGlossaryRepository::class ) );
 
+		// ── Phase 12a: Multilingual sitemap (WP core) ────────────────────────
+
+		$c->singleton(
+			\IdiomatticWP\Hooks\Frontend\MultilingualSitemapHooks::class,
+			fn( $c ) => new \IdiomatticWP\Hooks\Frontend\MultilingualSitemapHooks(
+				$c->get( \IdiomatticWP\Core\LanguageManager::class ),
+				$c->get( \IdiomatticWP\Contracts\TranslationRepositoryInterface::class )
+			)
+		);
+
+		$c->singleton(
+			\IdiomatticWP\Hooks\Frontend\SearchFilterHooks::class,
+			fn( $c ) => new \IdiomatticWP\Hooks\Frontend\SearchFilterHooks(
+				$GLOBALS['wpdb'],
+				$c->get( \IdiomatticWP\Core\LanguageManager::class )
+			)
+		);
+
+		// ── Phase 12: Term translation ────────────────────────────────────────
+
+		$c->singleton(
+			\IdiomatticWP\Infrastructure\WpdbTermTranslationRepository::class,
+			fn( $c ) => new \IdiomatticWP\Infrastructure\WpdbTermTranslationRepository( $GLOBALS['wpdb'] )
+		);
+		$c->alias(
+			\IdiomatticWP\Contracts\TermTranslationRepositoryInterface::class,
+			\IdiomatticWP\Infrastructure\WpdbTermTranslationRepository::class
+		);
+
+		$c->singleton(
+			\IdiomatticWP\Hooks\Admin\TermTranslationHooks::class,
+			fn( $c ) => new \IdiomatticWP\Hooks\Admin\TermTranslationHooks(
+				$c->get( \IdiomatticWP\Contracts\TermTranslationRepositoryInterface::class ),
+				$c->get( \IdiomatticWP\Core\LanguageManager::class )
+			)
+		);
+
+		$c->singleton(
+			\IdiomatticWP\Hooks\Frontend\TermTranslationHooks::class,
+			fn( $c ) => new \IdiomatticWP\Hooks\Frontend\TermTranslationHooks(
+				$c->get( \IdiomatticWP\Contracts\TermTranslationRepositoryInterface::class ),
+				$c->get( \IdiomatticWP\Core\LanguageManager::class )
+			)
+		);
+
+		// ── Phase 13: Attachment metadata translation ─────────────────────────
+
+		$c->singleton(
+			\IdiomatticWP\Hooks\Admin\AttachmentTranslationHooks::class,
+			fn( $c ) => new \IdiomatticWP\Hooks\Admin\AttachmentTranslationHooks(
+				$c->get( \IdiomatticWP\Core\LanguageManager::class ),
+				$c->get( \IdiomatticWP\Repositories\StringRepository::class )
+			)
+		);
+
+		$c->singleton(
+			\IdiomatticWP\Hooks\Frontend\AttachmentTranslationHooks::class,
+			fn( $c ) => new \IdiomatticWP\Hooks\Frontend\AttachmentTranslationHooks(
+				$c->get( \IdiomatticWP\Core\LanguageManager::class ),
+				$c->get( \IdiomatticWP\Repositories\StringRepository::class )
+			)
+		);
 
 		// ── CLI (WP-CLI) ──────────────────────────────────────────────
 
@@ -999,6 +1111,15 @@ class ContainerConfig {
 				$c->get( \IdiomatticWP\Core\LanguageManager::class ),
 				$c->get( \IdiomatticWP\Contracts\TranslationRepositoryInterface::class ),
 				$c->get( \IdiomatticWP\Translation\CreateTranslation::class )
+			)
+		);
+
+		// ── Email locale switching ─────────────────────────────────────────────
+
+		$c->singleton(
+			\IdiomatticWP\Hooks\Translation\EmailLocaleHooks::class,
+			fn( $c ) => new \IdiomatticWP\Hooks\Translation\EmailLocaleHooks(
+				$c->get( \IdiomatticWP\Core\LanguageManager::class )
 			)
 		);
 	}

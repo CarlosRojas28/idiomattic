@@ -101,6 +101,42 @@ class TranslationsMetabox {
 
 	// ── Row renderer ───────────────────────────────────────────────────────
 
+	// ── Assign-translator UI ───────────────────────────────────────────────
+
+	private function renderAssignTranslator( int $translatedPostId ): void {
+		$user = wp_get_current_user();
+		if (
+			! $user->has_cap( 'idiomatticwp_manage_translations' ) &&
+			! $user->has_cap( 'manage_options' )
+		) {
+			return;
+		}
+
+		$translators    = get_users( [ 'role__in' => [ 'idiomatticwp_translator', 'idiomatticwp_translation_manager' ] ] );
+		$assignedUserId = (int) get_post_meta( $translatedPostId, '_idiomatticwp_assigned_translator', true );
+		$nonce          = wp_create_nonce( 'idiomatticwp_nonce' );
+		?>
+		<div class="iwp-assign-translator" style="margin-top:6px;">
+			<label style="font-size:11px;color:#8c8f94;"><?php esc_html_e( 'Assign translator:', 'idiomattic-wp' ); ?></label>
+			<select
+				class="iwp-translator-select"
+				data-post-id="<?php echo esc_attr( (string) $translatedPostId ); ?>"
+				data-nonce="<?php echo esc_attr( $nonce ); ?>"
+				style="width:100%;margin-top:2px;font-size:12px;"
+			>
+				<option value="0">&mdash; <?php esc_html_e( 'Unassigned', 'idiomattic-wp' ); ?> &mdash;</option>
+				<?php foreach ( $translators as $u ) : ?>
+				<option value="<?php echo esc_attr( (string) $u->ID ); ?>"<?php selected( $assignedUserId, $u->ID ); ?>>
+					<?php echo esc_html( $u->display_name ); ?>
+				</option>
+				<?php endforeach; ?>
+			</select>
+		</div>
+		<?php
+	}
+
+	// ── Row renderer ───────────────────────────────────────────────────────
+
 	private function renderRow(
 		int $sourcePostId,
 		string $langCode,
@@ -184,6 +220,11 @@ class TranslationsMetabox {
 		}
 
 		echo '</span>'; // .iwp-mb-action
+
+		if ( $translatedId ) {
+			$this->renderAssignTranslator( $translatedId );
+		}
+
 		echo '</div>'; // .iwp-mb-row
 	}
 
@@ -291,9 +332,31 @@ class TranslationsMetabox {
 			cursor: default;
 		}
 		</style>
+		<style>
+		.iwp-assign-translator select { max-width: 100%; }
+		</style>
 		<script>
 		(function () {
 			'use strict';
+
+			// Assign translator — fire on change, debounced.
+			document.addEventListener('change', function(e) {
+				var sel = e.target;
+				if ( ! sel.classList.contains('iwp-translator-select') ) { return; }
+				var fd = new FormData();
+				fd.append('action',  'idiomatticwp_assign_translator');
+				fd.append('nonce',   sel.dataset.nonce);
+				fd.append('post_id', sel.dataset.postId);
+				fd.append('user_id', sel.value);
+				fetch(ajaxurl, { method: 'POST', body: fd })
+					.then(function(r) { return r.json(); })
+					.then(function(res) {
+						if ( ! res.success ) {
+							alert((res.data && res.data.message) ? res.data.message : '<?php echo esc_js( __( 'Could not assign translator.', 'idiomattic-wp' ) ); ?>');
+						}
+					})
+					.catch(function() {});
+			});
 
 			var debounceTimers = {};
 

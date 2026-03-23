@@ -129,51 +129,182 @@ URLs, and emits a `COOKIE_DOMAIN` admin notice. `RoutingHooks` wires both at boo
 
 ---
 
-## 🟢 Nice-to-have
+---
 
-### 15. String Translation — AI auto-translate per cell
-A small "AI" icon button next to each translation textarea that translates that single
-string on demand without affecting others.
+## WPML Feature Gap — Implemented ✅
 
-### 16. String Translation — filter by status
-Add a "Status" filter (All / Pending / Translated) to the String Translation table
-so translators can focus on untranslated strings.
+### G1. Browser Language Detection + Auto-Redirect ✅
+- `BrowserLanguageRedirectHooks` hooks `template_redirect` at priority 1.
+- Parses `Accept-Language` header with quality factor ordering; three-tier matching
+  (exact → primary tag → reverse prefix).
+- Stores preference in `idiomatticwp_visitor_lang` cookie (30d, httponly, SameSite=Lax).
+- Respects explicit URL language signals (no redirect loop).
+- Toggle via Advanced settings: "Browser language auto-redirect" checkbox.
 
-### 17. Translation Editor — side-by-side diff for outdated translations
-When a translation is outdated, show a diff of what changed in the source so the
-translator knows exactly what to update.
+### G2. Taxonomy Term Translation ✅
+- New DB table `idiomatticwp_term_translations` (term_id, taxonomy, lang, name, slug, description).
+  Created by `Installer::createTables()` on activation; existing installs upgraded via
+  `Installer::maybeUpgradeTables()` (DB_VERSION bumped to 1.1.0).
+- `WpdbTermTranslationRepository` implements `TermTranslationRepositoryInterface` with
+  `find()`, `save()`, `delete()`, `findAllForTerm()`.
+- Admin: `TermTranslationHooks` adds name/slug/description fields to every taxonomy's
+  edit-term and add-term screens; nonce-protected, sanitized on save.
+- Frontend: `TermTranslationHooks` filters `get_term` and `get_terms` to overlay
+  translated name/slug/description for the active language.
 
-### 18. Translation Editor — segment-level TM matches
-Show fuzzy-match percentage from TM for each segment, similar to professional CAT tools.
+### G3. URL Slug Translation in Translation Editor ✅
+- Translation Editor `maybeSave()` reads `te_post_slug` from POST and saves it as
+  `post_name` on the translated post via `wp_update_post()`.
+- A new "URL Slug" field is rendered between Title and Content in the editor UI,
+  showing the source slug and an editable target slug.
 
-### 19. REST API / Headless support
-Expose translated post content and string translations through the WP REST API so
-headless/Gutenberg-as-frontend builds can consume them.
+### G4. Multilingual Sitemaps (WP Core) ✅
+- `MultilingualSitemapHooks` extends the native WordPress XML sitemap (WP 5.5+).
+- Filters `wp_sitemaps_posts_entry` to annotate each source-post entry with
+  `idiomatticwp_alternates` (hreflang + href pairs for all translations).
+- Filters `wp_sitemaps_posts_query_args` to exclude translated posts from the sitemap
+  (they appear as alternates of their source posts, not as standalone entries).
+- Skips automatically when Yoast, Rank Math, or AIOSEO is active (those plugins
+  handle sitemaps themselves; their integrations already add hreflang alternates).
 
-### 20. WPML migration — automated import
-`WpmlDetector` detects WPML data but migration is manual. A one-click import wizard
-would be a strong selling point for users switching from WPML.
+### G5. Menu Translation Per Language ✅
+- Admin: Menus settings tab extended with a full location × language matrix.
+  For each registered theme location, admins pick a different menu per non-default language.
+- Stored in `idiomatticwp_nav_menus` option as `[location => [lang => menu_id]]`.
+- Frontend: `MenuTranslationHooks` filters `wp_nav_menu_args` (priority 5) to swap the
+  `menu` argument before rendering, clearing `theme_location` so WP uses the override.
 
-### 21. Polylang migration wizard
-Similar to the WPML migration but for Polylang, which stores language assignments
-as taxonomy terms (`language` taxonomy).
+### G6. Attachment / Media Metadata Translation ✅
+- Admin: `AttachmentTranslationHooks` adds per-language alt text, title, and caption
+  fields to the WordPress media attachment edit screen.
+- Data stored in `idiomatticwp_strings` table (domain `idiomatticwp_attachment`,
+  context `field:attachment_id`).
+- Frontend: `AttachmentTranslationHooks` filters `get_post_metadata` for
+  `_wp_attachment_image_alt` and `wp_get_attachment_image_attributes` to return
+  the translated alt text for the active language.
 
-### 22. "Translate on publish" option
-Per post-type setting: automatically queue AI translation whenever a post is published
-or updated, without requiring a manual trigger.
+### G7. Login Page Translation ✅
+- `LoginPageTranslationHooks` (loaded in `$coreHooks`) filters `locale` when
+  `wp-login.php` is detected; respects `?lang=` query param and visitor cookie.
+- Renders a language-switcher strip below the login form with links per active language.
 
-### 23. Compatibility report — auto-fix suggestions
-The Compatibility page scans for untranslatable fields. Add a one-click "Apply fix"
-button that generates and activates a `wpml-config.xml` override for the detected issues.
+### G8. Email Locale Switching ✅
+- `EmailLocaleHooks` (in `$translationHooks`) hooks `wp_mail` at priority 1.
+- Looks up the recipient user by email, reads their `idiomatticwp_preferred_lang`
+  meta (falling back to WP user locale meta), maps it to a WP locale, and adds a
+  high-priority `locale` filter so the email content is generated in that locale.
 
-### 24. Front-end language switcher — more display modes
-Current switcher renders a simple list. Add: dropdown, flags-only, flags + name,
-and a floating sticky widget option (configurable in Customizer).
+### G9. Translator User Roles ✅
+- `TranslationRoles::register()` creates:
+  - `idiomatticwp_translator` — read + edit assigned posts, custom cap `idiomatticwp_translate`
+  - `idiomatticwp_translation_manager` — edit others' posts, custom cap `idiomatticwp_manage_translations`
+- Called from `Installer::activate()`.
+- `TranslatorAccessHooks` grants `edit_post` capability for posts assigned via
+  `_idiomatticwp_assigned_translator` post meta; restricts post list to own assignments.
+- `AssignTranslatorAjax` + metabox dropdown lets managers assign translators to
+  individual translated posts.
 
-### 25. RTL language support
-Layouts, admin pages, and the language switcher are not tested with RTL languages
-(Arabic, Hebrew, Persian). Add RTL stylesheet overrides and swap directionality when
-the active language is RTL.
+### G10. WooCommerce Multi-Currency ✅
+- `MultiCurrency` class registered inside `WooCommerceIntegration`.
+- Filters: `woocommerce_currency`, `woocommerce_currency_symbol`,
+  `woocommerce_product_get_price` (and all price variants), and
+  `woocommerce_checkout_create_order` to persist currency on orders.
+- Per-language `[code, symbol, rate]` stored in `idiomatticwp_wc_currencies` option.
+- Settings UI added to Translation tab (shown only when WooCommerce is active).
+- Exchange rate applied via `round(price × rate, wc_get_price_decimals())`.
+
+### G11. Field Synchronization Between Translations ✅
+- `FieldSyncHooks` hooks `updated_post_meta` / `added_post_meta`.
+- When a field registered with `'sync' => true` in `CustomElementRegistry` is updated
+  on any language version, the value is propagated to all sibling translations
+  (source → all targets, or translated → source + other targets).
+- Guard flag `IDIOMATTICWP_SYNCING_META` prevents infinite loops.
+
+### G12. Taxonomy Base Slug Translation (WooCommerce) ✅
+- `TaxonomyPermalinkHooks` filters `woocommerce_product_rewrite_slug`,
+  `woocommerce_product_category_rewrite_slug`, `woocommerce_product_tag_rewrite_slug`.
+- Per-language slug overrides stored in `idiomatticwp_taxonomy_slugs` option.
+- Settings UI added to URL tab when WooCommerce is active.
+
+### G13. REST API Multilingual Endpoints ✅
+- `GET /wp-json/idiomatticwp/v1/languages` — active languages with metadata.
+- `GET /wp-json/idiomatticwp/v1/translations/{post_id}` — all translations for a post.
+- `register_rest_field()` adds `idiomatticwp_lang` and `idiomatticwp_translations` to
+  all post-type REST responses.
+- `lang` query parameter on standard WP REST endpoints filters posts to a single language.
+
+---
+
+## 🟢 Nice-to-have — Completed
+
+### 15. String Translation — AI auto-translate per cell ✅
+- Small "AI" icon button added next to every translation textarea in `StringTranslationPage`.
+- On click, dispatches to `TranslateSingleStringAjax` and updates the textarea in place.
+- Loading state prevents double-clicks; errors shown inline.
+
+### 16. String Translation — filter by status ✅
+- "Status" dropdown (All / Pending / Translated) added to the String Translation filter bar.
+- `StringRepository::getStringsMultiLang()` and `countDistinctStrings()` accept a `$statusFilter`
+  parameter; `StringTranslationPage` passes `$_GET['str_status']` through after allow-listing.
+
+### 17. Translation Editor — side-by-side diff for outdated translations ✅
+- When a translation has `status = outdated`, a collapsible diff panel is rendered above the
+  editor fields showing per-field word-level diffs (added/removed spans).
+- Powered by a lightweight PHP diff implementation in `TranslationEditor::computeWordDiff()`.
+
+### 18. Translation Editor — segment-level TM matches ✅
+- `TranslationEditor` splits post content into plain-text paragraphs and runs each through
+  `TranslationMemory::findBestMatch()`.
+- Match badges (exact / fuzzy %) appear next to each segment with a one-click "Apply" button.
+- An "AI translate by segment" button runs the AI only on the unmatched paragraphs.
+
+### 19. REST API / Headless support ✅
+- `GET /wp-json/idiomatticwp/v1/languages` — active languages list with metadata.
+- `GET /wp-json/idiomatticwp/v1/translations/{post_id}` — all translations for a post.
+- `register_rest_field()` injects `idiomatticwp_lang` and `idiomatticwp_translations` into
+  all post-type REST responses; `lang` query param filters posts by language.
+
+### 20. WPML migration — automated import ✅
+- `WpmlMigrationPage` runs an AJAX-batch wizard that reads WPML's `icl_translations` /
+  `icl_string_translations` tables and creates Idiomattic translation records in batches
+  of 50 to avoid PHP timeouts. Progress bar shown in the UI.
+
+### 21. Polylang migration wizard ✅
+- Same `WpmlMigrationPage` hosts a second wizard tab for Polylang.
+- Reads the `pll_term_relationships` / `pll_translations` taxonomy data and creates
+  Idiomattic records via `PolylangMigrator::migrateBatch()`.
+
+### 22. "Translate on publish" option ✅
+- Per post-type toggle in Settings → Content tab.
+- `TranslateOnPublishHooks` fires on `publish_post` / `post_updated` and queues AI
+  translation for all active non-default languages via `TranslationQueue`.
+
+### 23. Compatibility report — auto-fix suggestions ✅
+- "Apply fix" button added to each WPML-config entry in `CompatibilityPage`.
+- Writes/merges an `idiomattic-elements.json` override into the plugin/theme directory.
+- Bulk "Apply all fixes" button at the top of the page applies to all detected items at once.
+
+### 24. Front-end language switcher — more display modes ✅
+- `LanguageSwitcher` supports: `list` (default), `dropdown` (native `<select>`),
+  `nav-dropdown` (CSS hover), `flags-only`, and `floating` (sticky bottom-right widget).
+- All modes configurable via widget settings, shortcode attribute, or block attribute.
+
+### 25. RTL language support ✅
+- `FrontendAssetHooks` injects inline RTL overrides (`direction: rtl`) when the current
+  language is right-to-left.
+- Admin bar language bar also switches direction for RTL languages.
+
+---
+
+## 🟢 Additional Features — Completed
+
+### 26. Multilingual search results ✅
+- `SearchFilterHooks` hooks `pre_get_posts` on frontend main-query search requests.
+- Default language: all translated posts (stored copies of originals) are excluded from
+  search results so only source posts appear.
+- Non-default language X: source posts that already have a translation for X are excluded;
+  their translated copies appear naturally via WP full-text search.
+- Result is cached per-request in WP object cache to avoid repeated DB reads.
 
 ---
 

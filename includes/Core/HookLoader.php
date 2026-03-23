@@ -25,8 +25,9 @@ class HookLoader {
 
 		// ── Always load (every request) ───────────────────────────────────────
 		$coreHooks = [
-			\IdiomatticWP\Hooks\LanguageHooks::class,   // detect + set language
-			\IdiomatticWP\Hooks\RoutingHooks::class,    // rewrite all permalink filters
+			\IdiomatticWP\Hooks\LanguageHooks::class,                          // detect + set language
+			\IdiomatticWP\Hooks\RoutingHooks::class,                           // rewrite all permalink filters
+			\IdiomatticWP\Hooks\Frontend\LoginPageTranslationHooks::class,     // locale switch on wp-login.php
 		];
 
 		// ── Admin only ────────────────────────────────────────────────────────
@@ -46,6 +47,9 @@ class HookLoader {
 				\IdiomatticWP\Hooks\Admin\LanguageActivationHooks::class,
 				\IdiomatticWP\Hooks\Admin\AdminLanguagePreferenceHooks::class,
 				\IdiomatticWP\Admin\Pages\WpmlMigrationPage::class,
+				\IdiomatticWP\Hooks\Admin\TermTranslationHooks::class,
+				\IdiomatticWP\Hooks\Admin\AttachmentTranslationHooks::class,
+				\IdiomatticWP\Hooks\Admin\TranslatorAccessHooks::class,
 			];
 		}
 
@@ -53,15 +57,22 @@ class HookLoader {
 		$frontendHooks = [];
 		if ( ! is_admin() ) {
 			$frontendHooks = [
+				\IdiomatticWP\Hooks\Frontend\BrowserLanguageRedirectHooks::class, // browser lang detect + redirect
 				\IdiomatticWP\Hooks\Frontend\CanonicalHooks::class,         // canonical URL lang-aware
 				\IdiomatticWP\Hooks\Frontend\HreflangHooks::class,          // <link rel="alternate">
 				\IdiomatticWP\Hooks\Frontend\SwitcherHooks::class,          // widget + shortcode
 				\IdiomatticWP\Hooks\Frontend\FrontendAssetHooks::class,     // CSS + RTL + lang attr
+				\IdiomatticWP\Hooks\Frontend\MenuTranslationHooks::class,   // swap menus per language (priority 5, before NavMenuHooks)
 				\IdiomatticWP\Hooks\Frontend\NavMenuHooks::class,           // nav menus localized
 				\IdiomatticWP\Hooks\Frontend\ThemeOptionsHooks::class,      // options + widgets translated
 				\IdiomatticWP\Hooks\Frontend\ContentVisibilityHooks::class,    // hide translations of non-translatable types
 				\IdiomatticWP\Hooks\Frontend\NavMenuSwitcherHooks::class,       // inject language items into nav menus
 				\IdiomatticWP\Hooks\Frontend\PostTranslationsDisplayHooks::class, // "Also available in:" content notice
+				\IdiomatticWP\Hooks\Frontend\TermTranslationHooks::class,          // taxonomy term name/slug/description
+				\IdiomatticWP\Hooks\Frontend\AttachmentTranslationHooks::class,    // attachment alt/title/caption translation
+				\IdiomatticWP\Hooks\Frontend\MultilingualSitemapHooks::class,      // WP core sitemap multilingual
+			\IdiomatticWP\Hooks\Frontend\TaxonomyPermalinkHooks::class,        // WooCommerce base slug translation
+			\IdiomatticWP\Hooks\Frontend\SearchFilterHooks::class,             // search results filtered by language
 			];
 		}
 
@@ -70,10 +81,12 @@ class HookLoader {
 			\IdiomatticWP\Hooks\Translation\StringTranslationHooks::class,
 			\IdiomatticWP\Hooks\Translation\PostTranslationHooks::class,
 			\IdiomatticWP\Hooks\Translation\FieldTranslationHooks::class,
+			\IdiomatticWP\Hooks\Translation\FieldSyncHooks::class,             // field sync across language variants
 			\IdiomatticWP\Hooks\Translation\NotificationHooks::class,
 			\IdiomatticWP\Hooks\Translation\WebhookHooks::class,
 			\IdiomatticWP\Hooks\Translation\TranslationMemoryHooks::class,
 			\IdiomatticWP\Hooks\Translation\TranslateOnPublishHooks::class,
+			\IdiomatticWP\Hooks\Translation\EmailLocaleHooks::class,           // email locale per-recipient
 		];
 
 		// ── Queue hooks ───────────────────────────────────────────────────────

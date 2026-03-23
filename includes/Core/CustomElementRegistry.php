@@ -219,6 +219,25 @@ class CustomElementRegistry
         return apply_filters('idiomatticwp_fields_for_post_type', $found, $postType);
     }
 
+    /**
+     * Get post meta fields registered for a given post type (or '*' for global).
+     *
+     * Accepts '*' to return only fields registered against all post types.
+     * For any other slug it delegates to getFieldsForPostType().
+     *
+     * @return array<string, array>
+     */
+    public function getPostFields(string $postType): array
+    {
+        if ($postType === '*') {
+            return array_filter($this->elements, function ($el) {
+                return $el['type'] === 'post_meta' && in_array('*', $el['post_types'], true);
+            });
+        }
+
+        return $this->getFieldsForPostType($postType);
+    }
+
     public function getBlocks(): array
     {
         return array_filter($this->elements, fn($el) => $el['type'] === 'block_attribute');

@@ -87,6 +87,7 @@ class TranslationEditor {
 			: wp_kses_post( $rawContent );
 		$excerpt = sanitize_textarea_field( wp_unslash( $_POST['te_post_excerpt'] ?? '' ) );
 		$status  = sanitize_key( $_POST['te_post_status'] ?? $translated->post_status );
+		$slug    = sanitize_title( wp_unslash( $_POST['te_post_slug'] ?? '' ) );
 
 		if ( ! in_array( $status, [ 'draft', 'publish', 'pending' ], true ) ) {
 			$status = $translated->post_status;
@@ -95,13 +96,18 @@ class TranslationEditor {
 		// Suppress mark-as-outdated for this programmatic update
 		add_filter( 'idiomatticwp_skip_outdated_on_update', '__return_true' );
 
-		wp_update_post( [
+		$updateData = [
 			'ID'           => $translated->ID,
 			'post_title'   => $title,
 			'post_content' => $content,
 			'post_excerpt' => $excerpt,
 			'post_status'  => $status,
-		] );
+		];
+		if ( $slug !== '' ) {
+			$updateData['post_name'] = $slug;
+		}
+
+		wp_update_post( $updateData );
 
 		remove_filter( 'idiomatticwp_skip_outdated_on_update', '__return_true' );
 
@@ -349,7 +355,17 @@ class TranslationEditor {
 					$tmTitle
 				); ?>
 
-				<!-- ── Core: Content ────────────────────────────────────── -->
+				<!-- ── Core: Slug ──────────────────────────────────────── -->
+				<?php $this->renderCoreField(
+					__( 'URL Slug', 'idiomattic-wp' ),
+					'slug',
+					$source->post_name,
+					$translated->post_name !== $source->post_name ? $translated->post_name : '',
+					$source->post_name,
+					'input'
+				); ?>
+
+			<!-- ── Core: Content ────────────────────────────────────── -->
 				<div class="idiomatticwp-te-field-group">
 					<div class="idiomatticwp-te-field-label">
 						<span><?php esc_html_e( 'Content', 'idiomattic-wp' ); ?></span>

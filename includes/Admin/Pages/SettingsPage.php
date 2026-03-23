@@ -460,6 +460,82 @@ class SettingsPage {
 			esc_html_e( 'Upgrade to Pro to unlock Subdomain mode →', 'idiomattic-wp' );
 			echo '</a></p>';
 		}
+
+		// ── WooCommerce taxonomy base slug translation ────────────────────
+		if ( class_exists( 'WooCommerce' ) ) {
+			$this->renderTaxonomySlugsSection();
+		}
+	}
+
+	/**
+	 * Render the WooCommerce taxonomy base-slug translation section inside the URL tab.
+	 *
+	 * Admins can enter translated versions of the product, product-category and
+	 * product-tag base slugs per active non-default language.
+	 */
+	private function renderTaxonomySlugsSection(): void {
+		$activeLangs = $this->languageManager->getActiveLanguages();
+		$defaultLang = (string) $this->languageManager->getDefaultLanguage();
+		$allLangs    = $this->languageManager->getAllSupportedLanguages();
+		$saved       = get_option( 'idiomatticwp_taxonomy_slugs', [] );
+		if ( ! is_array( $saved ) ) {
+			$saved = [];
+		}
+
+		// Only show for non-default active languages.
+		$targetLangs = array_filter(
+			array_map( 'strval', $activeLangs ),
+			fn( $code ) => $code !== $defaultLang
+		);
+
+		if ( empty( $targetLangs ) ) {
+			return;
+		}
+
+		$slugKeys = [
+			'product_slug'          => __( 'Product base slug', 'idiomattic-wp' ),
+			'product_category_slug' => __( 'Product category base slug', 'idiomattic-wp' ),
+			'product_tag_slug'      => __( 'Product tag base slug', 'idiomattic-wp' ),
+		];
+		?>
+		<hr style="margin: 28px 0;">
+		<h3><?php esc_html_e( 'WooCommerce Archive Base Slugs', 'idiomattic-wp' ); ?></h3>
+		<p class="description"><?php esc_html_e( 'Translate the WooCommerce archive base slugs for each non-default language. Leave blank to keep the default English slug.', 'idiomattic-wp' ); ?></p>
+
+		<table class="form-table" role="presentation" style="margin-top:12px;">
+			<thead>
+				<tr>
+					<th><?php esc_html_e( 'Language', 'idiomattic-wp' ); ?></th>
+					<?php foreach ( $slugKeys as $key => $label ) : ?>
+						<th><?php echo esc_html( $label ); ?></th>
+					<?php endforeach; ?>
+				</tr>
+			</thead>
+			<tbody>
+				<?php foreach ( $targetLangs as $code ) :
+					$langData = $allLangs[ $code ] ?? null;
+					$langName = $langData ? $langData['native_name'] . ' (' . $langData['name'] . ')' : $code;
+					?>
+					<tr>
+						<th scope="row"><?php echo esc_html( $langName ); ?></th>
+						<?php foreach ( $slugKeys as $key => $label ) :
+							$currentVal = $saved[ $code ][ $key ] ?? '';
+							?>
+							<td>
+								<input
+									type="text"
+									name="idiomatticwp_taxonomy_slugs[<?php echo esc_attr( $code ); ?>][<?php echo esc_attr( $key ); ?>]"
+									value="<?php echo esc_attr( $currentVal ); ?>"
+									class="regular-text"
+									placeholder="<?php esc_attr_e( 'e.g. producto', 'idiomattic-wp' ); ?>"
+								>
+							</td>
+						<?php endforeach; ?>
+					</tr>
+				<?php endforeach; ?>
+			</tbody>
+		</table>
+		<?php
 	}
 
 	// ── Tab: Translation ──────────────────────────────────────────────────
@@ -601,6 +677,70 @@ class SettingsPage {
 		echo '</td></tr>';
 
 		echo '</tbody></table>';
+
+		// ── WooCommerce Multi-Currency ─────────────────────────────────────
+		if ( class_exists( 'WooCommerce' ) ) {
+			$this->renderWcCurrenciesSection();
+		}
+	}
+
+	/**
+	 * Render the per-language currency configuration table inside the
+	 * Translation tab when WooCommerce is active.
+	 */
+	private function renderWcCurrenciesSection(): void {
+		$defaultLang  = (string) $this->languageManager->getDefaultLanguage();
+		$activeLangs  = array_map( 'strval', $this->languageManager->getActiveLanguages() );
+		$nonDefault   = array_values( array_filter( $activeLangs, fn( $l ) => $l !== $defaultLang ) );
+		$savedConfig  = (array) get_option( 'idiomatticwp_wc_currencies', [] );
+
+		if ( empty( $nonDefault ) ) {
+			return;
+		}
+
+		echo '<h3 style="margin-top:32px;">' . esc_html__( 'WooCommerce Multi-Currency', 'idiomattic-wp' ) . '</h3>';
+		echo '<p class="description">' . esc_html__( 'Set a currency code, symbol, and exchange rate for each non-default language. Prices are multiplied by the exchange rate when that language is active. Leave blank to use the store\'s default currency.', 'idiomattic-wp' ) . '</p>';
+
+		echo '<table class="widefat striped" style="max-width:680px;margin-top:12px;">';
+		echo '<thead><tr>';
+		echo '<th>' . esc_html__( 'Language', 'idiomattic-wp' ) . '</th>';
+		echo '<th>' . esc_html__( 'Currency Code', 'idiomattic-wp' ) . '</th>';
+		echo '<th>' . esc_html__( 'Currency Symbol', 'idiomattic-wp' ) . '</th>';
+		echo '<th>' . esc_html__( 'Exchange Rate', 'idiomattic-wp' ) . '</th>';
+		echo '</tr></thead>';
+		echo '<tbody>';
+
+		foreach ( $nonDefault as $langCode ) {
+			$cfg    = $savedConfig[ $langCode ] ?? [ 'code' => '', 'symbol' => '', 'rate' => '' ];
+			$code   = esc_attr( (string) ( $cfg['code']   ?? '' ) );
+			$symbol = esc_attr( (string) ( $cfg['symbol'] ?? '' ) );
+			$rate   = esc_attr( (string) ( $cfg['rate']   ?? '' ) );
+
+			printf(
+				'<tr>
+					<td><strong>%s</strong></td>
+					<td><input type="text" name="idiomatticwp_wc_currencies[%s][code]"
+					           value="%s" placeholder="EUR" maxlength="3"
+					           class="small-text" style="width:60px;text-transform:uppercase;"></td>
+					<td><input type="text" name="idiomatticwp_wc_currencies[%s][symbol]"
+					           value="%s" placeholder="€"
+					           class="small-text" style="width:50px;"></td>
+					<td><input type="number" name="idiomatticwp_wc_currencies[%s][rate]"
+					           value="%s" placeholder="1.00" step="0.0001" min="0.0001"
+					           class="small-text" style="width:80px;"></td>
+				</tr>',
+				esc_html( $langCode ),
+				esc_attr( $langCode ),
+				$code,
+				esc_attr( $langCode ),
+				$symbol,
+				esc_attr( $langCode ),
+				$rate
+			);
+		}
+
+		echo '</tbody></table>';
+		echo '<p class="description" style="margin-top:8px;">' . esc_html__( 'Example: for French (fr) set EUR / € / 1.08 to show prices in Euro at a 1.08 exchange rate.', 'idiomattic-wp' ) . '</p>';
 	}
 
 	private function maybeHandleProviderSave(): void {
@@ -1079,8 +1219,9 @@ class SettingsPage {
 	// ── Tab: Menus ────────────────────────────────────────────────────────
 
 	private function renderMenusTab(): void {
-		$activeLangs = $this->languageManager->getActiveLanguages();
-		$navMenus    = wp_get_nav_menus();
+		$activeLangs       = $this->languageManager->getActiveLanguages();
+		$navMenus          = wp_get_nav_menus();
+		$registeredLocations = get_registered_nav_menus();
 
 		if ( empty( $activeLangs ) ) {
 			echo '<div class="notice notice-warning inline"><p>'
@@ -1102,46 +1243,115 @@ class SettingsPage {
 		$savedMenus  = (array) get_option( 'idiomatticwp_nav_menus', [] );
 		$defaultLang = (string) $this->languageManager->getDefaultLanguage();
 		$allLangs    = $this->languageManager->getAllSupportedLanguages();
+
+		// Non-default active languages — these get per-location selects.
+		$translatableLangs = array_filter(
+			array_map( 'strval', $activeLangs ),
+			fn( $code ) => $code !== $defaultLang
+		);
+
+		// Determine the default language's currently assigned menu per location.
+		// We read from the WordPress theme-location→menu mapping (nav_menu_locations option).
+		$themeLocAssignments = (array) get_nav_menu_locations();
 		?>
-		<div class="iwp-card" style="max-width:640px;">
-			<table class="iwp-menus-table">
-				<tbody>
-				<?php foreach ( $activeLangs as $lang ) :
-					$code        = (string) $lang;
-					$langData    = $allLangs[ $code ] ?? [];
-					$savedMenuId = (int) ( $savedMenus[ $code ] ?? 0 );
-					$flagUrl     = $this->getFlagUrl( $code, $langData['flag'] ?? '' );
-					$isDefault   = $code === $defaultLang;
-				?>
-					<tr>
-						<td style="width:220px;">
-							<div class="iwp-menus-lang-cell">
-								<?php if ( $flagUrl ) : ?>
-									<img src="<?php echo esc_url( $flagUrl ); ?>" alt="" class="iwp-menus-flag">
+
+		<?php if ( empty( $registeredLocations ) ) : ?>
+			<div class="notice notice-warning inline"><p>
+				<?php printf(
+					esc_html__( 'No theme menu locations found. Your theme must call %s to register locations.', 'idiomattic-wp' ),
+					'<code>register_nav_menus()</code>'
+				); ?>
+			</p></div>
+		<?php else : ?>
+
+		<div class="iwp-card iwp-tab-section">
+			<h3 class="iwp-tab-section__title"><?php esc_html_e( 'Per-Language Menus', 'idiomattic-wp' ); ?></h3>
+			<p class="iwp-tab-section__desc">
+				<?php esc_html_e( 'Assign a different navigation menu for each language and theme location. Leave a cell as "— same as default —" to use the menu already assigned to that location in Appearance → Menus.', 'idiomattic-wp' ); ?>
+			</p>
+
+			<div style="overflow-x:auto;">
+				<table class="widefat iwp-menus-location-table" style="min-width:520px;">
+					<thead>
+						<tr>
+							<th style="width:200px;"><?php esc_html_e( 'Theme Location', 'idiomattic-wp' ); ?></th>
+							<?php
+							// Default language column header
+							$defaultLangData = $allLangs[ $defaultLang ] ?? [];
+							$defaultFlagUrl  = $this->getFlagUrl( $defaultLang, $defaultLangData['flag'] ?? '' );
+							?>
+							<th>
+								<div class="iwp-menus-lang-cell">
+									<?php if ( $defaultFlagUrl ) : ?>
+										<img src="<?php echo esc_url( $defaultFlagUrl ); ?>" alt="" class="iwp-menus-flag">
+									<?php else : ?>
+										<span class="iwp-flag-fallback" style="width:22px;height:16px;"><?php echo esc_html( strtoupper( substr( $defaultLang, 0, 2 ) ) ); ?></span>
+									<?php endif; ?>
+									<?php echo esc_html( $defaultLangData['native_name'] ?? $defaultLang ); ?>
+									<span class="idiomatticwp-status-badge idiomatticwp-status-badge--draft" style="font-size:10px;vertical-align:middle;"><?php esc_html_e( 'default', 'idiomattic-wp' ); ?></span>
+								</div>
+							</th>
+							<?php foreach ( $translatableLangs as $code ) :
+								$langData = $allLangs[ $code ] ?? [];
+								$flagUrl  = $this->getFlagUrl( $code, $langData['flag'] ?? '' );
+							?>
+							<th>
+								<div class="iwp-menus-lang-cell">
+									<?php if ( $flagUrl ) : ?>
+										<img src="<?php echo esc_url( $flagUrl ); ?>" alt="" class="iwp-menus-flag">
+									<?php else : ?>
+										<span class="iwp-flag-fallback" style="width:22px;height:16px;"><?php echo esc_html( strtoupper( substr( $code, 0, 2 ) ) ); ?></span>
+									<?php endif; ?>
+									<?php echo esc_html( $langData['native_name'] ?? $code ); ?>
+								</div>
+							</th>
+							<?php endforeach; ?>
+						</tr>
+					</thead>
+					<tbody>
+					<?php foreach ( $registeredLocations as $locationSlug => $locationLabel ) :
+						// Resolve the default-language menu name for this location.
+						$defaultMenuId   = (int) ( $themeLocAssignments[ $locationSlug ] ?? 0 );
+						$defaultMenuName = '';
+						if ( $defaultMenuId > 0 ) {
+							$defaultMenuTerm = get_term( $defaultMenuId, 'nav_menu' );
+							if ( $defaultMenuTerm instanceof \WP_Term ) {
+								$defaultMenuName = $defaultMenuTerm->name;
+							}
+						}
+					?>
+						<tr>
+							<td><strong><?php echo esc_html( $locationLabel ); ?></strong><br><code style="font-size:11px;color:#666;"><?php echo esc_html( $locationSlug ); ?></code></td>
+							<td>
+								<?php if ( $defaultMenuName ) : ?>
+									<span style="color:#555;"><?php echo esc_html( $defaultMenuName ); ?></span>
 								<?php else : ?>
-									<span class="iwp-flag-fallback" style="width:22px;height:16px;"><?php echo esc_html( strtoupper( substr( $code, 0, 2 ) ) ); ?></span>
+									<span style="color:#999;font-style:italic;"><?php esc_html_e( '— not assigned —', 'idiomattic-wp' ); ?></span>
 								<?php endif; ?>
-								<strong><?php echo esc_html( $langData['native_name'] ?? $code ); ?></strong>
-								<?php if ( $isDefault ) : ?>
-									<span class="idiomatticwp-status-badge idiomatticwp-status-badge--draft" style="font-size:10px;"><?php esc_html_e( 'default', 'idiomattic-wp' ); ?></span>
-								<?php endif; ?>
-							</div>
-						</td>
-						<td>
-							<select name="idiomatticwp_nav_menus[<?php echo esc_attr( $code ); ?>]" class="iwp-select">
-								<option value="0"><?php esc_html_e( '— Not assigned —', 'idiomattic-wp' ); ?></option>
-								<?php foreach ( $navMenus as $menu ) : ?>
-									<option value="<?php echo (int) $menu->term_id; ?>" <?php selected( $savedMenuId, $menu->term_id ); ?>>
-										<?php echo esc_html( $menu->name ); ?>
-									</option>
-								<?php endforeach; ?>
-							</select>
-						</td>
-					</tr>
-				<?php endforeach; ?>
-				</tbody>
-			</table>
+							</td>
+							<?php foreach ( $translatableLangs as $code ) :
+								$savedMenuId = (int) ( $savedMenus[ $locationSlug ][ $code ] ?? 0 );
+							?>
+							<td>
+								<select name="idiomatticwp_nav_menus[<?php echo esc_attr( $locationSlug ); ?>][<?php echo esc_attr( $code ); ?>]" class="iwp-select">
+									<option value="0"><?php esc_html_e( '— same as default —', 'idiomattic-wp' ); ?></option>
+									<?php foreach ( $navMenus as $menu ) : ?>
+										<option value="<?php echo (int) $menu->term_id; ?>" <?php selected( $savedMenuId, $menu->term_id ); ?>>
+											<?php echo esc_html( $menu->name ); ?>
+										</option>
+									<?php endforeach; ?>
+								</select>
+							</td>
+							<?php endforeach; ?>
+						</tr>
+					<?php endforeach; ?>
+					</tbody>
+				</table>
+			</div>
 		</div>
+
+		<?php endif; ?>
+
 		<p class="description" style="margin-top:12px;">
 			<?php printf(
 				esc_html__( 'To create or edit navigation menus visit %s.', 'idiomattic-wp' ),
@@ -1154,8 +1364,9 @@ class SettingsPage {
 	// ── Tab: Advanced ─────────────────────────────────────────────────────
 
 	private function renderAdvancedTab(): void {
-		$retention    = get_option( 'idiomatticwp_uninstall_retention', '1' );
-		$cacheEnabled = get_option( 'idiomatticwp_cache_lang_detect', '1' );
+		$retention           = get_option( 'idiomatticwp_uninstall_retention', '1' );
+		$cacheEnabled        = get_option( 'idiomatticwp_cache_lang_detect', '1' );
+		$browserLangDetect   = get_option( 'idiomatticwp_browser_lang_detect', '1' );
 		$activeLangs  = array_map( 'strval', $this->languageManager->getActiveLanguages() );
 		$defaultLang  = (string) $this->languageManager->getDefaultLanguage();
 		?>
@@ -1178,6 +1389,13 @@ class SettingsPage {
 						<strong><?php esc_html_e( 'Language detection cache', 'idiomattic-wp' ); ?></strong>
 					</label>
 					<p class="iwp-check-hint"><?php esc_html_e( 'Cache language detection results for improved performance.', 'idiomattic-wp' ); ?></p>
+				</div>
+				<div class="iwp-check-field">
+					<label class="iwp-check-label">
+						<input type="checkbox" name="idiomatticwp_browser_lang_detect" value="1" <?php checked( $browserLangDetect, '1' ); ?>>
+						<strong><?php esc_html_e( 'Browser language auto-redirect', 'idiomattic-wp' ); ?></strong>
+					</label>
+					<p class="iwp-check-hint"><?php esc_html_e( 'Automatically detect visitor language from browser settings and redirect to the matching language.', 'idiomattic-wp' ); ?></p>
 				</div>
 			</div>
 		</div>

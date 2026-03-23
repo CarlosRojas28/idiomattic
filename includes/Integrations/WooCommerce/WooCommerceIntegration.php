@@ -39,10 +39,14 @@ class WooCommerceIntegration implements IntegrationInterface
      */
     private ?\WC_Order $currentEmailOrder = null;
 
+    private MultiCurrency $multiCurrency;
+
     public function __construct(
         private LanguageManager $languageManager,
         private CustomElementRegistry $registry
-    ) {}
+    ) {
+        $this->multiCurrency = new MultiCurrency( $this->languageManager );
+    }
 
     // ── IntegrationInterface ───────────────────────────────────────────────
 
@@ -53,6 +57,9 @@ class WooCommerceIntegration implements IntegrationInterface
 
     public function register(): void
     {
+        // ── Multi-currency ────────────────────────────────────────────────
+        $this->multiCurrency->register();
+
         // ── Order language ────────────────────────────────────────────────
         add_action('woocommerce_checkout_order_created', [$this, 'saveOrderLanguage']);
 
