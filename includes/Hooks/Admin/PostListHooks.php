@@ -16,18 +16,16 @@ use IdiomatticWP\Contracts\HookRegistrarInterface;
 use IdiomatticWP\Contracts\TranslationRepositoryInterface;
 use IdiomatticWP\Core\CustomElementRegistry;
 use IdiomatticWP\Core\LanguageManager;
-use IdiomatticWP\Queue\TranslationQueue;
-use IdiomatticWP\Translation\CreateTranslation;
+use IdiomatticWP\Queue\BulkTranslationBatch;
 use IdiomatticWP\ValueObjects\LanguageCode;
 
 class PostListHooks implements HookRegistrarInterface {
 
 	public function __construct(
-		private LanguageManager $languageManager,
+		private LanguageManager                $languageManager,
 		private TranslationRepositoryInterface $repository,
-		private CustomElementRegistry $registry,
-		private CreateTranslation $createTranslation,
-		private TranslationQueue $queue,
+		private CustomElementRegistry          $registry,
+		private BulkTranslationBatch           $bulkBatch,
 	) {}
 
 	// ── HookRegistrarInterface ────────────────────────────────────────────
@@ -187,29 +185,28 @@ class PostListHooks implements HookRegistrarInterface {
 			fn( $l ) => (string) $l !== $defaultLang
 		);
 
-		$queued = 0;
+		$jobs = [];
 
 		foreach ( $postIds as $rawId ) {
 			$postId = (int) $rawId;
 			foreach ( $targetLangs as $lang ) {
-				$langCode = LanguageCode::from( (string) $lang );
+				try {
+					$langCode = LanguageCode::from( (string) $lang );
+				} catch ( \Throwable ) {
+					continue;
+				}
 				if ( $this->repository->existsForSourceAndLang( $postId, $langCode ) ) {
 					continue;
 				}
-				try {
-					$result = ( $this->createTranslation )( $postId, $langCode );
-					$this->queue->dispatch(
-						(int) $result['translation_id'],
-						$postId,
-						$defaultLang,
-						(string) $lang
-					);
-					$queued++;
-				} catch ( \Throwable ) {
-					// Continue with remaining posts/languages.
-				}
+				$jobs[] = [
+					'post_id'     => $postId,
+					'source_lang' => $defaultLang,
+					'target_lang' => (string) $lang,
+				];
 			}
 		}
+
+		$queued = $this->bulkBatch->enqueue( $jobs );
 
 		return add_query_arg( 'iwp_bulk_queued', $queued, $sendback );
 	}

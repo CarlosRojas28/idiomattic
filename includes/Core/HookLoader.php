@@ -92,6 +92,7 @@ class HookLoader {
 		// ── Queue hooks ───────────────────────────────────────────────────────
 		$queueHooks = [
 			\IdiomatticWP\Hooks\Queue\QueueHooks::class,
+			\IdiomatticWP\Hooks\Queue\BulkBatchHooks::class,    // WP-Cron batch processor + AJAX status
 		];
 
 		$all = array_merge( $coreHooks, $adminHooks, $frontendHooks, $translationHooks, $queueHooks );

@@ -25,20 +25,18 @@ use IdiomatticWP\Contracts\TranslationRepositoryInterface;
 use IdiomatticWP\Core\CustomElementRegistry;
 use IdiomatticWP\Core\LanguageManager;
 use IdiomatticWP\License\LicenseChecker;
-use IdiomatticWP\Queue\TranslationQueue;
-use IdiomatticWP\Translation\CreateTranslation;
-use IdiomatticWP\ValueObjects\LanguageCode;
+use IdiomatticWP\Queue\BulkTranslationBatch;
 
 class ContentTranslationPage {
 
+	/** Maximum untranslated post IDs fetched per post-type × language per click. */
 	private const BATCH_LIMIT = 500;
 
 	public function __construct(
 		private LanguageManager                $languageManager,
 		private TranslationRepositoryInterface $repository,
 		private CustomElementRegistry          $registry,
-		private CreateTranslation              $createTranslation,
-		private TranslationQueue               $queue,
+		private BulkTranslationBatch           $bulkBatch,
 		private LicenseChecker                 $licenseChecker,
 	) {}
 
@@ -55,6 +53,15 @@ class ContentTranslationPage {
 				wp_safe_redirect( add_query_arg( 'iwp_ct_queued', $queued, admin_url( 'admin.php?page=idiomatticwp-content' ) ) );
 				exit;
 			}
+		}
+
+		// Cancel action (clears the persistent queue)
+		if ( isset( $_GET['iwp_cancel_bulk'] ) && check_admin_referer( 'iwp_cancel_bulk' ) ) {
+			if ( current_user_can( 'manage_options' ) ) {
+				$this->bulkBatch->cancel();
+			}
+			wp_safe_redirect( admin_url( 'admin.php?page=idiomatticwp-content' ) );
+			exit;
 		}
 
 		$defaultLang = (string) $this->languageManager->getDefaultLanguage();
@@ -85,8 +92,9 @@ class ContentTranslationPage {
 			}
 		}
 
-		$isPro = $this->licenseChecker->isPro();
-		$nonce = wp_create_nonce( 'iwp_ct_nonce' );
+		$isPro      = $this->licenseChecker->isPro();
+		$nonce      = wp_create_nonce( 'iwp_ct_nonce' );
+		$queueDepth = $this->bulkBatch->count();
 
 		?>
 		<div class="wrap iwp-ct-wrap">
@@ -98,7 +106,7 @@ class ContentTranslationPage {
 					<p class="iwp-page-subtitle"><?php esc_html_e( 'Translate posts, pages, and custom content into all active languages', 'idiomattic-wp' ); ?></p>
 				</div>
 				<div class="iwp-page-header__actions">
-					<?php if ( $totalMissing > 0 ) : ?>
+					<?php if ( $totalMissing > 0 && $queueDepth === 0 ) : ?>
 						<?php if ( $isPro ) : ?>
 							<form method="post">
 								<input type="hidden" name="iwp_ct_nonce"     value="<?php echo esc_attr( $nonce ); ?>">
@@ -126,27 +134,41 @@ class ContentTranslationPage {
 				</div>
 			</div>
 
-			<?php /* ── Success notice ───────────────────────────────────── */ ?>
-			<?php if ( $queuedN >= 0 ) : ?>
-				<div class="notice notice-success is-dismissible">
-					<p>
-						<?php if ( $queuedN > 0 ) : ?>
-							<?php
-							printf(
-								/* translators: %d: number of translation jobs queued */
-								esc_html( _n(
-									'%d translation job queued. Jobs are processed in the background.',
-									'%d translation jobs queued. Jobs are processed in the background.',
-									$queuedN,
-									'idiomattic-wp'
-								) ),
-								$queuedN
-							);
-							?>
-						<?php else : ?>
-							<?php esc_html_e( 'All content already has translations for the selected languages.', 'idiomattic-wp' ); ?>
-						<?php endif; ?>
-					</p>
+			<?php /* ── Bulk queue progress banner ────────────────────────── */ ?>
+			<?php if ( $queueDepth > 0 || $queuedN > 0 ) : ?>
+				<?php
+				$cancelUrl = wp_nonce_url(
+					admin_url( 'admin.php?page=idiomatticwp-content&iwp_cancel_bulk=1' ),
+					'iwp_cancel_bulk'
+				);
+				?>
+				<div class="iwp-bulk-banner" id="iwp-bulk-banner">
+					<div class="iwp-bulk-banner__icon">
+						<span class="dashicons dashicons-update iwp-spin"></span>
+					</div>
+					<div class="iwp-bulk-banner__body">
+						<strong><?php esc_html_e( 'Bulk translation in progress', 'idiomattic-wp' ); ?></strong>
+						<span class="iwp-bulk-banner__count">
+							— <span id="iwp-bulk-pending"><?php echo esc_html( number_format_i18n( $queueDepth ) ); ?></span>
+							<?php esc_html_e( 'jobs remaining', 'idiomattic-wp' ); ?>
+							(<?php printf(
+								/* translators: %d: batch size */
+								esc_html__( '%d per batch · every ~10 s', 'idiomattic-wp' ),
+								$this->bulkBatch->getBatchSize()
+							); ?>)
+						</span>
+					</div>
+					<div class="iwp-bulk-banner__actions">
+						<a href="<?php echo esc_url( $cancelUrl ); ?>"
+						   class="iwp-bulk-cancel-btn"
+						   onclick="return confirm('<?php echo esc_js( __( 'Cancel the remaining translation jobs?', 'idiomattic-wp' ) ); ?>');">
+							<?php esc_html_e( 'Cancel queue', 'idiomattic-wp' ); ?>
+						</a>
+					</div>
+				</div>
+			<?php elseif ( $queuedN === 0 ) : ?>
+				<div class="notice notice-info is-dismissible">
+					<p><?php esc_html_e( 'All content already has translations for the selected languages.', 'idiomattic-wp' ); ?></p>
 				</div>
 			<?php endif; ?>
 
@@ -413,7 +435,64 @@ class ContentTranslationPage {
 			font-size: 12px;
 			color: #8c8f94;
 		}
+
+		/* Bulk queue progress banner */
+		.iwp-bulk-banner {
+			display: flex;
+			align-items: center;
+			gap: 14px;
+			background: #fff;
+			border: 1px solid #c3d4e0;
+			border-left: 4px solid #007cba;
+			border-radius: 4px;
+			padding: 14px 18px;
+			margin-bottom: 20px;
+		}
+		.iwp-bulk-banner__icon { color: #007cba; }
+		.iwp-bulk-banner__body { flex: 1; }
+		.iwp-bulk-banner__count { color: #646970; font-size: 13px; }
+		.iwp-bulk-cancel-btn {
+			color: #d63638;
+			text-decoration: none;
+			font-size: 13px;
+			white-space: nowrap;
+		}
+		.iwp-bulk-cancel-btn:hover { text-decoration: underline; }
+		@keyframes iwp-spin { to { transform: rotate(360deg); } }
+		.iwp-spin { display: inline-block; animation: iwp-spin 1.2s linear infinite; }
 		</style>
+		<script>
+		(function() {
+			var banner = document.getElementById('iwp-bulk-banner');
+			if (!banner) return;
+			var pendingEl = document.getElementById('iwp-bulk-pending');
+			var nonce     = <?php echo wp_json_encode( wp_create_nonce( 'idiomatticwp_bulk_status' ) ); ?>;
+
+			function poll() {
+				fetch(ajaxurl, {
+					method: 'POST',
+					credentials: 'same-origin',
+					headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+					body: 'action=idiomatticwp_bulk_status&_ajax_nonce=' + encodeURIComponent(nonce)
+				})
+				.then(function(r){ return r.json(); })
+				.then(function(data) {
+					if (!data.success) return;
+					var pending = data.data.pending;
+					if (pendingEl) pendingEl.textContent = pending.toLocaleString();
+					if (pending > 0) {
+						setTimeout(poll, 8000);
+					} else {
+						// Queue finished — reload so cards update
+						window.location.reload();
+					}
+				})
+				.catch(function(){ setTimeout(poll, 15000); });
+			}
+
+			setTimeout(poll, 8000);
+		})();
+		</script>
 		<?php
 	}
 
@@ -443,16 +522,12 @@ class ContentTranslationPage {
 		$postTypes = $ptFilter !== '' ? [ $ptFilter ] : $allTypes;
 		$langs     = $langFilter !== '' ? [ $langFilter ] : $allLangs;
 
-		$queued = 0;
+		// Collect all (post_id, source_lang, target_lang) tuples without
+		// doing any translation work yet — the batch cron handles that.
+		$jobs = [];
 
 		foreach ( $postTypes as $ptSlug ) {
 			foreach ( $langs as $lang ) {
-				try {
-					$langCode = LanguageCode::from( $lang );
-				} catch ( \Throwable ) {
-					continue;
-				}
-
 				$postIds = $this->repository->getUntranslatedPostIdsByTypeAndLang(
 					$ptSlug,
 					$lang,
@@ -460,23 +535,16 @@ class ContentTranslationPage {
 				);
 
 				foreach ( $postIds as $postId ) {
-					try {
-						$result = ( $this->createTranslation )( $postId, $langCode );
-						$this->queue->dispatch(
-							(int) $result['translation_id'],
-							$postId,
-							$defaultLang,
-							$lang
-						);
-						$queued++;
-					} catch ( \Throwable ) {
-						// Skip individual failures — continue with the rest.
-					}
+					$jobs[] = [
+						'post_id'     => (int) $postId,
+						'source_lang' => $defaultLang,
+						'target_lang' => $lang,
+					];
 				}
 			}
 		}
 
-		return $queued;
+		return $this->bulkBatch->enqueue( $jobs );
 	}
 
 	// ── Private helpers ───────────────────────────────────────────────────

@@ -110,8 +110,7 @@ class ContainerConfig {
 				$c->get( \IdiomatticWP\Core\LanguageManager::class ),
 				$c->get( \IdiomatticWP\Contracts\TranslationRepositoryInterface::class ),
 				$c->get( \IdiomatticWP\Core\CustomElementRegistry::class ),
-				$c->get( \IdiomatticWP\Translation\CreateTranslation::class ),
-				$c->get( \IdiomatticWP\Queue\TranslationQueue::class )
+				$c->get( \IdiomatticWP\Queue\BulkTranslationBatch::class )
 			)
 		);
 
@@ -424,8 +423,7 @@ class ContainerConfig {
 				$c->get( \IdiomatticWP\Core\LanguageManager::class ),
 				$c->get( \IdiomatticWP\Contracts\TranslationRepositoryInterface::class ),
 				$c->get( \IdiomatticWP\Core\CustomElementRegistry::class ),
-				$c->get( \IdiomatticWP\Translation\CreateTranslation::class ),
-				$c->get( \IdiomatticWP\Queue\TranslationQueue::class ),
+				$c->get( \IdiomatticWP\Queue\BulkTranslationBatch::class ),
 				$c->get( \IdiomatticWP\License\LicenseChecker::class )
 			)
 		);
@@ -1008,10 +1006,27 @@ class ContainerConfig {
 		);
 
 		$c->singleton(
+			\IdiomatticWP\Queue\BulkTranslationBatch::class,
+			fn( $c ) => new \IdiomatticWP\Queue\BulkTranslationBatch(
+				$c->get( \IdiomatticWP\Translation\CreateTranslation::class ),
+				$c->get( \IdiomatticWP\Translation\AutoTranslate::class ),
+				$c->get( \IdiomatticWP\Contracts\TranslationRepositoryInterface::class ),
+				$c->get( \IdiomatticWP\Queue\TranslationQueue::class )
+			)
+		);
+
+		$c->singleton(
 			\IdiomatticWP\Hooks\Queue\QueueHooks::class,
 			fn( $c ) => new \IdiomatticWP\Hooks\Queue\QueueHooks(
 				$c->get( \IdiomatticWP\Queue\TranslationQueue::class ),
 				$c->get( \IdiomatticWP\Translation\AutoTranslate::class )
+			)
+		);
+
+		$c->singleton(
+			\IdiomatticWP\Hooks\Queue\BulkBatchHooks::class,
+			fn( $c ) => new \IdiomatticWP\Hooks\Queue\BulkBatchHooks(
+				$c->get( \IdiomatticWP\Queue\BulkTranslationBatch::class )
 			)
 		);
 
