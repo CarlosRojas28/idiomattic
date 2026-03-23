@@ -17,10 +17,11 @@ class ProviderRegistry
     public function getProviders(): array
     {
         return apply_filters('idiomatticwp_registered_providers', [
-            'openai' => \IdiomatticWP\Providers\OpenAIProvider::class ,
-            'claude' => \IdiomatticWP\Providers\ClaudeProvider::class ,
-            'deepl' => \IdiomatticWP\Providers\DeepLProvider::class ,
-            'google' => \IdiomatticWP\Providers\GoogleProvider::class ,
+            'openai'   => \IdiomatticWP\Providers\OpenAIProvider::class,
+            'claude'   => \IdiomatticWP\Providers\ClaudeProvider::class,
+            'deepseek' => \IdiomatticWP\Providers\DeepSeekProvider::class,
+            'deepl'    => \IdiomatticWP\Providers\DeepLProvider::class,
+            'google'   => \IdiomatticWP\Providers\GoogleProvider::class,
         ]);
     }
 
